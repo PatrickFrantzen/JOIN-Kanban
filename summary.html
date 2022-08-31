@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
@@ -12,9 +14,69 @@
     <script src="js/includeHTML.js"></script>
     <title>Summary</title>
 </head>
+
 <body onload="init()">
 
     <div w3-include-html="navbar.html"></div>
-    
+
+    <div class="summary-content">
+        <div class="headline d-flex align-items-center">
+            <span class="headline-summary">Summary</span>
+            <div class="headline-line"></div>
+            <span class="headline-text">Everything in a nutshell!</span>
+        </div>
+
+        <div class="main-content d-flex justify-content-space-between align-items-center">
+            <div class="content-cards d-flex align-items-center">
+                <div class="content-cards-top d-flex justify-content-space-between align-items-center">
+                    <div class="card">
+                        <span>5</span>
+                        <span>Tasks in Board</span>
+                    </div>
+                    <div class="card">
+                        <span>2</span>
+                        <span>Tasks in Progress</span>
+                    </div>
+                    <div class="card">
+                        <span>2</span>
+                        <span>Awaiting feedback</span>
+                    </div>
+                </div>
+                <div class="content-cards-middle">
+                    <span class="card"><img src="img/summary/red-arrow.svg"> 1 Urgent</span>
+                    <div class="card-line"></div>
+                    <div>
+                        <span class="card">October 16, 2022</span>
+                        <span class="card">Upcoming Deadline</span>
+                    </div>
+                </div>
+                <div class="content-cards-bottom">
+                    <div class="card">
+                        <div>
+                            <img src="img/summary/pen.svg">
+                            <div class="">
+                                <span>1</span>
+                                <span>To-Do</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <img src="img/summary/check.svg">
+                            <div class="">
+                                <span>1</span>
+                                <span>To-Do</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span>Good Morning, Patrick Frantzen</span>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
