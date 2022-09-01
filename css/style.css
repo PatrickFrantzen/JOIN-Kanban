@@ -2,6 +2,7 @@
     --dark-blue: #2A3647;
     --light-blue: #29ABE2;
     --bg-grey:  #F6F7F8;
+    --bg-btn-light:  #F5F5F5;
     --light-grey: #D1D1D1;  
     --white: #FFFFFF;   
     --black: #000000;   
@@ -34,6 +35,10 @@ h1 {
     font-size: 47px;
 }
 
+.f-18 {
+    font-size: 18px;
+}
+
 .f-21 {
     font-size: 21px;
 }
@@ -48,6 +53,10 @@ h1 {
 
 .m-top-28 {
     margin-top: 28px;
+}
+
+.m-left-24 {
+    margin-left: 24px;
 }
 
 .d-flex {
@@ -115,3 +124,38 @@ h1 {
     font-size: 16px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 150px;
+}
+
+.darkblue-btn{
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 8px 16px 8px 16px;
+}
+
+.darkblue-btn:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.light-btn{
+    background-color: var(--white);
+    color: var(--dark-blue);
+    border-radius: 10px;
+    padding: 8px 16px 8px 16px;
+}
+
+.light-btn:hover {
+    cursor: pointer;
+    background-color: var(--bg-grey);
+}
+
+.btn-icons{
+    width: 10px;
+    height: 10px;
+    padding-left: 8px;
+}

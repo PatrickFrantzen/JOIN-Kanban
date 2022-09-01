@@ -30,6 +30,7 @@
     border: unset;
     outline: none;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .input-with-image:hover{
@@ -57,7 +58,7 @@ input[type="checkbox"]:checked{
 
 .add-task-lists{
     position: absolute;
-    width: 100%;
+    width: 425px;
     top: 43px;
     font-size: 20px;
     list-style: none;

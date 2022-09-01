@@ -41,7 +41,7 @@
                         class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center" onclick="toggleClassDNone('categories')">
                         <input id="category" class="inputfield-nearby-icon" type="text" value="Marketing">
                         <img src="img/add_task/dropdown_arrow.svg" alt="">
-                        <ul class="add-task-lists" id="categories">
+                        <ul class="add-task-lists d-none" id="categories">
                             <li onclick="changeValue('Marketing', 'category')">Marketing</li>
                             <li onclick="changeValue('Sales', 'category')">Sales</li>
                             <li onclick="changeValue('Design', 'category')">Design</li>
@@ -106,6 +106,18 @@
                     </div>
             
                 </div>
+
+                <div class="buttons">
+                    <button class="light-btn">
+                        <span class="f-18">clear</span>
+                        <img class="btn-icons" src="img/buttons/clear.png" alt="">
+                    </button>
+                    <button class="darkblue-btn m-left-24">
+                        <span class="f-18">create task</span>
+                        <img class="btn-icons" src="img/buttons/create.png" alt="">
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
