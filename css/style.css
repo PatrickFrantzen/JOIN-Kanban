@@ -14,6 +14,13 @@ h1{
     font-size: 61px;
 }
 
+.p-12{
+    padding: 12px;
+}
+
+.m-top-28{
+    margin-top: 28px;
+}
 
 .d-flex {
     display: flex;
@@ -48,3 +55,49 @@ h1{
     width: 100%;
 }
 
+.section-right{
+    margin-left: 100px;
+    border-left: 1px solid #D1D1D1;;
+    padding-left: 100px;
+}
+
+.inputfields{
+    width: 422px;
+    height: 51px;
+}
+
+.textareas{
+    width: 422px;
+    height: 110px;
+}
+
+.border-fields{
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+.input-with-image{
+    background-color: white;
+}
+
+.inputfield-nearby-icon{
+    width: 90%;
+    height: 90%;
+    border: unset;
+    outline: none;
+}
+
+.inputfields-small{
+    width: 134px;
+    height: 51px;
+}
+
+.checkbox-text{
+    font-size: 12px;
+    margin-left: 16px;
+}
+
+.add-task-titles{
+    font-size: 18px;
+    font-weight: 400;
+}
