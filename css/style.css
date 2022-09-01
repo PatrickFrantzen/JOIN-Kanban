@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Inter;
+    background-color: #F6F7F8;
 }
 
 .d-flex {
@@ -15,6 +16,10 @@ body {
     justify-content: space-between;
 }
 
+.justify-content-around{
+    justify-content: space-around;
+}
+
 
 .align-items-center {
     align-items: center;
@@ -26,4 +31,8 @@ body {
 
 .text-align-center {
     text-align: center;
+}
+
+.w-100{
+    width: 100%;
 }
