@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    font-family: Inter;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.text-align-center {
+    text-align: center;
+}
