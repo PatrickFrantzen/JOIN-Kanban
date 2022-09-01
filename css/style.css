@@ -4,6 +4,17 @@ body {
     background-color: #F6F7F8;
 }
 
+.content{
+    position: absolute;
+    top: 160px;
+    left: 373px;
+}
+
+h1{
+    font-size: 61px;
+}
+
+
 .d-flex {
     display: flex;
 }
@@ -36,3 +47,4 @@ body {
 .w-100{
     width: 100%;
 }
+
