@@ -38,6 +38,10 @@ h1 {
     display: flex;
 }
 
+.d-none{
+    display: none;
+}
+
 .justify-content-center {
     justify-content: center;
 }
