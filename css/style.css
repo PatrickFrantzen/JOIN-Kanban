@@ -1,24 +1,36 @@
+:root{
+    --dark-blue: #2A3647;
+    --light-blue: #29ABE2;
+    --bg-grey:  #F6F7F8;
+    --light-grey: #D1D1D1;  
+    --white: #FFFFFF;   
+    --black: #000000;   
+    --urgent: #FF3D00;
+    --low: #7ae229;
+    --medium: #ffa800;
+}
+
 body {
     margin: 0;
     font-family: Inter;
-    background-color: #F6F7F8;
+    background-color: var(--bg-grey);
 }
 
-.content{
+.content {
     position: absolute;
     top: 160px;
     left: 373px;
 }
 
-h1{
+h1 {
     font-size: 61px;
 }
 
-.p-12{
+.p-12 {
     padding: 12px;
 }
 
-.m-top-28{
+.m-top-28 {
     margin-top: 28px;
 }
 
@@ -34,10 +46,9 @@ h1{
     justify-content: space-between;
 }
 
-.justify-content-around{
+.justify-content-around {
     justify-content: space-around;
 }
-
 
 .align-items-center {
     align-items: center;
@@ -51,53 +62,32 @@ h1{
     text-align: center;
 }
 
-.w-100{
+.w-100 {
     width: 100%;
 }
 
-.section-right{
-    margin-left: 100px;
-    border-left: 1px solid #D1D1D1;;
-    padding-left: 100px;
+.color-white{
+    color: var(--white);
 }
 
-.inputfields{
-    width: 422px;
-    height: 51px;
+.bg-urgent{
+    background-color: var(--urgent);
 }
 
-.textareas{
-    width: 422px;
-    height: 110px;
+.bg-low{
+    background-color: var(--low);
 }
 
-.border-fields{
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
+.bg-medium{
+    background-color: var(--medium);
 }
 
-.input-with-image{
-    background-color: white;
+.filter-white{
+    filter: invert(100%) sepia(0%) saturate(5578%) hue-rotate(131deg) brightness(108%) contrast(110%);
 }
 
-.inputfield-nearby-icon{
-    width: 90%;
-    height: 90%;
-    border: unset;
-    outline: none;
+::placeholder {
+    opacity: 0.5;
+    font-size: 16px;
 }
 
-.inputfields-small{
-    width: 134px;
-    height: 51px;
-}
-
-.checkbox-text{
-    font-size: 12px;
-    margin-left: 16px;
-}
-
-.add-task-titles{
-    font-size: 18px;
-    font-weight: 400;
-}
