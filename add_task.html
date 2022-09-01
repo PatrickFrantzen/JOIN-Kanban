@@ -38,8 +38,8 @@
                 <div class="titleandinput">
                     <p class="m-top-28 add-task-titles">Category</p>
                     <div
-                        class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center" onclick="toggleClassDNone('categories')">
-                        <input id="category" class="inputfield-nearby-icon" type="text" value="Marketing">
+                        class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center" onclick="toggleClassList('categories', 'd-none')">
+                        <div id="category" class="inputfield-nearby-icon d-flex align-items-center">Marketing</div>
                         <img src="img/add_task/dropdown_arrow.svg" alt="">
                         <ul class="add-task-lists d-none" id="categories">
                             <li onclick="changeValue('Marketing', 'category')">Marketing</li>
@@ -76,21 +76,21 @@
                 <div class="titleandinput">
                     <p class="m-top-28 add-task-titles">Prio</p>
                     <div class="d-flex justify-content-space-between">
-                        <div
-                            class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
-                            <p>Urgent</p>
-                            <img class="p-12" src="img/add_task/arrow_urgent.svg" alt="">
-                        </div>
-                        <div
-                            class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
-                            <p>Medium</p>
-                            <img class="p-12" src="img/add_task/medium.svg" alt="">
-                        </div>
-                        <div
-                            class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
-                            <p>Low</p>
-                            <img class="p-12" src="img/add_task/arrow_low.svg" alt="">
-                        </div>
+                        <button
+                            id="urgent" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center" onclick="changePriority('urgent', 'btn-urgent')">
+                            <p class="f-18">Urgent</p>
+                            <img id="urgent-img" class="p-12" src="img/add_task/arrow_urgent.svg" alt="">
+                    </button>
+                        <button
+                            id="medium" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center" onclick="changePriority('medium', 'btn-medium')">
+                            <p class="f-18">Medium</p>
+                            <img id="medium-img" class="p-12" src="img/add_task/medium.svg" alt="">
+                </button>
+                        <button
+                            id="low" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center" onclick="changePriority('low', 'btn-low')">
+                            <p class="f-18">Low</p>
+                            <img  id="low-img" class="p-12" src="img/add_task/arrow_low.svg" alt="">
+            </button>
                     </div>
                 </div>
 
