@@ -21,6 +21,7 @@
 
 .input-with-image {
     background-color: var(--white);
+    position: relative;
 }
 
 .inputfield-nearby-icon {
@@ -28,6 +29,11 @@
     height: 90%;
     border: unset;
     outline: none;
+    font-size: 20px;
+}
+
+.input-with-image:hover{
+    cursor: pointer;
 }
 
 .inputfields-small {
@@ -47,4 +53,35 @@ input[type="checkbox"]:checked{
 .add-task-titles {
     font-size: 18px;
     font-weight: 400;
+}
+
+.add-task-lists{
+    position: absolute;
+    width: 100%;
+    top: 43px;
+    font-size: 20px;
+    list-style: none;
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+    margin-top: 8px;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.add-task-lists li {
+    padding: 12px 0 12px 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.add-task-lists li:hover{
+    background-color: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+#categories{
+    z-index: 100;
 }

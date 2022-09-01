@@ -38,9 +38,17 @@
                 <div class="titleandinput">
                     <p class="m-top-28 add-task-titles">Category</p>
                     <div
-                        class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
-                        <input id="category" class="inputfield-nearby-icon" type="text">
+                        class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center" onclick="toggleClassDNone('categories')">
+                        <input id="category" class="inputfield-nearby-icon" type="text" value="Marketing">
                         <img src="img/add_task/dropdown_arrow.svg" alt="">
+                        <ul class="add-task-lists" id="categories">
+                            <li onclick="changeValue('Marketing', 'category')">Marketing</li>
+                            <li onclick="changeValue('Sales', 'category')">Sales</li>
+                            <li onclick="changeValue('Design', 'category')">Design</li>
+                            <li onclick="changeValue('Media', 'category')">Media</li>
+                            <li onclick="changeValue('Backoffice', 'category')">Backoffice</li>
+                            <li onclick="changeValue('Developtment', 'category')">Developtment</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -48,8 +56,11 @@
                     <p class="m-top-28 add-task-titles">Assigned to</p>
                     <div
                         class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
-                        <input id="category" class="inputfield-nearby-icon" type="text">
+                        <input id="category" class="inputfield-nearby-icon" type="text" >
                         <img src="img/add_task/dropdown_arrow.svg" alt="">
+                        <ul class="add-task-lists d-none" id="assignedTo">
+                            
+                        </ul>
                     </div>
                 </div>
             </div>
