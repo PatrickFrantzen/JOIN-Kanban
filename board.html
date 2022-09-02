@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <script src="js/script.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/includeHTML.js"></script>
+    <title>Board</title>
+</head>
+
+<body onload="init()">
+
+    <div w3-include-html="navbar.html"></div>
+
+    <div class="content">
+        <div class="headline d-flex align-items-center justify-content-space-between" style="width: calc(100vw - 500px) ;">
+            <h1>Board</h1>
+            <div class="d-flex">
+                <form class="d-flex" role="search">
+                    <input placeholder="Find task">
+                    <div class="card-line"></div>
+                    <img src="img/board/search.svg">
+                </form>
+                <button>Add Task <img src="img/board/plus.svg"></button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
