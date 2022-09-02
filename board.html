@@ -24,13 +24,45 @@
         <div class="headline d-flex align-items-center justify-content-space-between" style="width: calc(100vw - 500px) ;">
             <h1>Board</h1>
             <div class="d-flex">
-                <form class="d-flex" role="search">
-                    <input placeholder="Find task">
-                    <div class="card-line"></div>
-                    <img src="img/board/search.svg">
+                <form class="searchbox d-flex justify-content-center align-items-center" role="search">
+                    <input class="inputfield" placeholder="Find task" type="text">
+                    <div class="search-line"></div>
+                    <img class="btn-icons" src="img/board/search.svg">
                 </form>
-                <button class="darkblue-btn m-left-24"><span>Add Task</span> <img src="img/board/plus.svg"></button>
+                <button class="darkblue-btn m-left-24 d-flex justify-content-center align-items-center"><span class="f-21">Add Task</span> <img class="btn-icons" src="img/board/plus.svg"></button>
             </div>
+        </div>
+
+        <div class="main-board d-flex justify-content-space-between align-items-center">
+            <div class="board-card ">
+                <div class="d-flex justify-content-space-between align-items-center">
+                    <span class="board-card-header">To do</span>
+                    <img class="board-icons" src="img/board/blackPlus.svg">
+                </div>
+            </div>
+
+            <div class="board-card">
+                <div class="d-flex justify-content-space-between align-items-center">
+                    <span class="board-card-header">In progress</span>
+                    <img class="board-icons" src="img/board/blackPlus.svg">
+                </div>
+                
+            </div>
+
+            <div class="board-card">
+                <div class="d-flex justify-content-space-between align-items-center">
+                    <span class="board-card-header">Awaiting feedback</span>
+                    <img class="board-icons" src="img/board/blackPlus.svg">
+                </div>
+            </div>
+
+            <div class="board-card">
+                <div class="d-flex justify-content-space-between align-items-center">
+                    <span class="board-card-header">Done</span>
+                    <img class="board-icons" src="img/board/blackPlus.svg">
+                </div>
+            </div>
+
         </div>
 
     </div>
