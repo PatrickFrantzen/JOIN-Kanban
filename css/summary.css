@@ -11,21 +11,6 @@
 }
 
 
-.headline-line {
-    width: 0;
-    height: 59px;
-    border-left: 3px solid var(--light-blue);
-    border-radius: 10px;
-    margin-right: 50px;
-    margin-left: 50px;
-}
-
-
-.headline-text {
-    font-size: 27px;
-    font-weight: 400;
-}
-
 .card {
     border-radius: 30px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);

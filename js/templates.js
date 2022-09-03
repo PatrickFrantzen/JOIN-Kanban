@@ -18,3 +18,74 @@ let priority = [
         "img-choosed": "img/add_task/arrow_low_white.svg",
     }
 ];
+
+let contacts = [
+    {
+        "firstname": "Nadia",
+        "lastname": "Knofius",
+        "mail": "nadia.knofius@gmail.com",
+        "phone": "+49 176 225 223 4",
+        "color": "blue",
+    },
+    {
+        "firstname": "Patrick",
+        "lastname": "Frantzen",
+        "mail": "patrick.frantzen@gmail.com",
+        "phone": "+49 174 345 169 8",
+    },
+];
+
+let contactColors = [
+    {
+        "color": "blue",
+        "used": true,
+    },
+    {
+        "color": "green",
+        "used": true,
+    },
+    {
+        "color": "red",
+        "used": false,
+    },
+    {
+        "color": "yellow",
+        "used": false,
+    },
+    {
+        "color": "violet",
+        "used": false,
+    },
+    {
+        "color": "brown",
+        "used": false,
+    },
+    {
+        "color": "orange",
+        "used": false,
+    },
+    {
+        "color": "darkgreen",
+        "used": false,
+    },
+    {
+        "color": "airblue",
+        "used": false,
+    },
+    {
+        "color": "pink",
+        "used": false,
+    },
+    {
+        "color": "lila",
+        "used": false,
+    },
+    {
+        "color": "black",
+        "used": false,
+    },
+    {
+        "color": "grey",
+        "used": false,
+    },
+];

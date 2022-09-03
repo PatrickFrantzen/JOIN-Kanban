@@ -1,0 +1,144 @@
+:root{
+    --contact-blue: hsl(253, 84%, 46%);
+    --contact-green: hsl(130, 84%, 46%);
+    --contact-red: hsl(350, 84%, 46%);
+    --contact-yellow: hsl(64, 96%, 55%);
+    --contact-violet: hsl(253, 58%, 76%);
+    --contact-brown: hsl(32, 78%, 44%);
+    --contact-orange: hsl(29, 71%, 63%);
+    --contact-darkgreen: hsl(101, 77%, 21%);
+    --contact-airblue: hsl(212, 69%, 64%);
+    --contact-pink: hsl(310, 84%, 46%);
+    --contact-lila: hsl(293, 88%, 51%);
+    --contact-black: hsl(252, 71%, 3%);
+    --contact-grey: hsl(270, 1%, 34%);
+    --mailto: #007CEE;  
+}
+
+.bg-contact-blue{
+    background-color: var(--contact-blue);
+}
+
+.bg-contact-green{
+    background-color: var(--contact-green);
+}
+
+.bg-contact-red{
+    background-color: var(--contact-red);
+}
+
+.bg-contact-yellow{
+    background-color: var(--contact-yellow);
+}
+
+.bg-contact-violet{
+    background-color: var(--contact-violet);
+}
+
+.bg-contact-brown{
+    background-color: var(--contact-brown);
+}
+
+.bg-contact-orange{
+    background-color: var(--contact-orange);
+}
+
+.bg-contact-darkgreen{
+    background-color: var(--contact-darkgreen);
+}
+
+.bg-contact-airblue{
+    background-color: var(--contact-airblue);
+}
+
+.bg-contact-lila{
+    background-color: var(--contact-lila);
+}
+
+.bg-contact-black{
+    background-color: var(--contact-black);
+}
+
+.bg-contact-grey{
+    background-color: var(--contact-grey);
+}
+
+.content-contacts{
+    position: absolute;
+    top: 100px;
+    left: 251px;
+    
+}
+
+.left-section{
+    width: 450px;
+    background-color: white;
+    height: calc(100vh - 100px);
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+}
+
+/* width */
+.left-section::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .left-section::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  .left-section::-webkit-scrollbar-thumb {
+    background: #A8A8A8;
+    border-radius: 10px;
+  }
+
+.contact-content{
+    padding-top: 50px;
+}
+
+.contact-letter{
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    font-size: 21px;
+    margin-bottom: 24px;
+    width: 300px;
+    margin-top: 50px;
+}
+
+.contact-letter span{
+    padding-left: 24px;
+    width: 100%;
+    border-bottom: 1px solid #D1D1D1;
+    padding-bottom: 16px;
+}
+
+.contact-avatar{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: bold;
+    margin-top: 24px;
+}
+
+.mailto{
+    color: var(--mailto);
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.contact-name{
+    font-size: 21px;
+    margin: 24px 0 8px 0;
+    margin-left: 8px;
+}
+
+.contact-data{
+    margin-left: 24px;
+}
