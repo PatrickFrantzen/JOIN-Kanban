@@ -1,8 +1,11 @@
 :root{
     --dark-blue: #2A3647;
+    --dark-blue2: hsl(215deg 26% 22%);  
+    --dark-blue3: #091931;
     --light-blue: #29ABE2;
     --bg-grey:  #F6F7F8;
     --bg-btn-light:  #F5F5F5;
+    --font-grey: #CDCDCD;
     --light-grey: #D1D1D1;  
     --white: #FFFFFF;   
     --black: #000000;   
@@ -25,6 +28,11 @@ body {
 
 h1 {
     font-size: 61px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-grey);
 }
 
 .f-55 {
@@ -139,7 +147,7 @@ h1 {
 
 .darkblue-btn:hover{
     cursor: pointer;
-    opacity: 0.9;
+    background-color: var(--dark-blue3);
 }
 
 .light-btn{
