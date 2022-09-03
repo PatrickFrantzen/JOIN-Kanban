@@ -96,6 +96,12 @@
     margin-left: 30px;
 }
 
+.menulink-active{
+    background-color: var(--dark-blue3);
+    cursor: pointer; 
+    color: white;
+}
+
 
 
 
