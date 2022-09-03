@@ -1,8 +1,11 @@
 :root{
     --dark-blue: #2A3647;
+    --dark-blue2: hsl(215deg 26% 22%);  
+    --dark-blue3: #091931;
     --light-blue: #29ABE2;
     --bg-grey:  #F6F7F8;
     --bg-btn-light:  #F5F5F5;
+    --font-grey: #CDCDCD;
     --light-grey: #D1D1D1;  
     --white: #FFFFFF;   
     --black: #000000;   
@@ -25,6 +28,11 @@ body {
 
 h1 {
     font-size: 61px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-grey);
 }
 
 .f-55 {
@@ -87,6 +95,10 @@ h1 {
     align-items: center;
 }
 
+.align-items-start {
+    align-items: flex-start;
+}
+
 .flex-column {
     flex-direction: column;
 }
@@ -97,6 +109,10 @@ h1 {
 
 .w-100 {
     width: 100%;
+}
+
+.w-80{
+    width: 80%;
 }
 
 .color-white{
@@ -139,7 +155,11 @@ h1 {
 
 .darkblue-btn:hover{
     cursor: pointer;
-    opacity: 0.9;
+    background-color: var(--dark-blue3);
+}
+
+.darkblue-btn:hover img{
+    filter: invert(0) sepia(94%) saturate(18%) hue-rotate(287deg) brightness(105%) contrast(100%);
 }
 
 .light-btn{
@@ -180,4 +200,19 @@ h1 {
     color: white;
     font-weight: bold;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.headline-line {
+    width: 0;
+    height: 59px;
+    border-left: 3px solid var(--light-blue);
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+
+.headline-text {
+    font-size: 27px;
+    font-weight: 400;
 }

@@ -78,7 +78,7 @@ input[type="checkbox"]:checked{
 }
 
 .add-task-lists li:hover{
-    background-color: var(--dark-blue);
+    background-color: var(--dark-blue3);
     color: var(--white);
     cursor: pointer;
 }
