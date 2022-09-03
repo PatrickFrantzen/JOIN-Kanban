@@ -19,21 +19,81 @@ let priority = [
     }
 ];
 
-let contacts = [
+let users = [
     {
         "firstname": "Nadia",
         "lastname": "Knofius",
         "mail": "nadia.knofius@gmail.com",
         "phone": "+49 176 225 223 4",
         "color": "blue",
+        "img": "",
+        "contacts": [
+            {
+                "firstname": "Max",
+                "lastname": "Mustermann",
+                "mail": "max.mustermann.com",
+                "phone": "+49 176 224 773 3",
+                "color": "green",
+            },
+            {
+                "firstname": "Patrick",
+                "lastname": "Frantzen",
+                "mail": "patrick.frantzen@gmail.com",
+                "phone": "+49 174 345 169 8",
+                "color": "brown",
+            },
+        ]
     },
     {
         "firstname": "Patrick",
         "lastname": "Frantzen",
         "mail": "patrick.frantzen@gmail.com",
         "phone": "+49 174 345 169 8",
+        "color": "brown",
+        "img": "",
+        "contacts": [
+            {
+                "firstname": "Nadia",
+                "lastname": "Knofius",
+                "mail": "nadia.knofius@gmail.com",
+                "phone": "+49 176 225 223 4",
+                "color": "blue",
+            },
+            {
+                "firstname": "Patrick",
+                "lastname": "Frantzen",
+                "mail": "patrick.frantzen@gmail.com",
+                "phone": "+49 174 345 169 8",
+                "color": "brown",
+            },
+        ]
+    },
+    {
+        "firstname": "Max",
+        "lastname": "Mustermann",
+        "mail": "max.mustermann.com",
+        "phone": "+49 176 224 773 3",
+        "color": "green",
+        "img": "",
+        "contacts": [
+            {
+                "firstname": "Nadia",
+                "lastname": "Knofius",
+                "mail": "nadia.knofius@gmail.com",
+                "phone": "+49 176 225 223 4",
+                "color": "blue",
+            },
+            {
+                "firstname": "Patrick",
+                "lastname": "Frantzen",
+                "mail": "patrick.frantzen@gmail.com",
+                "phone": "+49 174 345 169 8",
+                "color": "brown",
+            },
+        ]
     },
 ];
+
 
 let contactColors = [
     {
