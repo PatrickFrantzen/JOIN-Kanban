@@ -12,6 +12,11 @@
     --urgent: #FF3D00;
     --low: #7ae229;
     --medium: #ffa800;
+    --orange: #FF7A00;
+    --pink: #FC71FF;
+    --mint: #1FD7C1;
+    --blue: #0038FF;
+    --yellow: #FFC701;
 }
 
 body {
@@ -49,6 +54,10 @@ a {
 
 .f-21 {
     font-size: 21px;
+}
+
+.f-12 {
+    font-size: 12px;
 }
 
 .f-bold {

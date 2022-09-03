@@ -1,3 +1,23 @@
+.bg-category-blue {
+    background-color: var(--blue);
+}
+
+.bg-category-orange {
+    background-color: var(--orange);
+}
+
+.bg-category-pink {
+    background-color: var(--pink);
+}
+
+.bg-category-mint {
+    background-color: var(--mint);
+}
+
+.bg-category-yellow {
+    background-color: var(--yellow);
+}
+
 .searchbox {
     border: 1px solid lightgrey;
     background-color: var(--white);
@@ -23,6 +43,12 @@
     border-radius: 10px;
 }
 
+.main-board {
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+
 .board-icons{
     width: 15px;
     height: 15px;
@@ -30,4 +56,60 @@
     padding: 2px;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+.board-inner-card {
+    width: 250px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.board-text {
+    margin: 15px;
+}
+
+.board-category {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+}
+
+.board-title {
+    font-weight: 700;
+}
+
+.board-description {
+    color: #A8A8A8;
+}
+
+.progressbar-inner {
+    height: 5px;
+    width: 150px;
+    background-color: var(--light-grey);
+    margin-right: 15px;
+}
+
+.assigned-outer {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-top: 4px;
+    background-color: var(--white);
+}
+
+.assigned-inner {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: var(--white);
+}
+
+.position-circle {
+    position: relative;
+}
+.relative {
+    position: absolute;
+    left: -10px
 }
