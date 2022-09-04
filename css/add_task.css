@@ -6,12 +6,12 @@
 
 .inputfields {
     width: 422px;
-    height: 51px;
+    height: 45px;
 }
 
 .textareas {
     width: 422px;
-    height: 110px;
+    height: 90px;
 }
 
 .border-fields {
@@ -29,7 +29,7 @@
     height: 90%;
     border: unset;
     outline: none;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
 
 .inputfields-small {
     width: 134px;
-    height: 51px;
+    height: 45px;
 }
 
 .checkbox-text {
@@ -65,7 +65,7 @@ input[type="checkbox"]:checked{
     background-color: var(--white);
     border-radius: 10px;
     border: 1px solid var(--light-grey);
-    margin-top: 8px;
+    margin-top: 2px;
     box-sizing: border-box;
     padding: 0;
 }
@@ -85,4 +85,10 @@ input[type="checkbox"]:checked{
 
 #categories{
     z-index: 100;
+}
+
+
+option{
+    cursor: pointer;
+    padding: 8px 0 0 8px;
 }

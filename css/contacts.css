@@ -89,17 +89,17 @@
 }
 
 /* width */
-.left-section::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
     width: 10px;
 }
 
 /* Track */
-.left-section::-webkit-scrollbar-track {
+.scroll::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
 /* Handle */
-.left-section::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
     background: #A8A8A8;
     border-radius: 10px;
 }
@@ -199,7 +199,7 @@
 
 .right-section {
     position: absolute;
-    top: 60px;
+    top: 10px;
     left: 570px;
     min-width: 40vw;
     height: calc(100vh - 210px);
@@ -256,7 +256,7 @@
     border: none;
     outline: none;
     width: 305px;
-    height: 36px;
+    height: 33px;
     font-size: 21px;
 }
 

@@ -49,6 +49,7 @@
     overflow-y: scroll;
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
+    padding-right: 24px;
 }
 
 .board-icons{

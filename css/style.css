@@ -27,12 +27,12 @@ body {
 
 .content {
     position: absolute;
-    top: 160px;
+    top: 110px;
     left: 373px;
 }
 
 h1 {
-    font-size: 61px;
+    font-size: 57px;
 }
 
 h2 {
@@ -72,6 +72,10 @@ a {
 
 .p-12 {
     padding: 12px;
+}
+
+.m-bottom-18 {
+    margin-bottom: 18px;
 }
 
 .m-top-28 {
@@ -162,8 +166,8 @@ a {
     height: 80%;
 }
 
-.h-60 {
-    height: 60%;
+.h-70 {
+    height: 70%;
 }
 
 
@@ -303,4 +307,9 @@ a {
     color: white;
     font-weight: 200;
     margin-bottom: 10px;
+}
+
+/* TODO: outsource */
+.board-img{
+    width: 470px;
 }
