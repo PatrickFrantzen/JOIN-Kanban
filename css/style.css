@@ -72,8 +72,20 @@ a {
     margin-top: 28px;
 }
 
+.m-top-50 {
+    margin-top: 50px;
+}
+
+.m-top-20 {
+    margin-top: 20px;
+}
+
 .m-left-24 {
     margin-left: 24px;
+}
+
+.m-left-8 {
+    margin-left: 8px;
 }
 
 .d-flex {
@@ -98,6 +110,10 @@ a {
 
 .justify-content-evenly {
     justify-content: space-evenly;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
 }
 
 .align-items-center {
@@ -130,6 +146,10 @@ a {
 
 .color-white{
     color: var(--white);
+}
+
+.color-black {
+    color: var(--black);
 }
 
 .bg-urgent{
@@ -190,6 +210,12 @@ a {
 .btn-icons{
     width: 10px;
     height: 10px;
+    padding-left: 8px;
+}
+
+.btn-icons-contact{
+    width: 24px;
+    height: 24px;
     padding-left: 8px;
 }
 
