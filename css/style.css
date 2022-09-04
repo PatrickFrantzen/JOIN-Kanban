@@ -94,6 +94,14 @@ a {
     margin-left: 8px;
 }
 
+.m-right-24{
+    margin-right: 24px;
+}
+
+.m-0{
+    margin: 0 !important;
+}
+
 .d-flex {
     display: flex;
 }
@@ -103,7 +111,7 @@ a {
 }
 
 .justify-content-center {
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .justify-content-space-between {
@@ -152,6 +160,10 @@ a {
 
 .h-80 {
     height: 80%;
+}
+
+.h-60 {
+    height: 60%;
 }
 
 

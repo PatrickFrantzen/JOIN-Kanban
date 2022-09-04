@@ -63,6 +63,10 @@
     background-color: var(--contact-grey);
 }
 
+.bg-contact-light-grey{
+    background-color: var(--light-grey);
+}
+
 .content-contacts {
     position: fixed;
     top: 100px;
@@ -218,10 +222,11 @@
 }
 
 .contact-overlay{
-    width: 55vw;
+    width: 930px;
     height: 40vh;
     background-color: white;
     border-radius: 10px 10px 10px 10px;
+    margin-left: 250px;
 }
 
 .overlay-left{
@@ -252,4 +257,25 @@
     outline: none;
     width: 305px;
     height: 36px;
+    font-size: 21px;
+}
+
+.buttons-margin{
+    margin: 0 0 0 104px !important;
+}
+
+.close-img:hover {
+    cursor: pointer;
+    background-color: #e5e1e1;
+    border-radius: 100%;
+}
+
+.edit-container{
+    padding: 8px;
+}
+
+.edit-container:hover{
+    cursor: pointer;
+    background-color: #e5e1e1;
+    border-radius: 10px;
 }

@@ -21,6 +21,7 @@
     <div w3-include-html="navbar.html"></div>
 
     <div class="content-contacts d-flex">
+        <!-- contact overview on left side -->
         <aside class="left-section-container">
             <div class="left-section d-flex justify-content-center">
 
@@ -136,6 +137,8 @@
 
             </div>
         </aside>
+
+        <!-- contact detail information on right side -->
         <div class="right-section d-flex flex-column justify-content-space-between">
             <div>
                 <div class="headline d-flex align-items-center contacts-headline">
@@ -162,7 +165,7 @@
                     </div>
                     <div class="d-flex align-items-center justify-content-space-between m-top-50">
                         <span class="f-21">Contact Information</span>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center edit-container" onclick="removeClassList('edit-contact', 'd-none')"">
                             <img class="edit-img" src="img/buttons/edit_blue.png" alt="">
                             <p class="f-18 m-left-8">Edit Contact</p>
                         </div>
@@ -189,7 +192,9 @@
 
         </div>
     </div>
-    <div id="new-contact" class="overlay d-flex justify-content-center align-items-center">
+
+    <!-- add new contact overlay -->
+    <div id="new-contact" class="overlay d-flex justify-content-center align-items-center d-none">
         <div class="contact-overlay d-flex">
             <div class="overlay-left d-flex justify-content-center">
                 <div class="d-flex flex-column justify-content-center h-80">
@@ -202,9 +207,64 @@
             </div>
             <div class="overlay-right d-flex flex-column justify-content-center">
                 <div class="w-100 d-flex justify-content-end">
-                    <img onclick="addClassList('new-contact', 'd-none')" src="img/buttons/close.png" alt="">
+                    <img class="m-right-24 close-img" onclick="addClassList('new-contact', 'd-none')" src="img/buttons/close.png" alt="">
                 </div>
-                <div class="d-flex align-items-center justify-content-evenly">
+                <div class="d-flex align-items-center justify-content-evenly h-60">
+                    <div
+                            class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
+                            <div
+                                class="contact-avatar-big bg-contact-light-grey d-flex align-items-center justify-content-center">
+                                <img src="img/contacts/user.png" alt="">
+                            </div>
+                        </div>
+                    <form>
+                        <div class="d-flex input-container border-fields input-with-image align-items-center">
+                        <input
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Name" type="text" required>
+                        <img src="img/contacts/person.png" alt="">
+                    </div>
+                    <div class="d-flex input-container border-fields input-with-image align-items-center">
+                        <input
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Email" type="email" required>
+                        <img src="img/contacts/mail.png" alt="">
+                    </div>
+                    <div class="d-flex input-container border-fields input-with-image align-items-center">
+                        <input
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Phone" type="tel" required>
+                        <img src="img/contacts/phone.png" alt="">
+                    </div>
+                      
+                </div>
+                <div class="buttons buttons-margin justify-content-center">
+                    <button class="light-btn">
+                        <span class="f-18">cancel</span>
+                        <img class="btn-icons" src="img/buttons/clear.png" alt="">
+                    </button>
+                    <button class="darkblue-btn m-left-24">
+                        <span class="f-18">create contact</span>
+                        <img class="btn-icons" src="img/buttons/create.png" alt="">
+                    </button>
+                </div>
+            </form>  
+            </div>
+        </div>
+    </div>
+    <!-- edit contact overlay -->
+    <div id="edit-contact" class="overlay d-flex justify-content-center align-items-center d-none">
+        <div class="contact-overlay d-flex">
+            <div class="overlay-left d-flex justify-content-center">
+                <div class="d-flex flex-column justify-content-center h-80">
+                    <img class="overlay-logo" src="img/navbar/Logo.png" alt="">
+                    <h2>Edit Contact</h2>
+                    <div class="horizontal-line"></div>
+                </div>
+                
+            </div>
+            <div class="overlay-right d-flex flex-column justify-content-center">
+                <div class="w-100 d-flex justify-content-end">
+                    <img class="m-right-24 close-img" onclick="addClassList('edit-contact', 'd-none')" src="img/buttons/close.png" alt="">
+                </div>
+                <div class="d-flex align-items-center justify-content-evenly h-60">
                     <div
                             class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
                             <div
@@ -215,31 +275,31 @@
                     <form>
                         <div class="d-flex input-container border-fields input-with-image align-items-center">
                         <input
-                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Name" required>
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Name" type="text" required>
                         <img src="img/contacts/person.png" alt="">
                     </div>
                     <div class="d-flex input-container border-fields input-with-image align-items-center">
                         <input
-                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Email" required>
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Email" type="email" required>
                         <img src="img/contacts/mail.png" alt="">
                     </div>
                     <div class="d-flex input-container border-fields input-with-image align-items-center">
                         <input
-                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Phone" required>
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Phone" type="tel" required>
                         <img src="img/contacts/phone.png" alt="">
                     </div>
-                    </form>    
+                      
                 </div>
-                <div class="buttons m-top-50">
+                <div class="buttons buttons-margin justify-content-center">
                     <button class="light-btn">
                         <span class="f-18">cancel</span>
                         <img class="btn-icons" src="img/buttons/clear.png" alt="">
                     </button>
                     <button class="darkblue-btn m-left-24">
-                        <span class="f-18">create contact</span>
-                        <img class="btn-icons" src="img/buttons/create.png" alt="">
+                        <span class="f-18">save</span>
                     </button>
                 </div>
+            </form>  
             </div>
         </div>
     </div>
