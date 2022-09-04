@@ -7,11 +7,13 @@
 .inputfields {
     width: 422px;
     height: 45px;
+    outline: none;
 }
 
 .textareas {
     width: 422px;
     height: 90px;
+    outline: none;
 }
 
 .border-fields {

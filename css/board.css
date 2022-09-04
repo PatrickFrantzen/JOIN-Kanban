@@ -33,6 +33,7 @@
 
 .inputfield {
     border: unset;
+    outline: none;
     height: 35px;
 }
 
