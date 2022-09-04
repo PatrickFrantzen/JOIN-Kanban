@@ -95,8 +95,8 @@ function disableOtherBtns(i) {
  * @param {String} id2 //id of second btn to disable
  */
 function deactivateBtns(id1, id2) {
-    document.getElementById(id1).disabled = true;
-    document.getElementById(id2).disabled = true;
+    document.getElementById(id1).style.pointerEvents = "none";
+    document.getElementById(id2).style.pointerEvents = "none";
 }
 
 
@@ -106,8 +106,8 @@ function deactivateBtns(id1, id2) {
  */
 function activateOtherBtns(counter) {
     if (counter == 3) {
-        document.getElementById('urgent').disabled = false;
-        document.getElementById('medium').disabled = false;
-        document.getElementById('low').disabled = false;
+        document.getElementById('urgent').style.pointerEvents = "auto";
+        document.getElementById('medium').style.pointerEvents = "auto";
+        document.getElementById('low').style.pointerEvents = "auto";
     }
 }
