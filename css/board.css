@@ -127,3 +127,11 @@
     position: absolute;
     left: -10px
 }
+
+.task-overlay {
+    width: 500px;
+    height: 60vh;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 250px; 
+}
