@@ -216,3 +216,40 @@
 .mailto-big{
     color: var(--mailto);
 }
+
+.contact-overlay{
+    width: 55vw;
+    height: 40vh;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.overlay-left{
+    background-color: var(--dark-blue);
+    border-radius: 10px 0 0 10px;
+    width: 40%;
+}
+
+.overlay-right {
+    width: 60%;
+}
+
+.input-container{
+    border: 1px solid var(--light-grey);
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 16px;
+}
+
+.input-container img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.input-contact{
+    border: none;
+    outline: none;
+    width: 305px;
+    height: 36px;
+}

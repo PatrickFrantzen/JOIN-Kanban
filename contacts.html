@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/add_task.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
     <script src="js/templates.js"></script>
@@ -180,12 +181,66 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-            <button class="darkblue-btn m-left-24">
+            <button class="darkblue-btn m-left-24" onclick="removeClassList('new-contact', 'd-none')">
                 <span class="f-18">New Contact</span>
                 <img class="btn-icons-contact" src="img/buttons/newcontact.png" alt="">
             </button>
         </div>
 
+        </div>
+    </div>
+    <div id="new-contact" class="overlay d-flex justify-content-center align-items-center">
+        <div class="contact-overlay d-flex">
+            <div class="overlay-left d-flex justify-content-center">
+                <div class="d-flex flex-column justify-content-center h-80">
+                    <img class="overlay-logo" src="img/navbar/Logo.png" alt="">
+                    <h2>Add Contact</h2>
+                    <p class="subtitle-overlay">Tasks are better with a team</p>
+                    <div class="horizontal-line"></div>
+                </div>
+                
+            </div>
+            <div class="overlay-right d-flex flex-column justify-content-center">
+                <div class="w-100 d-flex justify-content-end">
+                    <img onclick="addClassList('new-contact', 'd-none')" src="img/buttons/close.png" alt="">
+                </div>
+                <div class="d-flex align-items-center justify-content-evenly">
+                    <div
+                            class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
+                            <div
+                                class="contact-avatar-big bg-contact-green d-flex align-items-center justify-content-center">
+                                PF
+                            </div>
+                        </div>
+                    <form>
+                        <div class="d-flex input-container border-fields input-with-image align-items-center">
+                        <input
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Name" required>
+                        <img src="img/contacts/person.png" alt="">
+                    </div>
+                    <div class="d-flex input-container border-fields input-with-image align-items-center">
+                        <input
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Email" required>
+                        <img src="img/contacts/mail.png" alt="">
+                    </div>
+                    <div class="d-flex input-container border-fields input-with-image align-items-center">
+                        <input
+                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Phone" required>
+                        <img src="img/contacts/phone.png" alt="">
+                    </div>
+                    </form>    
+                </div>
+                <div class="buttons m-top-50">
+                    <button class="light-btn">
+                        <span class="f-18">cancel</span>
+                        <img class="btn-icons" src="img/buttons/clear.png" alt="">
+                    </button>
+                    <button class="darkblue-btn m-left-24">
+                        <span class="f-18">create contact</span>
+                        <img class="btn-icons" src="img/buttons/create.png" alt="">
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

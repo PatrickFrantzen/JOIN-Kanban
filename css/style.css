@@ -35,6 +35,12 @@ h1 {
     font-size: 61px;
 }
 
+h2 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 10px;
+}
+
 a {
     text-decoration: none;
     color: var(--font-grey);
@@ -73,7 +79,7 @@ a {
 }
 
 .m-top-50 {
-    margin-top: 50px;
+    margin-top: 50px !important;
 }
 
 .m-top-20 {
@@ -143,6 +149,11 @@ a {
 .w-80{
     width: 80%;
 }
+
+.h-80 {
+    height: 80%;
+}
+
 
 .color-white{
     color: var(--white);
@@ -250,8 +261,34 @@ a {
     margin-left: 50px;
 }
 
+.horizontal-line{
+    width: 90px;
+    height: 0;
+    border-bottom: 3px solid var(--light-blue);
+}
 
 .headline-text {
     font-size: 27px;
     font-weight: 400;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-logo{
+    width: 55px;
+}
+
+.subtitle-overlay{
+    margin-top: 8px;
+    font-size: 21px;
+    color: white;
+    font-weight: 200;
+    margin-bottom: 10px;
 }
