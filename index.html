@@ -15,18 +15,19 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
     <script src="js/templates.js"></script>
+    <script src="js/login.js"></script>
     <title>Join-Kanban Login</title>
 </head>
 
 <body>
 
     <!-- Log-in -->
-    <div class="login-container">
+    <div id="login" class="login-container d-none">
         <div class="m-top-50 d-flex justify-content-space-between">
             <img class="m-left-50" src="img/login/logo.png" alt="">
             <div class="d-flex h-max">
                 <p class="m-8">Not a Join User?</p>
-                <button class="darkblue-btn m-left-24 m-right-50">
+                <button class="darkblue-btn m-left-24 m-right-50" onclick="changeToSignUp('login', 'signup', 'd-none')">
                     Sign up
                 </button>
             </div>
@@ -38,39 +39,79 @@
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
                 <form action="">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="d-flex input-container-login border-fields input-with-image align-items-center">
-                        <input
-                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Email" type="email" required>
-                        <img src="img/contacts/mail.png" alt="">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex input-container-login border-fields input-with-image align-items-center">
+                            <input class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Email" type="email" required>
+                            <img src="img/contacts/mail.png" alt="">
+                        </div>
+                        <div class="d-flex input-container-login border-fields input-with-image align-items-center">
+                            <input class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Password" type="password" required>
+                            <img src="img/login/password.png" alt="">
+                        </div>
                     </div>
-                    <div class="d-flex input-container-login border-fields input-with-image align-items-center">
-                        <input
-                        class="d-flex justify-content-center align-items-center input-contact" placeholder="Password" type="password" required>
-                        <img src="img/login/password.png" alt="">
+                    <div class="d-flex align-items-center justify-content-center m-top-28">
+                        <input name="rememberme" type="checkbox">
+                        <p class="checkbox-text">Remember me</p>
+                        <div class="add-task d-flex m-left-24">
+                            <p>Forgot my password</p>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center m-top-28">
-                    <input name="rememberme" type="checkbox">
-                    <p class="checkbox-text">Remember me</p>
-                    <div class="add-task d-flex m-left-24">
-                        <p>Forgot my password</p>
+                    <div class="d-flex justify-content-center m-top-28">
+                        <button class="darkblue-btn ">
+                            <span class="f-18">Login</span>
+                        </button>
+                        <div class="light-btn m-left-24">
+                            <span class="f-18">Guest Log in</span>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center m-top-28">
-                    <button class="darkblue-btn ">
-                        <span class="f-18">Login</span>
-                    </button>
-                    <div class="light-btn m-left-24">
-                        <span class="f-18">Guest Log in</span>
-                    </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- Sign in -->
+    <div id="signup" class="login-container">
+        <div class="m-top-50 d-flex justify-content-space-between">
+            <img class="m-left-50" src="img/login/logo.png" alt="">
+        </div>
+        <div class="login-content-container d-flex justify-content-center m-top-50">
+            <div class="login-content">
+                <img class="back-btn" src="img/buttons/back.png" alt="" onclick="changeToSignUp('signup', 'login', 'd-none')">
+                <div class="d-flex flex-column align-items-center">
+                    <h2 class="color-black f-55">Log in</h2>
+                    <div class="horizontal-line horizontal-line-login"></div>
+                </div>
+                <form action="">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex input-container-login border-fields input-with-image align-items-center">
+                            <input class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Name" type="text" required>
+                            <img src="img/contacts/person.png" alt="">
+                        </div>
+                        <div class="d-flex input-container-login border-fields input-with-image align-items-center">
+                            <input class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Email" type="email" required>
+                            <img src="img/contacts/mail.png" alt="">
+                        </div>
+                        <div class="d-flex input-container-login border-fields input-with-image align-items-center">
+                            <input class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Password" type="password" required>
+                            <img src="img/login/password.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center m-top-28">
+                        <button class="darkblue-btn ">
+                            <span class="f-18">Sign up</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
