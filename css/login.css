@@ -34,3 +34,54 @@
     width: 780px;
     height: 430px;
 }
+
+@media (max-width: 665px){
+    .login-content{
+        width: 500px;
+    }
+
+    .f-55{
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 515px){
+    .login-content{
+        width: calc(100vw - 32px);
+    }
+
+    .not-join-user{
+        position: absolute;
+        bottom: 50px;
+        right: 0px;
+    }
+
+    .join-logo{
+        width: 70px;
+    }
+}
+
+@media (max-width: 450px){
+    .input-container-login{
+        width: 250px;
+    }
+
+    .rememberme-forgot{
+        flex-direction: column-reverse;
+    }
+
+    .f-55{
+        font-size: 40px;
+    }
+
+    .login-btn-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-height: 820px){
+    .join-logo{
+        width: 50px;
+    }
+}

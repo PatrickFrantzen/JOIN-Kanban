@@ -279,3 +279,10 @@
     background-color: #e5e1e1;
     border-radius: 10px;
 }
+
+
+@media (max-width: 515px){
+    .input-contact{
+        width: 220px;
+    }
+}
