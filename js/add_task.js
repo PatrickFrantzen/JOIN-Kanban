@@ -1,4 +1,4 @@
-
+let assignedToMembers = [];
 /**
  * changes value of a dropdownlist
  * @param {String} value 
@@ -111,3 +111,60 @@ function activateOtherBtns(counter) {
         document.getElementById('low').style.pointerEvents = "auto";
     }
 }
+
+
+function addAssignedTo() {
+    let outputbox = document.getElementById('user-assignedTo');
+    let teamMembers = document.getElementById('assignedToSelect').selectedOptions;
+    for (let i = 0; i < teamMembers.length; i++) {
+        let member = teamMembers[i];
+        let id = createId(member);
+        renderSelectedMembers(outputbox, member, id);
+    }
+    toggleClassList('assignedTo', 'd-none');
+}
+
+
+function createId(member) {
+    let id = member.label.replace(' ', '');
+    id = id.toLowerCase();
+    return id;
+}
+
+function renderSelectedMembers(outputbox, member, id) {
+    if (outputbox.innerHTML == 'Select one or more people') {
+        outputbox.innerHTML = '';
+    }
+    if (!document.getElementById(id)) {
+        outputbox.innerHTML += renderSelectedMembersTemplate(id, member);
+        assignedToMembers.push(id);
+    } else {
+        alert('this user has already been added');
+    }
+}
+
+function renderSelectedMembersTemplate(id, member) {
+    return `
+    <div id="${id}" class="d-flex align-items-center choosed-member">
+    <span>${member.label}</span>
+    <img class="btn-icons" src="img/buttons/clear.png" onclick="removeAssignedTo(${id})">
+    </div`;
+}
+
+function removeAssignedTo(id){
+    let member = id.id;
+    let outputbox = document.getElementById('user-assignedTo');
+    id.remove();
+    deleteElementOfArray(member);
+    if(assignedToMembers.length < 1){
+        outputbox.innerHTML = 'Select one or more people';
+    }
+}
+
+function deleteElementOfArray(element){
+    let index = assignedToMembers.indexOf(element);
+    assignedToMembers.splice(index, 1);
+}
+
+
+//TODO: prevent toggleClassList of id 'assignedTo', when child element will be clicked

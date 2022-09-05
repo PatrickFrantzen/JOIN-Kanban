@@ -56,27 +56,24 @@
                     </div>
 
                     <div class="titleandinput">
-                        <!-- <p class="m-top-28 add-task-titles">Assigned to</p>
-                        <div
-                            class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
-                            <input id="category" class="inputfield-nearby-icon" type="text">
-                            
-                            <ul class="add-task-lists d-none" id="assignedTo">
-
-                            </ul>
-                        </div> -->
                         <div class=" d-flex flex-column m-top-28">
                             <label for="assignedTo" class="f-18 m-bottom-18">Assigned to</label>
-                            <div class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                            <div class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                             onclick="toggleClassList('assignedTo', 'd-none')">
-                            <div id="user-assignedTo" class="inputfield-nearby-icon d-flex align-items-center">Nadia Knofius</div>
+                            <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select one or more people</div>
                             <img src="img/add_task/dropdown_arrow.svg" alt="">
                         </div>
-                            <select class="border-fields d-none scroll" name="assignedTo" id="assignedTo" multiple>
-                                <option value="Nadia Knofius">Nadia Knofius</option>
-                                <option label="Patrick Frantzen" value="Patrick Frantzen"></option>
-                                <option label="Peter Pan" value="Peter Pan"></option>
+                        <div class="confirm-selection d-none" id="assignedTo">
+                            <select class="scroll" name="assignedToSelect" id="assignedToSelect" multiple>
+                                <option label="Nadia Knofius"></option>
+                                <option label="Patrick Frantzen"></option>
+                                <option label="Peter Pan"></option>
                             </select>
+                                <div class="darkblue-btn m-left-8" onclick="addAssignedTo()">
+                                    <span class="f-18">OK</span>
+                                    <img class="btn-icons" src="img/buttons/create.png" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
             </div>
