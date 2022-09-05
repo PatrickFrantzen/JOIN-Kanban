@@ -20,10 +20,13 @@
         <span class="header-text">Kanban Project Management Tool</span>
         <div class="header-pics d-flex align-items-center">
             <div><img src="img/navbar/question.svg"></div>
-            <div class="outer-circle d-flex justify-content-center align-items-center">
+            <div class="outer-circle d-flex justify-content-center align-items-center" onclick="toggleClassList('logout-btn', 'd-none')">
                 <div class="inner-circle d-flex justify-content-center align-items-center"><img class="profile-pic"
                         src="img/profil_pics/patrick_pic.jpg"></div>
             </div>
+        </div>
+        <div id="logout-btn" class="logout d-none">
+            <p>Log Out</p>
         </div>
     </div>
 

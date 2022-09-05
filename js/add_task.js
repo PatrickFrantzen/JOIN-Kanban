@@ -147,7 +147,7 @@ function renderSelectedMembersTemplate(id, member) {
     return `
     <div id="${id}" class="d-flex align-items-center choosed-member">
     <span>${member.label}</span>
-    <img class="btn-icons" src="img/buttons/clear.png" onclick="removeAssignedTo(event, ${id})">
+    <img class="btn-icons delete-btn" src="img/buttons/clear.png" onclick="removeAssignedTo(event, ${id})">
     </div`;
 }
 

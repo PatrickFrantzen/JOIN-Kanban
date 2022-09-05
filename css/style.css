@@ -309,6 +309,12 @@ a {
     margin-bottom: 10px;
 }
 
+.delete-btn:hover{
+    cursor: pointer;
+    background-color: #D1D1D1;
+
+}
+
 /* TODO: outsource */
 .board-img{
     width: 470px;

@@ -33,6 +33,7 @@
 }
 
 .outer-circle {
+    cursor: pointer;
     height: 64px;
     width: 64px;
     border-radius: 100%;
@@ -102,6 +103,16 @@
     color: white;
 }
 
+
+.logout{
+    position: absolute;
+    border-radius: 20px 0px 20px 20px;
+    background-color: var(--dark-blue);
+    padding: 4px 32px 4px 32px;
+    top: 100px;
+    right: 103px;
+    color: white;
+}
 
 
 
