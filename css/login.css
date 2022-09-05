@@ -1,0 +1,20 @@
+.login-content {
+    width: 650px;
+    height: 510px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+}
+
+.login-container {
+    height: calc(100vh - 50px);
+}
+
+.horizontal-line-login {
+    width: 120px;
+}
+
+.input-container-login{
+    margin-top: 38px;
+    padding: 8px;
+}
