@@ -222,7 +222,8 @@ a {
 }
 
 .darkblue-btn{
-    width: 129px;
+    min-width: 129px;
+    max-width: 200px;
     background-color: var(--dark-blue);
     color: var(--white);
     border-radius: 10px;

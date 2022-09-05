@@ -29,3 +29,8 @@
 .back-btn:hover {
     cursor: pointer;
 }
+
+.password-mask{
+    width: 780px;
+    height: 430px;
+}

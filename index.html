@@ -54,7 +54,7 @@
                     <div class="d-flex align-items-center justify-content-center m-top-28">
                         <input name="rememberme" type="checkbox">
                         <p class="checkbox-text">Remember me</p>
-                        <div class="add-task d-flex m-left-24">
+                        <div class="add-task d-flex m-left-24" onclick="changeToSignUp('login', 'forgotpassword', 'd-none')">
                             <p>Forgot my password</p>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
     </div>
 
     <!-- Sign in -->
-    <div id="signup" class="login-container">
+    <div id="signup" class="login-container d-none">
         <div class="m-top-50 d-flex justify-content-space-between">
             <img class="m-left-50" src="img/login/logo.png" alt="">
         </div>
@@ -80,7 +80,7 @@
             <div class="login-content">
                 <img class="back-btn" src="img/buttons/back.png" alt="" onclick="changeToSignUp('signup', 'login', 'd-none')">
                 <div class="d-flex flex-column align-items-center">
-                    <h2 class="color-black f-55">Log in</h2>
+                    <h2 class="color-black f-55">Sign up</h2>
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
                 <form action="">
@@ -105,6 +105,43 @@
                     <div class="d-flex justify-content-center m-top-28">
                         <button class="darkblue-btn ">
                             <span class="f-18">Sign up</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- forgot password -->
+
+    <div id="forgotpassword" class="login-container">
+        <div class="m-top-50 d-flex justify-content-space-between">
+            <img class="m-left-50" src="img/login/logo.png" alt="">
+        </div>
+        <div class="login-content-container d-flex justify-content-center m-top-50">
+            <div class="login-content password-mask">
+                <img class="back-btn" src="img/buttons/back.png" alt="" onclick="changeToSignUp('forgotpassword', 'login', 'd-none')">
+                <div class="d-flex flex-column align-items-center">
+                    <h2 class="color-black f-55">I forgot my password</h2>
+                    <div class="horizontal-line horizontal-line-login"></div>
+                </div>
+                <form action="">
+                    <div class="d-flex flex-column align-items-center">
+                        <p>
+                            Don't worry! We will send you an email with the insctructions to <br>
+                            reset your password.
+                        </p>
+                        <div class="d-flex input-container-login border-fields input-with-image align-items-center">
+                            <input class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Email" type="email" required>
+                            <img src="img/contacts/mail.png" alt="">
+                        </div>
+                        
+                    </div>
+
+                    <div class="d-flex justify-content-center m-top-28">
+                        <button class="darkblue-btn">
+                            <span class="f-18">Send me the email</span>
                         </button>
                     </div>
                 </form>
