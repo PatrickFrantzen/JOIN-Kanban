@@ -147,11 +147,18 @@ function renderSelectedMembersTemplate(id, member) {
     return `
     <div id="${id}" class="d-flex align-items-center choosed-member">
     <span>${member.label}</span>
-    <img class="btn-icons" src="img/buttons/clear.png" onclick="removeAssignedTo(${id})">
+    <img class="btn-icons" src="img/buttons/clear.png" onclick="removeAssignedTo(event, ${id})">
     </div`;
 }
 
-function removeAssignedTo(id){
+
+/**
+ * removes choosed member in outputbox and prevent executing parents onclick function,
+ * so drop down list of members will not be shown
+ * @param {object} event // click event
+ * @param {object} id 
+ */
+function removeAssignedTo(event, id){
     let member = id.id;
     let outputbox = document.getElementById('user-assignedTo');
     id.remove();
@@ -159,7 +166,10 @@ function removeAssignedTo(id){
     if(assignedToMembers.length < 1){
         outputbox.innerHTML = 'Select one or more people';
     }
+    event.stopPropagation();
 }
+
+
 
 function deleteElementOfArray(element){
     let index = assignedToMembers.indexOf(element);
@@ -167,4 +177,3 @@ function deleteElementOfArray(element){
 }
 
 
-//TODO: prevent toggleClassList of id 'assignedTo', when child element will be clicked
