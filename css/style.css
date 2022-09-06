@@ -345,3 +345,7 @@ a {
 .board-img{
     width: 470px;
 }
+
+.cursor {
+    cursor: pointer;
+}
