@@ -19,7 +19,7 @@ let priority = [
     }
 ];
 
-let users = [
+let userInformation = [
     {
         "firstname": "Nadia",
         "lastname": "Knofius",
