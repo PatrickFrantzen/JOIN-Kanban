@@ -1,6 +1,8 @@
 async function initSummary(){
+    await loadDataFromServer()
     await init();
     renderActiveUserName();
+    renderProfileImage();
 }
 
 

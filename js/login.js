@@ -1,15 +1,9 @@
-let users = [
-    {
-        "name": "Nadia Knofius",
-        "email": "nadia.knofius@gmail.com",
-        "password": "katze123"
-    },
-    {
-        "name": "Patrick Frantzen",
-        "email": "patrick.frantzen@gmail.com",
-        "password": "mara456"
-    }
-];
+let users;  
+
+async function initLogin() {
+    await loadDataFromServer();
+    await init();
+}
 
 function switchOverview(idHide, idShow, classList) {
     addClassList(idHide, classList);

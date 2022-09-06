@@ -1,7 +1,8 @@
 async function initContacts() {
+    await loadDataFromServer()
     await init();
-    // renderConacts();
-
+    renderProfileImage();
+    getContactData();
 }
 
 

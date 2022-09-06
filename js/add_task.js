@@ -1,7 +1,9 @@
 let assignedToMembers = [];
 
 async function initAddTask(){
+    await loadDataFromServer()
     await init();
+    renderProfileImage();
 }
 
 

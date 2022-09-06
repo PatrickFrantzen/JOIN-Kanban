@@ -8,7 +8,15 @@ async function init() {
     await includeHTML();
     checkActiveHTML();
     checkActiveUser();
-    renderProfileImage();
+}
+
+async function loadDataFromServer() {
+    setURL('https://gruppe-306.developerakademie.net/smallest_backend_ever');
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('users')) || [];
+    userInformation = JSON.parse(backend.getItem('userInformation')) || [];
+    priority = JSON.parse(backend.getItem('priority')) || [];
+    contactColors = JSON.parse(backend.getItem('contactColors')) || [];
 }
 
 
