@@ -11,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
     <script src="js/templates.js"></script>
+    <script src="js/login.js"></script>
     <title>Navbar</title>
 </head>
 
@@ -21,11 +22,11 @@
         <div class="header-pics d-flex align-items-center">
             <div><img src="img/navbar/question.svg"></div>
             <div class="outer-circle d-flex justify-content-center align-items-center" onclick="toggleClassList('logout-btn', 'd-none')">
-                <div class="inner-circle d-flex justify-content-center align-items-center"><img class="profile-pic"
+                <div class="inner-circle d-flex justify-content-center align-items-center"><img id="profile-pic" class="profile-pic"
                         src="img/profil_pics/patrick_pic.jpg"></div>
             </div>
         </div>
-        <div id="logout-btn" class="logout d-none">
+        <div id="logout-btn" class="logout d-none" onclick="logout()">
             <p>Log Out</p>
         </div>
     </div>

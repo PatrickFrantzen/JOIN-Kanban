@@ -24,6 +24,7 @@
 .input-with-image {
     background-color: var(--white);
     position: relative;
+    box-sizing: border-box;
 }
 
 .inputfield-nearby-icon {
@@ -44,6 +45,10 @@
     height: 45px;
 }
 
+.inputfields-small:hover {
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
 .checkbox-text {
     font-size: 12px;
     margin-left: 16px;
@@ -61,7 +66,7 @@ input[type="checkbox"]:checked{
 .add-task-lists{
     position: absolute;
     width: 425px;
-    top: 43px;
+    top: 41px;
     font-size: 18px;
     list-style: none;
     background-color: var(--white);
@@ -80,8 +85,7 @@ input[type="checkbox"]:checked{
 }
 
 .add-task-lists li:hover{
-    background-color: var(--dark-blue3);
-    color: var(--white);
+    background-color: var(--light-grey);
     cursor: pointer;
 }
 
@@ -120,5 +124,13 @@ option{
 }
 
 .choosed-member{
-    padding: 8px 5px 8px 0;
+    padding: 8px 24px 8px 0;
 }
+
+.category-color{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 16px;
+}
+

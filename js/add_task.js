@@ -5,7 +5,9 @@ let assignedToMembers = [];
  * @param {String} id 
  */
 function changeValue(value, id) {
-    document.getElementById(id).innerHTML = value;
+    // document.getElementById(id).innerHTML = value;
+    let content = document.getElementById(value).innerHTML;
+    document.getElementById(id).innerHTML = content;
 }
 
 
@@ -145,7 +147,7 @@ function renderSelectedMembers(outputbox, member, id) {
 
 function renderSelectedMembersTemplate(id, member) {
     return `
-    <div id="${id}" class="d-flex align-items-center choosed-member">
+    <div id="${id}" class="d-flex align-items-center justify-content-space-between choosed-member">
     <span>${member.label}</span>
     <img class="btn-icons delete-btn" src="img/buttons/clear.png" onclick="removeAssignedTo(event, ${id})">
     </div`;

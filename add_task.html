@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/add_task.css">
     <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/board.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
     <script src="js/add_task.js"></script>
     <script src="js/templates.js"></script>
     <script src="js/includeHTML.js"></script>
     <script src="js/mini_backend.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/summary.js"></script>
     <title>Join-Kanban Add Task</title>
 </head>
 
@@ -43,15 +46,16 @@
                         <p class="m-top-28 add-task-titles">Category</p>
                         <div class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                             onclick="toggleClassList('categories', 'd-none')">
-                            <div id="category" class="inputfield-nearby-icon d-flex align-items-center">Marketing</div>
-                            <img src="img/add_task/dropdown_arrow.svg" alt="">
+                            <div id="category" class="inputfield-nearby-icon d-flex align-items-center">Select task category</div>
+                            <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
                             <ul class="add-task-lists d-none" id="categories">
-                                <li onclick="changeValue('Marketing', 'category')">Marketing</li>
-                                <li onclick="changeValue('Sales', 'category')">Sales</li>
-                                <li onclick="changeValue('Design', 'category')">Design</li>
-                                <li onclick="changeValue('Media', 'category')">Media</li>
-                                <li onclick="changeValue('Backoffice', 'category')">Backoffice</li>
-                                <li onclick="changeValue('Developtment', 'category')">Developtment</li>
+                                <li id="newCategory" onclick="addNewCategory()">New Category</li>
+                                <li id="marketing" onclick="changeValue('marketing', 'category')" class="d-flex align-items-center"><div>Marketing</div> <div class="category-color bg-category-marketing"></div></li>
+                                <li id="sales" onclick="changeValue('sales', 'category')" class="d-flex align-items-center"><div>Sales</div> <div class="category-color bg-category-sales"></li>
+                                <li id="design" onclick="changeValue('design', 'category')" class="d-flex align-items-center"><div>Design</div> <div class="category-color bg-category-design"></li>
+                                <li id="media" onclick="changeValue('media', 'category')" class="d-flex align-items-center"><div>Media</div> <div class="category-color bg-category-media"></li>
+                                <li id="backoffice" onclick="changeValue('backoffice', 'category')" class="d-flex align-items-center"><div>Backoffice</div> <div class="category-color bg-category-backoffice"></li>
+                                <li id="developtment" onclick="changeValue('developtment', 'category')" class="d-flex align-items-center"><div>Developtment</div> <div class="category-color bg-category-developtment"></li>
                             </ul>
                         </div>
                     </div>

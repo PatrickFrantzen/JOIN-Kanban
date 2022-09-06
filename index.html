@@ -27,7 +27,7 @@
         <div class="m-top-50 d-flex justify-content-space-between">
             <img class="m-left-50 join-logo" src="img/login/logo.png" alt="">
             <div class="d-flex h-max not-join-user">
-                <p class="m-8">Not a Join User?</p>
+                <p class="m-8 text-center">Not a Join User?</p>
                 <button class="darkblue-btn m-left-24 m-right-50" onclick="switchOverview('login', 'signup', 'd-none')">
                     Sign up
                 </button>
@@ -36,10 +36,10 @@
         <div class="login-content-container d-flex justify-content-center m-top-50">
             <div class="login-content">
                 <div class="d-flex flex-column align-items-center">
-                    <h2 class="color-black f-55">Log in</h2>
+                    <h2 class="color-black f-55 text-center">Log in</h2>
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
-                <form action="" onsubmit="login()">
+                <form action="" onsubmit="login(); return false;">
                     <div class="d-flex flex-column align-items-center">
                         <div class="d-flex input-container-login border-fields input-with-image align-items-center">
                             <input id="login-email" class="d-flex justify-content-center align-items-center input-contact"
@@ -54,7 +54,7 @@
                     </div>
                     <div class="rememberme-forgot d-flex align-items-center justify-content-center m-top-28">
                         <div  class="d-flex">
-                            <input name="rememberme" type="checkbox">
+                            <input id="rememberMe" name="rememberme" type="checkbox">
                             <p class="checkbox-text">Remember me</p>
                         </div>
                         <div class="add-task d-flex m-left-24"
@@ -66,7 +66,7 @@
                         <button class="darkblue-btn ">
                             <span class="f-18">Login</span>
                         </button>
-                        <div class="light-btn m-left-24">
+                        <div class="light-btn m-left-24 d-flex justify-content-center" onclick="guestLogin()">
                             <span class="f-18">Guest Log in</span>
                         </div>
                     </div>
@@ -85,10 +85,10 @@
                 <img class="back-btn" src="img/buttons/back.png" alt=""
                     onclick="switchOverview('signup', 'login', 'd-none')">
                 <div class="d-flex flex-column align-items-center">
-                    <h2 class="color-black f-55">Sign up</h2>
+                    <h2 class="color-black f-55 text-center">Sign up</h2>
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
-                <form action="" onsubmit="addUser()">
+                <form action="" onsubmit="signup()">
                     <div class="d-flex flex-column align-items-center">
                         <div class="d-flex input-container-login border-fields input-with-image align-items-center">
                             <input id="signup-name" class="d-flex justify-content-center align-items-center input-contact"
@@ -128,12 +128,12 @@
                 <img class="back-btn" src="img/buttons/back.png" alt=""
                     onclick="switchOverview('forgotpassword', 'login', 'd-none')">
                 <div class="d-flex flex-column align-items-center">
-                    <h2 class="color-black f-55">I forgot my password</h2>
+                    <h2 class="color-black f-55 text-center h2-login-resp">I forgot my password</h2>
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
-                <form action="">
+                <form action="" onsubmit="forgotPassword(event)">
                     <div class="d-flex flex-column align-items-center">
-                        <p>
+                        <p class="text-center p-12">
                             Don't worry! We will send you an email with the insctructions to <br>
                             reset your password.
                         </p>
@@ -154,6 +154,47 @@
             </div>
         </div>
     </div>
+
+    <!-- reset password -->
+    <div id="resetpassword" class="login-container d-none">
+        <div class="m-top-50 d-flex justify-content-space-between">
+            <img class="m-left-50 join-logo" src="img/login/logo.png" alt="">
+        </div>
+        <div class="login-content-container d-flex justify-content-center m-top-50">
+            <div class="login-content password-mask">
+                <img class="back-btn" src="img/buttons/back.png" alt=""
+                    onclick="switchOverview('resetpassword', 'forgotpassword', 'd-none')">
+                <div class="d-flex flex-column align-items-center">
+                    <h2 class="color-black f-55 text-center h2-login-resp">Reset your password</h2>
+                    <div class="horizontal-line horizontal-line-login"></div>
+                </div>
+                <form action="">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="text-center p-12">
+                            Change your account password
+                        </p>
+                        <div class="d-flex input-container-reset border-fields input-with-image align-items-center">
+                            <input id="reset-password" class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="New password" type="text" required>
+                           
+                        </div>
+                        <div class="d-flex input-container-reset border-fields input-with-image align-items-center">
+                            <input id="confirm-password" class="d-flex justify-content-center align-items-center input-contact"
+                                placeholder="Confirm password" type="text" required> 
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-center m-top-28">
+                        <button class="darkblue-btn">
+                            <span class="f-18">Continue</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 

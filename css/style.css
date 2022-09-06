@@ -12,11 +12,12 @@
     --urgent: #FF3D00;
     --low: #7ae229;
     --medium: #ffa800;
-    --orange: #FF7A00;
-    --pink: #FC71FF;
-    --mint: #1FD7C1;
-    --blue: #0038FF;
-    --yellow: #FFC701;
+    --developtment: #FF7A00;
+    --sales: #FC71FF;
+    --backoffice: #1FD7C1;
+    --marketing: #0038FF;
+    --design: #FFC701;
+    --media: rgb(2, 75, 2); 
 }
 
 body {
@@ -159,6 +160,10 @@ a {
 }
 
 .text-align-center {
+    text-align: center;
+}
+
+.text-center {
     text-align: center;
 }
 
@@ -334,8 +339,6 @@ a {
 
 .delete-btn:hover{
     cursor: pointer;
-    background-color: #D1D1D1;
-
 }
 
 /* TODO: outsource */

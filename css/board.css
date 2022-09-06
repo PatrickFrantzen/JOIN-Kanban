@@ -1,21 +1,25 @@
-.bg-category-blue {
-    background-color: var(--blue);
+.bg-category-marketing {
+    background-color: var(--marketing);
 }
 
-.bg-category-orange {
-    background-color: var(--orange);
+.bg-category-developtment {
+    background-color: var(--developtment);
 }
 
-.bg-category-pink {
-    background-color: var(--pink);
+.bg-category-sales {
+    background-color: var(--sales);
 }
 
-.bg-category-mint {
-    background-color: var(--mint);
+.bg-category-backoffice {
+    background-color: var(--backoffice);
 }
 
-.bg-category-yellow {
-    background-color: var(--yellow);
+.bg-category-design {
+    background-color: var(--design);
+}
+
+.bg-category-media {
+    background-color: var(--media);
 }
 
 .searchbox {
