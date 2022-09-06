@@ -1,4 +1,10 @@
 let assignedToMembers = [];
+
+async function initAddTask(){
+    await init();
+}
+
+
 /**
  * changes value of a dropdownlist
  * @param {String} value 
