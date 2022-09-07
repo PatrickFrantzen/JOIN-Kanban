@@ -5,6 +5,7 @@ let contactColors;
 
 let test = [{
     "fullname": "Nadia Knofius",
+    "password": "katze123",
     "mail": "nadia.knofius@gmail.com",
     "color": "blue",
     "img": "img/profil_pics/nadia.jpg",
@@ -28,6 +29,7 @@ let test = [{
 },
 {
     "fullname": "Patrick Frantzen",
+    "password": "mara456",
     "mail": "patrick.frantzen@gmail.com",
     "color": "brown",
     "img": "img/profil_pics/patrick_pic.jpg",
@@ -50,31 +52,17 @@ let test = [{
         }]
 },
 {
-    "fullname": "Max Mustermann",
-    "mail": "max.mustermann@gmail.com",
-    "color": "yellow",
+    "fullname": "Guest Account",
+    "password": "",
+    "mail": "",
+    "color": "",
     "img": "img/contacts/newUser.png",
-    "contacts": [
-        {
-            "firstname": "Nadia",
-            "lastname": "Knofius",
-            "fullname": "Nadia Knofius",
-            "mail": "nadia.knofius@gmail.com",
-            "phone": "+49 176 225 223 4",
-            "color": "blue",
-        },
-        {
-            "firstname": "Patrick",
-            "lastname": "Frantzen",
-            "fullname": "Patrick Frantzen",
-            "mail": "patrick.frantzen@gmail.com",
-            "phone": "+49 174 345 169 8",
-            "color": "brown",
-        }]
+    "contacts": []
     },
     {
         "fullname": "Hildegard Bunt",
         "mail": "hilde@gmail.com",
+        "password": "test789",
         "color": "pink",
         "img": "img/contacts/newUser.png",
         "contacts": [

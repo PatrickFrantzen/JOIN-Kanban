@@ -85,7 +85,11 @@ function changeClassListMenuLinks(id) {
  */
 function checkActiveUser() {
     activeUser = getActiveUserFromLocalStorage('activeUser');
-    checkActiveUserIndex();
+    if(activeUser == 'Guest Account'){
+        activeUserIndex = 2;
+    } else {
+        checkActiveUserIndex();
+    }
 }
 
 

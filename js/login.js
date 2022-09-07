@@ -1,5 +1,3 @@
-let users;  
-
 async function initLogin() {
     await loadDataFromServer();
     init();
@@ -15,15 +13,13 @@ async function signup() {
     let name = document.getElementById('signup-name');
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
-    users.push({ name: name.value, email: email.value, password: password.value });
-    await backend.setItem('users', JSON.stringify(users));
     switchOverview('signup', 'login', 'd-none');
-    addDataToUserInformation(name, email);
+    addDataToUserInformation(name, email, password);
 }
 
 
-function addDataToUserInformation(name, email){
-    let userInfo = {fullname: name.value, email: email.value, img: "img/contacts/newUser.png", color: "", contacts: []};
+function addDataToUserInformation(name, email, password){
+    let userInfo = {fullname: name.value, password: password.value, email: email.value, img: "img/contacts/newUser.png", color: "", contacts: []};
     userInformation.push(userInfo);
     backend.setItem('userInformation', JSON.stringify(userInformation));
 }
@@ -42,17 +38,21 @@ function checkLoginData(index, password) {
     if (index == -1) {
         alert('Your email is not registered yet, please sign up');
         switchOverview('login', 'signup', 'd-none');
-    } else if (users[index].password === password.value) {
+    } else if (userInformation[index].password === password.value) {
         switchOtherHtml('summary.html?');
-        setActiveUserToLocalStorage('activeUser', users[index].name);
+        setActiveUserToLocalStorage('activeUser', userInformation[index].fullname);
     } else {
         alert('Your password is not correct, please try again');
     }
 }
 
+
 function guestLogin() {
     switchOtherHtml('summary.html?');
+    activeUserIndex = 2;
+    setActiveUserToLocalStorage('activeUser', userInformation[activeUserIndex].fullname);
 }
+
 
 function switchOtherHtml(htmlName) {
     window.location.href = htmlName;
@@ -65,8 +65,8 @@ function getIndexOfArray(array, value) {
 
 function getEmailDataFromJson() {
     let emails = [];
-    for (let i = 0; i < users.length; i++) {
-        emails.push(users[i].email);
+    for (let i = 0; i < userInformation.length; i++) {
+        emails.push(userInformation[i].mail);
     }
     return emails;
 }
@@ -86,13 +86,16 @@ function logout(){
     removeActiveUserFromLocalStorage();
 }
 
+
 function setActiveUserToLocalStorage(key, user) {
     localStorage.setItem(key, user);
 }
 
+
 function getActiveUserFromLocalStorage(key) {
     return localStorage.getItem(key);
 }
+
 
 function removeActiveUserFromLocalStorage() {
     localStorage.removeItem('activeUser');
