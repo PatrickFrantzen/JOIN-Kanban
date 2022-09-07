@@ -139,7 +139,7 @@
                             reset your password.
                         </p>
                         <div class="d-flex input-container-login border-fields input-with-image align-items-center">
-                            <input class="d-flex justify-content-center align-items-center input-contact"
+                            <input id="mailForgotPassword" class="d-flex justify-content-center align-items-center input-contact"
                                 placeholder="Email" type="email" required>
                             <img src="img/contacts/mail.png" alt="">
                         </div>
@@ -169,7 +169,7 @@
                     <h2 class="color-black f-55 text-center h2-login-resp">Reset your password</h2>
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
-                <form action="">
+                <form action="" onsubmit="changePassword(); return false">
                     <div class="d-flex flex-column align-items-center">
                         <p class="text-center p-12">
                             Change your account password

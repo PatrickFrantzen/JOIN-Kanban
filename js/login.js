@@ -1,3 +1,5 @@
+let mailForgotPassword;
+
 async function initLogin() {
     await loadDataFromServer();
     init();
@@ -73,7 +75,34 @@ function getEmailDataFromJson() {
 
 
 function forgotPassword() {
+    mailForgotPassword = document.getElementById('mailForgotPassword').value;
     switchOverview('forgotpassword', 'resetpassword', 'd-none');
+}
+
+function changePassword() {
+    let password = document.getElementById('reset-password');
+    let confirmedPassword = document.getElementById('confirm-password');
+    checkNewPassword(password, confirmedPassword);
+}
+
+
+function checkNewPassword(password, confirmedPassword) {
+    if(password.value === confirmedPassword.value){
+        for (let i = 0; i < userInformation.length; i++) {
+            saveNewPassword(i, password);
+        }
+        switchOverview('resetpassword', 'login', 'd-none');
+    } else {
+        alert('Die eingegebenen Passwörter stimmen nicht überein. Bitte wiederholen Sie die Eingabe');
+    }
+}
+
+async function saveNewPassword(i, password){
+    let user = userInformation[i];
+    if(user.mail == mailForgotPassword){
+        userInformation[i].password = password.value;
+        await backend.setItem('userInformation', JSON.stringify(userInformation));
+    }
 }
 
 
