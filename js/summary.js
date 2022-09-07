@@ -7,5 +7,10 @@ async function initSummary(){
 
 
 function renderActiveUserName() {
-    document.getElementById('summary-name').innerHTML = activeUser;
+    if (activeUser == 'Guest Account'){
+        document.getElementById('good-morning').innerHTML = 'Good morning';
+    } else {
+        document.getElementById('good-morning').innerHTML = 'Good morning,';
+        document.getElementById('summary-name').innerHTML = activeUser;
+    }
 }
