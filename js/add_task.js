@@ -187,8 +187,10 @@ function deleteElementOfArray(element){
 }
 
 function createTask() {
-
-    console.log('Test');
+    let title = document.getElementById('title').value;
+    let description = document.getElementById('describtion').value;
+    let category = document.getElementById('category').value;
+    console.log(title);
 }
 
 
