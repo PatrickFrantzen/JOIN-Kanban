@@ -1,4 +1,7 @@
 let assignedToMembers = [];
+let currentCategory;
+let currentPrio;
+let currentMembers = [];
 
 async function initAddTask(){
     await loadDataFromServer()
@@ -16,6 +19,7 @@ function changeValue(value, id) {
     // document.getElementById(id).innerHTML = value;
     let content = document.getElementById(value).innerHTML;
     document.getElementById(id).innerHTML = content;
+    currentCategory = value;
 }
 
 
@@ -32,6 +36,7 @@ function changePriority(id, classList) {
         let prio = priority[i].level;
         if (prio == id) {
             changePriorityIcons(imgPath, i);
+            currentPrio = prio;
         }
     }
     checkIfBtnIsClicked();
@@ -130,6 +135,7 @@ function addAssignedTo() {
         let member = teamMembers[i];
         let id = createId(member);
         renderSelectedMembers(outputbox, member, id);
+        
     }
     toggleClassList('assignedTo', 'd-none');
 }
@@ -148,6 +154,7 @@ function renderSelectedMembers(outputbox, member, id) {
     if (!document.getElementById(id)) {
         outputbox.innerHTML += renderSelectedMembersTemplate(id, member);
         assignedToMembers.push(id);
+        currentMembers.push(member.label);
     } else {
         alert('this user has already been added');
     }
@@ -186,11 +193,40 @@ function deleteElementOfArray(element){
     assignedToMembers.splice(index, 1);
 }
 
-function createTask() {
+function createNewTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('describtion').value;
-    let category = document.getElementById('category').value;
-    console.log(title);
+    let category = getCurrentCategory();
+    let assignedTo = currentMembers;
+    let date = convertToEuropeDate();
+    let prio = currentPrio;
+    addNewTaskToArray(title, description, category, assignedTo, date, prio);
 }
+
+function addNewTaskToArray(title, description, category, assignedTo, date, prio) {
+    console.log(title);
+    console.log(description);
+    console.log(category);
+    console.log(assignedTo);
+    console.log(date);
+    console.log(prio);
+    
+}
+
+function getCurrentCategory() {
+    let actualCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+    return actualCategory;
+}
+
+function convertToEuropeDate() {
+    let dueDate = document.getElementById('date').value;
+    let europeanDate = new Date(dueDate);
+    return europeanDate;
+    /*Convert to European Date
+    return europeanDate.getDate()+"/"+(europeanDate.getMonth() + 1) +"/"+date.getFullYear();*/
+}
+
+
+
 
 
