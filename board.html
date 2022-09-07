@@ -26,6 +26,7 @@
     <div w3-include-html="navbar.html"></div>
 
     <div class="content">
+        <!-- Headline with Search and Add Task-->
         <div class="headline d-flex align-items-center justify-content-space-between"
             style="width: calc(100vw - 500px) ;">
             <h1>Board</h1>
@@ -40,6 +41,7 @@
             </div>
         </div>
 
+        <!-- Task Progress Headline -->
         <div class="main-board d-flex flex-column scroll">
             <div class="board-heads d-flex justify-content-space-between ">
                 <div class="d-flex justify-content-space-between align-items-center w-250">
@@ -61,6 +63,7 @@
 
             </div>
 
+            <!-- to Do Card -->
             <div class="board-body d-flex justify-content-space-between">
                 <div class="board-card ">
                     <div id="card" onclick="openDialog()" class="card board-inner-card d-flex flex-column m-top-28 cursor">
@@ -86,9 +89,8 @@
                             <div class="board-assigned-urgent"><img src="img/add_task/arrow_urgent.svg"> </div>
                         </div>
                     </div>
-
                 </div>
-
+                <!-- In progress Card -->
                 <div class="board-card">
                     <div class="card board-inner-card d-flex flex-column m-top-28">
                         <span class="board-text board-category bg-category-sales">Category</span>
@@ -113,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Awaiting feedback Card -->
                 <div class="board-card">
                          <div class="card board-inner-card d-flex flex-column m-top-28">
                         <span class="board-text board-category bg-category-backoffice">Category</span>
@@ -137,7 +139,7 @@
                             <div class="board-assigned-urgent"><img src="img/add_task/medium.svg"> </div>
                         </div>
                     </div>
-
+                    
                     <div class="card board-inner-card d-flex flex-column m-top-28">
                         <span class="board-text board-category bg-category-design">Category</span>
                         <span class="board-text board-title">Title</span>
@@ -161,6 +163,7 @@
                         </div>
                     </div>
 
+                
                     <div class="card board-inner-card d-flex flex-column m-top-28">
                         <span class="board-text board-category bg-category-developtment">Category</span>
                         <span class="board-text board-title">Title</span>
@@ -186,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Done Card -->
                 <div class="board-card">
                     <div class="card board-inner-card d-flex flex-column m-top-28">
                         <span class="board-text board-category bg-category-marketing">Category</span>
@@ -220,14 +223,18 @@
             </div>
         </div>
     </div>
+
+    <!-- Display -->
     <div id="task-display" class="overlay d-flex justify-content-center align-items-center d-none">
         <div class="task-overlay d-flex">
             <div class="display-card h-100 w-100 d-flex justify-content-center">
                 <div class="board-inner-card w-100 h-100 m-left-50 d-flex flex-column">
+                    <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
                     <img class="m-right-24 m-top-20 close-img" onclick="closeDialog()" src="img/buttons/close.png">
                     </div>
-                        <span class="board-text board-category bg-category-marketing">Category</span>
+                    <!-- Headlines -->
+                    <span class="board-text board-category bg-category-marketing">Category</span>
                     <span class="board-text board-title">Title</span>
                     <span class="board-text board-description">Description</span>
                     <div class="d-flex board-text">
