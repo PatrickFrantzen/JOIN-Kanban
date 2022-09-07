@@ -169,7 +169,7 @@
                     </div>
                     <div class="d-flex align-items-center justify-content-space-between m-top-50">
                         <span class="f-21">Contact Information</span>
-                        <div class="d-flex align-items-center edit-container" onclick="removeClassList('edit-contact', 'd-none')"">
+                        <div class="d-flex align-items-center edit-container" onclick="showOverlayContact('edit-contact', 'edit-contact-overlay')">
                             <img class="edit-img" src="img/buttons/edit_blue.png" alt="">
                             <p class="f-18 m-left-8">Edit Contact</p>
                         </div>
@@ -188,7 +188,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-            <button class="darkblue-btn m-left-24" onclick="removeClassList('new-contact', 'd-none')">
+            <button class="darkblue-btn m-left-24" onclick="showOverlayContact('new-contact', 'new-contact-overlay')">
                 <span class="f-18">New Contact</span>
                 <img class="btn-icons-contact" src="img/buttons/newcontact.png" alt="">
             </button>
@@ -198,8 +198,8 @@
     </div>
 
     <!-- add new contact overlay -->
-    <div id="new-contact" class="overlay d-flex justify-content-center align-items-center d-none">
-        <div class="contact-overlay d-flex">
+    <div id="new-contact" class="overlay d-flex justify-content-center align-items-center d-none animateOpacityIn">
+        <div id ="new-contact-overlay"  class="contact-overlay d-flex animateFade">
             <div class="overlay-left d-flex justify-content-center">
                 <div class="d-flex flex-column justify-content-center h-80">
                     <img class="overlay-logo" src="img/navbar/Logo.png" alt="">
@@ -211,7 +211,7 @@
             </div>
             <div class="overlay-right d-flex flex-column justify-content-center">
                 <div class="w-100 d-flex justify-content-end">
-                    <img class="m-right-24 close-img" onclick="addClassList('new-contact', 'd-none')" src="img/buttons/close.png" alt="">
+                    <img class="m-right-24 close-img" onclick="closeOverlayContact('new-contact', 'new-contact-overlay')" src="img/buttons/close.png" alt="">
                 </div>
                 <div class="d-flex align-items-center justify-content-evenly h-70">
                     <div
@@ -254,8 +254,8 @@
         </div>
     </div>
     <!-- edit contact overlay -->
-    <div id="edit-contact" class="overlay d-flex justify-content-center align-items-center d-none">
-        <div class="contact-overlay d-flex">
+    <div id="edit-contact" class="overlay d-flex justify-content-center align-items-center d-none animateOpacityIn">
+        <div id="edit-contact-overlay" class="contact-overlay d-flex">
             <div class="overlay-left d-flex justify-content-center">
                 <div class="d-flex flex-column justify-content-center h-80">
                     <img class="overlay-logo" src="img/navbar/Logo.png" alt="">
@@ -266,7 +266,7 @@
             </div>
             <div class="overlay-right d-flex flex-column justify-content-center">
                 <div class="w-100 d-flex justify-content-end">
-                    <img class="m-right-24 close-img" onclick="addClassList('edit-contact', 'd-none')" src="img/buttons/close.png" alt="">
+                    <img class="m-right-24 close-img" onclick="closeOverlayContact('edit-contact', 'edit-contact-overlay')" src="img/buttons/close.png" alt="">
                 </div>
                 <div class="d-flex align-items-center justify-content-evenly h-70">
                     <div

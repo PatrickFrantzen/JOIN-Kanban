@@ -23,3 +23,18 @@ function addNewContactToArray(name, email, phone) {
     backend.setItem('userInformation', JSON.stringify(userInformation));
 }
 
+
+function showOverlayContact(idToShow,idToAnimate) {
+    removeClassList(idToAnimate, 'animateFadeOut');
+    removeClassList(idToShow, 'animateOpacityOut');
+    addClassList(idToShow, 'animateOpacityIn');
+    addClassList(idToAnimate, 'animateFadeIn');
+    removeClassList(idToShow, 'd-none');
+    setTimeout(removeClassList, 1000, idToAnimate, 'animateFadeIn');
+}
+
+function closeOverlayContact(idToHide, idToAnimate) {
+    addClassList(idToHide, 'animateOpacityOut');
+    addClassList(idToAnimate, 'animateFadeOut');
+    setTimeout(addClassList, 1000, idToHide, 'd-none');
+}

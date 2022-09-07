@@ -63,7 +63,7 @@
     background-color: var(--contact-grey);
 }
 
-.bg-contact-light-grey{
+.bg-contact-light-grey {
     background-color: var(--light-grey);
 }
 
@@ -133,7 +133,7 @@
     font-weight: bold;
 }
 
-.contact-avatar-big{
+.contact-avatar-big {
     width: 110px;
     height: 110px;
     border-radius: 50%;
@@ -150,7 +150,7 @@
     background-color: var(--white);
 }
 
-.contact-avatar-outer-big{
+.contact-avatar-outer-big {
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -169,7 +169,7 @@
     margin: 8px 0 8px 8px;
 }
 
-.contact-name-big{
+.contact-name-big {
     font-size: 47px;
     margin: 12px 0 0 0;
 }
@@ -186,7 +186,7 @@
     padding: 16px;
 }
 
-.contact-data-content{
+.contact-data-content {
     margin-top: 50px;
 }
 
@@ -205,23 +205,23 @@
     height: calc(100vh - 210px);
 }
 
-.add-task{
+.add-task {
     color: var(--light-blue);
 }
 
-.add-task img{
+.add-task img {
     margin-right: 8px;
 }
 
-.edit-img{
+.edit-img {
     height: 31px;
 }
 
-.mailto-big{
+.mailto-big {
     color: var(--mailto);
 }
 
-.contact-overlay{
+.contact-overlay {
     width: 930px;
     height: 40vh;
     background-color: white;
@@ -229,7 +229,7 @@
     margin-left: 250px;
 }
 
-.overlay-left{
+.overlay-left {
     background-color: var(--dark-blue);
     border-radius: 10px 0 0 10px;
     width: 40%;
@@ -239,7 +239,7 @@
     width: 60%;
 }
 
-.input-container{
+.input-container {
     border: 1px solid var(--light-grey);
     padding: 8px;
     border-radius: 10px;
@@ -252,7 +252,7 @@
     object-fit: contain;
 }
 
-.input-contact{
+.input-contact {
     border: none;
     outline: none;
     width: 305px;
@@ -260,7 +260,7 @@
     font-size: 21px;
 }
 
-.buttons-margin{
+.buttons-margin {
     margin: 0 0 0 104px !important;
 }
 
@@ -270,19 +270,90 @@
     border-radius: 100%;
 }
 
-.edit-container{
+.edit-container {
     padding: 0 8px 0 8px;
 }
 
-.edit-container:hover{
+.edit-container:hover {
     cursor: pointer;
     background-color: #e5e1e1;
     border-radius: 10px;
 }
 
+.animateFadeIn {
+    animation: fadeIn 1s ease 0s 1 normal forwards;
+}
 
-@media (max-width: 515px){
-    .input-contact{
+.animateFadeOut {
+    animation: fadeOut 1s ease 0s 1 normal forwards;
+}
+
+.animateOpacityIn {
+    animation: fadeOpacityIn 1s ease 0s 1 normal forwards;
+}
+
+.animateOpacityOut {
+    animation: fadeOpacityOut 1s ease 0s 1 normal forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeOpacityIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOpacityOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 515px) {
+    .input-contact {
         width: 200px;
     }
 }
