@@ -48,12 +48,12 @@
     left: 0;
     right: 0;
     z-index: 900;
-    animation: fadeOpacityOut 2s ease 0s 1 normal forwards;
+    animation: fadeOpacityOut 1s ease 0s 1 normal forwards;
 }
 
 .join-logo{
     z-index: 1000;
-    animation: joinlogo 2s ease 0s 1 normal forwards;
+    animation: joinlogo 1s ease 0s 1 normal forwards;
 }
 
 

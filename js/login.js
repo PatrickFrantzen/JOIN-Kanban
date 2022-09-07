@@ -3,7 +3,7 @@ let mailForgotPassword;
 async function initLogin() {
     await loadDataFromServer();
     init();
-    setTimeout(addClassList, 2000, 'login-overlay', 'd-none');
+    setTimeout(addClassList, 1000, 'login-overlay', 'd-none');
 }
 
 function switchOverview(idHide, idShow, classList) {
