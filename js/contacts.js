@@ -1,3 +1,4 @@
+let activeContactIndex;
 async function initContacts() {
     await loadDataFromServer()
     await init();
@@ -129,6 +130,7 @@ function showDataInEditContact(id) {
     for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
         let contact = userInformation[activeUserIndex].contacts[i];
         if (id == contact.mail) {
+            activeContactIndex = i;
             document.getElementById('editContact-name').value = contact.fullname;
             document.getElementById('editContact-email').value = contact.mail;
             document.getElementById('editContact-phone').value = contact.phone;
@@ -137,7 +139,14 @@ function showDataInEditContact(id) {
 }
 
 
-function saveEditedContact() {
-    
+async function saveEditedContact() {
     closeOverlayContact('edit-contact', 'edit-contact-overlay');
+    let name = document.getElementById('editContact-name').value;
+    let email = document.getElementById('editContact-email').value;
+    let phone = document.getElementById('editContact-phone').value;
+    userInformation[activeUserIndex].contacts[activeContactIndex].fullname = name;
+    userInformation[activeUserIndex].contacts[activeContactIndex].mail = email;
+    userInformation[activeUserIndex].contacts[activeContactIndex].phone = phone;
+    await backend.setItem('userInformation', JSON.stringify(userInformation));
+    showContactDetails(email);
 }
