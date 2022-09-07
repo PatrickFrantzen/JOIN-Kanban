@@ -13,10 +13,10 @@ async function init() {
 async function loadDataFromServer() {
     setURL('https://gruppe-306.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    userInformation = JSON.parse(backend.getItem('userInformation')) || [];
-    priority = JSON.parse(backend.getItem('priority')) || [];
-    contactColors = JSON.parse(backend.getItem('contactColors')) || [];
+    users = JSON.parse(jsonFromServer.users) || [];
+    userInformation = JSON.parse(jsonFromServer.userInformation) || [];
+    priority = JSON.parse(jsonFromServer.priority) || [];
+    contactColors = JSON.parse(jsonFromServer.contactColors) || [];
 }
 
 
@@ -96,8 +96,8 @@ function checkActiveUser() {
 function checkActiveUserIndex() {
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
-        let fullname = user.firstname + ' ' + user.lastname;
-        if (fullname == activeUser) {
+        let name = user.fullname;
+        if (name == activeUser) {
             activeUserIndex = i;
         }
     }

@@ -2,7 +2,7 @@ let users;
 
 async function initLogin() {
     await loadDataFromServer();
-    await init();
+    init();
 }
 
 function switchOverview(idHide, idShow, classList) {
@@ -11,13 +11,21 @@ function switchOverview(idHide, idShow, classList) {
 }
 
 
-function signup() {
+async function signup() {
     let name = document.getElementById('signup-name');
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
     users.push({ name: name.value, email: email.value, password: password.value });
-    //TODO save data on backend
+    await backend.setItem('users', JSON.stringify(users));
     switchOverview('signup', 'login', 'd-none');
+    addDataToUserInformation(name, email);
+}
+
+
+function addDataToUserInformation(name, email){
+    let userInfo = {fullname: name.value, email: email.value, img: "img/contacts/newUser.png", color: "", contacts: []};
+    userInformation.push(userInfo);
+    backend.setItem('userInformation', JSON.stringify(userInformation));
 }
 
 
@@ -64,9 +72,8 @@ function getEmailDataFromJson() {
 }
 
 
-function forgotPassword(event) {
+function forgotPassword() {
     switchOverview('forgotpassword', 'resetpassword', 'd-none');
-    event.preventDefault();
 }
 
 

@@ -38,3 +38,4 @@ function closeOverlayContact(idToHide, idToAnimate) {
     addClassList(idToAnimate, 'animateFadeOut');
     setTimeout(addClassList, 1000, idToHide, 'd-none');
 }
+
