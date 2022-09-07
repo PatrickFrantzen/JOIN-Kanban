@@ -186,4 +186,9 @@ function deleteElementOfArray(element){
     assignedToMembers.splice(index, 1);
 }
 
+function createTask() {
+
+    console.log('Test');
+}
+
 

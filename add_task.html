@@ -29,7 +29,7 @@
         <h1>Add Task</h1>
         <div class="sections d-flex">
             <div class="section-left">
-                <form action="">
+                <form onsubmit="createTask(); return false;" action="">
                     <div class="titleandinput">
                         <p class="add-task-titles">Title</p>
                         <input id="title" class="inputfields border-fields f-21" type="text" placeholder="Enter a title"
@@ -46,16 +46,41 @@
                         <p class="m-top-28 add-task-titles">Category</p>
                         <div class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                             onclick="toggleClassList('categories', 'd-none')">
-                            <div id="category" class="inputfield-nearby-icon d-flex align-items-center">Select task category</div>
+                            <div id="category" class="inputfield-nearby-icon d-flex align-items-center">Select task
+                                category</div>
                             <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
                             <ul class="add-task-lists d-none" id="categories">
                                 <li id="newCategory" onclick="addNewCategory()">New Category</li>
-                                <li id="marketing" onclick="changeValue('marketing', 'category')" class="d-flex align-items-center"><div>Marketing</div> <div class="category-color bg-category-marketing"></div></li>
-                                <li id="sales" onclick="changeValue('sales', 'category')" class="d-flex align-items-center"><div>Sales</div> <div class="category-color bg-category-sales"></li>
-                                <li id="design" onclick="changeValue('design', 'category')" class="d-flex align-items-center"><div>Design</div> <div class="category-color bg-category-design"></li>
-                                <li id="media" onclick="changeValue('media', 'category')" class="d-flex align-items-center"><div>Media</div> <div class="category-color bg-category-media"></li>
-                                <li id="backoffice" onclick="changeValue('backoffice', 'category')" class="d-flex align-items-center"><div>Backoffice</div> <div class="category-color bg-category-backoffice"></li>
-                                <li id="developtment" onclick="changeValue('developtment', 'category')" class="d-flex align-items-center"><div>Developtment</div> <div class="category-color bg-category-developtment"></li>
+                                <li id="marketing" onclick="changeValue('marketing', 'category')"
+                                    class="d-flex align-items-center">
+                                    <div>Marketing</div>
+                                    <div class="category-color bg-category-marketing"></div>
+                                </li>
+                                <li id="sales" onclick="changeValue('sales', 'category')"
+                                    class="d-flex align-items-center">
+                                    <div>Sales</div>
+                                    <div class="category-color bg-category-sales">
+                                </li>
+                                <li id="design" onclick="changeValue('design', 'category')"
+                                    class="d-flex align-items-center">
+                                    <div>Design</div>
+                                    <div class="category-color bg-category-design">
+                                </li>
+                                <li id="media" onclick="changeValue('media', 'category')"
+                                    class="d-flex align-items-center">
+                                    <div>Media</div>
+                                    <div class="category-color bg-category-media">
+                                </li>
+                                <li id="backoffice" onclick="changeValue('backoffice', 'category')"
+                                    class="d-flex align-items-center">
+                                    <div>Backoffice</div>
+                                    <div class="category-color bg-category-backoffice">
+                                </li>
+                                <li id="developtment" onclick="changeValue('developtment', 'category')"
+                                    class="d-flex align-items-center">
+                                    <div>Developtment</div>
+                                    <div class="category-color bg-category-developtment">
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -64,16 +89,17 @@
                         <div class=" d-flex flex-column m-top-28">
                             <label for="assignedTo" class="f-18 m-bottom-18">Assigned to</label>
                             <div class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
-                            onclick="toggleClassList('assignedTo', 'd-none')">
-                            <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select one or more people</div>
-                            <img src="img/add_task/dropdown_arrow.svg" alt="">
-                        </div>
-                        <div class="confirm-selection d-none" id="assignedTo">
-                            <select class="scroll" name="assignedToSelect" id="assignedToSelect" multiple>
-                                <option label="Nadia Knofius"></option>
-                                <option label="Patrick Frantzen"></option>
-                                <option label="Peter Pan"></option>
-                            </select>
+                                onclick="toggleClassList('assignedTo', 'd-none')">
+                                <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select one
+                                    or more people</div>
+                                <img src="img/add_task/dropdown_arrow.svg" alt="">
+                            </div>
+                            <div class="confirm-selection d-none" id="assignedTo">
+                                <select class="scroll" name="assignedToSelect" id="assignedToSelect" multiple>
+                                    <option label="Nadia Knofius"></option>
+                                    <option label="Patrick Frantzen"></option>
+                                    <option label="Peter Pan"></option>
+                                </select>
                                 <div class="darkblue-btn m-left-8" onclick="addAssignedTo()">
                                     <span class="f-18">OK</span>
                                     <img class="btn-icons" src="img/buttons/create.png" alt="">
@@ -81,17 +107,17 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="section-right">
-                <div class="titleandinput">
+                    </div>
+                    <div class="section-right">
+                    <div class="titleandinput">
                     <p class="add-task-titles">Due Date</p>
                     <div
                         class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
                         <input id="category" class="inputfield-nearby-icon" type="date" required>
                     </div>
-                </div>
+                    </div>
 
-                <div class="titleandinput">
+                    <div class="titleandinput">
                     <p class="m-top-28 add-task-titles">Prio</p>
                     <div class="d-flex justify-content-space-between">
                         <div id="urgent"
@@ -113,9 +139,9 @@
                             <img id="low-img" class="p-12" src="img/add_task/arrow_low.svg" alt="">
                         </div>
                     </div>
-                </div>
+                    </div>
 
-                <div class="titleandinput">
+                    <div class="titleandinput">
                     <p class="m-top-28 add-task-titles">Subtasks</p>
                     <div
                         class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
@@ -127,21 +153,21 @@
                         <p class="checkbox-text">Subtask 1</p>
                     </div>
 
-                </div>
+                    </div>
 
-                <div class="buttons">
+                    <div class="buttons">
                     <button class="light-btn" type="submit" value="Previous" formnovalidate="formnovalidate">
                         <span class="f-18">clear</span>
                         <img class="btn-icons" src="img/buttons/clear.png" alt="">
                     </button>
-                    <button class="darkblue-btn m-left-24">
+                    <button id="createTask" class="darkblue-btn m-left-24">
                         <span class="f-18">create task</span>
                         <img class="btn-icons" src="img/buttons/create.png" alt="">
                     </button>
-                </div>
+                    </div>
 
-            </div>
-            </form>
+                    </div>
+                </form>
         </div>
     </div>
 </body>
