@@ -296,6 +296,8 @@
     animation: fadeOpacityOut 1s ease 0s 1 normal forwards;
 }
 
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;

@@ -3,6 +3,7 @@ let mailForgotPassword;
 async function initLogin() {
     await loadDataFromServer();
     init();
+    setTimeout(addClassList, 2000, 'login-overlay', 'd-none');
 }
 
 function switchOverview(idHide, idShow, classList) {
@@ -93,7 +94,7 @@ function checkNewPassword(password, confirmedPassword) {
         }
         switchOverview('resetpassword', 'login', 'd-none');
     } else {
-        alert('Die eingegebenen Passwörter stimmen nicht überein. Bitte wiederholen Sie die Eingabe');
+        alert('The entered passwords do not match. Please repeat your entry');
     }
 }
 

@@ -221,6 +221,10 @@ a {
     font-size: 16px;
 }
 
+.curserPointer:hover{
+    cursor: pointer;
+}
+
 .buttons {
     display: flex;
     justify-content: flex-end;
