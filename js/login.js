@@ -43,9 +43,21 @@ function checkLoginData(index, password) {
         switchOverview('login', 'signup', 'd-none');
     } else if (userInformation[index].password === password.value) {
         switchOtherHtml('summary.html?');
-        setActiveUserToLocalStorage('activeUser', userInformation[index].fullname);
+        checkIncognitoModeToLogin(index);
     } else {
         alert('Your password is not correct, please try again');
+    }
+}
+
+
+function checkIncognitoModeToLogin(index) {
+    try{
+        setActiveUserToLocalStorage('activeUser', userInformation[index].fullname);
+    }
+    catch(e){
+        console.log(e);
+        activeUserIndex = 2;
+        activeUser = 'Guest Account';
     }
 }
 
@@ -53,7 +65,7 @@ function checkLoginData(index, password) {
 function guestLogin() {
     switchOtherHtml('summary.html?');
     activeUserIndex = 2;
-    setActiveUserToLocalStorage('activeUser', userInformation[activeUserIndex].fullname);
+    checkIncognitoModeToLogin(acriveUserIndex);
 }
 
 
@@ -108,12 +120,13 @@ async function saveNewPassword(i, password){
 
 
 function logout(){
+    removeActiveUserFromLocalStorage();
     switchOtherHtml('index.html?'); 
     addClassList('signup', 'd-none');
     addClassList('forgotpassword', 'd-none');
     addClassList('resetpassword', 'd-none');
     removeClassList('login', 'd-none');
-    removeActiveUserFromLocalStorage();
+   
 }
 
 
@@ -130,3 +143,4 @@ function getActiveUserFromLocalStorage(key) {
 function removeActiveUserFromLocalStorage() {
     localStorage.removeItem('activeUser');
 }
+

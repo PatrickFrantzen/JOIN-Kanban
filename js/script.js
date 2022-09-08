@@ -84,11 +84,23 @@ function changeClassListMenuLinks(id) {
  * and sets it in global variable activeUser
  */
 function checkActiveUser() {
-    activeUser = getActiveUserFromLocalStorage('activeUser');
+    checkIncognitoMode();
     if(activeUser == 'Guest Account'){
         activeUserIndex = 2;
     } else {
         checkActiveUserIndex();
+    }
+}
+
+function checkIncognitoMode() {
+    try {
+        activeUser = getActiveUserFromLocalStorage('activeUser');
+        if(!activeUser){
+            activeUser = 'Guest Account' 
+        }
+    }
+    catch(e){
+       console.log(e); 
     }
 }
 
