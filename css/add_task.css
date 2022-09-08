@@ -75,6 +75,8 @@ input[type="checkbox"]:checked{
     margin-top: 2px;
     box-sizing: border-box;
     padding: 0;
+    height: 145px;
+    overflow: auto;
 }
 
 .add-task-lists li {

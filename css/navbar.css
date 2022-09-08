@@ -43,9 +43,8 @@
 
 .navbar {
     background-color: var(--dark-blue2);
-    position: relative;
     width: 250px;
-    min-height: 100vh;
+    height: 100%;
     justify-content: space-around;
     z-index: 2;
     position: fixed;
