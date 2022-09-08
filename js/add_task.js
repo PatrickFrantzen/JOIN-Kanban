@@ -220,10 +220,10 @@ function getCurrentCategory() {
 
 function convertToEuropeDate() {
     let dueDate = document.getElementById('date').value;
-    let europeanDate = new Date(dueDate);
-    return europeanDate;
-    /*Convert to European Date
-    return europeanDate.getDate()+"/"+(europeanDate.getMonth() + 1) +"/"+date.getFullYear();*/
+    let day = dueDate.slice(8,10);
+    let month = dueDate.slice(5,7);
+    let year = dueDate.slice(0,4);
+    return `${day}.${month}.${year}`
 }
 
 
