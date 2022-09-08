@@ -194,8 +194,8 @@ function deleteElementOfArray(element){
 }
 
 function createNewTask() {
-    let title = document.getElementById('title').value;
-    let description = document.getElementById('describtion').value;
+    let title = document.getElementById('title');
+    let description = document.getElementById('describtion');
     let category = getCurrentCategory();
     let assignedTo = currentMembers;
     let date = convertToEuropeDate();
@@ -203,13 +203,12 @@ function createNewTask() {
     addNewTaskToArray(title, description, category, assignedTo, date, prio);
 }
 
-function addNewTaskToArray(title, description, category, assignedTo, date, prio) {
-    console.log(title);
-    console.log(description);
-    console.log(category);
-    console.log(assignedTo);
-    console.log(date);
-    console.log(prio);
+ async function addNewTaskToArray(title, description, category, assignedTo, date, prio) {
+    let newTask = {tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio};
+    allTasks.push(newTask);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    title.value = '';
+    description.value = '';
     
 }
 

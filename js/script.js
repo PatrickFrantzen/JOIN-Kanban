@@ -5,6 +5,7 @@ let activeUser;
 let activeUserIndex;
 let userIndexForgotPassword;
 
+
 async function init() {
     await includeHTML();
     checkActiveHTML();
@@ -23,6 +24,7 @@ function putLoadedDataToArray() {
     priority = JSON.parse(jsonFromServer.priority) || [];
     contactColors = JSON.parse(jsonFromServer.contactColors) || [];
     userIndexForgotPassword = jsonFromServer.userIndexForgotPassword;
+    allTasks = JSON.parse(jsonFromServer.allTasks) || [];
 }
 
 

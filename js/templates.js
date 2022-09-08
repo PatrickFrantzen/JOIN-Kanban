@@ -1,6 +1,7 @@
 let priority;
 let userInformation;
 let contactColors;
+let allTasks = [];
 
 
 function renderContactDetails(firstLetter, secondLetter, name, email, color, phone) {
@@ -170,3 +171,4 @@ let test = [{
             }]
         }
 ];
+
