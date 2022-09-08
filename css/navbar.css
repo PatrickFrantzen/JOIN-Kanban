@@ -48,6 +48,7 @@
     min-height: 100vh;
     justify-content: space-around;
     z-index: 2;
+    position: fixed;
 }
 
 .navbar-inner-container{

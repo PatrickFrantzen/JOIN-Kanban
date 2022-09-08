@@ -33,13 +33,13 @@
                 <form onsubmit="createNewTask(); return false">
                     <div class="titleandinput">
                         <p class="add-task-titles">Title</p>
-                        <input id="title" class="inputfields border-fields f-21" type="text" placeholder="Enter a title"
+                        <input id="title" class="inputfields border-fields f-18" type="text" placeholder="Enter a title"
                             required>
                     </div>
 
                     <div class="titleandinput">
                         <p class="m-top-28 add-task-titles">Description</p>
-                        <textarea id="describtion" class="textareas border-fields f-21" type="text"
+                        <textarea id="describtion" class="textareas border-fields f-18" type="text"
                             placeholder="Enter a describtion" required></textarea>
                     </div>
 
@@ -51,7 +51,7 @@
                                 category</div>
                             <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
                             <ul class="add-task-lists d-none" id="categories">
-                                <li id="newCategory" onclick="addNewCategory()">New Category</li>
+                                <li id="newCategory" onclick="createNewTask()">New Category</li>
                                 <li id="marketing" onclick="changeValue('marketing', 'category')"
                                     class="d-flex align-items-center">
                                     <div>Marketing</div>
