@@ -31,16 +31,11 @@ function removeDoubleLetters(firstletters) {
 function renderLetterContainer(firstlettersUnique, contacts) {
     let contactContainer = document.getElementById('contact-content');
     contactContainer.innerHTML = '';
-    if (activeUser == 'Guest Account') {
-        contactContainer.innerHTML = `<p class="text-center">This is a guest account, 
-        please sign up to enjoy more benefits and to manage your contacts</p>`;
-    } else {
         for (let i = 0; i < firstlettersUnique.length; i++) {
             let letter = firstlettersUnique[i];
             contactContainer.innerHTML += renderLetterContainerTemplate(letter);
         }
         renderContacts(contacts);
-    }
 }
 
 

@@ -87,35 +87,39 @@ function getEmailDataFromJson() {
 }
 
 
-function forgotPassword() {
+async function forgotPassword() {
     mailForgotPassword = document.getElementById('mailForgotPassword').value;
-    switchOverview('forgotpassword', 'resetpassword', 'd-none');
+    for (let i = 0; i < userInformation.length; i++) {
+        let mail = userInformation[i].mail;
+        if(mail == mailForgotPassword){
+            let userIndexForgotPassword = i;
+            debugger;
+            await backend.setItem('userIndexForgotPassword', userIndexForgotPassword);
+        }
+        
+    }
 }
 
-function changePassword() {
+async function changePassword() {
     let password = document.getElementById('reset-password');
     let confirmedPassword = document.getElementById('confirm-password');
-    checkNewPassword(password, confirmedPassword);
+    await checkNewPassword(password, confirmedPassword);
+    backend.setItem('userIndexForgotPassword', NaN);
 }
 
 
-function checkNewPassword(password, confirmedPassword) {
+async function checkNewPassword(password, confirmedPassword) {
     if(password.value === confirmedPassword.value){
-        for (let i = 0; i < userInformation.length; i++) {
-            saveNewPassword(i, password);
-        }
-        switchOverview('resetpassword', 'login', 'd-none');
+        await saveNewPassword(password);
+        window.location.href = 'index.html';
     } else {
         alert('The entered passwords do not match. Please repeat your entry');
     }
 }
 
-async function saveNewPassword(i, password){
-    let user = userInformation[i];
-    if(user.mail == mailForgotPassword){
-        userInformation[i].password = password.value;
-        await backend.setItem('userInformation', JSON.stringify(userInformation));
-    }
+async function saveNewPassword(password){
+    userInformation[userIndexForgotPassword].password = password.value;
+    await backend.setItem('userInformation', JSON.stringify(userInformation));
 }
 
 

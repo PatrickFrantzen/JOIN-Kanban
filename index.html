@@ -133,22 +133,25 @@
                     <h2 class="color-black f-55 text-center h2-login-resp">I forgot my password</h2>
                     <div class="horizontal-line horizontal-line-login"></div>
                 </div>
-                <form action="" onsubmit="forgotPassword(); return false;">
+                <form action="https://gruppe-306.developerakademie.net/JOIN-Kanban/send_mail/send_mail_forgot_password.php" onsubmit="forgotPassword();" method="POST">
                     <div class="d-flex flex-column align-items-center">
                         <p class="text-center p-12">
                             Don't worry! We will send you an email with the insctructions to <br>
                             reset your password.
                         </p>
+
+                        <textarea class="d-none" name="message" cols="30" rows="10" value="Hello, please click on link below to reset your password">
+                        </textarea>
                         <div class="d-flex input-container-login border-fields input-with-image align-items-center">
                             <input id="mailForgotPassword" class="d-flex justify-content-center align-items-center input-contact"
-                                placeholder="Email" type="email" required>
+                                placeholder="Email" type="email" name="mail" required>
                             <img src="img/contacts/mail.png" alt="">
                         </div>
 
                     </div>
 
                     <div class="d-flex justify-content-center m-top-28">
-                        <button class="darkblue-btn">
+                        <button class="darkblue-btn" type="onsubmit">
                             <span class="f-18">Send me the email</span>
                         </button>
                     </div>

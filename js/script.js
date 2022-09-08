@@ -3,6 +3,7 @@ let menulinks = [
 
 let activeUser;
 let activeUserIndex;
+let userIndexForgotPassword;
 
 async function init() {
     await includeHTML();
@@ -13,10 +14,15 @@ async function init() {
 async function loadDataFromServer() {
     setURL('https://gruppe-306.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
+    putLoadedDataToArray()
+}
+
+function putLoadedDataToArray() {
     users = JSON.parse(jsonFromServer.users) || [];
     userInformation = JSON.parse(jsonFromServer.userInformation) || [];
     priority = JSON.parse(jsonFromServer.priority) || [];
     contactColors = JSON.parse(jsonFromServer.contactColors) || [];
+    userIndexForgotPassword = jsonFromServer.userIndexForgotPassword;
 }
 
 

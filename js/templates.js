@@ -5,7 +5,8 @@ let contactColors;
 
 function renderContactDetails(firstLetter, secondLetter, name, email, color, phone) {
     return `
-    <div class="contact-card-big d-flex animateFadeIn">
+    <div class="animateFadeIn d-flex flex-column" >
+            <div class="contact-card-big d-flex ">
                         <div
                             class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
                             <div id="names-letter"
@@ -39,7 +40,8 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
                         <span><b>Phone</b></span>
                         <a class="f-18 color-black m-top-20" href="tel:+491743451698">${phone}</a>
                     </div>
-    </div>              
+            </div>      
+    </div>          
     `
 }
 
