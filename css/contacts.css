@@ -15,6 +15,10 @@
     --mailto: #007CEE;
 }
 
+.body-contact{
+    overflow-x: hidden;
+}
+
 .bg-contact-blue {
     background-color: var(--contact-blue);
 }
@@ -129,8 +133,8 @@
 }
 
 .contact-avatar {
-    width: 42px;
-    height: 42px;
+    width: 41px;
+    height: 41px;
     border-radius: 50%;
     font-size: 18px;
     color: var(--white);
@@ -197,8 +201,9 @@
 
 .contact-card-small:hover {
     cursor: pointer;
-    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+    background: linear-gradient(180deg, #f5f3f3 0%, #cccaca 100%);
     border-radius: 10px;
+    color: black;
 }
 
 .right-section {
@@ -280,7 +285,13 @@
 
 .edit-container:hover {
     cursor: pointer;
-    background-color: #e5e1e1;
+    background: linear-gradient(180deg, #f5f3f3 0%, #cccaca 100%);
+    border-radius: 10px;
+}
+
+.clickedContact{
+    background-color: var(--dark-blue);
+    color: white;
     border-radius: 10px;
 }
 
@@ -290,27 +301,27 @@
         justify-content: flex-start !important;
     }
 
-    .left-section-container{
+    .left-section-container {
         width: 380px;
     }
 
-    .contact-card-small{
+    .contact-card-small {
         width: 280px;
     }
 
-    .contact-content{
+    .contact-content {
         width: 82%;
     }
 
-    .right-section{
+    .right-section {
         left: 468px
     }
 
-    .headline-text{
+    .headline-text {
         font-size: 21px !important;
     }
 
-    .contact-name-big{
+    .contact-name-big {
         font-size: 40px;
     }
 
@@ -330,14 +341,14 @@
 
     .contact-letter {
         padding-left: 0;
+    }
 }
-}
 
 
-@media (max-width: 1323px){
-   
+@media (max-width: 1323px) {
 
-    .headline-line{
+
+    .headline-line {
         margin-right: 30px !important;
         margin-left: 30px !important;
     }
@@ -347,8 +358,8 @@
     }
 }
 
-@media (max-width: 1261px){
-    .contact-name-big{
+@media (max-width: 1261px) {
+    .contact-name-big {
         font-size: 35px;
     }
 
@@ -356,16 +367,16 @@
         margin-left: 50px;
     }
 
-    .headline-line{
+    .headline-line {
         margin-right: 30px !important;
         margin-left: 30px !important;
     }
 
-    .right-section{
+    .right-section {
         left: 438px
     }
 
-    h1{
+    h1 {
         font-size: 45px !important;
     }
 
@@ -384,6 +395,7 @@
     .mailto {
         font-size: 14px;
     }
+
     .contact-name {
         font-size: 18px;
     }
@@ -392,33 +404,36 @@
         width: 320px;
     }
 
-    .left-section-container{
+    .left-section-container {
         width: 320px;
     }
 
-    .contact-card-small{
+    .contact-card-small {
         width: 280px;
     }
 
-    .contact-content{
+    .contact-content {
         width: 95% !important;
     }
 
-    .right-section{
+    .right-section {
         left: 377px
     }
 
-    h1{
+    h1 {
         font-size: 43px !important;
     }
 
-    .headline-text{
+    .headline-text {
         font-size: 18px !important;
     }
+
     .contact-card-small {
         width: 250px;
-        padding: 8px;;
+        padding: 8px;
+        ;
     }
+
     .contact-letter span {
         padding-left: 12px;
     }
@@ -430,7 +445,7 @@
 }
 
 @media (max-width: 1074px) {
-    .navbar{
+    .navbar {
         width: 230px !important;
     }
 
@@ -445,17 +460,20 @@
     .contact-name-big {
         font-size: 32px;
     }
+
     .contact-data-big {
         margin-left: 30px;
     }
 
-    .right-section{
-       width: 30vw;
-       min-width: unset !important;
+    .right-section {
+        width: 40vw;
+        min-width: unset !important;
     }
 
     .contact-name-big {
         font-size: 27px;
+        margin: 20px 0 0 0;
+
     }
 
     .contact-avatar-big {
@@ -468,29 +486,56 @@
         height: 80px;
     }
 
-    #names-letter{
+    #names-letter {
         font-size: 30px;
     }
 
-    .f-21{
+    .f-21 {
         font-size: 18px !important;
     }
 
-    .f-18{
+    .f-18 {
         font-size: 16px !important;
     }
 
-    .contact-card-big{
-        flex-direction: column;
-    }
 
-    .contact-data-big{
-        margin-left: 0;
-    }
-
-    .contact-information-headline{
+    #contact-information-headline {
         flex-direction: column;
         align-items: flex-start !important;
+        margin-top: 20px !important;
+    }
+
+    #phone {
+        margin-top: 28px;
+    }
+
+    #phone a{
+        margin-top: 16px;
+    }
+
+    #contact-content-mail {
+        margin-top: 28px !important;
+    }
+
+    #contact-content-mail a{
+        margin-top: 16px !important;
+    }
+
+    .edit-container {
+        margin-top: 12px;
+    }
+
+    .contact-data-content {
+        margin-top: 0;
+    }
+
+    .new-contact-btn-container{
+        margin-top: 28px;
+        justify-content: flex-start !important;
+    }
+
+    #new-contact-btn{
+        margin-left: 0;
     }
 }
 

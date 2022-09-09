@@ -76,7 +76,7 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-space-between m-top-50 contact-information-headline">
+                    <div id="contact-information-headline" class="d-flex align-items-center justify-content-space-between m-top-50">
                         <span class="f-21">Contact Information</span>
                         <div class="d-flex align-items-center edit-container" onclick="showOverlayContact('edit-contact', 'edit-contact-overlay', '${email}')">
                             <img class="edit-img" src="img/buttons/edit_blue.png" alt="">
@@ -112,7 +112,7 @@ function renderContactsTemplate(name, email, firstLetter, color, secondLetter) {
     <div class="contact-data">
         <p class="contact-name">${name}</p>
         <a class="mailto"
-            href="mailto:${email}">${email}</a>
+            >${email}</a>
     </div>
 </div>
     `;

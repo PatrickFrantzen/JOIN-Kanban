@@ -61,15 +61,23 @@ function splitFullname(contacts, i) {
 }
 
 
-
-
 function showContactDetails(id) {
+    removeBgStyleForAllContacts();
+    addClassList(id, 'clickedContact');
     for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
         let contacts = userInformation[activeUserIndex].contacts;
         let contactMail = contacts[i].mail;
         if (id == contactMail) {
             getContactDetails(contacts, i);
         }
+    }
+}
+
+
+function removeBgStyleForAllContacts() {
+    for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
+        let contactId = userInformation[activeUserIndex].contacts[i].mail;
+        removeClassList(contactId, 'clickedContact');
     }
 }
 
@@ -92,8 +100,6 @@ function checkIfContactWasAlreadyClicked() {
         return 'animateFadeIn';
     }
 }
-
-
 
 function newContact(event) {
     let name = document.getElementById('newContact-name');

@@ -15,17 +15,17 @@
     width: 120px;
 }
 
-.input-container-login{
+.input-container-login {
     margin-top: 38px;
     padding: 8px;
 }
 
-.input-container-reset{
+.input-container-reset {
     margin-top: 24px;
     padding: 8px;
 }
 
-.back-btn{
+.back-btn {
     position: absolute;
     top: 55px;
     left: 50px;
@@ -35,12 +35,12 @@
     cursor: pointer;
 }
 
-.password-mask{
+.password-mask {
     width: 780px;
     height: 430px;
 }
 
-.login-overlay{
+.login-overlay {
     position: absolute;
     background-color: var(--bg-grey);
     top: 0;
@@ -48,64 +48,82 @@
     left: 0;
     right: 0;
     z-index: 900;
-    animation: fadeOpacityOut 1500ms ease 0s 1 normal forwards;
+    animation: fadeOpacityOut 2s ease 0s 1 normal forwards;
 }
 
-.join-logo{
+.join-logo {
     z-index: 1000;
     animation: joinlogo 1s ease 0s 1 normal forwards;
 }
 
+.input-contact-login{
+    border: none;
+    outline: none;
+    width: 305px;
+    height: 33px;
+    font-size: 21px;
+}
 
 
-@media (max-width: 760px){
-    .f-55{
+
+@media (max-width: 760px) {
+    .f-55 {
         font-size: 45px;
     }
 }
 
 
-@media (max-width: 665px){
-    .login-content{
+@media (max-width: 665px) {
+    .login-content {
         width: 461px;
     }
 
-    .f-55{
+    .f-55 {
         font-size: 45px;
     }
 }
 
-@media (max-width: 515px){
-    
-    .not-join-user{
+@media (max-width: 515px) {
+
+    .not-join-user {
         position: absolute;
         bottom: 50px;
         right: 0px;
+        width: 100%;
+        justify-content: center;
     }
 
-    .join-logo{
+    .join-logo {
         width: 70px;
     }
 }
 
-@media (max-width: 450px){
-    .login-content{
+@media (max-width: 450px) {
+    .login-content {
         width: calc(100vw - 32px);
+        justify-content: center;
+        display: flex;
     }
 
-    .input-container-login{
-        width: 250px;
-    }
-
-    .rememberme-forgot{
+    .rememberme-forgot {
         flex-direction: column-reverse;
+        margin-top: 8px !important;
+        align-items: flex-start !important;
     }
 
-    .f-55{
+    #forgot-password-text{
+        margin-left: 24px;
+    }
+
+    .rememberme-container{
+        margin-left: 24px;
+    }
+
+    .f-55 {
         font-size: 40px;
     }
 
-    .login-btn-container{
+    .login-btn-container {
         flex-direction: column;
         align-items: center;
     }
@@ -116,21 +134,103 @@
         margin-left: 0 !important;
     }
 
-    .h2-login-resp{
+    .h2-login-resp {
         width: 60%;
     }
 
-    .login-overlay{
+    .login-overlay {
         background-color: var(--dark-blue);
     }
 
-    .join-logo{
+    .join-logo {
         animation: joinlogoMobile 1s ease 0s 1 normal forwards;
+    }
+
+    .input-contact-login {
+        height: 24px;
+        font-size: 18px;
+    }
+
+    .input-container-login {
+        margin-top: 28px;
+    }
+
+    .guestLogin-btn{
+        margin-left: 0;
+        width: 100px;
+        padding: 8px 16px 8px 16px;
+        margin: 4px;
+    }
+
+    .login-btn-container{
+        margin-top: 8px;
+    }
+
+    .not-join-user{
+        width: 100%;
+        justify-content: center;
+    }
+
+    #signup-btn{
+        margin: 0 0 0 12px;
+        padding: 8px 8px 8px 8px;
+        min-width: 100px;
+    }
+
+    .login-wrapper{
+        width: 350px
     }
 }
 
-@media (max-height: 820px){
-    .join-logo{
+@media (max-width: 410px){
+     .input-container-login {
+        width: 280px;
+    }
+}
+
+@media (max-height: 920px){
+    .logo-container {
+        margin-top: 16px !important;
+    }
+
+    .login-content-container{
+        margin-top: 24px !important;
+    }
+}
+
+@media (max-height: 820px) {
+    .login-content-container {
+        margin-top: 24px !important;
+    }
+
+    .logo-container {
+        margin-top: 0 !important;
+    }
+
+    .join-logo {
+        padding-top: 24px;
         width: 50px;
     }
+
+    .input-container-login {
+        margin-top: 28px;
+    }
+
+    .input-contact {
+        height: 24px;
+        font-size: 18px;
+    }
+
+    .login-content {
+        height: 470px
+    }
+
+    .not-join-user {
+        position: absolute;
+        bottom: 50px;
+        right: 0px;
+        width: 100%;
+        justify-content: center;
+    }
+
 }
