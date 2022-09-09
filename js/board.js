@@ -17,20 +17,25 @@ function getTaskDetails(i, singleTask) {
     let category = singleTask.taskcategory;
     let date = singleTask.duedate;
     let prio = singleTask.taskprio;
-    createTask(i, title, description, category, date, prio);
-    /*let members = getMembers(singleTask);*/
+    let members = getMembers(singleTask);
+    createTask(i, title, description, category, date, prio, members);
+    
 }
 
-function createTask(i, title, description, category, date, prio) {
-    document.getElementById('todo-card').innerHTML += renderSingleCard(i, title, description, category, date, prio)
+function createTask(i, title, description, category, date, prio, members) {
+    document.getElementById('todo-card').innerHTML += renderSingleCard(i, title, description, category, date, prio);
+    document.getElementById(`assigned-${i}`).innerHTML = renderMembersOfTask(members); //Initialen der Member ermittel
 }
 
-/*function getMembers(singleTask) {
+function getMembers(singleTask) {
+    let taskmembers =[];
     for (let i = 0; i < singleTask.taskmember.length; i++) {
         let member = singleTask.taskmember[i];
-        
+        taskmembers.push(member);
     }
-} Die Member sollen ausgelesen werden, wenn die Kreise der Member erstellt werden*/
+    return taskmembers;
+
+} 
 
 function closeDialog() {
     document.getElementById('task-display').classList.add('d-none');

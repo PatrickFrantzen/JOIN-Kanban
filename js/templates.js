@@ -91,24 +91,29 @@ function renderSingleCard(i, title, description, category, date, prio) {
     </div>
 
     <div id="assigned-${i}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
-        <div class="d-flex">
-            <div class="assigned-outer">
-                <div class="assigned-inner bg-contact-blue d-flex justify-content-center align-items-center">
-                    NK
-                </div>
-            </div>
-            <div class="assigned-outer position-circle">
-                <div class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center relative">
-                    PF
-                </div>
-            </div>
-        </div>
+        
         <div class="board-assigned-urgent"><img id="prio-${i}" src="img/add_task/arrow_low.svg"> </div>
     </div>
 </div>
 `
 }
 
+function renderMembersOfTask() {
+    return `
+    <div class="d-flex">
+    <div class="assigned-outer">
+        <div class="assigned-inner bg-contact-blue d-flex justify-content-center align-items-center">
+            NK
+        </div>
+    </div>
+    <div class="assigned-outer position-circle">
+        <div class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center relative">
+            PF
+        </div>
+    </div>
+    </div>
+    `
+}
 
 
 
