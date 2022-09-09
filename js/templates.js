@@ -19,11 +19,11 @@ let contactColors; /*= [
     },
     {
         "color": "violet",
-        "used": false,
+        "used": true,
     },
     {
         "color": "brown",
-        "used": false,
+        "used": true,
     },
     {
         "color": "orange",
@@ -51,15 +51,15 @@ let contactColors; /*= [
     },
     {
         "color": "grey",
-        "used": false,
+        "used": true,
     },
 ]*/;
-let allTasks = [];
+let allTasks;
 
 
-function renderContactDetails(firstLetter, secondLetter, name, email, color, phone) {
+function renderContactDetails(firstLetter, secondLetter, name, email, color, phone, animationContact) {
     return `
-    <div class="animateFadeIn d-flex flex-column" >
+    <div id="contact-detail-data-container" class="${animationContact} d-flex flex-column" >
             <div class="contact-card-big d-flex ">
                         <div
                             class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
@@ -76,7 +76,7 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-space-between m-top-50">
+                    <div class="d-flex align-items-center justify-content-space-between m-top-50 contact-information-headline">
                         <span class="f-21">Contact Information</span>
                         <div class="d-flex align-items-center edit-container" onclick="showOverlayContact('edit-contact', 'edit-contact-overlay', '${email}')">
                             <img class="edit-img" src="img/buttons/edit_blue.png" alt="">
@@ -139,25 +139,28 @@ let test = [{
     "fullname": "Nadia Knofius",
     "password": "katze123",
     "mail": "nadia.knofius@gmail.com",
-    "color": "blue",
+    "color": "violet",
     "img": "img/profil_pics/nadia.jpg",
     "contacts": [
         {
-            "firstname": "Max",
-            "lastname": "Mustermann",
             "fullname": "Max Mustermann",
             "mail": "max.mustermann.com",
             "phone": "+49 176 224 773 3",
             "color": "green",
         },
         {
-            "firstname": "Patrick",
-            "lastname": "Frantzen",
             "fullname": "Patrick Frantzen",
             "mail": "patrick.frantzen@gmail.com",
             "phone": "+49 174 345 169 8",
             "color": "brown",
-        }],
+        },
+        {
+            "fullname": "Hildegard Bunt",
+            "mail": "hilde@gmail.com",
+            "phone": "+49 171 6113 79056",
+            "color": "pink",
+        }
+    ],
 },
 {
     "fullname": "Patrick Frantzen",
@@ -167,29 +170,51 @@ let test = [{
     "img": "img/profil_pics/patrick_pic.jpg",
     "contacts": [
         {
-            "firstname": "Nadia",
-            "lastname": "Knofius",
             "fullname": "Nadia Knofius",
             "mail": "nadia.knofius@gmail.com",
             "phone": "+49 176 225 223 4",
-            "color": "blue",
+            "color": "violet",
         },
         {
-            "firstname": "Patrick",
-            "lastname": "Frantzen",
-            "fullname": "Patrick Frantzen",
-            "mail": "patrick.frantzen@gmail.com",
-            "phone": "+49 174 345 169 8",
-            "color": "brown",
-        }]
+            "fullname": "Max Mustermann",
+            "mail": "max.mustermann.com",
+            "phone": "+49 176 224 773 3",
+            "color": "green",
+        },
+        {
+            "fullname": "Hildegard Bunt",
+            "mail": "hilde@gmail.com",
+            "phone": "+49 171 6113 79056",
+            "color": "pink",
+        }
+    ]
 },
 {
     "fullname": "Guest Account",
     "password": "",
     "mail": "",
-    "color": "",
+    "color": "grey",
     "img": "img/contacts/newUser.png",
-    "contacts": []
+    "contacts": [
+        {
+            "fullname": "Nadia Knofius",
+            "mail": "nadia.knofius@gmail.com",
+            "phone": "+49 176 225 223 4",
+            "color": "violet",
+        },
+        {
+            "fullname": "Patrick Frantzen",
+            "mail": "patrick.frantzen@gmail.com",
+            "phone": "+49 174 345 169 8",
+            "color": "brown",
+        },
+        {
+            "fullname": "Hildegard Bunt",
+            "mail": "hilde@gmail.com",
+            "phone": "+49 171 6113 79056",
+            "color": "pink",
+        }
+    ]
     },
     {
         "fullname": "Hildegard Bunt",
@@ -199,24 +224,18 @@ let test = [{
         "img": "img/contacts/newUser.png",
         "contacts": [
             {
-                "firstname": "Nadia",
-                "lastname": "Knofius",
                 "fullname": "Nadia Knofius",
                 "mail": "nadia.knofius@gmail.com",
                 "phone": "+49 176 225 223 4",
-                "color": "blue",
+                "color": "violet",
             },
             {
-                "firstname": "Patrick",
-                "lastname": "Frantzen",
                 "fullname": "Patrick Frantzen",
                 "mail": "patrick.frantzen@gmail.com",
                 "phone": "+49 174 345 169 8",
                 "color": "brown",
             },
             {
-                "firstname": "Max",
-                "lastname": "Mustermann",
                 "fullname": "Max Mustermann",
                 "mail": "max.mustermann.com",
                 "phone": "+49 176 224 773 3",

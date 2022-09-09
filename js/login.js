@@ -55,7 +55,6 @@ function checkIncognitoModeToLogin(index) {
         setActiveUserToLocalStorage('activeUser', userInformation[index].fullname);
     }
     catch(e){
-        console.log(e);
         activeUserIndex = 2;
         activeUser = 'Guest Account';
     }
@@ -65,7 +64,7 @@ function checkIncognitoModeToLogin(index) {
 function guestLogin() {
     switchOtherHtml('summary.html?');
     activeUserIndex = 2;
-    checkIncognitoModeToLogin(acriveUserIndex);
+    checkIncognitoModeToLogin(activeUserIndex);
 }
 
 
@@ -93,7 +92,6 @@ async function forgotPassword() {
         let mail = userInformation[i].mail;
         if(mail == mailForgotPassword){
             let userIndexForgotPassword = i;
-            debugger;
             await backend.setItem('userIndexForgotPassword', userIndexForgotPassword);
         }
         
@@ -111,7 +109,7 @@ async function changePassword() {
 async function checkNewPassword(password, confirmedPassword) {
     if(password.value === confirmedPassword.value){
         await saveNewPassword(password);
-        window.location.href = 'index.html';
+        switchOtherHtml('index.html');
     } else {
         alert('The entered passwords do not match. Please repeat your entry');
     }
@@ -130,7 +128,6 @@ function logout(){
     addClassList('forgotpassword', 'd-none');
     addClassList('resetpassword', 'd-none');
     removeClassList('login', 'd-none');
-   
 }
 
 

@@ -1,4 +1,6 @@
 let activeContactIndex;
+let animation = false;
+
 async function initContacts() {
     await loadDataFromServer()
     await init();
@@ -31,11 +33,11 @@ function removeDoubleLetters(firstletters) {
 function renderLetterContainer(firstlettersUnique, contacts) {
     let contactContainer = document.getElementById('contact-content');
     contactContainer.innerHTML = '';
-        for (let i = 0; i < firstlettersUnique.length; i++) {
-            let letter = firstlettersUnique[i];
-            contactContainer.innerHTML += renderLetterContainerTemplate(letter);
-        }
-        renderContacts(contacts);
+    for (let i = 0; i < firstlettersUnique.length; i++) {
+        let letter = firstlettersUnique[i];
+        contactContainer.innerHTML += renderLetterContainerTemplate(letter);
+    }
+    renderContacts(contacts);
 }
 
 
@@ -72,13 +74,23 @@ function showContactDetails(id) {
 }
 
 function getContactDetails(contacts, i) {
+    let animationContact = checkIfContactWasAlreadyClicked();
     let firstLetter = getFirstLetterOfName(contacts, i);
     let secondLetter = splitFullname(contacts, i);
     let name = contacts[i].fullname;
     let email = contacts[i].mail;
     let color = contacts[i].color;
     let phone = contacts[i].phone;
-    document.getElementById('contact-data-content').innerHTML = renderContactDetails(firstLetter, secondLetter, name, email, color, phone);
+    document.getElementById('contact-data-content').innerHTML = renderContactDetails(firstLetter, secondLetter, name, email, color, phone, animationContact);
+}
+
+function checkIfContactWasAlreadyClicked() {
+    if (animation) {
+        return '';
+    } else {
+        animation = true;
+        return 'animateFadeIn';
+    }
 }
 
 

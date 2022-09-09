@@ -19,12 +19,11 @@ async function loadDataFromServer() {
 }
 
 function putLoadedDataToArray() {
-    users = JSON.parse(jsonFromServer.users) || [];
     userInformation = JSON.parse(jsonFromServer.userInformation) || [];
     priority = JSON.parse(jsonFromServer.priority) || [];
     contactColors = JSON.parse(jsonFromServer.contactColors) || [];
     userIndexForgotPassword = jsonFromServer.userIndexForgotPassword;
-    allTasks = JSON.parse(jsonFromServer.allTasks) || [];
+    // allTasks = JSON.parse(jsonFromServer.allTasks) || [];
 }
 
 
