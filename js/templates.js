@@ -1,6 +1,59 @@
 let priority;
 let userInformation;
-let contactColors;
+let contactColors; /*= [
+    {
+        "color": "blue",
+        "used": true,
+    },
+    {
+        "color": "green",
+        "used": true,
+    },
+    {
+        "color": "red",
+        "used": false,
+    },
+    {
+        "color": "yellow",
+        "used": false,
+    },
+    {
+        "color": "violet",
+        "used": false,
+    },
+    {
+        "color": "brown",
+        "used": false,
+    },
+    {
+        "color": "orange",
+        "used": false,
+    },
+    {
+        "color": "darkgreen",
+        "used": false,
+    },
+    {
+        "color": "airblue",
+        "used": false,
+    },
+    {
+        "color": "pink",
+        "used": false,
+    },
+    {
+        "color": "lila",
+        "used": false,
+    },
+    {
+        "color": "black",
+        "used": false,
+    },
+    {
+        "color": "grey",
+        "used": false,
+    },
+]*/;
 let allTasks = [];
 
 
