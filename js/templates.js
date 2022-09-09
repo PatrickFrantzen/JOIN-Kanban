@@ -98,25 +98,23 @@ function renderSingleCard(i, title, description, category, date, prio) {
 `
 }
 
-function renderMembersOfTask() {
+function renderMembersOfTaskArea() {
     return `
     <div class="d-flex">
     <div class="assigned-outer">
-        <div class="assigned-inner bg-contact-blue d-flex justify-content-center align-items-center">
-            NK
-        </div>
+        <div id="first-member" class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center"></div>
     </div>
-    <div class="assigned-outer position-circle">
-        <div class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center relative">
-            PF
-        </div>
-    </div>
+    
     </div>
     `
 }
 
 
-
+/*<div class="assigned-outer position-circle">
+        <div class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center relative">
+            PF
+        </div>
+    </div>*/
 
 
 let test = [{
