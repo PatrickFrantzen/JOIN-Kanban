@@ -198,7 +198,7 @@ function createNewTask() {
     let description = document.getElementById('describtion');
     let category = getCurrentCategory();
     let assignedTo = currentMembers;
-    let date = convertToEuropeDate();
+    let date = readableDate();
     let prio = currentPrio;
     addNewTaskToArray(title, description, category, assignedTo, date, prio);
 }
@@ -217,7 +217,7 @@ function getCurrentCategory() {
     return actualCategory;
 }
 
-function convertToEuropeDate() {
+function readableDate() {
     let dueDate = document.getElementById('date').value;
     let day = dueDate.slice(8,10);
     let month = dueDate.slice(5,7);

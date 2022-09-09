@@ -1,60 +1,7 @@
 let priority;
 let userInformation;
-let contactColors; /*= [
-    {
-        "color": "blue",
-        "used": true,
-    },
-    {
-        "color": "green",
-        "used": true,
-    },
-    {
-        "color": "red",
-        "used": false,
-    },
-    {
-        "color": "yellow",
-        "used": false,
-    },
-    {
-        "color": "violet",
-        "used": true,
-    },
-    {
-        "color": "brown",
-        "used": true,
-    },
-    {
-        "color": "orange",
-        "used": false,
-    },
-    {
-        "color": "darkgreen",
-        "used": false,
-    },
-    {
-        "color": "airblue",
-        "used": false,
-    },
-    {
-        "color": "pink",
-        "used": false,
-    },
-    {
-        "color": "lila",
-        "used": false,
-    },
-    {
-        "color": "black",
-        "used": false,
-    },
-    {
-        "color": "grey",
-        "used": true,
-    },
-]*/;
-let allTasks;
+let contactColors;
+let allTasks = [];
 
 
 function renderContactDetails(firstLetter, secondLetter, name, email, color, phone, animationContact) {
@@ -129,6 +76,38 @@ function renderLetterContainerTemplate(letter) {
     `;
 }
 
+function renderSingleCard(i, title, description, category, date, prio) {
+    return `
+    <div id="card-${i}" onclick="openDialog()" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
+    <span class="board-text board-category bg-category-marketing">${category}</span>
+    <span class="board-text board-title">${title}</span>
+    <span class="board-text board-description">${description}</span>
+
+    <div id="progressbar-${i}" class="progressbar-outer board-text d-flex align-items-center text-align-center">
+        <div class="progressbar-inner" role="progressbar"></div>
+        <div class="subtasks d-flex text-align-center">
+            <span class="f-12">0/2 Done</span>
+        </div>
+    </div>
+
+    <div id="assigned-${i}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
+        <div class="d-flex">
+            <div class="assigned-outer">
+                <div class="assigned-inner bg-contact-blue d-flex justify-content-center align-items-center">
+                    NK
+                </div>
+            </div>
+            <div class="assigned-outer position-circle">
+                <div class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center relative">
+                    PF
+                </div>
+            </div>
+        </div>
+        <div class="board-assigned-urgent"><img id="prio-${i}" src="img/add_task/arrow_low.svg"> </div>
+    </div>
+</div>
+`
+}
 
 
 
