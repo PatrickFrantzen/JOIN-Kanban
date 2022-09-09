@@ -76,45 +76,48 @@ function renderLetterContainerTemplate(letter) {
     `;
 }
 
-function renderSingleCard(i, title, description, category, date, prio) {
+function renderSingleCard(id, title, description, category) {
     return `
-    <div id="card-${i}" onclick="openDialog()" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
+    <div id="card-${id}" onclick="openDialog()" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
     <span class="board-text board-category bg-category-marketing">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description">${description}</span>
 
-    <div id="progressbar-${i}" class="progressbar-outer board-text d-flex align-items-center text-align-center">
+    <div id="progressbar-${id}" class="progressbar-outer board-text d-flex align-items-center text-align-center">
         <div class="progressbar-inner" role="progressbar"></div>
         <div class="subtasks d-flex text-align-center">
             <span class="f-12">0/2 Done</span>
         </div>
     </div>
 
-    <div id="assigned-${i}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
+    <div id="assigned-${id}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
         
-        <div class="board-assigned-urgent"><img id="prio-${i}" src="img/add_task/arrow_low.svg"> </div>
+        <div class="board-assigned-urgent"><img id="prio-${id}" src="img/add_task/arrow_low.svg"> </div>
     </div>
 </div>
 `
 }
 
-function renderMembersOfTaskArea() {
+function renderMembersOfTaskArea(id) {
     return `
-    <div class="d-flex">
+    <div id="assigned-area-${id}" class="d-flex">
     <div class="assigned-outer">
-        <div id="first-member" class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center"></div>
+        <div id="first-member-${id}" class="assigned-inner d-flex justify-content-center align-items-center"></div>
     </div>
     
     </div>
     `
 }
 
+function renderAdditionalMembers(memberOfInitialArray, id) {
+    return `
+    <div class="assigned-outer position-circle">
+        <div id="other-member-${id}" class="assigned-inner d-flex justify-content-center align-items-center relative">${memberOfInitialArray}</div>
+    </div>
+    `
+}
 
-/*<div class="assigned-outer position-circle">
-        <div class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center relative">
-            PF
-        </div>
-    </div>*/
+/**/
 
 
 let test = [{
