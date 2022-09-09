@@ -1,6 +1,7 @@
 async function initTasks() {
     await loadDataFromServer();
     await init();
+    renderProfileImage();
     renderCards();
 }
 

@@ -145,19 +145,18 @@
 
                     <div class="titleandinput">
                     <p class="m-top-28 add-task-titles">Subtasks</p>
-                    <div
+                    <div id="subtasks-container"
                         class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
-                        <input id="category" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask">
+                        <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onkeyup="changeIconsInSubtasks()">
                         <img src="img/add_task/add.svg" alt="">
                     </div>
-                    <div class="d-flex">
-                        <input type="checkbox">
-                        <p class="checkbox-text">Subtask 1</p>
+                    <div id="subtasks-output" class="d-flex flex-column">
+                       
                     </div>
 
                     </div>
 
-                    <div class="buttons">
+                    <div id="add-task-btns" class="buttons">
                     <button class="light-btn" type="submit" value="Previous" formnovalidate="formnovalidate">
                         <span class="f-18">clear</span>
                         <img class="btn-icons" src="img/buttons/clear.png" alt="">

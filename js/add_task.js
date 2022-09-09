@@ -3,7 +3,7 @@ let currentCategory;
 let currentPrio;
 let currentMembers = [];
 
-async function initAddTask(){
+async function initAddTask() {
     await loadDataFromServer()
     await init();
     renderProfileImage();
@@ -135,7 +135,7 @@ function addAssignedTo() {
         let member = teamMembers[i];
         let id = createId(member);
         renderSelectedMembers(outputbox, member, id);
-        
+
     }
     toggleClassList('assignedTo', 'd-none');
 }
@@ -175,12 +175,12 @@ function renderSelectedMembersTemplate(id, member) {
  * @param {object} event // click event
  * @param {object} id 
  */
-function removeAssignedTo(event, id){
+function removeAssignedTo(event, id) {
     let member = id.id;
     let outputbox = document.getElementById('user-assignedTo');
     id.remove();
     deleteElementOfArray(member);
-    if(assignedToMembers.length < 1){
+    if (assignedToMembers.length < 1) {
         outputbox.innerHTML = 'Select one or more people';
     }
     event.stopPropagation();
@@ -188,7 +188,7 @@ function removeAssignedTo(event, id){
 
 
 
-function deleteElementOfArray(element){
+function deleteElementOfArray(element) {
     let index = assignedToMembers.indexOf(element);
     assignedToMembers.splice(index, 1);
 }
@@ -203,13 +203,13 @@ function createNewTask() {
     addNewTaskToArray(title, description, category, assignedTo, date, prio);
 }
 
- async function addNewTaskToArray(title, description, category, assignedTo, date, prio) {
-    let newTask = {tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio};
+async function addNewTaskToArray(title, description, category, assignedTo, date, prio) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     title.value = '';
     description.value = '';
-    
+
 }
 
 function getCurrentCategory() {
@@ -219,10 +219,41 @@ function getCurrentCategory() {
 
 function readableDate() {
     let dueDate = document.getElementById('date').value;
-    let day = dueDate.slice(8,10);
-    let month = dueDate.slice(5,7);
-    let year = dueDate.slice(0,4);
+    let day = dueDate.slice(8, 10);
+    let month = dueDate.slice(5, 7);
+    let year = dueDate.slice(0, 4);
     return `${day}.${month}.${year}`
+}
+
+
+function changeIconsInSubtasks() {
+    let subaskInput = document.getElementById('subtask-input').value
+    document.getElementById('subtasks-container').innerHTML = `
+        <div class="d-flex subtask-switch-container">
+           <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" value="${subaskInput}">
+           <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
+           <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
+        </div>
+    `
+}
+
+function clearSubtaskInput() {
+    document.getElementById('subtasks-container').innerHTML = `
+    <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onkeyup="changeIconsInSubtasks()">
+    <img src="img/add_task/add.svg" alt="">
+    `
+}
+
+
+function addNewSubtask() {
+    let inputSubtask = document.getElementById('subtask-input').value;
+    let outputbox = document.getElementById('subtasks-output');
+    outputbox.innerHTML += `
+    <div class="d-flex">
+        <input type="checkbox">
+        <p class="checkbox-text">${inputSubtask}</p>
+    </div>`
+    clearSubtaskInput();
 }
 
 
