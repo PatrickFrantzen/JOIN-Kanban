@@ -136,3 +136,24 @@ option{
     margin-left: 16px;
 }
 
+
+.subtask-check-img{
+    padding-left: 8px;
+    border-left: 1px solid var(--light-grey);
+}
+
+.subtask-cancel-img{
+    padding-right: 8px;
+}
+
+.subtask-switch-container{
+    width: 95%;
+}
+
+#subtasks-output{
+    height: 156px;
+}
+
+#add-task-btns{
+    margin-top: 16px;
+}
