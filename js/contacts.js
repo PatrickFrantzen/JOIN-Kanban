@@ -32,10 +32,13 @@ function removeDoubleLetters(firstletters) {
 
 function renderLetterContainer(firstlettersUnique, contacts) {
     let contactContainer = document.getElementById('contact-content');
+    let contactContainerMobile = document.getElementById('contact-content-mobile');
+    contactContainerMobile.innerHTML = '';
     contactContainer.innerHTML = '';
     for (let i = 0; i < firstlettersUnique.length; i++) {
         let letter = firstlettersUnique[i];
         contactContainer.innerHTML += renderLetterContainerTemplate(letter);
+        contactContainerMobile.innerHTML += renderLetterContainerMobileTemplate(letter);
     }
     renderContacts(contacts);
 }
@@ -49,7 +52,9 @@ function renderContacts(contacts) {
         let firstLetter = getFirstLetterOfName(contacts, i);
         let secondLetter = splitFullname(contacts, i);
         let contactCard = document.getElementById(`contact-card-${firstLetter}`);
+        let contactCardMobile = document.getElementById(`contact-card-mobile-${firstLetter}`);
         contactCard.innerHTML += renderContactsTemplate(name, email, firstLetter, color, secondLetter);
+        contactCardMobile.innerHTML += renderContactsMobileTemplate(name, email, firstLetter, color, secondLetter);
     }
 }
 
@@ -71,6 +76,19 @@ function showContactDetails(id) {
             getContactDetails(contacts, i);
         }
     }
+}
+
+
+function showContactDetailsMobile(id){
+    document.getElementById('contact-content-mobile').style.display = 'none';
+    showContactDetails(id);
+    document.getElementById('right-section').style.display = 'flex';
+}
+
+
+function returnToContactOverview() {
+    document.getElementById('contact-content-mobile').style.display = 'flex';
+    document.getElementById('right-section').style.display = 'none';
 }
 
 

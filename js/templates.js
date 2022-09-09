@@ -8,6 +8,7 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
     return `
     <div id="contact-detail-data-container" class="${animationContact} d-flex flex-column" >
             <div class="contact-card-big d-flex ">
+                        <img class="back-mobile curserPointer" src="img/add_task/arrow-left-line.png" alt="" onclick="returnToContactOverview()">
                         <div
                             class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
                             <div id="names-letter"
@@ -65,12 +66,42 @@ function renderContactsTemplate(name, email, firstLetter, color, secondLetter) {
     `;
 }
 
+function renderContactsMobileTemplate(name, email, firstLetter, color, secondLetter) {
+    return `
+    <div id="${email}" class="contact-card-small d-flex" onclick="showContactDetailsMobile('${email}')">
+    <div
+        class="contact-avatar-outer d-flex align-items-center justify-content-center">
+        <div
+            class="contact-avatar bg-contact-${color} d-flex align-items-center justify-content-center">
+            ${firstLetter}${secondLetter}
+        </div>
+    </div>
+    <div class="contact-data">
+        <p class="contact-name">${name}</p>
+        <a class="mailto"
+            >${email}</a>
+    </div>
+</div>
+    `;
+}
+
 
 function renderLetterContainerTemplate(letter) {
     return `
     <div id="contact-letter-${letter}" class="contact-letter w-80 d-flex align-items-start flex-column">
     <span>${letter}</span>
     <div id="contact-card-${letter}" class="contact-card-small-container">
+    </div>
+     </div>
+    `;
+}
+
+
+function renderLetterContainerMobileTemplate(letter) {
+    return `
+    <div id="contact-letter-mobile-${letter}" class="contact-letter w-80 d-flex align-items-start flex-column">
+    <span>${letter}</span>
+    <div id="contact-card-mobile-${letter}" class="contact-card-small-container">
     </div>
      </div>
     `;

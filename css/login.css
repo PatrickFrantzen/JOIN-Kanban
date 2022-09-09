@@ -56,7 +56,7 @@
     animation: joinlogo 1s ease 0s 1 normal forwards;
 }
 
-.input-contact-login{
+.input-contact-login {
     border: none;
     outline: none;
     width: 305px;
@@ -111,11 +111,11 @@
         align-items: flex-start !important;
     }
 
-    #forgot-password-text{
+    #forgot-password-text {
         margin-left: 24px;
     }
 
-    .rememberme-container{
+    .rememberme-container {
         margin-left: 24px;
     }
 
@@ -155,45 +155,45 @@
         margin-top: 28px;
     }
 
-    .guestLogin-btn{
+    .guestLogin-btn {
         margin-left: 0;
         width: 100px;
         padding: 8px 16px 8px 16px;
         margin: 4px;
     }
 
-    .login-btn-container{
+    .login-btn-container {
         margin-top: 8px;
     }
 
-    .not-join-user{
+    .not-join-user {
         width: 100%;
         justify-content: center;
     }
 
-    #signup-btn{
+    #signup-btn {
         margin: 0 0 0 12px;
         padding: 8px 8px 8px 8px;
         min-width: 100px;
     }
 
-    .login-wrapper{
+    .login-wrapper {
         width: 350px
     }
 }
 
-@media (max-width: 410px){
-     .input-container-login {
+@media (max-width: 410px) {
+    .input-container-login {
         width: 280px;
     }
 }
 
-@media (max-height: 920px){
+@media (max-height: 920px) {
     .logo-container {
         margin-top: 16px !important;
     }
 
-    .login-content-container{
+    .login-content-container {
         margin-top: 24px !important;
     }
 }
@@ -233,4 +233,15 @@
         justify-content: center;
     }
 
+    .navbar-join-logo {
+        height: 90px;
+    }
+
+}
+
+@media (max-height: 700px){
+    #contact-content-mobile {
+        height: 60vh;
+        overflow-y: auto;
+    }
 }
