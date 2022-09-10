@@ -33,7 +33,15 @@ function removeDoubleLetters(firstletters) {
 function renderLetterContainer(firstlettersUnique, contacts) {
     let contactContainer = document.getElementById('contact-content');
     let contactContainerMobile = document.getElementById('contact-content-mobile');
-    contactContainerMobile.innerHTML = '';
+    contactContainerMobile.innerHTML = `
+    <div id="contact-create-btn-mobile" class="d-flex justify-content-end new-contact-btn-container">
+    <button id="new-contact-btn" class="darkblue-btn m-left-24"
+        onclick="showOverlayContact('new-contact', 'new-contact-overlay')">
+        <span class="f-18">New Contact</span>
+        <img class="btn-icons-contact" src="img/buttons/newcontact.png" alt="">
+    </button>
+</div>
+    `;
     contactContainer.innerHTML = '';
     for (let i = 0; i < firstlettersUnique.length; i++) {
         let letter = firstlettersUnique[i];
@@ -79,7 +87,7 @@ function showContactDetails(id) {
 }
 
 
-function showContactDetailsMobile(id){
+function showContactDetailsMobile(id) {
     document.getElementById('contact-content-mobile').style.display = 'none';
     showContactDetails(id);
     document.getElementById('right-section').style.display = 'flex';
