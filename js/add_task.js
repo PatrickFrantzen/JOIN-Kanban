@@ -233,10 +233,10 @@ function readableDate() {
 
 
 function changeIconsInSubtasks() {
-    let subaskInput = document.getElementById('subtask-input').value
+    let subtaskInput = document.getElementById('subtask-input').value
     document.getElementById('subtasks-container').innerHTML = `
         <div class="d-flex subtask-switch-container">
-           <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" value="${subaskInput}">
+           <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask" value="${subtaskInput}">
            <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
            <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
         </div>
