@@ -107,7 +107,7 @@ function renderLetterContainerMobileTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category) {
+function renderSingleCard(id, title, description, category, date, prio) {
     return `
     <div id="card-${id}" onclick="openDialog('${id}', '${title}', '${description}', '${category}', '${date}', '${prio}')" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
     <span class="board-text board-category bg-category-marketing">${category}</span>
