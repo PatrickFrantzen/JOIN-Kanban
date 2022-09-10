@@ -207,9 +207,15 @@ async function addNewTaskToArray(title, description, category, assignedTo, date,
     let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
+    clearAddTask();
+}
+
+function clearAddTask() {
+    let outputbox = document.getElementById('user-assignedTo');
+    outputbox = '';
     title.value = '';
     description.value = '';
-
+    document.getElementById('categories').classList.remove(d-none);
 }
 
 function getCurrentCategory() {

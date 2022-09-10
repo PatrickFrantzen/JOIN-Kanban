@@ -76,9 +76,9 @@ function renderLetterContainerTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category) {
+function renderSingleCard(id, title, description, category, date, prio) {
     return `
-    <div id="card-${id}" onclick="openDialog()" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
+    <div id="card-${id}" onclick="openDialog('${id}', '${title}', '${description}', '${category}', '${date}', '${prio}')" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
     <span class="board-text board-category bg-category-marketing">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description">${description}</span>
@@ -114,6 +114,66 @@ function renderAdditionalMembers(memberOfInitialArray, id) {
     <div class="assigned-outer position-circle">
         <div id="other-member-${id}" class="assigned-inner d-flex justify-content-center align-items-center relative">${memberOfInitialArray}</div>
     </div>
+    `
+}
+
+function renderDisplay(id) {
+    return `
+    <div id="display-${id}" class="task-overlay d-flex"></div>
+    `
+}
+
+function renderDisplayConent(id, title, description, category, date, prio) {
+    return `
+            <div id="display-content-${id}" class="display-card h-100 w-100 d-flex justify-content-center">
+                <div class="board-inner-card w-100 h-100 m-left-50 d-flex flex-column">
+                    <!-- Close button -->
+                    <div class="w-100 d-flex justify-content-end">
+                    <img class="m-right-24 m-top-20 close-img" onclick="closeDialog()" src="img/buttons/close.png">
+                    </div>
+                    <!-- Headlines -->
+                    <span class="board-text board-category bg-category-marketing">${category}</span>
+                    <span class="board-text board-title">${title}</span>
+                    <span class="board-text board-description">${description}</span>
+                    <div class="d-flex board-text">
+                        <span class="f-bold">Due date: </span>
+                        <span class="m-left-8">${date}</span>
+                    </div>
+
+                    <div class="d-flex board-text justify-content-center align-items-center">
+                        <span class="f-bold">Priority: </span>
+                        <span class="m-left-8">
+                            <div id="urgent" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center bg-urgent">
+                            <p class="f-18">Urgent</p>
+                            <img id="urgent-img" class="p-12" src="img/add_task/arrow_urgent_white.svg" alt="">
+                        </div></span>
+                    </div>
+
+                    <div class="d-flex flex-column board-text">
+                        <span class="f-bold">Assigned To:</span>
+                        <ul>
+                            <li class="d-flex  align-items-center">
+                                <div class="assigned-outer">
+                                    <div class="assigned-inner bg-contact-blue d-flex justify-content-center align-items-center">
+                                        NK
+                                    </div>
+                                </div>
+                                <span class="m-left-8">Nadia Knofius</span>
+                            </li>
+                            <li  class="d-flex  align-items-center">
+                                <div class="assigned-outer position-circle">
+                                    <div
+                                        class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center">
+                                        PF
+                                    </div>
+                                </div>
+                                    <span class="m-left-8">Patrick Frantzen</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
     `
 }
 

@@ -26,6 +26,7 @@ function getTaskDetails(i, singleTask) {
 function createTask(id, title, description, category, date, prio, members, singleTask) {
     document.getElementById('todo-card').innerHTML += renderSingleCard(id, title, description, category, date, prio);
     document.getElementById(`assigned-${id}`).innerHTML = renderMembersOfTaskArea(id);
+    
     createAssignedMemberArea(members, singleTask, id);
 }
 
@@ -109,6 +110,8 @@ function closeDialog() {
     document.getElementById('task-display').classList.add('d-none');
 }
 
-function openDialog() {
+function openDialog(id, title, description, category, date, prio) {
     document.getElementById('task-display').classList.remove('d-none');
+    document.getElementById('task-display').innerHTML = renderDisplay(id);
+    document.getElementById(`display-${id}`).innerHTML = renderDisplayConent(id, title, description, category, date, prio);
 }
