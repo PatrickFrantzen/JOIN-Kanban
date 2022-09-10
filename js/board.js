@@ -1,3 +1,5 @@
+let currentDraggedElement;
+
 async function initTasks() {
     await loadDataFromServer();
     await init();
@@ -6,10 +8,21 @@ async function initTasks() {
 }
 
 function renderCards() {
+    clearCards();
     for (let i = 0; i < allTasks.length; i++) {
         let singleTask = allTasks[i];
         getTaskDetails(i, singleTask);
     }
+}
+
+function clearCards() {
+    document.getElementById('todo-card').innerHTML = '';
+    document.getElementById('progress-card').innerHTML = '';
+    document.getElementById('progress-card').innerHTML = renderEmtptyContainer();
+    document.getElementById('feedback-card').innerHTML = '';
+    document.getElementById('feedback-card').innerHTML = renderEmtptyContainer();
+    document.getElementById('done-card').innerHTML = '';
+    document.getElementById('done-card').innerHTML = renderEmtptyContainer();
 }
 
 function getTaskDetails(i, singleTask) {
@@ -19,19 +32,19 @@ function getTaskDetails(i, singleTask) {
     let date = singleTask.duedate;
     let prio = singleTask.taskprio;
     let members = getMembers(singleTask);
-    createTask(i, title, description, category, date, prio, members, singleTask);
+    let status = getStatus(singleTask);
+    createTask(i, title, description, category, date, prio, status);
     createDisplay(i, title, description, category, date, prio, members, singleTask);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
 }
 
-function createTask(id, title, description, category, date, prio, members, singleTask) {
-    document.getElementById('todo-card').innerHTML += renderSingleCard(id, title, description, category, date, prio);
+function createTask(id, title, description, category, date, prio, status) {
+    document.getElementById(`${status}`).innerHTML += renderSingleCard(id, title, description, category, date, prio);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
-    
 }
 
-function createDisplay(id, title, description, category, date, prio, members, singleTask) {
+function createDisplay(id, title, description, category, date, prio) {
     document.getElementById('task-display').innerHTML += renderDisplay(id);
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
@@ -161,6 +174,45 @@ function priorityForDisplay(prio, id){
             document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
             break;
     }
+}
+
+function getStatus(singleTask) {
+    let currentStatus = singleTask.projectstatus;
+    switch (currentStatus) {
+        case 'toDo' || 'todo-card':
+            currentStatus = 'todo-card'
+            return currentStatus;
+
+        case 'todo-card':
+            currentStatus = 'todo-card'
+            return currentStatus;
+
+        case 'progress-card':
+                currentStatus = 'progress-card'
+                return currentStatus;
+
+        case 'feedback-card':
+                currentStatus = 'feedback-card'
+                return currentStatus;
+
+        case 'done-card':
+                currentStatus = 'done-card'
+                return currentStatus;
+    }
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+function moveTo(status) {
+    allTasks[currentDraggedElement]['projectstatus'] = status;
+    renderCards();
+}
+
+function startDragging(id) {
+    currentDraggedElement = id;
+    
 }
 
 function closeDialog(id) {

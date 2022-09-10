@@ -109,7 +109,7 @@ function renderLetterContainerMobileTemplate(letter) {
 
 function renderSingleCard(id, title, description, category) {
     return `
-    <div id="card-${id}" onclick="openDialog(${id})" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
+    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog(${id})" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
     <span class="board-text board-category bg-category-${category}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description">${description}</span>
@@ -213,6 +213,11 @@ function renderAdditionalMembersDisplay(memberOfInitialArray, id) {
     `
 }
 
+function renderEmtptyContainer() {
+    return `
+        <div class="drag-card card board-inner-card m-top-28 m-right-15"></div>
+    `
+}
 
 
 
