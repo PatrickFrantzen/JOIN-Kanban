@@ -107,10 +107,10 @@ function renderLetterContainerMobileTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category, date, prio) {
+function renderSingleCard(id, title, description, category) {
     return `
     <div id="card-${id}" onclick="openDialog(${id})" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
-    <span class="board-text board-category bg-category-marketing">${category}</span>
+    <span class="board-text board-category bg-category-${category}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description">${description}</span>
 
@@ -122,8 +122,8 @@ function renderSingleCard(id, title, description, category, date, prio) {
     </div>
 
     <div id="assigned-${id}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
-        
-        <div class="board-assigned-urgent"><img id="prio-${id}" src="img/add_task/arrow_low.svg"> </div>
+        <div id="assigned-area-${id}" class="d-flex"></div>
+        <div class="board-assigned-urgent"><img id="prio-${id}" src=""> </div>
     </div>
 </div>
 `
@@ -131,11 +131,8 @@ function renderSingleCard(id, title, description, category, date, prio) {
 
 function renderMembersOfTaskArea(id) {
     return `
-    <div id="assigned-area-${id}" class="d-flex">
     <div class="assigned-outer">
         <div id="first-member-${id}" class="assigned-inner d-flex justify-content-center align-items-center"></div>
-    </div>
-    
     </div>
     `
 }
@@ -163,7 +160,7 @@ function renderDisplayContent(id, title, description, category, date, prio) {
                     <img class="m-right-24 m-top-20 close-img" onclick="closeDialog(${id})" src="img/buttons/close.png">
                     </div>
                     <!-- Headlines -->
-                    <span class="board-text board-category bg-category-marketing">${category}</span>
+                    <span class="board-text board-category bg-category-${category}">${category}</span>
                     <span class="board-text board-title">${title}</span>
                     <span class="board-text board-description">${description}</span>
                     <div class="d-flex board-text">
@@ -174,9 +171,9 @@ function renderDisplayContent(id, title, description, category, date, prio) {
                     <div class="d-flex board-text justify-content-center align-items-center">
                         <span class="f-bold">Priority: </span>
                         <span class="m-left-8">
-                            <div id="urgent" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center bg-urgent">
-                            <p class="f-18">Urgent</p>
-                            <img id="urgent-img" class="p-12" src="img/add_task/arrow_urgent_white.svg" alt="">
+                            <div id="prio-display-field-${id}" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
+                            <p id="prio-display-name-${id}" class="f-18"></p>
+                            <img id="prio-img-${id}" class="p-12" src="img/add_task/arrow_urgent_white.svg" alt="">
                         </div></span>
                     </div>
 

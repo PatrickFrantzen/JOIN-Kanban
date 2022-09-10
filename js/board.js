@@ -22,11 +22,12 @@ function getTaskDetails(i, singleTask) {
     createTask(i, title, description, category, date, prio, members, singleTask);
     createDisplay(i, title, description, category, date, prio, members, singleTask);
     createAssignedMemberArea(members, singleTask, i);
+    createPriority(prio, i);
 }
 
 function createTask(id, title, description, category, date, prio, members, singleTask) {
     document.getElementById('todo-card').innerHTML += renderSingleCard(id, title, description, category, date, prio);
-    document.getElementById(`assigned-${id}`).innerHTML = renderMembersOfTaskArea(id);
+    document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
     
 }
 
@@ -117,6 +118,48 @@ function getFirstLetters(member) {
         let lastLetter = fullname[1].charAt(0);
         let initials = firstLetter + lastLetter;
         return initials;
+    }
+}
+
+function createPriority(prio, id) {
+    priorityForBoard(prio, id);
+    priorityForDisplay(prio, id);
+}
+
+function priorityForBoard(prio, id){
+    switch (prio) {
+        case 'urgent':
+            document.getElementById(`prio-${id}`).src = "img/add_task/arrow_urgent.svg";
+            break;
+    
+        case 'medium':
+            document.getElementById(`prio-${id}`).src = "img/add_task/medium.svg";
+            break;
+        case 'low':
+            document.getElementById(`prio-${id}`).src = "img/add_task/arrow_low.svg";
+            break;
+    }
+}
+
+function priorityForDisplay(prio, id){
+    switch (prio) {
+        case 'urgent':
+            document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
+            document.getElementById(`prio-display-name-${id}`).innerHTML = 'Urgent';
+            document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_urgent_white.svg";
+            break;
+    
+        case 'medium':
+            document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
+            document.getElementById(`prio-display-name-${id}`).innerHTML = 'Medium';
+            document.getElementById(`prio-img-${id}`).src = "img/add_task/medium_white.svg";
+            break;
+
+        case 'low':
+            document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
+            document.getElementById(`prio-display-name-${id}`).innerHTML = 'Low';
+            document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
+            break;
     }
 }
 
