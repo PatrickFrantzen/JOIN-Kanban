@@ -78,7 +78,7 @@ function checkForFirstMemberColor(singleTask) {
         let user = userInformation[i];
         let name = user.fullname;
         let color = user.color;
-        let firstmember = singleTask.taskmember[i];
+        let firstmember = singleTask.taskmember[0];
 
         if (name == firstmember) {
             let userColor = color;
