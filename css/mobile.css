@@ -85,6 +85,26 @@
         width: 322px;
     }
 
+    .main-content {
+        flex-direction: column;
+    }
+
+    .welcome {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+
+    .welcome span {
+        text-align: center;
+    }
+
+    .f-47 {
+        font-size: 39px;
+    }
+
+    .f-55 {
+        font-size: 50px;
+    }
 }
 
 @media (max-width: 1261px) {
@@ -267,7 +287,7 @@
         margin-left: 0;
     }
 
-    #contact-create-btn-mobile{
+    #contact-create-btn-mobile {
         position: absolute;
         top: 0;
         right: 27px;
@@ -285,12 +305,12 @@
         font-size: 18px !important;
     }
 
-    .header{
+    .header {
         padding-left: 280px !important;
         padding-right: 50px !important;
     }
 
-    .content-contacts{
+    .content-contacts {
         width: calc(100vw - 230px);
     }
 
@@ -302,19 +322,19 @@
         width: 100%;
     }
 
-    #contact-content{
+    #contact-content {
         display: none;
     }
 
-    #contact-content-mobile{
+    #contact-content-mobile {
         display: flex;
     }
 
-    .back-mobile{
+    .back-mobile {
         display: block;
     }
-    
-    h2{
+
+    h2 {
         font-size: 41px;
     }
 
@@ -337,17 +357,17 @@
         right: 50px;
     }
 
-    .sections{
+    .sections {
         flex-direction: column;
     }
 
-    .section-right{
+    .section-right {
         border-left: none;
         margin-left: 0;
         padding-left: 0;
     }
 
-    #cancel-btn-add_task{
+    #cancel-btn-add_task {
         display: none;
     }
 
@@ -357,13 +377,17 @@
     }
 }
 
-@media(max-width: 1000px){
+@media(max-width: 1000px) {
     .subtitle-overlay {
         font-size: 18px;
         color: white;
     }
 
-    h2{
+    .content {
+        top: 140px;
+    }
+
+    h2 {
         font-size: 36px;
     }
 
@@ -371,25 +395,25 @@
         width: 250px;
     }
 
-    .overlay-left{
+    .overlay-left {
         width: 100%;
         align-items: center;
         border-radius: 10px 10px 0 0;
         height: 45%;
     }
 
-    .contact-overlay{
+    .contact-overlay {
         flex-direction: column;
         width: 450px;
         height: 73vh;
     }
 
-    .overlay-right{
+    .overlay-right {
         width: 100%;
         position: relative;
     }
 
-    .contact-avatar-input{
+    .contact-avatar-input {
         position: absolute;
         flex-direction: column;
         top: 101px;
@@ -397,16 +421,16 @@
         right: 0;
     }
 
-    #cancel-btn-contacts{
+    #cancel-btn-contacts {
         display: none;
     }
 
-    .btn-container-contacts{
+    .btn-container-contacts {
         position: absolute;
         bottom: -322px;
     }
 
-    .close-img{
+    .close-img {
         position: absolute;
         top: -255px;
         filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(120deg) brightness(108%) contrast(100%);
@@ -416,17 +440,40 @@
         width: 50px;
     }
 
- 
+    #kanban-subheadline {
+        font-size: 18px;
+        position: absolute;
+        top: -60px;
+        display: block;
+    }
 
     .contact-content {
         padding-top: 100px;
     }
 
-    .header-text{
+    .header-text {
         display: none;
     }
 
-    .join-logo-mobile{
+    .join-logo-mobile {
+        display: block;
+    }
+
+    #kanban-subheadline {
+        position: absolute;
+        font-size: 18px;
+        font-weight: unset;
+    }
+
+    #h1-imprint {
+        position: relative;
+    }
+
+    .imprint-back {
+        position: absolute;
+        top: -44px;
+        left: 349px;
+        width: 30px;
         display: block;
     }
 }
@@ -438,41 +485,41 @@
         height: 100px !important;
     }
 
-    .navbar-inner-container{
+    .navbar-inner-container {
         height: 100% !important;
     }
 
-    .header{
+    .header {
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
 
-    .logo{
+    .logo {
         display: none !important;
     }
 
-    .footer{
+    .footer {
         display: none !important;
     }
-    
 
-    .menu{
+
+    .menu {
         width: auto !important;
         flex-direction: row !important;
         height: 100% !important;
     }
 
-    .single-menu{
+    .single-menu {
         align-items: center;
         height: 100%;
         box-sizing: border-box;
     }
 
-    .single-menu a{
+    .single-menu a {
         flex-direction: column;
     }
 
-    .single-menu img{
+    .single-menu img {
         padding-bottom: 8px;
     }
 
@@ -480,7 +527,7 @@
         margin-left: 0 !important;
     }
 
-    .menu-container{
+    .menu-container {
         height: 100%;
     }
 
@@ -493,6 +540,7 @@
         height: 60vh;
         overflow-y: auto;
     }
+
     .f-55 {
         font-size: 45px;
     }
@@ -504,21 +552,21 @@
     .content {
         left: 30px !important;
         display: flex;
-        padding-top: 110px;
+        padding-top: 150px;
         flex-direction: column;
         position: unset;
     }
 
-    h1{
-       text-align: center;
+    h1 {
+        text-align: center;
     }
 
-    .section-left{
+    .section-left {
         display: flex;
         justify-content: center;
     }
 
-    .section-right{
+    .section-right {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -526,7 +574,7 @@
 
     #add-task-btns {
         position: absolute;
-        top: 6px;
+        top: 5px;
         z-index: 1000;
         right: 24px;
     }
@@ -546,8 +594,13 @@
         width: 53px;
     }
 
-    #createTask{
+    #createTask {
         position: fixed;
+        height: 58px;
+    }
+
+    #h1-imprint {
+        text-align: start;
     }
 }
 
@@ -577,6 +630,7 @@
     .input-contact {
         width: 200px;
     }
+
     .not-join-user {
         position: absolute;
         bottom: 50px;
@@ -591,6 +645,11 @@
 }
 
 @media (max-width: 450px) {
+
+    .imprint-back {
+        left: 318px;
+    }
+
     .single-menu a {
         width: 90px !important;
     }
@@ -688,6 +747,17 @@
     .input-container-login {
         width: 280px;
     }
+
+    .imprint-back {
+        left: 231px;
+        top: -49px;
+
+    }
+
+    #kanban-subheadline{
+        width: 250px;
+        top: -69px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -755,7 +825,7 @@
         height: 90px;
     }
 
-    .contact-overlay{
+    .contact-overlay {
         margin-top: 50px;
     }
 
@@ -764,7 +834,7 @@
     }
 }
 
-@media (max-height: 700px){
+@media (max-height: 700px) {
     #contact-content-mobile {
         height: 60vh;
         overflow-y: auto;
