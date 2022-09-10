@@ -200,17 +200,18 @@ function createNewTask() {
     let assignedTo = currentMembers;
     let date = readableDate();
     let prio = currentPrio;
-    addNewTaskToArray(title, description, category, assignedTo, date, prio);
+    let status = 'toDo';
+    addNewTaskToArray(title, description, category, assignedTo, date, prio, status);
 }
 
-async function addNewTaskToArray(title, description, category, assignedTo, date, prio) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio };
+async function addNewTaskToArray(title, description, category, assignedTo, date, prio, status) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio, projectstatus: status };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    clearAddTask();
+    clearAddTask(title, description);
 }
 
-function clearAddTask() {
+function clearAddTask(title, description) {
     let outputbox = document.getElementById('user-assignedTo');
     outputbox = '';
     title.value = '';

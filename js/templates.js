@@ -107,10 +107,10 @@ function renderLetterContainerMobileTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category, date, prio) {
+function renderSingleCard(id, title, description, category) {
     return `
-    <div id="card-${id}" onclick="openDialog('${id}', '${title}', '${description}', '${category}', '${date}', '${prio}')" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
-    <span class="board-text board-category bg-category-marketing">${category}</span>
+    <div id="card-${id}" onclick="openDialog(${id})" class="card board-inner-card d-flex flex-column m-top-28 m-right-15">
+    <span class="board-text board-category bg-category-${category}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description">${description}</span>
 
@@ -122,8 +122,8 @@ function renderSingleCard(id, title, description, category, date, prio) {
     </div>
 
     <div id="assigned-${id}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
-        
-        <div class="board-assigned-urgent"><img id="prio-${id}" src="img/add_task/arrow_low.svg"> </div>
+        <div id="assigned-area-${id}" class="d-flex"></div>
+        <div class="board-assigned-urgent"><img id="prio-${id}" src=""> </div>
     </div>
 </div>
 `
@@ -131,11 +131,8 @@ function renderSingleCard(id, title, description, category, date, prio) {
 
 function renderMembersOfTaskArea(id) {
     return `
-    <div id="assigned-area-${id}" class="d-flex">
     <div class="assigned-outer">
         <div id="first-member-${id}" class="assigned-inner d-flex justify-content-center align-items-center"></div>
-    </div>
-    
     </div>
     `
 }
@@ -150,20 +147,20 @@ function renderAdditionalMembers(memberOfInitialArray, id) {
 
 function renderDisplay(id) {
     return `
-    <div id="display-${id}" class="task-overlay d-flex"></div>
+    <div id="display-${id}" class="task-overlay d-flex d-none"></div>
     `
 }
 
-function renderDisplayConent(id, title, description, category, date, prio) {
+function renderDisplayContent(id, title, description, category, date, prio) {
     return `
-            <div id="display-content-${id}" class="display-card h-100 w-100 d-flex justify-content-center">
+            <div id="display-content-${id}" class="display-card h-100 w-100 d-flex justify-content-center d-none">
                 <div class="board-inner-card w-100 h-100 m-left-50 d-flex flex-column">
                     <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
-                    <img class="m-right-24 m-top-20 close-img" onclick="closeDialog()" src="img/buttons/close.png">
+                    <img class="m-right-24 m-top-20 close-img" onclick="closeDialog(${id})" src="img/buttons/close.png">
                     </div>
                     <!-- Headlines -->
-                    <span class="board-text board-category bg-category-marketing">${category}</span>
+                    <span class="board-text board-category bg-category-${category}">${category}</span>
                     <span class="board-text board-title">${title}</span>
                     <span class="board-text board-description">${description}</span>
                     <div class="d-flex board-text">
@@ -174,41 +171,49 @@ function renderDisplayConent(id, title, description, category, date, prio) {
                     <div class="d-flex board-text justify-content-center align-items-center">
                         <span class="f-bold">Priority: </span>
                         <span class="m-left-8">
-                            <div id="urgent" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center bg-urgent">
-                            <p class="f-18">Urgent</p>
-                            <img id="urgent-img" class="p-12" src="img/add_task/arrow_urgent_white.svg" alt="">
+                            <div id="prio-display-field-${id}" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
+                            <p id="prio-display-name-${id}" class="f-18"></p>
+                            <img id="prio-img-${id}" class="p-12" src="img/add_task/arrow_urgent_white.svg" alt="">
                         </div></span>
                     </div>
 
-                    <div class="d-flex flex-column board-text">
-                        <span class="f-bold">Assigned To:</span>
-                        <ul>
-                            <li class="d-flex  align-items-center">
-                                <div class="assigned-outer">
-                                    <div class="assigned-inner bg-contact-blue d-flex justify-content-center align-items-center">
-                                        NK
-                                    </div>
-                                </div>
-                                <span class="m-left-8">Nadia Knofius</span>
-                            </li>
-                            <li  class="d-flex  align-items-center">
-                                <div class="assigned-outer position-circle">
-                                    <div
-                                        class="assigned-inner bg-contact-green d-flex justify-content-center align-items-center">
-                                        PF
-                                    </div>
-                                </div>
-                                    <span class="m-left-8">Patrick Frantzen</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <div id="assigned-display-area-${id}" class="d-flex flex-column board-text"></div>
                     
                 </div>
             </div>
     `
 }
 
-/**/
+function renderMembersOfTaskAreaDisplay(id) {
+    return `
+            <span class="f-bold">Assigned To:</span>
+                        <ul id="assigned-list-${id}">
+                            <li class="d-flex  align-items-center">
+                                <div class="assigned-outer">
+                                    <div id="first-member-display-${id}" class="assigned-inner d-flex justify-content-center align-items-center"></div> 
+                                </div>
+                                <span id="first-member-name-display-${id}" class="m-left-8"></span>
+                            </li>
+                            
+                        </ul>
+    `
+}
+
+function renderAdditionalMembersDisplay(memberOfInitialArray, id) {
+    return `
+                            <li  class="d-flex  align-items-center">
+                                <div class="assigned-outer position-circle">
+                                    <div id="other-member-display-${id}"
+                                        class="assigned-inner d-flex justify-content-center align-items-center">
+                                        ${memberOfInitialArray}
+                                    </div>
+                                </div>
+                                    <span id="other-member-name-display-${id}" class="m-left-8"></span>
+                            </li>
+    `
+}
+
+
 
 
 let test = [{

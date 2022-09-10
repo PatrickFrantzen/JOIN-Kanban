@@ -1,24 +1,24 @@
-.bg-category-marketing {
+.bg-category-Marketing {
     background-color: var(--marketing);
 }
 
-.bg-category-developtment {
+.bg-category-Developtment {
     background-color: var(--developtment);
 }
 
-.bg-category-sales {
+.bg-category-Sales {
     background-color: var(--sales);
 }
 
-.bg-category-backoffice {
+.bg-category-Backoffice {
     background-color: var(--backoffice);
 }
 
-.bg-category-design {
+.bg-category-Design {
     background-color: var(--design);
 }
 
-.bg-category-media {
+.bg-category-Media {
     background-color: var(--media);
 }
 
@@ -89,7 +89,6 @@
 }
 
 .board-description {
-    color: #A8A8A8;
     width: 210px;
 }
 
