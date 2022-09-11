@@ -230,7 +230,7 @@ function createNewTask() {
  * @param {string} status 
  */
 async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, duetaskprio: prio, projectstatus: status };
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);
