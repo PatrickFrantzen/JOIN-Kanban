@@ -9,7 +9,7 @@ let taskAmount = {
     "done": 0,
     "total": 0,
     "urgent": 0,
-    "urgentDate": []
+    "urgentDate": [],
 }
 
 
