@@ -88,6 +88,9 @@
     top: 0;
 }
 
+.board-card {
+    width: 250px;
+}
 
 .board-category {
     border: 1px solid;
