@@ -34,9 +34,10 @@ function getTaskDetails(i, singleTask) {
     let members = getMembers(singleTask);
     let status = singleTask.projectstatus;
     let subtasks = singleTask.tasksubtasks;
+    let completedsubtasks = singleTask.finishedsubtasks;
     createTask(i, title, description, category, date, prio, status);
     createDisplay(i, title, description, category, date, prio, members, singleTask);
-    createSubtaskArea(i, subtasks);
+    createSubtaskArea(i, subtasks, completedsubtasks);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
 }
@@ -53,13 +54,17 @@ function createDisplay(id, title, description, category, date, prio) {
 
 }
 
-function createSubtaskArea(id, subtasks) {
+function createSubtaskArea(id, subtasks, completedsubtasks) {
 if (subtasks == undefined) {
     document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
 } else {
     let numberOfSubtasks = subtasks.length;
-    document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks);}
-
+    let numberOfFinishedSubtasks = 0;
+    if (completedsubtasks.length >= 1) {
+        numberOfFinishedSubtasks = completedsubtasks.length;
+    }
+    document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks);}
+    getSubtasks(subtasks, id, completedsubtasks);
 }
 
 function createAssignedMemberArea(members, singleTask, id) {
@@ -70,6 +75,25 @@ function createAssignedMemberArea(members, singleTask, id) {
         getOtherMembers(members, singleTask, id);
     }
 
+}
+
+function getSubtasks(subtasks, id, completedsubtasks) {
+    if (subtasks == undefined) {
+        document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
+    } else {
+    
+    for (let i = 0; i < subtasks.length; i++) {
+        let subtask = subtasks[i];
+        document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, id, completedsubtasks);
+    }
+}
+}
+
+async function saveFinishedSubtask(id, subtask, finishedsubtasks) {
+    allTasks[id].finishedsubtasks.push(subtask);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderCards();
+    openDialog(id);
 }
 
 function getfirstMember(members, singleTask, id) {
@@ -190,9 +214,10 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(status) {
+async function moveTo(status) {
     allTasks[currentDraggedElement]['projectstatus'] = status;
     renderCards();
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
 function startDragging(id) {

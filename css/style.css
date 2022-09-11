@@ -76,6 +76,10 @@ a {
     padding: 12px;
 }
 
+.m-bottom-5 {
+    margin-bottom: 5px;
+}
+
 .m-bottom-18 {
     margin-bottom: 18px;
 }
@@ -90,6 +94,10 @@ a {
 
 .m-top-20 {
     margin-top: 20px;
+}
+
+.m-left-25 {
+    margin-left: 25px;
 }
 
 .m-left-50 {
@@ -110,6 +118,10 @@ a {
 
 .m-right-24{
     margin-right: 24px;
+}
+
+.m-right-25{
+    margin-right: 25px;
 }
 
 .m-right-50 {
@@ -362,3 +374,4 @@ a {
 .cursor {
     cursor: pointer;
 }
+

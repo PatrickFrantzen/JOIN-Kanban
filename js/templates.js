@@ -135,11 +135,11 @@ function renderSingleCard(id, title, description, category) {
 `
 }
 
-function renderProgressbarArea(numberOfSubtasks) {
+function renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks) {
     return `
         <div class="progressbar-inner" role="progressbar"></div>
             <div class="subtasks d-flex text-align-center">
-                <span class="f-12">0/${numberOfSubtasks} Done</span>
+                <span class="f-12">${numberOfFinishedSubtasks}/${numberOfSubtasks} Done</span>
             </div>
     `
 }
@@ -166,10 +166,10 @@ function renderDisplay(id) {
     `
 }
 
-function renderDisplayContent(id, title, description, category, date, prio) {
+function renderDisplayContent(id, title, description, category, date) {
     return `
             <div id="display-content-${id}" class="display-card h-100 w-100 d-flex justify-content-center d-none">
-                <div class="board-inner-card w-100 h-100 m-left-50 d-flex flex-column">
+                <div class="board-inner-card w-100 h-100 m-left-25 m-right-25 d-flex flex-column">
                     <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
                     <img class="m-right-24 m-top-20 close-img" onclick="closeDialog(${id})" src="img/buttons/close.png">
@@ -177,7 +177,14 @@ function renderDisplayContent(id, title, description, category, date, prio) {
                     <!-- Headlines -->
                     <span class="board-text board-category bg-category-${category}">${category}</span>
                     <span class="board-text board-title">${title}</span>
-                    <span class="board-text board-description">${description}</span>
+                    <span class="board-text">${description}</span>
+
+                    <div class="d-flex flex-column board-text">
+                        <span class="f-bold m-bottom-5">Subtasks:</span>
+                        <div id="subtasks-display-${id}" class="d-flex flex-column">
+                        </div>
+                    </div>
+
                     <div class="d-flex board-text">
                         <span class="f-bold">Due date: </span>
                         <span class="m-left-8">${date}</span>
@@ -231,6 +238,15 @@ function renderAdditionalMembersDisplay(memberOfInitialArray, id) {
 function renderEmtptyContainer() {
     return `
         <div class="drag-card card board-inner-card m-top-28 m-right-15"></div>
+    `
+}
+
+function renderSubTasks(subtask, id, completedsubtasks) {
+    return `
+    <div>
+    <input id="checkbox-${id}" type="checkbox" onclick="saveFinishedSubtask('${id}', '${subtask}', '${completedsubtasks}')">
+    <label for="checkbox-${id}" id="subtask-${id}" class="m-bottom-5 m-left-8">${subtask}</label>
+    </div>
     `
 }
 

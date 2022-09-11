@@ -98,11 +98,6 @@
 
 .board-title {
     font-weight: 700;
-    width: 210px;
-}
-
-.board-description {
-    width: 210px;
 }
 
 .progressbar-outer {
@@ -150,7 +145,7 @@
 
 .task-overlay {
     width: 500px;
-    height: 60vh;
+    height: 75vh;
     background-color: white;
     border-radius: 10px 10px 10px 10px;
     margin-left: 250px; 
