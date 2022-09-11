@@ -1,4 +1,10 @@
 let currentDraggedElement;
+let taskAmount = {
+    "todo": [],
+    "progress": [],
+    "feedback": [],
+    "done": []
+}
 
 async function initTasks() {
     await loadDataFromServer();

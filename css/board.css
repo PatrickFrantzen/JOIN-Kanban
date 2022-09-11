@@ -29,6 +29,11 @@
     padding: 5px 10px;
 }
 
+.board-headline{
+    position: sticky;
+    top: 0;
+}
+
 .searchbox img {
     height: 20px;
     width: 20px;
@@ -49,8 +54,8 @@
 }
 
 .main-board {
-    max-height: 582px;
-    position: relative;;
+    max-height: calc(100vh - 247px);
+    position: relative;
     overflow-y: scroll;
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
@@ -75,6 +80,14 @@
 .board-text {
     margin: 15px;
 }
+
+.board-heads{
+    background-color: var(--bg-grey);
+    position: sticky;
+    padding-bottom: 16px;
+    top: 0;
+}
+
 
 .board-category {
     border: 1px solid;
@@ -129,6 +142,10 @@
 .relative {
     position: absolute;
     left: -10px
+}
+
+.board-footer{
+    min-height: 80px;
 }
 
 .task-overlay {
