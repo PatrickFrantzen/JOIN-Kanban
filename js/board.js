@@ -40,6 +40,7 @@ function getTaskDetails(i, singleTask) {
     createSubtaskArea(i, subtasks, completedsubtasks);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
+    checkForCheckbox(i, subtasks, completedsubtasks);
 }
 
 function createTask(id, title, description, category, date, prio, status) {
@@ -62,7 +63,7 @@ function createSubtaskArea(id, subtasks, completedsubtasks) {
         let numberOfFinishedSubtasks = completedsubtasks.length;
         document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks);
     }
-    getSubtasks(subtasks, id, completedsubtasks);
+    getSubtasks(subtasks, id);
 }
 
 function createAssignedMemberArea(members, singleTask, id) {
@@ -75,10 +76,10 @@ function createAssignedMemberArea(members, singleTask, id) {
 
 }
 
-function getSubtasks(subtasks, id, completedsubtasks) {
+function getSubtasks(subtasks, id) {
 for (let i = 0; i < subtasks.length; i++) {
             let subtask = subtasks[i];
-            document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, id, completedsubtasks);
+            document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, i, id);
         }
     
 }
@@ -229,4 +230,13 @@ function openDialog(id) {
     document.getElementById('task-display').classList.remove('d-none');
     document.getElementById(`display-${id}`).classList.remove('d-none');
     document.getElementById(`display-content-${id}`).classList.remove('d-none');
+}
+
+function checkForCheckbox(id, subtasks, completedsubtasks) {
+    
+        for (let i = 0; i < subtasks.length; i++) {
+            if (completedsubtasks.includes(subtasks[i])) {
+            document.getElementById(`checkbox-${id}-${i}`).checked = true;
+            }
+        }
 }
