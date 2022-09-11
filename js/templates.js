@@ -124,10 +124,7 @@ function renderSingleCard(id, title, description, category) {
     <span class="board-text board-description">${description}</span>
 
     <div id="progressbar-${id}" class="progressbar-outer board-text d-flex align-items-center text-align-center">
-        <div class="progressbar-inner" role="progressbar"></div>
-        <div class="subtasks d-flex text-align-center">
-            <span class="f-12">0/2 Done</span>
-        </div>
+        
     </div>
 
     <div id="assigned-${id}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
@@ -136,6 +133,15 @@ function renderSingleCard(id, title, description, category) {
     </div>
 </div>
 `
+}
+
+function renderProgressbarArea(numberOfSubtasks) {
+    return `
+        <div class="progressbar-inner" role="progressbar"></div>
+            <div class="subtasks d-flex text-align-center">
+                <span class="f-12">0/${numberOfSubtasks} Done</span>
+            </div>
+    `
 }
 
 function renderMembersOfTaskArea(id) {
