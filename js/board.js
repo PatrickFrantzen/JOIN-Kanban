@@ -88,7 +88,7 @@ function checkboxToggle(id, i, subtask) {
     if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
         saveFinishedSubtask(id, subtask);
     } else {
-        resetFinishedSubtask(id, i);
+        resetFinishedSubtask(id, i, subtask);
     }
 }
 
@@ -99,11 +99,12 @@ async function saveFinishedSubtask(id, subtask) {
     openDialog(id);
 }
 
-async function resetFinishedSubtask(id, i) {
-    allTasks[id].finishedsubtasks.splice(i, 1);
+async function resetFinishedSubtask(id, i, subtask) {
+    let x = allTasks[id].finishedsubtasks.indexOf(subtask);
+    allTasks[id].finishedsubtasks.splice(x, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
-    openDialog(id);
+    openDialog(id); //splice an der Stelle i klappt nicht, da AUfgabe zwei mit i = 2 an erster Stelle stehen kann und dann nicht gespliced wird. Mit IndexOf die tatsächliche Stell herausfinden.
 }
     
 
