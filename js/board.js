@@ -55,15 +55,13 @@ function createDisplay(id, title, description, category, date, prio) {
 }
 
 function createSubtaskArea(id, subtasks, completedsubtasks) {
-if (subtasks == undefined) {
-    document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
-} else {
-    let numberOfSubtasks = subtasks.length;
-    let numberOfFinishedSubtasks = 0;
-    if (completedsubtasks.length >= 1) {
-        numberOfFinishedSubtasks = completedsubtasks.length;
+    if (subtasks == '') {
+        document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
+    } else {
+        let numberOfSubtasks = subtasks.length;
+        let numberOfFinishedSubtasks = completedsubtasks.length;
+        document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks);
     }
-    document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks);}
     getSubtasks(subtasks, id, completedsubtasks);
 }
 
@@ -78,18 +76,14 @@ function createAssignedMemberArea(members, singleTask, id) {
 }
 
 function getSubtasks(subtasks, id, completedsubtasks) {
-    if (subtasks == undefined) {
-        document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
-    } else {
+for (let i = 0; i < subtasks.length; i++) {
+            let subtask = subtasks[i];
+            document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, id, completedsubtasks);
+        }
     
-    for (let i = 0; i < subtasks.length; i++) {
-        let subtask = subtasks[i];
-        document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, id, completedsubtasks);
-    }
-}
 }
 
-async function saveFinishedSubtask(id, subtask, finishedsubtasks) {
+async function saveFinishedSubtask(id, subtask) {
     allTasks[id].finishedsubtasks.push(subtask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();

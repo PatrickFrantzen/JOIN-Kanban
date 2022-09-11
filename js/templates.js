@@ -241,10 +241,10 @@ function renderEmtptyContainer() {
     `
 }
 
-function renderSubTasks(subtask, id, completedsubtasks) {
+function renderSubTasks(subtask, id) {
     return `
     <div>
-    <input id="checkbox-${id}" type="checkbox" onclick="saveFinishedSubtask('${id}', '${subtask}', '${completedsubtasks}')">
+    <input id="checkbox-${id}" type="checkbox" onclick="saveFinishedSubtask('${id}', '${subtask}')">
     <label for="checkbox-${id}" id="subtask-${id}" class="m-bottom-5 m-left-8">${subtask}</label>
     </div>
     `
