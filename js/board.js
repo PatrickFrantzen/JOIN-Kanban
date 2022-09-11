@@ -85,12 +85,30 @@ function getSubtasks(subtasks, id) {
 
 }
 
+function checkboxToggle(id, i, subtask) {
+    if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
+        saveFinishedSubtask(id, subtask);
+    } else {
+        resetFinishedSubtask(id, i, subtask);
+    }
+}
+
 async function saveFinishedSubtask(id, subtask) {
     allTasks[id].finishedsubtasks.push(subtask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
     openDialog(id);
 }
+
+async function resetFinishedSubtask(id, i, subtask) {
+    let x = allTasks[id].finishedsubtasks.indexOf(subtask);
+    allTasks[id].finishedsubtasks.splice(x, 1);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderCards();
+    openDialog(id); //splice an der Stelle i klappt nicht, da AUfgabe zwei mit i = 2 an erster Stelle stehen kann und dann nicht gespliced wird. Mit IndexOf die tatsächliche Stell herausfinden.
+}
+    
+
 
 function getfirstMember(members, singleTask, id) {
     let firstMember = members[0];
