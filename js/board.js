@@ -1,10 +1,4 @@
 let currentDraggedElement;
-let taskAmount = {
-    "todo": 0,
-    "progress": 0,
-    "feedback": 0,
-    "done": 0
-}
 
 async function initTasks() {
     await loadDataFromServer();
@@ -38,7 +32,7 @@ function getTaskDetails(i, singleTask) {
     let date = singleTask.duedate;
     let prio = singleTask.taskprio;
     let members = getMembers(singleTask);
-    let status = getStatus(singleTask);
+    let status = singleTask.projectstatus;
     createTask(i, title, description, category, date, prio, status);
     createDisplay(i, title, description, category, date, prio, members, singleTask);
     createAssignedMemberArea(members, singleTask, i);
@@ -181,22 +175,6 @@ function priorityForDisplay(prio, id) {
     }
 }
 
-function getStatus(singleTask) {
-    let currentStatus = singleTask.projectstatus;
-    switch (currentStatus) {
-        case 'toDo':
-            return currentStatus;
-
-        case 'progress':
-            return currentStatus;
-
-        case 'feedback':
-            return currentStatus;
-
-        case 'done':
-            return currentStatus;
-    }
-}
 
 function allowDrop(ev) {
     ev.preventDefault();

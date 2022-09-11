@@ -2,6 +2,12 @@ let priority;
 let userInformation;
 let contactColors;
 let allTasks = [];
+let taskAmount = {
+    "toDo": 0,
+    "progress": 0,
+    "feedback": 0,
+    "done": 0
+}
 
 
 function renderContactDetails(firstLetter, secondLetter, name, email, color, phone, animationContact) {
