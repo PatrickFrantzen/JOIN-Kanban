@@ -92,7 +92,6 @@ function checkForFirstMemberColor(singleTask) {
         let name = user.fullname;
         let color = user.color;
         let firstmember = singleTask.taskmember[0];
-
         if (name == firstmember) {
             let userColor = color;
             return userColor;

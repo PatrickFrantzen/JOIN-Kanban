@@ -210,10 +210,11 @@ function createNewTask() {
     let description = document.getElementById('describtion');
     let category = getCurrentCategory();
     let assignedTo = currentMembers;
-    let date = readableDate();
+    let originFormatDate = document.getElementById('date').value;
+    let date = readableDate(originFormatDate);
     let prio = currentPrio;
     let status = 'toDo';
-    addNewTaskToArray(title, description, category, assignedTo, date, prio, status);
+    addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status);
 }
 
 
@@ -228,8 +229,8 @@ function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-async function addNewTaskToArray(title, description, category, assignedTo, date, prio, status) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio, projectstatus: status };
+async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, duetaskprio: prio, projectstatus: status };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);
@@ -242,7 +243,7 @@ function clearAddTask(title, description) {
     outputbox = '';
     title.value = '';
     description.value = '';
-    document.getElementById('categories').classList.remove(d-none);
+    // addClassList('categories', 'd-none');
 }
 
 
@@ -252,11 +253,10 @@ function getCurrentCategory() {
 }
 
 
-function readableDate() {
-    let dueDate = document.getElementById('date').value;
-    let day = dueDate.slice(8, 10);
-    let month = dueDate.slice(5, 7);
-    let year = dueDate.slice(0, 4);
+function readableDate(originFormatDate) {
+    let day = originFormatDate.slice(8, 10);
+    let month = originFormatDate.slice(5, 7);
+    let year = originFormatDate.slice(0, 4);
     return `${day}.${month}.${year}`
 }
 

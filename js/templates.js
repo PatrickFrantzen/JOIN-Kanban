@@ -6,7 +6,10 @@ let taskAmount = {
     "toDo": 0,
     "progress": 0,
     "feedback": 0,
-    "done": 0
+    "done": 0,
+    "total": 0,
+    "urgent": 0,
+    "urgentDate": []
 }
 
 
