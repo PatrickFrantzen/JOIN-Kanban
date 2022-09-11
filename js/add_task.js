@@ -4,6 +4,7 @@ let currentPrio;
 let currentMembers = [];
 let currentSubTasks =[];
 
+
 async function initAddTask() {
     await loadDataFromServer()
     await init();
@@ -216,7 +217,9 @@ function createNewTask() {
     let prio = currentPrio;
     let status = 'toDo';
     let subtasks = currentSubTasks;
-    addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks);
+    let completedSubTasks = [];
+    let completedTask = false;
+    addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask);
 }
 
 
@@ -231,8 +234,8 @@ function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status };
+async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask};
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);

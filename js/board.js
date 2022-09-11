@@ -34,11 +34,13 @@ function getTaskDetails(i, singleTask) {
     let members = getMembers(singleTask);
     let status = singleTask.projectstatus;
     let subtasks = singleTask.tasksubtasks;
+    let completedsubtasks = singleTask.finishedsubtasks;
     createTask(i, title, description, category, date, prio, status);
     createDisplay(i, title, description, category, date, prio, members, singleTask);
-    createSubtaskArea(i, subtasks);
+    createSubtaskArea(i, subtasks, completedsubtasks);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
+    checkForCheckbox(i, subtasks, completedsubtasks);
 }
 
 function createTask(id, title, description, category, date, prio, status) {
@@ -53,13 +55,15 @@ function createDisplay(id, title, description, category, date, prio) {
 
 }
 
-function createSubtaskArea(id, subtasks) {
-if (subtasks == undefined) {
-    document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
-} else {
-    let numberOfSubtasks = subtasks.length;
-    document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks);}
-
+function createSubtaskArea(id, subtasks, completedsubtasks) {
+    if (subtasks == '') {
+        document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
+    } else {
+        let numberOfSubtasks = subtasks.length;
+        let numberOfFinishedSubtasks = completedsubtasks.length;
+        document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks);
+    }
+    getSubtasks(subtasks, id);
 }
 
 function createAssignedMemberArea(members, singleTask, id) {
@@ -70,6 +74,21 @@ function createAssignedMemberArea(members, singleTask, id) {
         getOtherMembers(members, singleTask, id);
     }
 
+}
+
+function getSubtasks(subtasks, id) {
+for (let i = 0; i < subtasks.length; i++) {
+            let subtask = subtasks[i];
+            document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, i, id);
+        }
+    
+}
+
+async function saveFinishedSubtask(id, subtask) {
+    allTasks[id].finishedsubtasks.push(subtask);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderCards();
+    openDialog(id);
 }
 
 function getfirstMember(members, singleTask, id) {
@@ -190,9 +209,10 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(status) {
+async function moveTo(status) {
     allTasks[currentDraggedElement]['projectstatus'] = status;
     renderCards();
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
 function startDragging(id) {
@@ -210,4 +230,13 @@ function openDialog(id) {
     document.getElementById('task-display').classList.remove('d-none');
     document.getElementById(`display-${id}`).classList.remove('d-none');
     document.getElementById(`display-content-${id}`).classList.remove('d-none');
+}
+
+function checkForCheckbox(id, subtasks, completedsubtasks) {
+    
+        for (let i = 0; i < subtasks.length; i++) {
+            if (completedsubtasks.includes(subtasks[i])) {
+            document.getElementById(`checkbox-${id}-${i}`).checked = true;
+            }
+        }
 }
