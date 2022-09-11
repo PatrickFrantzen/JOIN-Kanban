@@ -251,6 +251,19 @@ function renderSubTasks(subtask, id, completedsubtasks) {
 }
 
 
+function renderNewContactBtn() {
+    return `
+    <div id="contact-create-btn-mobile" class="d-flex justify-content-end new-contact-btn-container">
+    <button id="new-contact-btn" class="darkblue-btn m-left-24"
+        onclick="showOverlayContact('new-contact', 'new-contact-overlay')">
+        <span class="f-18">New Contact</span>
+        <img class="btn-icons-contact" src="img/buttons/newcontact.png" alt="">
+    </button>
+</div>
+    `;
+}
+
+
 
 let test = [{
     "fullname": "Nadia Knofius",
