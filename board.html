@@ -34,7 +34,7 @@
             <h1>Board</h1>
             <div class="d-flex">
                 <form class="searchbox d-flex justify-content-center align-items-center" role="search">
-                    <input class="inputfield" placeholder="Find task" type="text">
+                    <input id="search" class="inputfield" placeholder="Find task" minlength="3" type="text" onkeyup="searchTasks()">
                     <div class="search-line"></div>
                     <img class="btn-icons" src="img/board/search.svg">
                 </form>

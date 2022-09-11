@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let search = [];
 
 async function initTasks() {
     await loadDataFromServer();
@@ -82,11 +83,11 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
 }
 
 function getSubtasks(subtasks, id) {
-for (let i = 0; i < subtasks.length; i++) {
-            let subtask = subtasks[i];
-            document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, i, id);
-        }
-    
+    for (let i = 0; i < subtasks.length; i++) {
+        let subtask = subtasks[i];
+        document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, i, id);
+    }
+
 }
 
 function checkboxToggle(id, i, subtask) {
@@ -157,7 +158,6 @@ function checkForColor(memberOfTask) {
         let user = userInformation[i];
         let name = user.fullname;
         let color = user.color;
-
         if (name == memberOfTask) {
             let userColor = color;
             return userColor;
@@ -256,10 +256,59 @@ function openDialog(id) {
 }
 
 function checkForCheckbox(id, subtasks, completedsubtasks) {
-    
-        for (let i = 0; i < subtasks.length; i++) {
-            if (completedsubtasks.includes(subtasks[i])) {
+
+    for (let i = 0; i < subtasks.length; i++) {
+        if (completedsubtasks.includes(subtasks[i])) {
             document.getElementById(`checkbox-${id}-${i}`).checked = true;
-            }
         }
+    }
 }
+
+
+function searchTasks() {
+    let searchInput = document.getElementById('search').value;
+    for (let i = 0; i < allTasks.length; i++) {
+        let task = allTasks[i];
+        searchForCriteria(task, searchInput, i);
+    }
+    renderSearchedTasks();
+}
+
+function searchForCriteria(task, searchInput, i) {
+    if (task.tasktitle.includes(searchInput) || task.taskprio.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
+        if (getIndexFromArray(i) == -1)
+            search.push(i);
+    } else {
+        let index = getIndexFromArray(i);
+        if (index >= 0)
+            search.splice(index, 1);
+    }
+}
+
+
+function checkSearchForMembers(task, searchInput) {
+    for (let i = 0; i < task.taskmember.length; i++) {
+        let member = task.taskmember[i];
+        if (member.includes(searchInput)) {
+            return true;
+        }
+    }
+}
+
+
+function getIndexFromArray(i) {
+    let index = search.indexOf(i);
+    return index;
+}
+
+
+function renderSearchedTasks() {
+    clearCards();
+    for (let i = 0; i < search.length; i++) {
+        let singleTask = allTasks[search[i]];
+        getTaskDetails(search[i], singleTask);
+    }
+}
+
+
+
