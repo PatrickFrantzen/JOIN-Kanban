@@ -102,13 +102,21 @@
 
 .progressbar-outer {
     width: 210px;
+    
 }
 
 .progressbar-inner {
-    height: 5px;
+    
     width: 150px;
     background-color: var(--light-grey);
     margin-right: 15px;
+    border-radius: 10px;
+}
+
+.bar {
+    height: 5px;
+    width: 1%;
+    background-color: var(--progress);
 }
 
 .board-assigned {

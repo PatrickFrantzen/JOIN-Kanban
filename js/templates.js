@@ -135,9 +135,11 @@ function renderSingleCard(id, title, description, category) {
 `
 }
 
-function renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks) {
+function renderProgressbarArea(id, numberOfSubtasks, numberOfFinishedSubtasks) {
     return `
-        <div class="progressbar-inner" role="progressbar"></div>
+        <div class="progressbar-inner" role="progressbar">
+        <div id="bar-${id}" class="bar"></div>
+        </div>
             <div class="subtasks d-flex text-align-center">
                 <span class="f-12">${numberOfFinishedSubtasks}/${numberOfSubtasks} Done</span>
             </div>

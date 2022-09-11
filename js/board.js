@@ -61,7 +61,8 @@ function createSubtaskArea(id, subtasks, completedsubtasks) {
     } else {
         let numberOfSubtasks = subtasks.length;
         let numberOfFinishedSubtasks = completedsubtasks.length;
-        document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks, numberOfFinishedSubtasks);
+        document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(id, numberOfSubtasks, numberOfFinishedSubtasks);
+        renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks);
     }
     getSubtasks(subtasks, id);
 }
@@ -74,6 +75,10 @@ function createAssignedMemberArea(members, singleTask, id) {
         getOtherMembers(members, singleTask, id);
     }
 
+}
+
+function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
+    document.getElementById(`bar-${id}`).style.width = ((numberOfFinishedSubtasks/numberOfSubtasks)*100) + "%";
 }
 
 function getSubtasks(subtasks, id) {
@@ -104,7 +109,7 @@ async function resetFinishedSubtask(id, i, subtask) {
     allTasks[id].finishedsubtasks.splice(x, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
-    openDialog(id); //splice an der Stelle i klappt nicht, da AUfgabe zwei mit i = 2 an erster Stelle stehen kann und dann nicht gespliced wird. Mit IndexOf die tatsächliche Stell herausfinden.
+    openDialog(id);
 }
     
 
