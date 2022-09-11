@@ -2,6 +2,7 @@ let assignedToMembers = [];
 let currentCategory;
 let currentPrio;
 let currentMembers = [];
+let currentSubTasks =[];
 
 async function initAddTask() {
     await loadDataFromServer()
@@ -214,7 +215,8 @@ function createNewTask() {
     let date = readableDate(originFormatDate);
     let prio = currentPrio;
     let status = 'toDo';
-    addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status);
+    let subtasks = currentSubTasks;
+    addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks);
 }
 
 
@@ -229,8 +231,13 @@ function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
+<<<<<<< HEAD
 async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status) {
     let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status };
+=======
+async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, duetaskprio: prio, projectstatus: status, tasksubtasks: subtasks};
+>>>>>>> a9e716d4eda569865267c264cc727e132fbfbb5f
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);
@@ -243,6 +250,7 @@ function clearAddTask(title, description) {
     outputbox = '';
     title.value = '';
     description.value = '';
+    currentSubTasks = [];
     // addClassList('categories', 'd-none');
 }
 
@@ -282,6 +290,7 @@ function clearSubtaskInput() {
 
 function addNewSubtask() {
     let inputSubtask = document.getElementById('subtask-input').value;
+    currentSubTasks.push(inputSubtask);
     let outputbox = document.getElementById('subtasks-output');
     outputbox.innerHTML += `
     <div class="d-flex">

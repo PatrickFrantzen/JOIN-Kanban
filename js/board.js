@@ -33,8 +33,10 @@ function getTaskDetails(i, singleTask) {
     let prio = singleTask.taskprio;
     let members = getMembers(singleTask);
     let status = singleTask.projectstatus;
+    let subtasks = singleTask.tasksubtasks;
     createTask(i, title, description, category, date, prio, status);
     createDisplay(i, title, description, category, date, prio, members, singleTask);
+    createSubtaskArea(i, subtasks);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
 }
@@ -48,6 +50,15 @@ function createDisplay(id, title, description, category, date, prio) {
     document.getElementById('task-display').innerHTML += renderDisplay(id);
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
+
+}
+
+function createSubtaskArea(id, subtasks) {
+if (subtasks == undefined) {
+    document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
+} else {
+    let numberOfSubtasks = subtasks.length;
+    document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(numberOfSubtasks);}
 
 }
 
