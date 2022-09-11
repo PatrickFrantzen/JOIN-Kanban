@@ -84,12 +84,29 @@ for (let i = 0; i < subtasks.length; i++) {
     
 }
 
+function checkboxToggle(id, i, subtask) {
+    if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
+        saveFinishedSubtask(id, subtask);
+    } else {
+        resetFinishedSubtask(id, i);
+    }
+}
+
 async function saveFinishedSubtask(id, subtask) {
     allTasks[id].finishedsubtasks.push(subtask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
     openDialog(id);
 }
+
+async function resetFinishedSubtask(id, i) {
+    allTasks[id].finishedsubtasks.splice(i, 1);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderCards();
+    openDialog(id);
+}
+    
+
 
 function getfirstMember(members, singleTask, id) {
     let firstMember = members[0];
