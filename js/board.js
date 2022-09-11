@@ -1,9 +1,9 @@
 let currentDraggedElement;
 let taskAmount = {
-    "todo": [],
-    "progress": [],
-    "feedback": [],
-    "done": []
+    "todo": 0,
+    "progress": 0,
+    "feedback": 0,
+    "done": 0
 }
 
 async function initTasks() {
@@ -22,7 +22,7 @@ function renderCards() {
 }
 
 function clearCards() {
-    document.getElementById('todo-card').innerHTML = '';
+    document.getElementById('toDo-card').innerHTML = '';
     document.getElementById('progress-card').innerHTML = '';
     document.getElementById('progress-card').innerHTML = renderEmtptyContainer();
     document.getElementById('feedback-card').innerHTML = '';
@@ -46,7 +46,7 @@ function getTaskDetails(i, singleTask) {
 }
 
 function createTask(id, title, description, category, date, prio, status) {
-    document.getElementById(`${status}`).innerHTML += renderSingleCard(id, title, description, category, date, prio);
+    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
 }
 
@@ -54,17 +54,17 @@ function createDisplay(id, title, description, category, date, prio) {
     document.getElementById('task-display').innerHTML += renderDisplay(id);
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
-    
+
 }
 
-function createAssignedMemberArea(members, singleTask, id){
+function createAssignedMemberArea(members, singleTask, id) {
     if (singleTask.taskmember.length == 1) {
         getfirstMember(members, singleTask, id);
     } else {
         getfirstMember(members, singleTask, id);
         getOtherMembers(members, singleTask, id);
     }
-    
+
 }
 
 function getfirstMember(members, singleTask, id) {
@@ -145,12 +145,11 @@ function createPriority(prio, id) {
     priorityForDisplay(prio, id);
 }
 
-function priorityForBoard(prio, id){
+function priorityForBoard(prio, id) {
     switch (prio) {
         case 'urgent':
             document.getElementById(`prio-${id}`).src = "img/add_task/arrow_urgent.svg";
             break;
-    
         case 'medium':
             document.getElementById(`prio-${id}`).src = "img/add_task/medium.svg";
             break;
@@ -160,14 +159,14 @@ function priorityForBoard(prio, id){
     }
 }
 
-function priorityForDisplay(prio, id){
+function priorityForDisplay(prio, id) {
     switch (prio) {
         case 'urgent':
             document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
             document.getElementById(`prio-display-name-${id}`).innerHTML = 'Urgent';
             document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_urgent_white.svg";
             break;
-    
+
         case 'medium':
             document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
             document.getElementById(`prio-display-name-${id}`).innerHTML = 'Medium';
@@ -185,31 +184,23 @@ function priorityForDisplay(prio, id){
 function getStatus(singleTask) {
     let currentStatus = singleTask.projectstatus;
     switch (currentStatus) {
-        case 'toDo' || 'todo-card':
-            currentStatus = 'todo-card'
+        case 'toDo':
             return currentStatus;
 
-        case 'todo-card':
-            currentStatus = 'todo-card'
+        case 'progress':
             return currentStatus;
 
-        case 'progress-card':
-                currentStatus = 'progress-card'
-                return currentStatus;
+        case 'feedback':
+            return currentStatus;
 
-        case 'feedback-card':
-                currentStatus = 'feedback-card'
-                return currentStatus;
-
-        case 'done-card':
-                currentStatus = 'done-card'
-                return currentStatus;
+        case 'done':
+            return currentStatus;
     }
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
-  }
+}
 
 function moveTo(status) {
     allTasks[currentDraggedElement]['projectstatus'] = status;
@@ -218,7 +209,7 @@ function moveTo(status) {
 
 function startDragging(id) {
     currentDraggedElement = id;
-    
+
 }
 
 function closeDialog(id) {

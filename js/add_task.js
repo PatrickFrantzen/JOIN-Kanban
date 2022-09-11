@@ -127,7 +127,7 @@ function activateOtherBtns(counter) {
     }
 }
 
-
+//TODO
 function addAssignedTo() {
     let outputbox = document.getElementById('user-assignedTo');
     let teamMembers = document.getElementById('assignedToSelect').selectedOptions;
@@ -147,6 +147,8 @@ function createId(member) {
     return id;
 }
 
+
+//TODO
 function renderSelectedMembers(outputbox, member, id) {
     if (outputbox.innerHTML == 'Select one or more people') {
         outputbox.innerHTML = '';
@@ -160,6 +162,8 @@ function renderSelectedMembers(outputbox, member, id) {
     }
 }
 
+
+//TODO
 function renderSelectedMembersTemplate(id, member) {
     return `
     <div id="${id}" class="d-flex align-items-center justify-content-space-between choosed-member">
@@ -169,6 +173,7 @@ function renderSelectedMembersTemplate(id, member) {
 }
 
 
+//TODO
 /**
  * removes choosed member in outputbox and prevent executing parents onclick function,
  * so drop down list of members will not be shown
@@ -187,12 +192,19 @@ function removeAssignedTo(event, id) {
 }
 
 
-
+//TODO
 function deleteElementOfArray(element) {
     let index = assignedToMembers.indexOf(element);
     assignedToMembers.splice(index, 1);
 }
 
+
+
+//TODO: outsourcing status, so function can be used from board.html too
+/**
+ * reads information of inputfields 
+ * 
+ */
 function createNewTask() {
     let title = document.getElementById('title');
     let description = document.getElementById('describtion');
@@ -204,6 +216,18 @@ function createNewTask() {
     addNewTaskToArray(title, description, category, assignedTo, date, prio, status);
 }
 
+
+/**
+ * united all information of inputfields in a json,
+ * adds it to allTasks and send it to server
+ * @param {object} title 
+ * @param {object} description 
+ * @param {string} category 
+ * @param {array} assignedTo //assigned members
+ * @param {date} date 
+ * @param {string} prio 
+ * @param {string} status 
+ */
 async function addNewTaskToArray(title, description, category, assignedTo, date, prio, status) {
     let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, taskprio: prio, projectstatus: status };
     allTasks.push(newTask);
@@ -211,6 +235,8 @@ async function addNewTaskToArray(title, description, category, assignedTo, date,
     clearAddTask(title, description);
 }
 
+
+//TODO: clear all fields and reset priority btns
 function clearAddTask(title, description) {
     let outputbox = document.getElementById('user-assignedTo');
     outputbox = '';
@@ -219,10 +245,12 @@ function clearAddTask(title, description) {
     document.getElementById('categories').classList.remove(d-none);
 }
 
+
 function getCurrentCategory() {
     let actualCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
     return actualCategory;
 }
+
 
 function readableDate() {
     let dueDate = document.getElementById('date').value;
