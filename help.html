@@ -19,16 +19,109 @@
     <script src="js/includeHTML.js"></script>
     <script src="js/mini_backend.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/add_task.js"></script>
     <title>Join-Kanban Help</title>
 </head>
 
-<body onload="init()">
+<body onload="initAddTask()">
 
     <div w3-include-html="navbar.html"></div>
 
     <div class="content">
-        <h1>Help</h1>
-        <img class="board-img" src="img/board.png" alt="">
+
+        <div class="d-flex flex-column">
+            <h1 id="h1-imprint">Help
+                <p id="kanban-subheadline" class="d-none">Kanban Project Management Tool</p>
+                <img class="imprint-back d-none" src="img/add_task/arrow-left-line.png" alt="">
+            </h1>
+            <div>
+                <h3>What is Kanban?</h3>
+                <p>Kanban is a visual system for managing work as it moves through a process. <br>
+                    Kanban visualizes both the process (the workflow) and the actual work passing through that process.
+                    <br>
+                    The goal of Kanban is to identify potential bottlenecks in your process and fix them so work can
+                    flow through it cost-effectively at an optimal speed or throughput.
+                </p>
+                <img class="board-img" src="img/board.png" alt="">
+            </div>
+
+        </div>
+        <!-- Summary -->
+        <div class="help-text-section">
+            <div class="d-flex flex-column">
+                <h3>Summary</h3>
+                <p>Here you can find an overview about amount of tasks, how many tasks which status have and when is
+                    next urgent coming up task.</p>
+            </div>
+            <!-- Add task  -->
+            <div class="d-flex flex-column">
+                <h3>Add Task</h3>
+                <p>Create new tasks with following parameters:<br>
+                <ul>
+                    <li><strong>Title:</strong> give decisive title </li>
+                    <li><strong>Description:</strong> add describtion to explain details of task</li>
+                    <li><strong>Category:</strong> choose category of department or create new category</li>
+                    <li><strong>Assigned to:</strong> choose members to assign the task to</li>
+                    <li><strong>Due date:</strong> pick latest date when task should be finished </li>
+                    <li><strong>Prioriy:</strong> Choose kind of priority of urgency </li>
+                    <li><strong>Subtasks:</strong> Add new subtasks, so you can break the task down into multiple stages
+                        of completion</li>
+                </ul>
+                <br>
+                After creating task you can find it in the board.
+                </p>
+            </div>
+            <!-- Board -->
+            <div class="d-flex flex-column">
+                <h3>Board</h3>
+                <p>All created tasks will show in board. Drag tasks between the four sections "To Do", "In progress",
+                    "Awaiting feedback" and "Done" <br>
+                    depending on current working status. Tasks, which includes subtasks have a progressbar in addition,
+                    which show you, how many subtasks are done. <br>
+                    You can click on task to open an detail overview, which can be edited as well.
+                    It's also possible to add new tasks from this page.<br>
+                    Find tasks with search function close to headline. You can also search for tasks by assigned members
+                    and priority.
+                </p>
+            </div>
+            <!-- Contacts -->
+            <div class="d-flex flex-column">
+                <h3>Contacts</h3>
+                <p>Here you find your contacts. View Contact information, edit your already existing contacts or create
+                    new contacts.</p>
+            </div>
+
+
+            <div>
+                <h3>Join Kanban created by</h3>
+                <div class="d-flex">
+                    <div>
+
+                        <div
+                            class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
+                            <div
+                                class="contact-avatar-big bg-contact-light-grey d-flex align-items-center justify-content-center">
+                                <img class="help-profile-img" class="d-none" src="img/profil_pics/patrick_pic.jpg"
+                                    alt="">
+                            </div>
+                        </div>
+                        <span>Patrick Frantzen</span>
+                    </div>
+                    <div class="m-left-24 m-bottom-18">
+                        <div
+                            class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
+                            <div
+                                class="contact-avatar-big bg-contact-light-grey d-flex align-items-center justify-content-center">
+                                <img class="help-profile-img" src="img/profil_pics/nadia.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <span>Nadia Knofius</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>

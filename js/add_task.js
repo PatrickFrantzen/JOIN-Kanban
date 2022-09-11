@@ -231,13 +231,8 @@ function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-<<<<<<< HEAD
 async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status) {
     let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status };
-=======
-async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, duetaskprio: prio, projectstatus: status, tasksubtasks: subtasks};
->>>>>>> a9e716d4eda569865267c264cc727e132fbfbb5f
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);
