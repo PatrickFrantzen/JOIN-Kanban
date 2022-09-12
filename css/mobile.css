@@ -56,12 +56,13 @@
     }
 
     .board-headline{
-        width: calc(100vw - 313px) ;
+        width: calc(100vw - 347px) ;
     }
 
     .main-board {
         width: calc(100vw - 336px);
     }
+
 
 
 }
@@ -187,7 +188,7 @@
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1245px) {
     .board-head{
         width: 190px;
     }
@@ -209,6 +210,46 @@
         width: 154px;
     }
 
+}
+
+@media (max-width: 1244px) {
+    .main-board {
+        flex-direction: row;
+        max-width: calc(100vw - 100px);
+    }
+
+    .main-board-area {
+        flex-direction: column;
+    }
+
+    .board-head {
+        position: unset;
+        padding-top: 32px;
+        padding-bottom: 0px;
+    }
+    
+    .board-card {
+        display: flex;
+        flex-wrap: wrap;
+        width: unset;
+        justify-content: space-between;
+    }
+
+    .board-inner-card {
+        width: 280px;
+    }
+
+    .board-title {
+        min-height: 60px;
+    }
+
+    .board-description {
+        min-height: 90px;
+    }
+
+    .progressbar-outer {
+        min-height: 30px;
+    }
 }
 
 @media (max-width: 1180px) {
@@ -264,34 +305,7 @@
 
 }
 
-@media (max-width: 1106px) {
-    .board-head{
-        width: 170px;
-    }
 
-    .board-card{
-        width: 170px;
-    }
-
-    .board-inner-card {
-        width: 170px;
-        text-align: center;
-        justify-content: center;
-    }
-
-    
-    .progressbar-outer{
-        width: 135px;
-    }
-
-    .board-assigned {
-        width: 130px;
-    }
-
-    .board-text {
-        margin: 8px
-    }
-}
 
 @media (max-width: 1074px) {
     .navbar {
@@ -394,6 +408,8 @@
     }
 }
 
+
+
 @media (max-width: 1040px) {
     #right-section {
         left: 100px;
@@ -477,6 +493,8 @@
         right: 0;
     }
 }
+
+
 
 @media(max-width: 1000px) {
     .subtitle-overlay {
@@ -594,7 +612,10 @@
     #create-contact-btn{
         height: 50px;
     }
+
 }
+
+
 
 @media (max-width: 770px) {
     .navbar {
