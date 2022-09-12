@@ -66,8 +66,29 @@
 
 }
 
-
 @media (max-width: 1353px) {
+    .board-head{
+        width: 225px;
+    }
+
+    .board-card{
+        width: 225px;
+    }
+
+    .board-inner-card {
+        width: 225px;
+    }
+
+    .progressbar-outer{
+        width: 195px;
+    }
+
+    .board-assigned {
+        width: 183px;
+    }
+}
+
+@media (max-width: 1323px) {
 
 
     .headline-line {
@@ -116,28 +137,24 @@
         font-size: 50px;
     }
 
-    .board-head{
-        width: 225px;
-    }
-
-    .board-card{
-        width: 225px;
-    }
-
-    .board-inner-card {
-        width: 225px;
-    }
-
-    .progressbar-outer{
-        width: 195px;
-    }
-
-    .board-assigned {
-        width: 183px;
-    }
 }
 
 @media (max-width: 1272px) {
+    .board-head{
+        width: 215px;
+    }
+
+    .board-card{
+        width: 215px;
+    }
+
+    .board-inner-card {
+        width: 215px;
+    }
+
+}
+
+@media (max-width: 1261px) {
     .contact-name-big {
         font-size: 35px;
     }
@@ -168,22 +185,33 @@
         width: 100px;
         height: 100px;
     }
+}
 
+@media (max-width: 1200px) {
     .board-head{
-        width: 215px;
+        width: 190px;
     }
 
     .board-card{
-        width: 215px;
+        width: 190px;
     }
 
     .board-inner-card {
-        width: 215px;
+        width: 190px;
+    }
+
+    
+    .progressbar-outer{
+        width: 160px;
+    }
+
+    .board-assigned {
+        width: 154px;
     }
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1180px) {
     .mailto {
         font-size: 14px;
     }
@@ -234,25 +262,34 @@
         width: 250px;
     }
 
+}
+
+@media (max-width: 1106px) {
     .board-head{
-        width: 190px;
+        width: 170px;
     }
 
     .board-card{
-        width: 190px;
+        width: 170px;
     }
 
     .board-inner-card {
-        width: 190px;
+        width: 170px;
+        text-align: center;
+        justify-content: center;
     }
 
     
     .progressbar-outer{
-        width: 160px;
+        width: 135px;
     }
 
     .board-assigned {
-        width: 154px;
+        width: 130px;
+    }
+
+    .board-text {
+        margin: 8px
     }
 }
 
