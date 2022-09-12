@@ -280,7 +280,7 @@ function changeIconsInSubtasks() {
 
 function clearSubtaskInput() {
     document.getElementById('subtasks-container').innerHTML = `
-    <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onkeyup="changeIconsInSubtasks()">
+    <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
     <img src="img/add_task/add.svg" alt="">
     `
 }
