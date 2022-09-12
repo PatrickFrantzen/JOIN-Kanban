@@ -54,10 +54,20 @@
         margin-left: 30px;
         padding-left: 30px;
     }
+
+    .board-headline{
+        width: calc(100vw - 313px) ;
+    }
+
+    .main-board {
+        width: calc(100vw - 336px);
+    }
+
+
 }
 
 
-@media (max-width: 1323px) {
+@media (max-width: 1353px) {
 
 
     .headline-line {
@@ -105,9 +115,29 @@
     .f-55 {
         font-size: 50px;
     }
+
+    .board-head{
+        width: 225px;
+    }
+
+    .board-card{
+        width: 225px;
+    }
+
+    .board-inner-card {
+        width: 225px;
+    }
+
+    .progressbar-outer{
+        width: 195px;
+    }
+
+    .board-assigned {
+        width: 183px;
+    }
 }
 
-@media (max-width: 1261px) {
+@media (max-width: 1272px) {
     .contact-name-big {
         font-size: 35px;
     }
@@ -138,9 +168,22 @@
         width: 100px;
         height: 100px;
     }
+
+    .board-head{
+        width: 215px;
+    }
+
+    .board-card{
+        width: 215px;
+    }
+
+    .board-inner-card {
+        width: 215px;
+    }
+
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
     .mailto {
         font-size: 14px;
     }
@@ -191,6 +234,26 @@
         width: 250px;
     }
 
+    .board-head{
+        width: 190px;
+    }
+
+    .board-card{
+        width: 190px;
+    }
+
+    .board-inner-card {
+        width: 190px;
+    }
+
+    
+    .progressbar-outer{
+        width: 160px;
+    }
+
+    .board-assigned {
+        width: 154px;
+    }
 }
 
 @media (max-width: 1074px) {
