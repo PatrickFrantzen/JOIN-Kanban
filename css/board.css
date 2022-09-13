@@ -1,26 +1,3 @@
-.bg-category-Marketing {
-    background-color: var(--marketing);
-}
-
-.bg-category-Developtment {
-    background-color: var(--developtment);
-}
-
-.bg-category-Sales {
-    background-color: var(--sales);
-}
-
-.bg-category-Backoffice {
-    background-color: var(--backoffice);
-}
-
-.bg-category-Design {
-    background-color: var(--design);
-}
-
-.bg-category-Media {
-    background-color: var(--media);
-}
 
 .searchbox {
     border: 1px solid lightgrey;
