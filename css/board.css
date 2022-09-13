@@ -7,8 +7,15 @@
 }
 
 .board-headline{
+    width: calc(100vw - 500px) ;
+}
+
+.board-head{
     position: sticky;
     top: 0;
+    background-color: var(--bg-grey);
+    padding-bottom: 16px;
+    
 }
 
 .searchbox img {
@@ -61,18 +68,13 @@
     width: 250px;
     justify-content: flex-start;
     align-items: flex-start;
+    
 }
 
 .board-text {
     margin: 15px;
 }
 
-.board-heads{
-    background-color: var(--bg-grey);
-    position: sticky;
-    padding-bottom: 16px;
-    top: 0;
-}
 
 .board-card {
     width: 250px;

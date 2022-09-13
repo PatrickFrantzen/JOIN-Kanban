@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/keyframes.css">
     <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/color.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
     <script src="js/board.js"></script>
@@ -44,49 +43,43 @@
         </div>
 
         <!-- Task Progress Headline -->
-        <div class="main-board flex-column d-flex scroll">
+        <div class="main-board d-flex flex-column scroll">
             
-            <div class="main-board-area d-flex justify-content-space-between ">
-
-                <div class="todo-area">
+            <div class="board-heads d-flex justify-content-space-between ">
                 <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                     <span id="todo-head" class="board-card-header f-21 f-bold">To do</span>
                     <img class="board-icons" src="img/board/blackPlus.svg">
                 </div>
-                <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
-                </div>
-
-                <div class="progress-area">
                 <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                     <span id="progress-head" class="board-card-header f-21 f-bold">In progress</span>
                     <img class="board-icons" src="img/board/blackPlus.svg">
                 </div>
-                <div id="progress-card"  class="board-card" ondrop="moveTo('progress')" ondragover="allowDrop(event)">
-                    <div class="drag-card card board-inner-card m-top-28"></div>
-                </div>
-                </div>
-
-                <div class="feedback-area">
                 <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                     <span id="feedback-head" class="board-card-header f-21 f-bold">Awaiting feedback</span>
                     <img class="board-icons" src="img/board/blackPlus.svg">
                 </div>
-                <div id="feedback-card"  class="board-card" ondrop="moveTo('feedback')" ondragover="allowDrop(event)">
-                    <div class="drag-card card board-inner-card m-top-28"></div>
-                </div>
-                </div>
-
-                <div class="done-area">
                 <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                     <span id="done-head" class="board-card-header f-21 f-bold">Done</span>
                     <img class="board-icons" src="img/board/blackPlus.svg">
                 </div>
-                <div id="done-card"  class="board-card" ondrop="moveTo('done')" ondragover="allowDrop(event)">
-                    <div class="drag-card card board-inner-card m-top-28"></div></div>
-                </div>
             </div>
 
-        
+            
+            <div class="board-body d-flex justify-content-space-between">
+                <!-- to Do Card -->
+                <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
+                <!-- In progress Card -->
+                <div id="progress-card"  class="board-card" ondrop="moveTo('progress')" ondragover="allowDrop(event)">
+                    <div class="drag-card card board-inner-card m-top-28"></div>
+                </div>
+                <!-- Awaiting feedback Card -->
+                <div id="feedback-card"  class="board-card" ondrop="moveTo('feedback')" ondragover="allowDrop(event)">
+                    <div class="drag-card card board-inner-card m-top-28"></div></div>
+                <!-- Done Card -->
+                <div id="done-card"  class="board-card" ondrop="moveTo('done')" ondragover="allowDrop(event)">
+                    <div class="drag-card card board-inner-card m-top-28"></div></div>
+            
+            </div>
 
             <div class="board-footer"></div>
         </div>
