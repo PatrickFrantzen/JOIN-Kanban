@@ -3,7 +3,7 @@ let currentCategory;
 let currentPrio;
 let currentMembers = [];
 let currentSubTasks =[];
-
+let colorNewCategory;
 
 async function initAddTask() {
     await loadDataFromServer()
@@ -15,12 +15,13 @@ async function initAddTask() {
 /**
  * changes value of a dropdownlist
  * @param {String} value 
- * @param {String} id 
+ * @param {String} input 
  */
-function changeValue(value, id) {
-    // document.getElementById(id).innerHTML = value;
-    let content = document.getElementById(value).innerHTML;
-    document.getElementById(id).innerHTML = content;
+function changeValue(value) {
+    let content = document.getElementById(value);
+    let category = content.firstChild.nextSibling.innerHTML;
+    document.getElementById('category-input').value = category;
+    document.getElementById('category-output').innerHTML = content.innerHTML;
     currentCategory = value;
 }
 
@@ -269,14 +270,20 @@ function readableDate(originFormatDate) {
 
 function changeIconsInSubtasks() {
     let subtaskInput = document.getElementById('subtask-input').value
-    document.getElementById('subtasks-container').innerHTML = `
-        <div class="d-flex subtask-switch-container">
-           <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask" value="${subtaskInput}">
-           <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
-           <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
-        </div>
-    `
+    document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
 }
+
+
+function renderNewSubTaskInput(subtaskInput){
+    return `
+    <div class="d-flex subtask-switch-container">
+       <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask" value="${subtaskInput}">
+       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
+    </div>
+`
+}
+
 
 function clearSubtaskInput() {
     document.getElementById('subtasks-container').innerHTML = `
@@ -288,8 +295,8 @@ function clearSubtaskInput() {
 
 function addNewSubtask() {
     let inputSubtask = document.getElementById('subtask-input').value;
-    currentSubTasks.push(inputSubtask);
     let outputbox = document.getElementById('subtasks-output');
+    currentSubTasks.push(inputSubtask);
     outputbox.innerHTML += `
     <div class="d-flex">
         <input type="checkbox">
@@ -298,7 +305,44 @@ function addNewSubtask() {
     clearSubtaskInput();
 }
 
+function changeIconsInSubtasks() {
+    let subtaskInput = document.getElementById('subtask-input').value
+    document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
+}
+
+function addNewCategory(){
+    
+}
 
 
+function changeIconsInCategory() {
+    let input = document.getElementById('category-input').value
+    document.getElementById('category').innerHTML = renderNewCategoryInput(input);
+    removeClassList('colorpicker', 'd-none');
+    addClassList('colorpicker', 'd-flex');
+}
 
 
+function renderNewCategoryInput(input){
+    return `
+    <div class="d-flex subtask-switch-container">
+       <input id="category-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Category" value="${input}">
+       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearCategoryInput()">
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewCategory()">
+    </div>
+`
+}
+
+function addNewColorToCategory(id, index){
+    toggleClassList(id, 'color-outer-circle-clicked');
+    colorNewCategory = index;
+    disableOtherColors();
+}
+
+function disableOtherColors(){
+    for (let i = 0; i < 6; i++) {
+        if(i !== colorNewCategory){
+            document.getElementById('colorpicker-' + i).style.pointerEvents = 'none';
+        }   
+    }
+}

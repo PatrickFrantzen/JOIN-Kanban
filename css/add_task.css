@@ -157,3 +157,37 @@ option{
 #add-task-btns{
     margin-top: 16px;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url('../img/add_task/calender.svg');
+    cursor: pointer;
+}
+
+input[type="date"]{
+    cursor:text;
+}
+
+.category-input{
+    width: 1px;
+    height: 0;
+    outline: none;
+    border: none;
+}
+
+.color-outer-circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.color-inner-circle{
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+}
+
+
+.color-outer-circle-clicked{
+    box-shadow: 0 3px 3px -1px #000000;
+}
