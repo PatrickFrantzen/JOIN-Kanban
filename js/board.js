@@ -1,11 +1,13 @@
 let currentDraggedElement;
 let search = [];
+let projectstatus = ['toDo', 'progress', 'feedback', 'done'];
 
 async function initTasks() {
     await loadDataFromServer();
     await init();
     renderProfileImage();
     renderCards();
+    
 }
 
 function renderCards() {
@@ -14,16 +16,15 @@ function renderCards() {
         let singleTask = allTasks[i];
         getTaskDetails(i, singleTask);
     }
+    createDragContainer();
 }
 
 function clearCards() {
-    document.getElementById('toDo-card').innerHTML = '';
-    document.getElementById('progress-card').innerHTML = '';
-    document.getElementById('progress-card').innerHTML = renderEmtptyContainer();
-    document.getElementById('feedback-card').innerHTML = '';
-    document.getElementById('feedback-card').innerHTML = renderEmtptyContainer();
-    document.getElementById('done-card').innerHTML = '';
-    document.getElementById('done-card').innerHTML = renderEmtptyContainer();
+
+    for (let i = 0; i < projectstatus.length; i++) {
+        let status = projectstatus[i];
+        document.getElementById(`${status}-card`).innerHTML = '';
+    }
 }
 
 function getTaskDetails(i, singleTask) {
@@ -49,11 +50,18 @@ function createTask(id, title, description, category, date, prio, status) {
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
 }
 
+
 function createDisplay(id, title, description, category, date, prio) {
     document.getElementById('task-display').innerHTML += renderDisplay(id);
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
+}
 
+function createDragContainer() {
+    for (let i = 0; i < projectstatus.length; i++) {
+        let status = projectstatus[i];
+        document.getElementById(`${status}-card`).innerHTML += renderDragContainer(status);
+    }
 }
 
 function createSubtaskArea(id, subtasks, completedsubtasks) {
@@ -241,6 +249,14 @@ async function moveTo(status) {
 function startDragging(id) {
     currentDraggedElement = id;
 
+}
+
+function showDragCard() {
+    for (let i = 0; i < projectstatus.length; i++) {
+        let status = projectstatus[i];
+        document.getElementById(`${status}-dragcard`).classList.remove('d-none');
+    }
+    
 }
 
 function closeDialog(id) {

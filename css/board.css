@@ -78,6 +78,13 @@
     padding-right: 24px;
 }
 
+.drag-card {
+    min-height: 301px;
+    background-color: var(--bg-grey);
+    border: 2px dotted rgba(0, 0, 0, 0.2);
+    
+}
+
 .board-icons{
     width: 15px;
     height: 15px;

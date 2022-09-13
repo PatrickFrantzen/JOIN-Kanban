@@ -121,7 +121,7 @@ function renderSingleCard(id, title, description, category) {
     <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog(${id})" class="card board-inner-card d-flex flex-column m-top-28">
     <span class="board-text board-category bg-category-${category}">${category}</span>
     <span class="board-text board-title">${title}</span>
-    <span class="board-text board-description">${description}</span>
+    <span class="board-text board-description description-scroll">${description}</span>
 
     <div id="progressbar-${id}" class="progressbar-outer board-text d-flex align-items-center text-align-center">
         
@@ -134,6 +134,7 @@ function renderSingleCard(id, title, description, category) {
 </div>
 `
 }
+
 
 function renderProgressbarArea(id, numberOfSubtasks, numberOfFinishedSubtasks) {
     return `
@@ -237,9 +238,9 @@ function renderAdditionalMembersDisplay(memberOfInitialArray, id) {
     `
 }
 
-function renderEmtptyContainer() {
+function renderDragContainer(status) {
     return `
-        <div class="drag-card card board-inner-card m-top-28 m-right-15"></div>
+        <div id="${status}-dragcard" class="drag-card d-none card board-inner-card m-top-28 m-right-15"></div>
     `
 }
 

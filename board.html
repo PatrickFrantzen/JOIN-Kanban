@@ -33,7 +33,8 @@
             <h1>Board</h1>
             <div class="d-flex">
                 <form class="searchbox d-flex justify-content-space-between align-items-center w-250" role="search">
-                    <input id="search" class="inputfield" placeholder="Find task" minlength="3" type="text" onkeyup="searchTasks()">
+                    <input id="search" class="inputfield" placeholder="Find task" minlength="3" type="text"
+                        onkeyup="searchTasks()">
                     <div class="search-line"></div>
                     <img class="btn-icons" src="img/board/search.svg">
                 </form>
@@ -44,57 +45,58 @@
 
         <!-- Task Progress Headline -->
         <div class="main-board flex-column d-flex scroll">
-            
+
             <div class="main-board-area d-flex justify-content-space-between ">
 
                 <div class="todo-area">
-                <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                    <span id="todo-head" class="board-card-header f-21 f-bold">To do</span>
-                    <img class="board-icons" src="img/board/blackPlus.svg">
-                </div>
-                <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
+                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
+                        <span id="todo-head" class="board-card-header f-21 f-bold">To do</span>
+                        <img class="board-icons" src="img/board/blackPlus.svg">
+                    </div>
+                    <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragstart="showDragCard()"
+                        ondragover="allowDrop(event)"> </div>
                 </div>
 
                 <div class="progress-area">
-                <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                    <span id="progress-head" class="board-card-header f-21 f-bold">In progress</span>
-                    <img class="board-icons" src="img/board/blackPlus.svg">
-                </div>
-                <div id="progress-card"  class="board-card" ondrop="moveTo('progress')" ondragover="allowDrop(event)">
-                    <div class="drag-card card board-inner-card m-top-28"></div>
-                </div>
+                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
+                        <span id="progress-head" class="board-card-header f-21 f-bold">In progress</span>
+                        <img class="board-icons" src="img/board/blackPlus.svg">
+                    </div>
+                    <div id="progress-card" class="board-card" ondrop="moveTo('progress')" ondragstart="showDragCard()"
+                        ondragover="allowDrop(event)">
+                    </div>
                 </div>
 
                 <div class="feedback-area">
-                <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                    <span id="feedback-head" class="board-card-header f-21 f-bold">Awaiting feedback</span>
-                    <img class="board-icons" src="img/board/blackPlus.svg">
-                </div>
-                <div id="feedback-card"  class="board-card" ondrop="moveTo('feedback')" ondragover="allowDrop(event)">
-                    <div class="drag-card card board-inner-card m-top-28"></div>
-                </div>
+                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
+                        <span id="feedback-head" class="board-card-header f-21 f-bold">Awaiting feedback</span>
+                        <img class="board-icons" src="img/board/blackPlus.svg">
+                    </div>
+                    <div id="feedback-card" class="board-card" ondrop="moveTo('feedback')" 
+                        ondragover="allowDrop(event); showDragCard()">
+                    </div>
                 </div>
 
                 <div class="done-area">
-                <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                    <span id="done-head" class="board-card-header f-21 f-bold">Done</span>
-                    <img class="board-icons" src="img/board/blackPlus.svg">
-                </div>
-                <div id="done-card"  class="board-card" ondrop="moveTo('done')" ondragover="allowDrop(event)">
-                    <div class="drag-card card board-inner-card m-top-28"></div></div>
+                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
+                        <span id="done-head" class="board-card-header f-21 f-bold">Done</span>
+                        <img class="board-icons" src="img/board/blackPlus.svg">
+                    </div>
+                    <div id="done-card" class="board-card" ondrop="moveTo('done')" ondragover="allowDrop(event); showDragCard()"> 
+                    </div>
                 </div>
             </div>
 
-        
+
 
             <div class="board-footer"></div>
         </div>
-       
+
     </div>
- 
+
     <!-- Display -->
     <div id="task-display" class="overlay d-flex justify-content-center align-items-center d-none">
-        
+
     </div>
 
 </body>
