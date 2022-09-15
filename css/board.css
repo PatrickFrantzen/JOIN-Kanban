@@ -96,6 +96,11 @@
 
 .board-title {
     font-weight: 700;
+    word-wrap: break-word;
+}
+
+.board-description {
+    word-wrap: break-word;
 }
 
 .progressbar-outer {
