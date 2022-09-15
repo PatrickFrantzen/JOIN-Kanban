@@ -2,13 +2,15 @@ let assignedToMembers = [];
 let currentCategory;
 let currentPrio;
 let currentMembers = [];
-let currentSubTasks =[];
+let currentSubTasks = [];
 let colorNewCategory;
+let colorBtnIsClicked = false;
 
 async function initAddTask() {
     await loadDataFromServer()
     await init();
     renderProfileImage();
+    renderCategoriesInHTML();
 }
 
 
@@ -18,6 +20,7 @@ async function initAddTask() {
  * @param {String} input 
  */
 function changeValue(value) {
+    clearCategoryInput();
     let content = document.getElementById(value);
     let category = content.firstChild.nextSibling.innerHTML;
     document.getElementById('category-input').value = category;
@@ -236,7 +239,7 @@ function createNewTask() {
  * @param {string} status 
  */
 async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask};
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);
@@ -274,25 +277,6 @@ function changeIconsInSubtasks() {
 }
 
 
-function renderNewSubTaskInput(subtaskInput){
-    return `
-    <div class="d-flex subtask-switch-container">
-       <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask" value="${subtaskInput}">
-       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
-       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
-    </div>
-`
-}
-
-
-function clearSubtaskInput() {
-    document.getElementById('subtasks-container').innerHTML = `
-    <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
-    <img src="img/add_task/add.svg" alt="">
-    `
-}
-
-
 function addNewSubtask() {
     let inputSubtask = document.getElementById('subtask-input').value;
     let outputbox = document.getElementById('subtasks-output');
@@ -310,8 +294,31 @@ function changeIconsInSubtasks() {
     document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
 }
 
-function addNewCategory(){
-    
+async function addNewCategory() {
+    let value = await addNewCategoryToArray();
+    clearCategoryInput();
+    renderCategoriesInHTML();
+    changeValue(value);
+}
+
+async function addNewCategoryToArray(){
+    let input = document.getElementById('category-input');
+    let id = input.value.toLowerCase();
+    let category = {id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory}
+    allCategories.push(category);
+    await backend.setItem('allCategories', JSON.stringify(allCategories));
+    clearNewCategoryInputValue(input);
+    return id;
+}
+
+
+function clearNewCategoryInputValue(input){
+    input.value = '';
+    activateAllColorBtns();
+    for (let i = 0; i < 6; i++) {
+        removeClassList('color-' + i,'color-outer-circle-clicked');
+        document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
+    }
 }
 
 
@@ -323,26 +330,59 @@ function changeIconsInCategory() {
 }
 
 
-function renderNewCategoryInput(input){
-    return `
-    <div class="d-flex subtask-switch-container">
-       <input id="category-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Category" value="${input}">
-       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearCategoryInput()">
-       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewCategory()">
-    </div>
-`
+function clearCategoryInput() {
+    document.getElementById('category').innerHTML = clearCategoryInputTemplate();
+    addClassList('colorpicker', 'd-none');
 }
 
-function addNewColorToCategory(id, index){
-    toggleClassList(id, 'color-outer-circle-clicked');
+
+function addNewColorToCategory(id, index) {
     colorNewCategory = index;
-    disableOtherColors();
+    toggleClassList(id, 'color-outer-circle-clicked');
+    checkIfColorBtnIsClicked();
+    disableOtherColorBtns();
 }
 
-function disableOtherColors(){
-    for (let i = 0; i < 6; i++) {
-        if(i !== colorNewCategory){
-            document.getElementById('colorpicker-' + i).style.pointerEvents = 'none';
-        }   
+
+function checkIfColorBtnIsClicked(){
+    if(colorBtnIsClicked){
+        colorBtnIsClicked = false;
+    }else{
+        colorBtnIsClicked = true;
     }
 }
+
+function disableOtherColorBtns() {
+    for (let i = 0; i < 6; i++) {
+        if (i !== colorNewCategory && colorBtnIsClicked) {
+            document.getElementById('colorpicker-' + i).style.pointerEvents = 'none';
+        } 
+        if(i == colorNewCategory && !colorBtnIsClicked){
+            activateAllColorBtns();
+            console.log(i);
+        }
+    }
+}
+
+
+function activateAllColorBtns(){
+    for (let i = 0; i < 6; i++) {
+        document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';  
+    }
+}
+
+
+function renderCategoriesInHTML(){
+    let categoryList = document.getElementById('categories');
+    categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
+    for (let i = 0; i < allCategories.length; i++) {
+        let category = allCategories[i];
+        let id = category.id;
+        let name = category.name;
+        let color = category.color;
+        categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
+    }
+}
+
+
+

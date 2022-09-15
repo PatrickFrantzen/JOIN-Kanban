@@ -31,9 +31,10 @@
 
     <div class="content">
         <h1>Add Task</h1>
+        <form onsubmit="createNewTask(); return false;">
         <div class="sections d-flex">
+           
             <div class="section-left">
-                <form onsubmit="createNewTask(); return false;">
                     <div class="titleandinput">
                         <p class="add-task-titles">Title</p>
                         <input id="title" class="inputfields border-fields f-18" type="text" placeholder="Enter a title"
@@ -62,37 +63,7 @@
                             </div>
                                                    
                             <ul class="add-task-lists d-none scroll" id="categories">
-                                <li id="newCategory" onclick="changeIconsInCategory()">New Category</li>
-                                <li id="marketing" onclick="changeValue('marketing')"
-                                    class="d-flex align-items-center">
-                                    <div>Marketing</div>
-                                    <div class="category-color bg-category-Marketing"></div>
-                                </li>
-                                <li id="sales" onclick="changeValue('sales')"
-                                    class="d-flex align-items-center">
-                                    <div>Sales</div>
-                                    <div class="category-color bg-category-Sales">
-                                </li>
-                                <li id="design" onclick="changeValue('design')"
-                                    class="d-flex align-items-center">
-                                    <div>Design</div>
-                                    <div class="category-color bg-category-Design">
-                                </li>
-                                <li id="media" onclick="changeValue('media')"
-                                    class="d-flex align-items-center">
-                                    <div>Media</div>
-                                    <div class="category-color bg-category-Media">
-                                </li>
-                                <li id="backoffice" onclick="changeValue('backoffice')"
-                                    class="d-flex align-items-center">
-                                    <div>Backoffice</div>
-                                    <div class="category-color bg-category-Backoffice">
-                                </li>
-                                <li id="developtment" onclick="changeValue('developtment')"
-                                    class="d-flex align-items-center">
-                                    <div>Developtment</div>
-                                    <div class="category-color bg-category-Developtment">
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -100,42 +71,42 @@
                     <div id="colorpicker" class="colorpicker d-none">
                         <div id="colorpicker-0" class="color1 m-8 d-flex align-items-center justify-content-center" onclick="addNewColorToCategory('color-0', 0)">
                             <div id="color-0" class="color-outer-circle d-flex align-items-center justify-content-center">
-                                <div class="color-inner-circle bg-category-New-1">
+                                <div class="color-inner-circle bg-category-New-0">
 
                                 </div>
                             </div>
                         </div>
                         <div id="colorpicker-1" class="color2 m-8 d-flex align-items-center justify-content-center" onclick="addNewColorToCategory('color-1', 1)">
                             <div  id="color-1" class="color-outer-circle d-flex align-items-center justify-content-center">
-                                <div  class="color-inner-circle bg-category-New-2">
+                                <div  class="color-inner-circle bg-category-New-1">
                                     
                                 </div>
                             </div>
                         </div>
                         <div id="colorpicker-2" class="color3 m-8 d-flex align-items-center justify-content-center" onclick="addNewColorToCategory('color-2', 2)">
                             <div id="color-2" class="color-outer-circle d-flex align-items-center justify-content-center">
-                                <div class="color-inner-circle bg-category-New-3">
+                                <div class="color-inner-circle bg-category-New-2">
                                     
                                 </div>
                             </div>
                         </div>
                         <div id="colorpicker-3" class="color4 m-8 d-flex align-items-center justify-content-center" onclick="addNewColorToCategory('color-3', 3)">
                             <div id="color-3"  class="color-outer-circle d-flex align-items-center justify-content-center">
-                                <div  class="color-inner-circle bg-category-New-4">
+                                <div  class="color-inner-circle bg-category-New-3">
                                     
                                 </div>
                             </div>
                         </div>
                         <div id="colorpicker-4" class="color5 m-8 d-flex align-items-center justify-content-center" onclick="addNewColorToCategory('color-4', 4)">
                             <div  id="color-4" class="color-outer-circle d-flex align-items-center justify-content-center">
-                                <div class="color-inner-circle bg-category-New-5">
+                                <div class="color-inner-circle bg-category-New-4">
                                     
                                 </div>
                             </div>
                         </div>
                         <div id="colorpicker-5" class="color6 m-8 d-flex align-items-center justify-content-center" onclick="addNewColorToCategory('color-5', 5)">
                             <div id="color-5" class="color-outer-circle d-flex align-items-center justify-content-center">
-                                <div class="color-inner-circle bg-category-New-6">
+                                <div class="color-inner-circle bg-category-New-5">
                                     
                                 </div>
                             </div>
@@ -224,10 +195,11 @@
                         <img class="btn-icons" src="img/buttons/create.png" alt="">
                     </button>
                 </div>
-
-            </div>
             </form>
+            </div>
+    
         </div>
+   
     </div>
 </body>
 
