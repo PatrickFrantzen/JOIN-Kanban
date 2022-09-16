@@ -799,6 +799,10 @@
         display: none !important;
     }
 
+    .input-contact-login {
+        width: 275px;
+        height: 24px;
+    }
 
     .menu {
         width: auto !important;
@@ -935,10 +939,21 @@
 @media (max-width: 665px) {
     .login-content {
         width: 461px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .input-container-login {
+        margin-top: 0;
     }
 
     .f-55 {
         font-size: 45px;
+    }
+
+    .password-mask {
+        width: 580px;
     }
 }
 
@@ -999,6 +1014,10 @@
 
     .navbar {
         height: 80px !important;
+    }
+
+    .content-contacts {
+        top: 80px;
     }
 
     .login-content {
@@ -1121,6 +1140,24 @@
     .contact-overlay {
         width: 300px;
     }
+
+    .content-cards-top {
+        gap: 12px;
+        width: 340px;
+    }
+
+
+    .content-cards-middle-single {
+        width: 340px;
+    }
+
+    .content-cards-bottom {
+        gap: 16px;
+    }
+
+    .content-cards-bottom-single {
+        width: 162px;
+    }
 }
 
 /* HEIGHT */
@@ -1232,6 +1269,10 @@
         height: 80px;
     }
 
+    .content-contacts {
+        top: 80px;
+    }
+
     .content {
         padding-top: 97px;
     }
@@ -1266,21 +1307,17 @@
         overflow-y: auto;
     }
 
-    .content {
-        padding-top: 87px;
-    }
 
-   
-    #summary-h1{
+    #summary-h1 {
         margin-top: 0;
         margin-bottom: 8px;
     }
 
-    .summary-card-img{
+    .summary-card-img {
         width: 55px;
     }
 
-    .content-cards-top-single{
+    .content-cards-top-single {
         height: 84px;
         padding: 3px;
         gap: 0;
@@ -1295,19 +1332,12 @@
         height: 73px;
     }
 
-    .f-21{
+    .f-21 {
         font-size: 15px !important;
     }
 
-    .navbar {
-        height: 80px !important;
-    }
 
-    .header {
-        height: 72px;
-    }
-
-    h1{
+    h1 {
         font-size: 39px !important;
     }
 
@@ -1318,4 +1348,38 @@
     .content-cards-middle {
         margin-bottom: 16px;
     }
+
+    .login-content {
+        height: 330px;
+    }
+}
+
+@media(max-width: 770px) and (max-height: 700px) {
+    .navbar {
+        height: 80px !important;
+    }
+
+    .content-contacts {
+        top: 80px !important;
+    }
+
+    .content {
+        padding-top: 87px;
+    }
+
+    .password-mask {
+        width: 650px;
+    }
+}
+
+@media(min-width: 770px) and (max-height: 700px) {
+    .content {
+        padding-top: 0;
+        top: 120px;
+    }
+
+    .headline {
+        margin-bottom: 24px;
+    }
+
 }
