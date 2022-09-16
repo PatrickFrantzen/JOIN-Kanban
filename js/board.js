@@ -2,31 +2,67 @@ let currentDraggedElement;
 let search = [];
 let projectstatus = ['toDo', 'progress', 'feedback', 'done'];
 
+
+/**
+ * Initialization of HTML-Page Board
+ * 
+ */
 async function initTasks() {
     await loadDataFromServer();
     await init();
     renderProfileImage();
     renderCards();
-    
 }
 
+
+/**
+ * Function to render the Task Area
+ * First, Area is cleared. Second all Tasks are loaded from allTask-Array
+ * Third, DragContainer for Drag and Drop is created.
+ * 
+ */
 function renderCards() {
     clearCards();
-    for (let i = 0; i < allTasks.length; i++) {
-        let singleTask = allTasks[i];
-        getTaskDetails(i, singleTask);
-    }
+    createCards();
     createDragContainer();
 }
 
-function clearCards() {
-
+/**
+ * Function to clear the Task Area
+ */
+ function clearCards() {
     for (let i = 0; i < projectstatus.length; i++) {
         let status = projectstatus[i];
         document.getElementById(`${status}-card`).innerHTML = '';
     }
 }
 
+/**
+ * Function to get iterate through allTasks-Array
+ */
+function createCards() {
+    for (let i = 0; i < allTasks.length; i++) {
+        let singleTask = allTasks[i];
+        getTaskDetails(i, singleTask);
+    }
+}
+
+/**
+ * Function to create a Drag Container in every Status Area
+ */
+function createDragContainer() {
+    for (let i = 0; i < projectstatus.length; i++) {
+        let status = projectstatus[i];
+        document.getElementById(`${status}-card`).innerHTML += renderDragContainer(status);
+    }
+}
+/**
+ * Function to get all Task information from JSON Array 
+ * Generating differnt parts of a task.
+ * 
+ * @param {number} i 
+ * @param {string} singleTask 
+ */
 function getTaskDetails(i, singleTask) {
     let title = singleTask.tasktitle;
     let description = singleTask.taskdescription;
@@ -57,13 +93,6 @@ function createDisplay(id, title, description, category, date, prio) {
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
 }
 
-function createDragContainer() {
-    for (let i = 0; i < projectstatus.length; i++) {
-        let status = projectstatus[i];
-        document.getElementById(`${status}-card`).innerHTML += renderDragContainer(status);
-    }
-}
-
 function createSubtaskArea(id, subtasks, completedsubtasks) {
     if (subtasks == '') {
         document.getElementById(`progressbar-${id}`).innerHTML = `<div></div>`;
@@ -75,6 +104,8 @@ function createSubtaskArea(id, subtasks, completedsubtasks) {
     }
     getSubtasks(subtasks, id);
 }
+
+
 
 function createAssignedMemberArea(members, singleTask, id) {
     if (singleTask.taskmember.length == 1) {
@@ -121,7 +152,6 @@ async function resetFinishedSubtask(id, i, subtask) {
     openDialog(id);
 }
     
-
 
 function getfirstMember(members, singleTask, id) {
     let firstMember = members[0];
@@ -216,25 +246,36 @@ function priorityForBoard(prio, id) {
 function priorityForDisplay(prio, id) {
     switch (prio) {
         case 'urgent':
-            document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
-            document.getElementById(`prio-display-name-${id}`).innerHTML = 'Urgent';
-            document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_urgent_white.svg";
+            priorityForDisplayUrgent(prio, id);
             break;
 
         case 'medium':
-            document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
-            document.getElementById(`prio-display-name-${id}`).innerHTML = 'Medium';
-            document.getElementById(`prio-img-${id}`).src = "img/add_task/medium_white.svg";
+            priorityForDisplayMedium(prio, id);
             break;
 
         case 'low':
-            document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
-            document.getElementById(`prio-display-name-${id}`).innerHTML = 'Low';
-            document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
+            priorityForDisplayLow(prio, id);
             break;
     }
 }
 
+function priorityForDisplayUrgent(prio, id) {
+    document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
+    document.getElementById(`prio-display-name-${id}`).innerHTML = 'Urgent';
+    document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_urgent_white.svg";
+}
+
+function priorityForDisplayMedium(prio, id) {
+    document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
+    document.getElementById(`prio-display-name-${id}`).innerHTML = 'Medium';
+    document.getElementById(`prio-img-${id}`).src = "img/add_task/medium_white.svg";
+}
+
+function priorityForDisplayLow(prio, id) {
+    document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
+    document.getElementById(`prio-display-name-${id}`).innerHTML = 'Low';
+    document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
+}
 
 function allowDrop(ev) {
     ev.preventDefault();
