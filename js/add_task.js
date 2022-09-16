@@ -243,7 +243,14 @@ async function addNewTaskToArray(title, description, category, assignedTo, date,
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTask(title, description);
+    showUserResponseOverlay('addtask-added-board-overlay');
 }
+
+function showUserResponseOverlay(id){
+    removeClassList(id, 'd-none');
+    setTimeout(addClassList, 3000, id, 'd-none');
+}
+
 
 
 //TODO: clear all fields and reset priority btns

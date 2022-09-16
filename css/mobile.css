@@ -427,7 +427,7 @@
     .board-inner-card {
         width: 370px;
         margin-right: 0;
-        
+
     }
 
     .board-title {
@@ -958,6 +958,33 @@
 
 
 @media (max-width: 770px) {
+
+    .headline {
+        align-items: flex-start !important;
+    }
+
+    .header-text-mobile {
+        display: block;
+    }
+
+    .right-section {
+        left: 45px !important;
+        top: 50px;
+    }
+
+    #right-section {
+        width: 80vw !important;
+    }
+
+    .back-mobile {
+        top: -144px;
+        right: 40px;
+    }
+
+    .edit-container {
+        display: none;
+    }
+
     .navbar {
         bottom: 0;
         width: 100vw !important;
@@ -1118,6 +1145,7 @@
         min-width: unset;
         min-height: unset;
     }
+
     .mobil-button img {
         padding-left: 0px;
         width: 35px;
@@ -1141,7 +1169,7 @@
     }
 
     .content {
-        margin-left:50px;
+        margin-left: 50px;
         margin-right: 50px;
     }
 
@@ -1149,7 +1177,7 @@
         width: 300px;
     }
 
-    .main-board{
+    .main-board {
         width: 105%;
         max-width: unset;
         padding-right: 0;
@@ -1183,7 +1211,7 @@
         width: 640px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 640px;
     }
 
@@ -1212,7 +1240,7 @@
     .mobil-head {
         width: 620px;
     }
-    
+
     .board-head {
         width: 620px;
     }
@@ -1229,7 +1257,7 @@
         width: 590px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 590px;
     }
 
@@ -1266,37 +1294,37 @@
 
 @media (max-width: 671px) {
 
-        .mobil-head {
+    .mobil-head {
         width: 570px;
-        }
+    }
 
-        .board-head {
-            width: 570px;
-        }
-    
-        .board-inner-card {
-            width: 570px;
-        }
-    
-        .board-title {
-            width: 540px;
-        }
-    
-        .board-description {
-            width: 540px;
-        }
-    
-        .progressbar-outer{
-            width: 540px;
-        }
-    
-        .progressbar-inner {
-            width: 450px;
-        }
-    
-        .board-assigned {
-            width: 530px;
-        }
+    .board-head {
+        width: 570px;
+    }
+
+    .board-inner-card {
+        width: 570px;
+    }
+
+    .board-title {
+        width: 540px;
+    }
+
+    .board-description {
+        width: 540px;
+    }
+
+    .progressbar-outer {
+        width: 540px;
+    }
+
+    .progressbar-inner {
+        width: 450px;
+    }
+
+    .board-assigned {
+        width: 530px;
+    }
 }
 
 @media (max-width: 624px) {
@@ -1321,7 +1349,7 @@
         width: 490px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 490px;
     }
 
@@ -1357,7 +1385,7 @@
         width: 440px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 440px;
     }
 
@@ -1374,37 +1402,37 @@
 
 @media (max-width: 671px) {
 
-        .mobil-head {
+    .mobil-head {
         width: 570px;
-        }
+    }
 
-        .board-head {
-            width: 570px;
-        }
-    
-        .board-inner-card {
-            width: 570px;
-        }
-    
-        .board-title {
-            width: 540px;
-        }
-    
-        .board-description {
-            width: 540px;
-        }
-    
-        .progressbar-outer{
-            width: 540px;
-        }
-    
-        .progressbar-inner {
-            width: 450px;
-        }
-    
-        .board-assigned {
-            width: 530px;
-        }
+    .board-head {
+        width: 570px;
+    }
+
+    .board-inner-card {
+        width: 570px;
+    }
+
+    .board-title {
+        width: 540px;
+    }
+
+    .board-description {
+        width: 540px;
+    }
+
+    .progressbar-outer {
+        width: 540px;
+    }
+
+    .progressbar-inner {
+        width: 450px;
+    }
+
+    .board-assigned {
+        width: 530px;
+    }
 }
 
 @media (max-width: 624px) {
@@ -1429,7 +1457,7 @@
         width: 490px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 490px;
     }
 
@@ -1465,7 +1493,7 @@
         width: 440px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 440px;
     }
 
@@ -1507,7 +1535,7 @@
         width: 390px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 390px;
     }
 
@@ -1661,43 +1689,75 @@
     .login-wrapper {
         width: 350px
     }
+
+    .right-section {
+        left: 24px !important;
+        top: 20px;
+    }
+
+    h1 {
+        margin: 8px 0;
+    }
+
+    .contact-name-big {
+        font-size: 20px !important;
+    }
+
+    .contact-avatar-outer-big {
+        width: 65px !important;
+        height: 65px !important;
+    }
+
+    .contact-avatar-big {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    #names-letter {
+        font-size: 27px !important;
+    }
+
+    .back-mobile {
+        top: -108px;
+        right: 12px;
+    }
 }
 
-    @media (max-width: 474px) {
+@media (max-width: 474px) {
 
-        .mobil-head {
-            width: 370px;
-        }
-    
-        .board-head {
-            width: 370px;
-        }
-    
-        .board-inner-card {
-            width: 370px;
-        }
-    
-        .board-title {
-            width: 340px;
-        }
-    
-        .board-description {
-            width: 340px;
-        }
-    
-        .progressbar-outer{
-            width: 340px;
-        }
-    
-        .progressbar-inner {
-            width: 250px;
-        }
-    
-        .board-assigned {
-            width: 330px;
-        }
-    
+    .mobil-head {
+        width: 370px;
     }
+
+    .board-head {
+        width: 370px;
+    }
+
+    .board-inner-card {
+        width: 370px;
+    }
+
+    .board-title {
+        width: 340px;
+    }
+
+    .board-description {
+        width: 340px;
+    }
+
+    .progressbar-outer {
+        width: 340px;
+    }
+
+    .progressbar-inner {
+        width: 250px;
+    }
+
+    .board-assigned {
+        width: 330px;
+    }
+
+}
 
 
 @media (max-width: 410px) {
@@ -1743,7 +1803,7 @@
         width: 290px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 290px;
     }
 
@@ -1783,7 +1843,7 @@
         width: 240px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 240px;
     }
 
@@ -1836,7 +1896,7 @@
         width: 220px;
     }
 
-    .progressbar-outer{
+    .progressbar-outer {
         width: 220px;
     }
 
@@ -1884,6 +1944,11 @@
 
     .login-content-container {
         margin-top: 24px !important;
+    }
+
+    .right-section {
+        left: 24px !important;
+        top: 50px;
     }
 }
 
@@ -2056,7 +2121,7 @@
         top: 80px !important;
     }
 
-    .content  {
+    .content {
         padding-top: 87px;
     }
 
@@ -2081,802 +2146,802 @@
     }
 }
 
-    @media (max-width: 1074px) {
-        .navbar {
-            width: 230px !important;
-        }
-
-        .content {
-            left: 310px !important;
-        }
-
-        .content-contacts {
-            left: 231px;
-        }
-
-        .contact-name-big {
-            font-size: 32px;
-        }
-
-        .contact-data-big {
-            margin-left: 30px;
-        }
-
-        .right-section {
-            width: 40vw;
-            min-width: unset !important;
-        }
-
-        .contact-name-big {
-            font-size: 27px;
-            margin: 20px 0 0 0;
-
-        }
-
-        .contact-avatar-big {
-            width: 75px;
-            height: 75px;
-        }
-
-        .contact-avatar-outer-big {
-            width: 80px;
-            height: 80px;
-        }
-
-        #names-letter {
-            font-size: 30px;
-        }
-
-        .f-21 {
-            font-size: 18px !important;
-        }
-
-        .f-18 {
-            font-size: 16px !important;
-        }
-
-
-        #contact-information-headline {
-            flex-direction: column;
-            align-items: flex-start !important;
-            margin-top: 20px !important;
-        }
-
-        #phone {
-            margin-top: 28px;
-        }
-
-        #phone a {
-            margin-top: 16px;
-        }
-
-        #contact-content-mail {
-            margin-top: 28px !important;
-        }
-
-        #contact-content-mail a {
-            margin-top: 16px !important;
-        }
-
-        .edit-container {
-            margin-top: 12px;
-        }
-
-        .contact-data-content {
-            margin-top: 0;
-        }
-
-        .new-contact-btn-container {
-            margin-top: 28px;
-            justify-content: flex-start !important;
-        }
-
-        #new-contact-btn {
-            margin-left: 0;
-        }
-
-        #contact-create-btn-mobile {
-            position: absolute;
-            top: 0;
-            right: 27px;
-        }
+@media (max-width: 1074px) {
+    .navbar {
+        width: 230px !important;
     }
 
-    @media (max-width: 1055px) {}
-
-    @media (max-width: 1040px) {
-        #right-section {
-            left: 100px;
-            display: none;
-            width: 60vw;
-        }
-
-        .header-text {
-            font-size: 18px !important;
-        }
-
-        .header {
-            padding-left: 280px !important;
-            padding-right: 50px !important;
-        }
-
-        .content-contacts {
-            width: calc(100vw - 230px);
-        }
-
-        .left-section-container {
-            width: 100%;
-        }
-
-        .left-section {
-            width: 100%;
-        }
-
-        #contact-content {
-            display: none;
-        }
-
-        #contact-content-mobile {
-            display: flex;
-        }
-
-        .back-mobile {
-            display: block;
-        }
-
-        h2 {
-            font-size: 41px;
-        }
-
-        .input-contact {
-            width: 274px;
-            height: 25px;
-            font-size: 18px;
-        }
-
-        .input-container img {
-            width: 21px;
-            height: 21px;
-        }
-
-        .contact-overlay {
-            width: 818px;
-        }
-
-        .logout {
-            right: 50px;
-        }
-
-        .sections {
-            flex-direction: column;
-        }
-
-        .section-right {
-            border-left: none;
-            margin-left: 0;
-            padding-left: 0;
-        }
-
-        #cancel-btn-add_task {
-            display: none;
-        }
-
-        #add-task-btns {
-            position: absolute;
-            bottom: 30px;
-            right: 0;
-        }
+    .content {
+        left: 310px !important;
     }
 
+    .content-contacts {
+        left: 231px;
+    }
 
+    .contact-name-big {
+        font-size: 32px;
+    }
 
-    @media(max-width: 1000px) {
-        .subtitle-overlay {
-            font-size: 18px;
-            color: white;
-        }
+    .contact-data-big {
+        margin-left: 30px;
+    }
 
-        .content {
-            top: 140px;
-        }
+    .right-section {
+        width: 40vw;
+        min-width: unset !important;
+    }
 
-        h2 {
-            font-size: 36px;
-        }
-
-        .input-contact {
-            width: 250px;
-        }
-
-        .overlay-left {
-            width: 100%;
-            align-items: center;
-            border-radius: 10px 10px 0 0;
-            height: 45%;
-        }
-
-        .contact-overlay {
-            flex-direction: column;
-            width: 450px;
-            height: 73vh;
-        }
-
-        .overlay-right {
-            width: 100%;
-            position: relative;
-        }
-
-        .contact-avatar-input {
-            position: absolute;
-            flex-direction: column;
-            top: 101px;
-            left: 0;
-            right: 0;
-        }
-
-        #cancel-btn-contacts {
-            display: none;
-        }
-
-        .btn-container-contacts {
-            position: absolute;
-            bottom: -322px;
-        }
-
-        .close-img {
-            position: absolute;
-            top: -255px;
-            filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(120deg) brightness(108%) contrast(100%);
-        }
-
-        .overlay-logo {
-            width: 50px;
-        }
-
-        #kanban-subheadline {
-            font-size: 18px;
-            position: absolute;
-            top: -60px;
-            display: block;
-        }
-
-        .contact-content {
-            padding-top: 100px;
-        }
-
-        .header-text {
-            display: none;
-        }
-
-        .join-logo-mobile {
-            display: block;
-        }
-
-        #kanban-subheadline {
-            position: absolute;
-            font-size: 18px;
-            font-weight: unset;
-        }
-
-        #h1-imprint {
-            position: relative;
-        }
-
-        .imprint-back {
-            position: absolute;
-            top: -44px;
-            left: 349px;
-            width: 30px;
-            display: block;
-        }
-
-        .content-cards-top-single {
-            width: 120px;
-            height: 120px;
-        }
-
-        .content-cards-middle-single {
-            width: 430px;
-        }
-
-        .content-cards-bottom-single {
-            width: 206px;
-        }
-
-        #create-contact-btn {
-            height: 50px;
-        }
+    .contact-name-big {
+        font-size: 27px;
+        margin: 20px 0 0 0;
 
     }
 
-
-
-    @media (max-width: 770px) {
-        .navbar {
-            bottom: 0;
-            width: 100vw !important;
-            height: 100px !important;
-        }
-
-        .navbar-inner-container {
-            height: 100% !important;
-        }
-
-        .header {
-            padding-left: 30px !important;
-            padding-right: 30px !important;
-        }
-
-        .logo {
-            display: none !important;
-        }
-
-        .footer {
-            display: none !important;
-        }
-
-
-        .menu {
-            width: auto !important;
-            flex-direction: row !important;
-            height: 100% !important;
-        }
-
-        .single-menu {
-            align-items: center;
-            height: 100%;
-            box-sizing: border-box;
-        }
-
-        .single-menu a {
-            flex-direction: column;
-        }
-
-        .single-menu img {
-            padding-bottom: 8px;
-        }
-
-        .menu-text {
-            margin-left: 0 !important;
-        }
-
-        .menu-container {
-            height: 100%;
-        }
-
-        .content-contacts {
-            left: 0;
-            width: 100%;
-        }
-
-        .contact-overlay {
-            margin-left: 0;
-        }
-
-        #contact-content-mobile {
-            height: 60vh;
-            overflow-y: auto;
-        }
-
-        .f-55 {
-            font-size: 45px;
-        }
-
-        .logout {
-            right: 30px;
-        }
-
-        .content {
-            left: 30px !important;
-            display: flex;
-            padding-top: 108px;
-            flex-direction: column;
-            position: unset;
-            left: 277px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .section-left {
-            display: flex;
-            justify-content: center;
-        }
-
-        .section-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 100px;
-        }
-
-        #add-task-btns {
-            position: absolute;
-            top: 5px;
-            z-index: 1000;
-            right: 24px;
-        }
-
-        .profile-pic {
-            height: 40px;
-            width: 40px;
-        }
-
-        .inner-circle {
-            height: 46px;
-            width: 46px;
-        }
-
-        .outer-circle {
-            height: 53px;
-            width: 53px;
-        }
-
-        #createTask {
-            position: fixed;
-            height: 58px;
-        }
-
-        #h1-imprint {
-            text-align: start;
-        }
-
-        .headline-line-text-container {
-            flex-direction: column-reverse;
-            align-items: flex-start;
-        }
-
-        .headline {
-            flex-direction: column;
-        }
-
-        .headline-line {
-            transform: rotate(90deg);
-        }
-
-        #summary-h1 {
-            margin-top: 0;
-        }
+    .contact-avatar-big {
+        width: 75px;
+        height: 75px;
     }
 
-    @media (max-width: 680px) {
-        .single-menu a {
-            width: 140px !important;
-        }
+    .contact-avatar-outer-big {
+        width: 80px;
+        height: 80px;
     }
 
-    @media (max-width: 665px) {
-        .login-content {
-            width: 461px;
-        }
-
-        .f-55 {
-            font-size: 45px;
-        }
+    #names-letter {
+        font-size: 30px;
     }
 
-    @media (max-width: 560px) {
-        .single-menu a {
-            width: 110px !important;
-        }
+    .f-21 {
+        font-size: 18px !important;
     }
 
-    @media (max-width: 515px) {
-        .input-contact {
-            width: 200px;
-        }
-
-        .not-join-user {
-            position: absolute;
-            bottom: 50px;
-            right: 0px;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .join-logo {
-            width: 70px;
-        }
-
-        .summary-card-img {
-            width: 50px;
-        }
-
-        .content-cards-bottom-single {
-            width: 170px;
-        }
-
-        .content-cards-middle-single {
-            width: 358px;
-        }
-
-        .content-cards-top {
-            gap: 16px;
-            width: 358px;
-        }
-
-        .contact-overlay {
-            width: 400px;
-        }
-    }
-
-    @media (max-width: 450px) {
-
-        .imprint-back {
-            left: 318px;
-        }
-
-        .single-menu a {
-            width: 90px !important;
-        }
-
-        .navbar {
-            height: 80px !important;
-        }
-
-        .login-content {
-            width: calc(100vw - 32px);
-            justify-content: center;
-            display: flex;
-        }
-
-        .rememberme-forgot {
-            flex-direction: column-reverse;
-            margin-top: 8px !important;
-            align-items: flex-start !important;
-        }
-
-        #forgot-password-text {
-            margin-left: 24px;
-        }
-
-        .rememberme-container {
-            margin-left: 24px;
-        }
-
-        .f-55 {
-            font-size: 40px;
-        }
-
-        .login-btn-container {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .guest-btn-resp {
-            text-align: center;
-            width: 154px;
-            margin-left: 0 !important;
-        }
-
-        .h2-login-resp {
-            width: 60%;
-        }
-
-        .login-overlay {
-            background-color: var(--dark-blue);
-        }
-
-        .join-logo {
-            animation: joinlogoMobile 1s ease 0s 1 normal forwards;
-        }
-
-        .input-contact-login {
-            height: 24px;
-            font-size: 18px;
-        }
-
-        .input-container-login {
-            margin-top: 28px;
-        }
-
-        .guestLogin-btn {
-            margin-left: 0;
-            width: 100px;
-            padding: 8px 16px 8px 16px;
-            margin: 4px;
-        }
-
-        .login-btn-container {
-            margin-top: 8px;
-        }
-
-        .not-join-user {
-            width: 100%;
-            justify-content: center;
-        }
-
-        #signup-btn {
-            margin: 0 0 0 12px;
-            padding: 8px 8px 8px 8px;
-            min-width: 100px;
-        }
-
-        .login-wrapper {
-            width: 350px
-        }
-
+    .f-18 {
+        font-size: 16px !important;
     }
 
 
-    @media (max-width: 410px) {
-        .input-container-login {
-            width: 280px;
-        }
-
-        .imprint-back {
-            left: 231px;
-            top: -49px;
-
-        }
-
-        #kanban-subheadline {
-            width: 250px;
-            top: -69px;
-        }
-
-        .contact-overlay {
-            width: 330px;
-        }
+    #contact-information-headline {
+        flex-direction: column;
+        align-items: flex-start !important;
+        margin-top: 20px !important;
     }
 
-    @media (max-width: 360px) {
-        .single-menu a {
-            width: 80px !important;
-            font-size: 14px;
-        }
-
-        .menu img {
-            width: 25px;
-            height: 25px;
-        }
-
-        .contact-overlay {
-            width: 300px;
-        }
+    #phone {
+        margin-top: 28px;
     }
 
-    /* HEIGHT */
+    #phone a {
+        margin-top: 16px;
+    }
 
-    @media (max-height: 1120px) {
+    #contact-content-mail {
+        margin-top: 28px !important;
+    }
 
-        .welcome {
-            display: none;
-        }
+    #contact-content-mail a {
+        margin-top: 16px !important;
+    }
+
+    .edit-container {
+        margin-top: 12px;
+    }
+
+    .contact-data-content {
+        margin-top: 0;
+    }
+
+    .new-contact-btn-container {
+        margin-top: 28px;
+        justify-content: flex-start !important;
+    }
+
+    #new-contact-btn {
+        margin-left: 0;
+    }
+
+    #contact-create-btn-mobile {
+        position: absolute;
+        top: 0;
+        right: 27px;
+    }
+}
+
+@media (max-width: 1055px) {}
+
+@media (max-width: 1040px) {
+    #right-section {
+        left: 100px;
+        display: none;
+        width: 60vw;
+    }
+
+    .header-text {
+        font-size: 18px !important;
+    }
+
+    .header {
+        padding-left: 280px !important;
+        padding-right: 50px !important;
+    }
+
+    .content-contacts {
+        width: calc(100vw - 230px);
+    }
+
+    .left-section-container {
+        width: 100%;
+    }
+
+    .left-section {
+        width: 100%;
+    }
+
+    #contact-content {
+        display: none;
+    }
+
+    #contact-content-mobile {
+        display: flex;
+    }
+
+    .back-mobile {
+        display: block;
+    }
+
+    h2 {
+        font-size: 41px;
+    }
+
+    .input-contact {
+        width: 274px;
+        height: 25px;
+        font-size: 18px;
+    }
+
+    .input-container img {
+        width: 21px;
+        height: 21px;
+    }
+
+    .contact-overlay {
+        width: 818px;
+    }
+
+    .logout {
+        right: 50px;
+    }
+
+    .sections {
+        flex-direction: column;
+    }
+
+    .section-right {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    #cancel-btn-add_task {
+        display: none;
+    }
+
+    #add-task-btns {
+        position: absolute;
+        bottom: 30px;
+        right: 0;
+    }
+}
+
+
+
+@media(max-width: 1000px) {
+    .subtitle-overlay {
+        font-size: 18px;
+        color: white;
+    }
+
+    .content {
+        top: 140px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .input-contact {
+        width: 250px;
+    }
+
+    .overlay-left {
+        width: 100%;
+        align-items: center;
+        border-radius: 10px 10px 0 0;
+        height: 45%;
+    }
+
+    .contact-overlay {
+        flex-direction: column;
+        width: 450px;
+        height: 73vh;
+    }
+
+    .overlay-right {
+        width: 100%;
+        position: relative;
+    }
+
+    .contact-avatar-input {
+        position: absolute;
+        flex-direction: column;
+        top: 101px;
+        left: 0;
+        right: 0;
+    }
+
+    #cancel-btn-contacts {
+        display: none;
+    }
+
+    .btn-container-contacts {
+        position: absolute;
+        bottom: -322px;
+    }
+
+    .close-img {
+        position: absolute;
+        top: -255px;
+        filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(120deg) brightness(108%) contrast(100%);
+    }
+
+    .overlay-logo {
+        width: 50px;
+    }
+
+    #kanban-subheadline {
+        font-size: 18px;
+        position: absolute;
+        top: -60px;
+        display: block;
+    }
+
+    .contact-content {
+        padding-top: 100px;
+    }
+
+    .header-text {
+        display: none;
+    }
+
+    .join-logo-mobile {
+        display: block;
+    }
+
+    #kanban-subheadline {
+        position: absolute;
+        font-size: 18px;
+        font-weight: unset;
+    }
+
+    #h1-imprint {
+        position: relative;
+    }
+
+    .imprint-back {
+        position: absolute;
+        top: -44px;
+        left: 349px;
+        width: 30px;
+        display: block;
+    }
+
+    .content-cards-top-single {
+        width: 120px;
+        height: 120px;
+    }
+
+    .content-cards-middle-single {
+        width: 430px;
+    }
+
+    .content-cards-bottom-single {
+        width: 206px;
+    }
+
+    #create-contact-btn {
+        height: 50px;
+    }
+
+}
+
+
+
+@media (max-width: 770px) {
+    .navbar {
+        bottom: 0;
+        width: 100vw !important;
+        height: 100px !important;
+    }
+
+    .navbar-inner-container {
+        height: 100% !important;
+    }
+
+    .header {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    .logo {
+        display: none !important;
+    }
+
+    .footer {
+        display: none !important;
     }
 
 
-    @media (max-height: 980px) {
-        .content-cards-bottom-single {
-            height: 110px;
-        }
-
-        .content-cards-middle-single {
-            height: 120px;
-        }
-
-        .content-cards-middle {
-            margin-bottom: 24px;
-        }
-
-        .content-cards-top {
-            margin-bottom: 24px;
-        }
+    .menu {
+        width: auto !important;
+        flex-direction: row !important;
+        height: 100% !important;
     }
 
-    @media (max-height: 920px) {
-        .logo-container {
-            margin-top: 16px !important;
-        }
-
-        .login-content-container {
-            margin-top: 24px !important;
-        }
+    .single-menu {
+        align-items: center;
+        height: 100%;
+        box-sizing: border-box;
     }
 
-    @media (max-height: 820px) {
-        .login-content-container {
-            margin-top: 24px !important;
-        }
-
-        .logo-container {
-            margin-top: 0 !important;
-        }
-
-        .join-logo {
-            padding-top: 24px;
-            width: 50px;
-        }
-
-        .input-container-login {
-            margin-top: 28px;
-        }
-
-        .input-contact {
-            height: 24px;
-            font-size: 18px;
-        }
-
-        .login-content {
-            height: 470px
-        }
-
-        .not-join-user {
-            position: absolute;
-            bottom: 50px;
-            right: 0px;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .navbar-join-logo {
-            height: 90px;
-        }
-
-        .contact-overlay {
-            margin-top: 50px;
-        }
-
-        .navbar-inner-container {
-            height: 100vh;
-        }
-
-        .content-cards-bottom-single {
-            height: 85px;
-        }
-
-        .content-cards-middle {
-            height: 100px;
-        }
-
-        .content {
-            padding-top: 120px;
-        }
-
-        .f-55 {
-            font-size: 33px;
-        }
-
-        .f-21 {
-            font-size: 16px !important;
-        }
-
-        .header {
-            height: 80px;
-        }
-
-        .content {
-            padding-top: 97px;
-        }
-
-        .content-cards-middle-single {
-            height: 95px;
-        }
-
-        .card-line {
-            height: 70px;
-        }
-
-        #summary-h1 {
-            margin-bottom: 16px;
-        }
-
-        .headline-line {
-            margin: -15px 0 0 0;
-        }
-
-        .content-cards-top-single {
-            height: 98px;
-        }
+    .single-menu a {
+        flex-direction: column;
     }
 
-
-
-    @media (max-height: 700px) {
-
-        #contact-content-mobile {
-            height: 60vh;
-            overflow-y: auto;
-        }
+    .single-menu img {
+        padding-bottom: 8px;
     }
+
+    .menu-text {
+        margin-left: 0 !important;
+    }
+
+    .menu-container {
+        height: 100%;
+    }
+
+    .content-contacts {
+        left: 0;
+        width: 100%;
+    }
+
+    .contact-overlay {
+        margin-left: 0;
+    }
+
+    #contact-content-mobile {
+        height: 60vh;
+        overflow-y: auto;
+    }
+
+    .f-55 {
+        font-size: 45px;
+    }
+
+    .logout {
+        right: 30px;
+    }
+
+    .content {
+        left: 30px !important;
+        display: flex;
+        padding-top: 108px;
+        flex-direction: column;
+        position: unset;
+        left: 277px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .section-left {
+        display: flex;
+        justify-content: center;
+    }
+
+    .section-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    #add-task-btns {
+        position: absolute;
+        top: 5px;
+        z-index: 1000;
+        right: 24px;
+    }
+
+    .profile-pic {
+        height: 40px;
+        width: 40px;
+    }
+
+    .inner-circle {
+        height: 46px;
+        width: 46px;
+    }
+
+    .outer-circle {
+        height: 53px;
+        width: 53px;
+    }
+
+    #createTask {
+        position: fixed;
+        height: 58px;
+    }
+
+    #h1-imprint {
+        text-align: start;
+    }
+
+    .headline-line-text-container {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .headline {
+        flex-direction: column;
+    }
+
+    .headline-line {
+        transform: rotate(90deg);
+    }
+
+    #summary-h1 {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 680px) {
+    .single-menu a {
+        width: 140px !important;
+    }
+}
+
+@media (max-width: 665px) {
+    .login-content {
+        width: 461px;
+    }
+
+    .f-55 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 560px) {
+    .single-menu a {
+        width: 110px !important;
+    }
+}
+
+@media (max-width: 515px) {
+    .input-contact {
+        width: 200px;
+    }
+
+    .not-join-user {
+        position: absolute;
+        bottom: 50px;
+        right: 0px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .join-logo {
+        width: 70px;
+    }
+
+    .summary-card-img {
+        width: 50px;
+    }
+
+    .content-cards-bottom-single {
+        width: 170px;
+    }
+
+    .content-cards-middle-single {
+        width: 358px;
+    }
+
+    .content-cards-top {
+        gap: 16px;
+        width: 358px;
+    }
+
+    .contact-overlay {
+        width: 400px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .imprint-back {
+        left: 318px;
+    }
+
+    .single-menu a {
+        width: 90px !important;
+    }
+
+    .navbar {
+        height: 80px !important;
+    }
+
+    .login-content {
+        width: calc(100vw - 32px);
+        justify-content: center;
+        display: flex;
+    }
+
+    .rememberme-forgot {
+        flex-direction: column-reverse;
+        margin-top: 8px !important;
+        align-items: flex-start !important;
+    }
+
+    #forgot-password-text {
+        margin-left: 24px;
+    }
+
+    .rememberme-container {
+        margin-left: 24px;
+    }
+
+    .f-55 {
+        font-size: 40px;
+    }
+
+    .login-btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .guest-btn-resp {
+        text-align: center;
+        width: 154px;
+        margin-left: 0 !important;
+    }
+
+    .h2-login-resp {
+        width: 60%;
+    }
+
+    .login-overlay {
+        background-color: var(--dark-blue);
+    }
+
+    .join-logo {
+        animation: joinlogoMobile 1s ease 0s 1 normal forwards;
+    }
+
+    .input-contact-login {
+        height: 24px;
+        font-size: 18px;
+    }
+
+    .input-container-login {
+        margin-top: 28px;
+    }
+
+    .guestLogin-btn {
+        margin-left: 0;
+        width: 100px;
+        padding: 8px 16px 8px 16px;
+        margin: 4px;
+    }
+
+    .login-btn-container {
+        margin-top: 8px;
+    }
+
+    .not-join-user {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #signup-btn {
+        margin: 0 0 0 12px;
+        padding: 8px 8px 8px 8px;
+        min-width: 100px;
+    }
+
+    .login-wrapper {
+        width: 350px
+    }
+
+}
+
+
+@media (max-width: 410px) {
+    .input-container-login {
+        width: 280px;
+    }
+
+    .imprint-back {
+        left: 231px;
+        top: -49px;
+
+    }
+
+    #kanban-subheadline {
+        width: 250px;
+        top: -69px;
+    }
+
+    .contact-overlay {
+        width: 330px;
+    }
+}
+
+@media (max-width: 360px) {
+    .single-menu a {
+        width: 80px !important;
+        font-size: 14px;
+    }
+
+    .menu img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .contact-overlay {
+        width: 300px;
+    }
+}
+
+/* HEIGHT */
+
+@media (max-height: 1120px) {
+
+    .welcome {
+        display: none;
+    }
+}
+
+
+@media (max-height: 980px) {
+    .content-cards-bottom-single {
+        height: 110px;
+    }
+
+    .content-cards-middle-single {
+        height: 120px;
+    }
+
+    .content-cards-middle {
+        margin-bottom: 24px;
+    }
+
+    .content-cards-top {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-height: 920px) {
+    .logo-container {
+        margin-top: 16px !important;
+    }
+
+    .login-content-container {
+        margin-top: 24px !important;
+    }
+}
+
+@media (max-height: 820px) {
+    .login-content-container {
+        margin-top: 24px !important;
+    }
+
+    .logo-container {
+        margin-top: 0 !important;
+    }
+
+    .join-logo {
+        padding-top: 24px;
+        width: 50px;
+    }
+
+    .input-container-login {
+        margin-top: 28px;
+    }
+
+    .input-contact {
+        height: 24px;
+        font-size: 18px;
+    }
+
+    .login-content {
+        height: 470px
+    }
+
+    .not-join-user {
+        position: absolute;
+        bottom: 50px;
+        right: 0px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar-join-logo {
+        height: 90px;
+    }
+
+    .contact-overlay {
+        margin-top: 50px;
+    }
+
+    .navbar-inner-container {
+        height: 100vh;
+    }
+
+    .content-cards-bottom-single {
+        height: 85px;
+    }
+
+    .content-cards-middle {
+        height: 100px;
+    }
+
+    .content {
+        padding-top: 120px;
+    }
+
+    .f-55 {
+        font-size: 33px;
+    }
+
+    .f-21 {
+        font-size: 16px !important;
+    }
+
+    .header {
+        height: 80px;
+    }
+
+    .content {
+        padding-top: 97px;
+    }
+
+    .content-cards-middle-single {
+        height: 95px;
+    }
+
+    .card-line {
+        height: 70px;
+    }
+
+    #summary-h1 {
+        margin-bottom: 16px;
+    }
+
+    .headline-line {
+        margin: -15px 0 0 0;
+    }
+
+    .content-cards-top-single {
+        height: 98px;
+    }
+}
+
+
+
+@media (max-height: 700px) {
+
+    #contact-content-mobile {
+        height: 60vh;
+        overflow-y: auto;
+    }
+}

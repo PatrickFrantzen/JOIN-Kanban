@@ -112,6 +112,10 @@
     border-radius: 10px;
 }
 
+.header-text-mobile{
+    display: none;
+}
+
 .contact-content {
     padding-top: 50px;
 }
