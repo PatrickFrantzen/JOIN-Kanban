@@ -981,6 +981,10 @@
         display: none !important;
     }
 
+    .input-contact-login {
+        width: 275px;
+        height: 24px;
+    }
 
     .menu {
         width: auto !important;
@@ -1241,11 +1245,130 @@
 @media (max-width: 665px) {
     .login-content {
         width: 461px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .input-container-login {
+        margin-top: 0;
     }
 
     .f-55 {
         font-size: 45px;
     }
+
+    .password-mask {
+        width: 580px;
+    }
+}
+
+
+@media (max-width: 671px) {
+
+        .mobil-head {
+        width: 570px;
+        }
+
+        .board-head {
+            width: 570px;
+        }
+    
+        .board-inner-card {
+            width: 570px;
+        }
+    
+        .board-title {
+            width: 540px;
+        }
+    
+        .board-description {
+            width: 540px;
+        }
+    
+        .progressbar-outer{
+            width: 540px;
+        }
+    
+        .progressbar-inner {
+            width: 450px;
+        }
+    
+        .board-assigned {
+            width: 530px;
+        }
+}
+
+@media (max-width: 624px) {
+
+    .mobil-head {
+        width: 520px;
+    }
+
+    .board-head {
+        width: 520px;
+    }
+
+    .board-inner-card {
+        width: 520px;
+    }
+
+    .board-title {
+        width: 490px;
+    }
+
+    .board-description {
+        width: 490px;
+    }
+
+    .progressbar-outer{
+        width: 490px;
+    }
+
+    .progressbar-inner {
+        width: 400px;
+    }
+
+    .board-assigned {
+        width: 480px;
+    }
+
+}
+
+@media (max-width: 574px) {
+
+    .mobil-head {
+        width: 470px;
+    }
+
+    .board-head {
+        width: 470px;
+    }
+
+    .board-inner-card {
+        width: 470px;
+    }
+
+    .board-title {
+        width: 440px;
+    }
+
+    .board-description {
+        width: 440px;
+    }
+
+    .progressbar-outer{
+        width: 440px;
+    }
+
+    .progressbar-inner {
+        width: 350px;
+    }
+
+    .board-assigned {
+        width: 430px;
+    }
+
 }
 
 
@@ -1451,6 +1574,10 @@
 
     .navbar {
         height: 80px !important;
+    }
+
+    .content-contacts {
+        top: 80px;
     }
 
     .login-content {
@@ -1831,6 +1958,10 @@
         height: 80px;
     }
 
+    .content-contacts {
+        top: 80px;
+    }
+
     .content {
         padding-top: 97px;
     }
@@ -1898,16 +2029,35 @@
         font-size: 15px !important;
     }
 
+
+    h1 {
+        font-size: 39px !important;
+    }
+
+    .content-cards-top {
+        margin-bottom: 16px;
+    }
+
+    .content-cards-middle {
+        margin-bottom: 16px;
+    }
+
+    .login-content {
+        height: 330px;
+    }
+}
+
+@media(max-width: 770px) and (max-height: 700px) {
     .navbar {
         height: 80px !important;
     }
 
-    .header {
-        height: 72px;
+    .content-contacts {
+        top: 80px !important;
     }
 
-    h1 {
-        font-size: 39px !important;
+    .content  {
+        padding-top: 87px;
     }
 
     .content-cards-top {
@@ -1929,6 +2079,7 @@
     .board-assigned {
         width: 300px;
     }
+}
 
     @media (max-width: 1074px) {
         .navbar {

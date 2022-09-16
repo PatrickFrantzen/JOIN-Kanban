@@ -15,7 +15,7 @@ async function initAddTask() {
 
 
 /**
- * changes value of a dropdownlist
+ * changes value of category dropdownlist
  * @param {String} value 
  * @param {String} input 
  */
@@ -217,7 +217,7 @@ function createNewTask() {
     let category = getCurrentCategory();
     let assignedTo = currentMembers;
     let originFormatDate = document.getElementById('date').value;
-    let date = readableDate(originFormatDate);
+    let date = changeDateFormat(originFormatDate);
     let prio = currentPrio;
     let status = 'toDo';
     let subtasks = currentSubTasks;
@@ -253,7 +253,6 @@ function clearAddTask(title, description) {
     title.value = '';
     description.value = '';
     currentSubTasks = [];
-    // addClassList('categories', 'd-none');
 }
 
 /**
@@ -273,7 +272,7 @@ function getCurrentCategory() {
  * @param {string} originFormatDate 
  * @returns the date as a string in European Standard Time
  */
-function readableDate(originFormatDate) {
+function changeDateFormat(originFormatDate) {
     let day = originFormatDate.slice(8, 10);
     let month = originFormatDate.slice(5, 7);
     let year = originFormatDate.slice(0, 4);
@@ -291,18 +290,11 @@ function addNewSubtask() {
     let inputSubtask = document.getElementById('subtask-input').value;
     let outputbox = document.getElementById('subtasks-output');
     currentSubTasks.push(inputSubtask);
-    outputbox.innerHTML += `
-    <div class="d-flex">
-        <input type="checkbox">
-        <p class="checkbox-text">${inputSubtask}</p>
-    </div>`
+    outputbox.innerHTML += renderSubtask(inputSubtask);
     clearSubtaskInput();
 }
 
-function changeIconsInSubtasks() {
-    let subtaskInput = document.getElementById('subtask-input').value
-    document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
-}
+
 
 async function addNewCategory() {
     let value = await addNewCategoryToArray();
@@ -310,6 +302,7 @@ async function addNewCategory() {
     renderCategoriesInHTML();
     changeValue(value);
 }
+
 
 async function addNewCategoryToArray(){
     let input = document.getElementById('category-input');
@@ -319,6 +312,19 @@ async function addNewCategoryToArray(){
     await backend.setItem('allCategories', JSON.stringify(allCategories));
     clearNewCategoryInputValue(input);
     return id;
+}
+
+
+function renderCategoriesInHTML(){
+    let categoryList = document.getElementById('categories');
+    categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
+    for (let i = 0; i < allCategories.length; i++) {
+        let category = allCategories[i];
+        let id = category.id;
+        let name = category.name;
+        let color = category.color;
+        categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
+    }
 }
 
 
@@ -362,6 +368,7 @@ function checkIfColorBtnIsClicked(){
     }
 }
 
+
 function disableOtherColorBtns() {
     for (let i = 0; i < 6; i++) {
         if (i !== colorNewCategory && colorBtnIsClicked) {
@@ -382,17 +389,7 @@ function activateAllColorBtns(){
 }
 
 
-function renderCategoriesInHTML(){
-    let categoryList = document.getElementById('categories');
-    categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
-    for (let i = 0; i < allCategories.length; i++) {
-        let category = allCategories[i];
-        let id = category.id;
-        let name = category.name;
-        let color = category.color;
-        categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
-    }
-}
+
 
 
 
