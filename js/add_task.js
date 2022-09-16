@@ -256,13 +256,23 @@ function clearAddTask(title, description) {
     // addClassList('categories', 'd-none');
 }
 
-
+/**
+ * This function transforms the first letter of the category to Uppercase
+ * 
+ * @returns the current category but with first letter uppercase
+ * 
+ */
 function getCurrentCategory() {
     let actualCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
     return actualCategory;
 }
 
-
+/**
+ * This function gets the Date of the Task and transforms it into a string, European Standard Time
+ * 
+ * @param {string} originFormatDate 
+ * @returns the date as a string in European Standard Time
+ */
 function readableDate(originFormatDate) {
     let day = originFormatDate.slice(8, 10);
     let month = originFormatDate.slice(5, 7);
