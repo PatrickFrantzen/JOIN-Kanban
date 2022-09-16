@@ -31,7 +31,12 @@
     <div class="content">
         <!-- Headline with Search and Add Task-->
         <div class="board-headline d-flex align-items-center justify-content-space-between">
-            <h1>Board</h1>
+            <div class="mobil-head">
+            <h1>Board</h1> 
+            <button class="mobil-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center ">
+                <img class="addTask-btn-icons" src="img/board/plus.svg">
+            </button>
+            </div>
             <div class="d-flex">
                 <form class="searchbox d-flex justify-content-space-between align-items-center w-250" role="search">
                     <input id="search" class="inputfield" placeholder="Find task" minlength="3" type="text"
@@ -39,7 +44,7 @@
                     <div class="search-line"></div>
                     <img class="btn-icons" src="img/board/search.svg">
                 </form>
-                <button class="darkblue-btn m-left-24 d-flex justify-content-center align-items-center"><span
+                <button class="static-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center"><span
                         class="f-21">Add Task</span> <img class="addTask-btn-icons" src="img/board/plus.svg"></button>
             </div>
         </div>

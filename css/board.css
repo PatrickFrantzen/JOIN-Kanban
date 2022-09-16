@@ -1,4 +1,8 @@
 
+.mobil-button {
+    display: none !important;
+}
+
 .searchbox {
     border: 1px solid lightgrey;
     background-color: var(--white);
