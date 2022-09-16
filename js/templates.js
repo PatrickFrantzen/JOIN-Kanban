@@ -344,3 +344,12 @@ function renderCategoriesInHTMLTemplate(id, name, color) {
     </li>
     `
 }
+
+
+function renderSubtask(inputSubtask){
+    return `
+    <div class="d-flex">
+        <input type="checkbox">
+        <p class="checkbox-text">${inputSubtask}</p>
+    </div>`
+}
