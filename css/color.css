@@ -18,12 +18,12 @@
     --marketing: #0038FF;
     --design: #FFC701;
     --media: rgb(2, 75, 2);
-    --newCategory1: rgb(168, 93, 93);   
-    --newCategory2: rgb(88, 49, 77);   
-    --newCategory3: rgb(92, 110, 50);   
-    --newCategory4: rgb(66, 37, 94);   
-    --newCategory5: rgb(31, 153, 92);   
-    --newCategory6: rgb(40, 105, 148);   
+    --newCategory0: rgb(168, 93, 93);   
+    --newCategory1: rgb(88, 49, 77);   
+    --newCategory2: rgb(92, 110, 50);   
+    --newCategory3: rgb(66, 37, 94);   
+    --newCategory4: rgb(31, 153, 92);   
+    --newCategory5: rgb(40, 105, 148);   
     --progress: #29ABE2;
 }
 
@@ -72,6 +72,10 @@
     background-color: var(--media);
 }
 
+.bg-category-New-0{
+    background-color: var(--newCategory0);
+}
+
 .bg-category-New-1{
     background-color: var(--newCategory1);
 }
@@ -90,8 +94,4 @@
 
 .bg-category-New-5{
     background-color: var(--newCategory5);
-}
-
-.bg-category-New-6{
-    background-color: var(--newCategory6);
 }

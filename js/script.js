@@ -24,6 +24,7 @@ function putLoadedDataToArray() {
     contactColors = JSON.parse(jsonFromServer.contactColors) || [];
     userIndexForgotPassword = jsonFromServer.userIndexForgotPassword;
     allTasks = JSON.parse(jsonFromServer.allTasks) || [];
+    allCategories = JSON.parse(jsonFromServer.allCategories) || [];
 }
 
 

@@ -2,6 +2,34 @@ let priority;
 let userInformation;
 let contactColors;
 let allTasks = [];
+let allCategories = [];
+//  [
+//     {
+//         'id': 'marketing',
+//         'name': 'Marketing',
+//         'color': 'bg-category-Marketing'
+//     },
+//     {
+//         'id': 'sales',
+//         'name': 'Sales',
+//         'color': 'bg-category-Sales'
+//     },
+//     {
+//         'id': 'media',
+//         'name': 'Media',
+//         'color': 'bg-category-Media'
+//     },
+//     {
+//         'id': 'backoffice',
+//         'name': 'Backoffice',
+//         'color': 'bg-category-Backoffice'
+//     },
+//     {
+//         'id': 'developtment',
+//         'name': 'Developtment',
+//         'color': 'bg-category-Developtment'
+//     },
+// ];
 let taskAmount = {
     "toDo": 0,
     "progress": 0,
@@ -268,112 +296,51 @@ function renderNewContactBtn() {
 
 
 
-let test = [{
-    "fullname": "Nadia Knofius",
-    "password": "katze123",
-    "mail": "nadia.knofius@gmail.com",
-    "color": "violet",
-    "img": "img/profil_pics/nadia.jpg",
-    "contacts": [
-        {
-            "fullname": "Max Mustermann",
-            "mail": "max.mustermann.com",
-            "phone": "+49 176 224 773 3",
-            "color": "green",
-        },
-        {
-            "fullname": "Patrick Frantzen",
-            "mail": "patrick.frantzen@gmail.com",
-            "phone": "+49 174 345 169 8",
-            "color": "brown",
-        },
-        {
-            "fullname": "Hildegard Bunt",
-            "mail": "hilde@gmail.com",
-            "phone": "+49 171 6113 79056",
-            "color": "pink",
-        }
-    ],
-},
-{
-    "fullname": "Patrick Frantzen",
-    "password": "mara456",
-    "mail": "patrick.frantzen@gmail.com",
-    "color": "brown",
-    "img": "img/profil_pics/patrick_pic.jpg",
-    "contacts": [
-        {
-            "fullname": "Nadia Knofius",
-            "mail": "nadia.knofius@gmail.com",
-            "phone": "+49 176 225 223 4",
-            "color": "violet",
-        },
-        {
-            "fullname": "Max Mustermann",
-            "mail": "max.mustermann.com",
-            "phone": "+49 176 224 773 3",
-            "color": "green",
-        },
-        {
-            "fullname": "Hildegard Bunt",
-            "mail": "hilde@gmail.com",
-            "phone": "+49 171 6113 79056",
-            "color": "pink",
-        }
-    ]
-},
-{
-    "fullname": "Guest Account",
-    "password": "",
-    "mail": "",
-    "color": "grey",
-    "img": "img/contacts/newUser.png",
-    "contacts": [
-        {
-            "fullname": "Nadia Knofius",
-            "mail": "nadia.knofius@gmail.com",
-            "phone": "+49 176 225 223 4",
-            "color": "violet",
-        },
-        {
-            "fullname": "Patrick Frantzen",
-            "mail": "patrick.frantzen@gmail.com",
-            "phone": "+49 174 345 169 8",
-            "color": "brown",
-        },
-        {
-            "fullname": "Hildegard Bunt",
-            "mail": "hilde@gmail.com",
-            "phone": "+49 171 6113 79056",
-            "color": "pink",
-        }
-    ]
-    },
-    {
-        "fullname": "Hildegard Bunt",
-        "mail": "hilde@gmail.com",
-        "password": "test789",
-        "color": "pink",
-        "img": "img/contacts/newUser.png",
-        "contacts": [
-            {
-                "fullname": "Nadia Knofius",
-                "mail": "nadia.knofius@gmail.com",
-                "phone": "+49 176 225 223 4",
-                "color": "violet",
-            },
-            {
-                "fullname": "Patrick Frantzen",
-                "mail": "patrick.frantzen@gmail.com",
-                "phone": "+49 174 345 169 8",
-                "color": "brown",
-            },
-            {
-                "fullname": "Max Mustermann",
-                "mail": "max.mustermann.com",
-                "phone": "+49 176 224 773 3",
-                "color": "green",
-            }]
-        }
-];
+function renderNewSubTaskInput(subtaskInput) {
+    return `
+    <div class="d-flex subtask-switch-container">
+       <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask" value="${subtaskInput}">
+       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
+    </div>
+`
+}
 
+
+function clearSubtaskInput() {
+    document.getElementById('subtasks-container').innerHTML = `
+    <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
+    <img src="img/add_task/add.svg" alt="">
+    `
+}
+
+function clearCategoryInputTemplate(){
+    return `
+    <input id="category-input" class="category-input" type="text" required>
+    <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
+        Select task Category
+    </div>
+    <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
+    `
+}
+
+
+function renderNewCategoryInput(input) {
+    return `
+    <div class="d-flex subtask-switch-container">
+       <input id="category-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Category" value="${input}">
+       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearCategoryInput()">
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewCategory()">
+    </div>
+`
+}
+
+function renderCategoriesInHTMLTemplate(id, name, color) {
+    return `
+    <li id="${id}" onclick="changeValue('${id}')"
+         class="d-flex align-items-center">
+         <div>${name}</div>
+         <div class="category-color ${color}">
+    </li>
+    `
+}
