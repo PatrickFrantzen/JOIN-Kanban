@@ -219,3 +219,10 @@ input[type="date"]{
     top: 83px;
     z-index: 2;
 }
+
+.add-task-overlay{
+    background-color: var(--white);
+    width: 80%;
+    border-radius: 20px;
+    height: 90vh;
+}

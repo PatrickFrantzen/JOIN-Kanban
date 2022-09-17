@@ -290,6 +290,16 @@
         width: 818px;
     }
 
+    .add-task-overlay{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .content-add-task{
+        padding-top: 250px;
+    }
+
     /* ADD TASK max-width: 1040px */
 
     .sections {

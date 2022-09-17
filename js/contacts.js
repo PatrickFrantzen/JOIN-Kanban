@@ -4,8 +4,11 @@ let animation = false;
 async function initContacts() {
     await loadDataFromServer()
     await init();
+    await includeHTML('include-addtask-html');
     renderProfileImage();
     findOutConacts();
+    renderCategoriesInHTML();
+    renderAssignableMembersInHTML();
 }
 
 

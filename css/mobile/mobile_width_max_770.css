@@ -1,5 +1,9 @@
 @media (max-width: 770px) {
 
+    .content-add-task{
+        padding-top: 484px;
+    }
+
     .welcome {
         display: none;
     }

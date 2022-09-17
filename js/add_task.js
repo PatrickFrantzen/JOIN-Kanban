@@ -9,6 +9,7 @@ let colorBtnIsClicked = false;
 async function initAddTask() {
     await loadDataFromServer()
     await init();
+    await includeHTML('include-addtask-html');
     renderProfileImage();
     renderCategoriesInHTML();
     renderAssignableMembersInHTML();

@@ -272,7 +272,7 @@ a {
 }
 
 .btn-urgent {
-    background-color: var(--urgent);
+    background-color: var(--urgent) !important;
     color: white;
     font-weight: bold;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -280,14 +280,14 @@ a {
 
 
 .btn-medium {
-    background-color: var(--medium);
+    background-color: var(--medium) !important;
     color: white;
     font-weight: bold;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn-low {
-    background-color: var(--low);
+    background-color: var(--low) !important;
     color: white;
     font-weight: bold;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

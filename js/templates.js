@@ -310,7 +310,6 @@ function renderNewContactBtn() {
 }
 
 
-
 function renderNewSubTaskInput(subtaskInput) {
     return `
     <div class="d-flex subtask-switch-container">

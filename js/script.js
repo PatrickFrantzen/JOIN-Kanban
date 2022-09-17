@@ -7,7 +7,7 @@ let userIndexForgotPassword;
 
 
 async function init() {
-    await includeHTML();
+    await includeHTML('w3-include-html');
     checkActiveHTML();
     checkActiveUser();
 }
