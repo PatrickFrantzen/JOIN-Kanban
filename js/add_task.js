@@ -11,6 +11,7 @@ async function initAddTask() {
     await init();
     renderProfileImage();
     renderCategoriesInHTML();
+    renderAssignableMembersInHTML();
 }
 
 
@@ -331,6 +332,27 @@ function renderCategoriesInHTML(){
         let color = category.color;
         categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
     }
+}
+
+
+function renderAssignableMembersInHTML(){
+    let memberList = document.getElementById('assignedToSelect');
+    memberList.innerHTML = renderYouInAssignedTo();
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if(notGuestAccount(user)){
+            memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
+        }
+    }
+    memberList.innerHTML += renderInviteNewContactTemplate();
+}
+
+
+function notGuestAccount(user){
+    if(user.fullname !== 'Guest Account')
+        return true;
+    else 
+        return false;
 }
 
 

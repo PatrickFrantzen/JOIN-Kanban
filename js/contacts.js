@@ -98,6 +98,7 @@ function getContactDetails(contacts, i) {
     let color = contacts[i].color;
     let phone = contacts[i].phone;
     document.getElementById('contact-data-content').innerHTML = renderContactDetails(firstLetter, secondLetter, name, email, color, phone, animationContact);
+    document.getElementById('mobile-contact-btn-container').innerHTML = renderContactMobileBtnTemplate(email);
 }
 
 

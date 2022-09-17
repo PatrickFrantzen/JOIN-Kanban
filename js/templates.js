@@ -84,6 +84,21 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
     `
 }
 
+
+function renderContactMobileBtnTemplate(email) {
+    return `
+    <button id="new-contact-btn-mobile" class="darkblue-btn m-left-24"
+        onclick="showOverlayContact('new-contact', 'new-contact-overlay')">
+        <span class="f-18">New Contact</span>
+        <img class="btn-icons-contact" src="img/buttons/newcontact.png" alt="">
+    </button>
+    <button id="edit-contact-mobile" class="darkblue-btn m-left-24 d-none"
+        onclick="showOverlayContact('edit-contact', 'edit-contact-overlay', '${email}')">
+        <img src="img/add_task/edit_white.png" alt="">
+    </button>
+    `
+}
+
 function renderContactsTemplate(name, email, firstLetter, color, secondLetter) {
     return `
     <div id="${email}" class="contact-card-small d-flex" onclick="showContactDetails('${email}')">
@@ -314,7 +329,7 @@ function clearSubtaskInput() {
     `
 }
 
-function clearCategoryInputTemplate(){
+function clearCategoryInputTemplate() {
     return `
     <input id="category-input" class="category-input" type="text" required>
     <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
@@ -346,7 +361,7 @@ function renderCategoriesInHTMLTemplate(id, name, color) {
 }
 
 
-function renderSubtask(inputSubtask){
+function renderSubtask(inputSubtask) {
     return `
     <div class="d-flex">
         <input type="checkbox">
@@ -354,6 +369,17 @@ function renderSubtask(inputSubtask){
     </div>`
 }
 
+
+function renderYouInAssignedTo(){
+    return `
+    <li>
+        <div class="d-flex justify-content-space-between align-items-center">
+            <span>You</span>
+            <input class="m-right-15 curserPointer" name="assignedTo-checkboxes" type="checkbox">
+        </div>
+    </li>
+    `;
+}
 
 function renderAssignedToMembersTemplate(id, name) {
     return `
@@ -363,4 +389,15 @@ function renderAssignedToMembersTemplate(id, name) {
             <input class="m-right-15 assignedTo-checkboxes" type="checkbox">
         </div>
     </li> `
+}
+
+function renderInviteNewContactTemplate(){
+    return `
+    <li>
+        <div class="d-flex justify-content-space-between align-items-center">
+             <span>Invite new contact</span>
+            <img class="m-right-8" src="img/add_task/member.png" alt="">
+        </div>
+    </li>
+    `
 }
