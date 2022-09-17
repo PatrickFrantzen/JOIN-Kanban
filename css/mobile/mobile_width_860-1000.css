@@ -1,19 +1,12 @@
 @media(max-width: 1000px) {
+
     .subtitle-overlay {
         font-size: 18px;
         color: white;
     }
 
-    .content {
-        top: 140px;
-    }
-
     h2 {
         font-size: 36px;
-    }
-
-    .input-contact {
-        width: 250px;
     }
 
     .overlay-left {
@@ -27,11 +20,6 @@
         flex-direction: column;
         width: 450px;
         height: 73vh;
-    }
-
-    .overlay-right {
-        width: 100%;
-        position: relative;
     }
 
     .contact-avatar-input {
@@ -57,10 +45,6 @@
         filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(120deg) brightness(108%) contrast(100%);
     }
 
-    .overlay-logo {
-        width: 50px;
-    }
-
     #kanban-subheadline {
         font-size: 18px;
         position: absolute;
@@ -68,16 +52,8 @@
         display: block;
     }
 
-    .contact-content {
-        padding-top: 100px;
-    }
-
     .header-text {
         display: none;
-    }
-
-    .join-logo-mobile {
-        display: block;
     }
 
     #kanban-subheadline {
@@ -88,6 +64,41 @@
 
     #h1-imprint {
         position: relative;
+    }
+
+    #create-contact-btn {
+        height: 50px;
+    }
+   
+    .content {
+        top: 140px;
+    }
+
+    .input-contact {
+        width: 250px;
+    }
+
+    .overlay-right {
+        width: 100%;
+        position: relative;
+    }
+
+    .overlay-logo {
+        width: 50px;
+    }
+
+    .contact-content {
+        padding-top: 100px;
+    }
+
+    .join-logo-mobile {
+        display: block;
+    }
+
+    #kanban-subheadline {
+        position: absolute;
+        font-size: 18px;
+        font-weight: unset;
     }
 
     .imprint-back {
@@ -109,10 +120,6 @@
 
     .content-cards-bottom-single {
         width: 206px;
-    }
-
-    #create-contact-btn {
-        height: 50px;
     }
 
     .board-head {
