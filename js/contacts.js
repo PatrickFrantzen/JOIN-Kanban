@@ -102,9 +102,12 @@ function getContactDetails(contacts, i) {
 
 
 function showContactDetailsMobile(id) {
+   
     document.getElementById('contact-content-mobile').style.display = 'none';
     showContactDetails(id);
     document.getElementById('right-section').style.display = 'flex';
+    addClassList('new-contact-btn-mobile', 'd-none');
+  
 }
 
 

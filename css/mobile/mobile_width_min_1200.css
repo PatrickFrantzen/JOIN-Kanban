@@ -1,0 +1,394 @@
+@media (max-width: 1452px) {
+
+    /* CONTACTS max-width: 1452px*/
+    .left-section {
+        width: 350px;
+    }
+
+    .left-section-container {
+        width: 380px;
+    }
+
+    .section-right {
+        margin-left: 30px;
+        padding-left: 30px;
+    }
+
+    .contact-card-small {
+        width: 280px;
+    }
+
+    .contact-content {
+        width: 82%;
+    }
+
+    .right-section {
+        left: 468px
+    }
+
+    .contact-name-big {
+        font-size: 40px;
+    }
+
+    .contact-avatar-big {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact-avatar-outer-big {
+        width: 110px;
+        height: 110px;
+    }
+
+    .contact-data {
+        margin-left: 12px;
+    }
+
+    .contact-letter {
+        padding-left: 0;
+    }
+
+    /* GENERAL max-width: 1452px*/
+    .headline-text {
+        font-size: 21px !important;
+    }
+
+    .content {
+        left: 310px;
+    }
+
+    /* BOARD max-width: 1452px*/
+    .board-headline {
+        width: calc(100vw - 355px);
+    }
+
+    .main-board {
+        width: calc(100vw - 336px);
+    }
+}
+
+
+@media (max-width: 1353px) {
+
+    /* BOARD max-width: 1353px*/
+    .board-head {
+        width: 225px;
+    }
+
+    .board-card {
+        width: 225px;
+    }
+
+    .board-inner-card {
+        width: 225px;
+    }
+
+    .progressbar-outer {
+        width: 195px;
+    }
+
+    .board-assigned {
+        width: 183px;
+    }
+}
+
+
+@media (max-width: 1323px) {
+
+    /* GENERAL max-width: 1323px*/
+    .headline-line {
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+
+    .inputfields {
+        width: 319px;
+    }
+
+    .textareas {
+        width: 319px;
+    }
+
+    .inputfields-small {
+        width: 101px;
+    }
+
+    .inputfields-small img {
+        padding: 6px !important;
+    }
+
+    .f-47 {
+        font-size: 39px;
+    }
+
+    .f-55 {
+        font-size: 50px;
+    }
+
+    /* ADD TASK max-width: 1323px*/
+    .add-task-lists {
+        width: 322px;
+    }
+
+    /* SUMMARY max-width: 1323px*/
+    .main-content {
+        flex-direction: column;
+    }
+
+    .welcome {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+
+    .welcome span {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 1272px) {
+
+    /* BOARD max-width: 1272px*/
+    .board-head {
+        width: 215px;
+    }
+
+    .board-card {
+        width: 215px;
+    }
+
+    .board-inner-card {
+        width: 215px;
+    }
+
+    /* GENERAL max-width: 1272px*/
+    .f-21 {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 1261px) {
+
+    /* GENERAL max-width: 1261px*/
+    .headline-line {
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+
+    h1 {
+        font-size: 45px !important;
+    }
+
+    /* CONTACTS max-width: 1261px*/
+
+    .right-section {
+        left: 438px
+    }
+
+    .contact-avatar-big {
+        width: 90px;
+        height: 90px;
+    }
+
+    .contact-avatar-outer-big {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact-name-big {
+        font-size: 35px;
+    }
+
+    .contact-data-big {
+        margin-left: 50px;
+    }
+}
+
+
+@media (max-width: 1245px) {
+
+    /* BOARD max-width: 1245px*/
+    .board-head {
+        width: 200px;
+        height: 50px;
+    }
+
+    .board-card {
+        width: 200px;
+    }
+
+    .board-inner-card {
+        width: 200px;
+    }
+
+    /* TODO */
+    .progressbar-outer {
+        min-height: 30px;
+        width: 230px;
+    }
+
+    .progressbar-outer {
+        width: 160px;
+    }
+
+    .board-assigned {
+        width: 215px;
+    }
+
+    .board-assigned {
+        width: 154px;
+    }
+
+    .main-board-area {
+        flex-direction: column;
+    }
+
+    .board-head {
+        position: unset;
+        padding-top: 32px;
+        padding-bottom: 0px;
+        width: 250px;
+    }
+
+    .board-card {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100vw - 355px);
+    }
+
+    .board-inner-card {
+        width: 250px;
+        max-height: 371px;
+        margin-right: 20px;
+    }
+
+    .board-title {
+        height: 30px;
+    }
+
+    .board-description {
+        height: 40px;
+        overflow-y: scroll;
+        padding: 0;
+        width: 230px;
+    }
+
+    .main-board {
+        flex-direction: row;
+        max-width: calc(100vw - 100px);
+    }
+
+    .f-21 {
+        font-size: 35px;
+    }
+
+    /* width */
+    .description-scroll::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    .description-scroll::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    .description-scroll::-webkit-scrollbar-thumb {
+        background: #A8A8A8;
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+    /* BOARD max-width: 1200px*/
+    .board-head {
+        width: 200px;
+        height: 50px;
+    }
+
+    .board-card {
+        width: 200px;
+    }
+
+    .board-inner-card {
+        width: 200px;
+    }
+
+    .progressbar-outer {
+        width: 160px;
+    }
+
+    .board-assigned {
+        width: 154px;
+    }
+
+    .board-head {
+        width: 395px;
+    }
+
+    .board-card {
+        justify-content: space-between;
+        width: calc(100vw - 355px);
+    }
+
+    .board-head img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .board-inner-card {
+        width: 400px;
+        max-height: 430px;
+        margin-right: 0;
+    }
+
+    .progressbar-outer {
+        width: 360px;
+    }
+
+    .progressbar-inner {
+        width: 274px;
+    }
+
+    .board-assigned {
+        width: 356px;
+    }
+
+    .board-category {
+        font-size: 25px;
+    }
+
+    .board-title {
+        font-size: 22px;
+        max-width: 380px;
+    }
+
+    .board-description {
+        font-size: 18px;
+        height: 65px;
+        width: 350px;
+    }
+
+    .subtasks span {
+        font-size: 16px;
+    }
+
+    .assigned-inner {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+
+    .relative {
+        left: -4px;
+    }
+
+    .board-assigned-urgent img {
+        height: 30px;
+        width: 30px;
+    }
+
+}
