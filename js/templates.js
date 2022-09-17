@@ -214,29 +214,29 @@ function renderDisplay(id) {
 
 function renderDisplayContent(id, title, description, category, date) {
     return `
-            <div id="display-content-${id}" class="display-card h-100 w-100 d-flex justify-content-center d-none">
-                <div class="board-inner-card w-100 h-100 m-left-25 m-right-25 d-flex flex-column">
+            <div id="display-content-${id}" class="display-card w-100 h-100 d-flex d-none">
+                <div class="display-inner-card h-100 m-left-25 m-right-25 d-flex flex-column">
                     <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
                     <img class="m-right-24 m-top-20 close-img" onclick="closeDialog(${id})" src="img/buttons/close.png">
                     </div>
                     <!-- Headlines -->
-                    <span class="board-text board-category bg-category-${category}">${category}</span>
-                    <span class="board-text board-title">${title}</span>
-                    <span class="board-text">${description}</span>
+                    <span class="display-text display-category bg-category-${category}">${category}</span>
+                    <span class="display-text display-title">${title}</span>
+                    <span class="display-text">${description}</span>
 
-                    <div class="d-flex flex-column board-text">
+                    <div class="d-flex flex-column display-text">
                         <span class="f-bold m-bottom-5">Subtasks:</span>
                         <div id="subtasks-display-${id}" class="d-flex flex-column">
                         </div>
                     </div>
 
-                    <div class="d-flex board-text">
+                    <div class="d-flex display-text">
                         <span class="f-bold">Due date: </span>
                         <span class="m-left-8">${date}</span>
                     </div>
 
-                    <div class="d-flex board-text justify-content-center align-items-center">
+                    <div class="d-flex display-text align-items-center">
                         <span class="f-bold">Priority: </span>
                         <span class="m-left-8">
                             <div id="prio-display-field-${id}" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
