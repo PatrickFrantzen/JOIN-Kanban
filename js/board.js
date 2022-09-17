@@ -27,6 +27,7 @@ function renderCards() {
     createDragContainer();
 }
 
+
 /**
  * Function to clear the Task Area
  */
@@ -36,6 +37,7 @@ function renderCards() {
         document.getElementById(`${status}-card`).innerHTML = '';
     }
 }
+
 
 /**
  * Function to get iterate through allTasks-Array
@@ -47,6 +49,7 @@ function createCards() {
     }
 }
 
+
 /**
  * Function to create a Drag Container in every Status Area
  */
@@ -56,6 +59,8 @@ function createDragContainer() {
         document.getElementById(`${status}-card`).innerHTML += renderDragContainer(status);
     }
 }
+
+
 /**
  * Function to get all Task information from JSON Array 
  * Generating differnt parts of a task.
@@ -81,6 +86,7 @@ function getTaskDetails(i, singleTask) {
     checkForCheckbox(i, subtasks, completedsubtasks);
 }
 
+
 function createTask(id, title, description, category, date, prio, status) {
     document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
@@ -92,6 +98,7 @@ function createDisplay(id, title, description, category, date, prio) {
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
 }
+
 
 function createSubtaskArea(id, subtasks, completedsubtasks) {
     if (subtasks == '') {
@@ -106,7 +113,6 @@ function createSubtaskArea(id, subtasks, completedsubtasks) {
 }
 
 
-
 function createAssignedMemberArea(members, singleTask, id) {
     if (singleTask.taskmember.length == 1) {
         getfirstMember(members, singleTask, id);
@@ -117,17 +123,19 @@ function createAssignedMemberArea(members, singleTask, id) {
 
 }
 
+
 function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
     document.getElementById(`bar-${id}`).style.width = ((numberOfFinishedSubtasks/numberOfSubtasks)*100) + "%";
 }
+
 
 function getSubtasks(subtasks, id) {
     for (let i = 0; i < subtasks.length; i++) {
         let subtask = subtasks[i];
         document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, i, id);
     }
-
 }
+
 
 function checkboxToggle(id, i, subtask) {
     if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
@@ -136,6 +144,7 @@ function checkboxToggle(id, i, subtask) {
         resetFinishedSubtask(id, i, subtask);
     }
 }
+
 
 async function saveFinishedSubtask(id, subtask) {
     allTasks[id].finishedsubtasks.push(subtask);
@@ -164,6 +173,7 @@ function getfirstMember(members, singleTask, id) {
     document.getElementById(`first-member-display-${id}`).classList.add(`bg-contact-${color}`)
 }
 
+
 function getOtherMembers(members, singleTask, id) {
     for (let i = 1; i < singleTask.taskmember.length; i++) {
         let memberOfTask = singleTask.taskmember[i];
@@ -176,6 +186,7 @@ function getOtherMembers(members, singleTask, id) {
         document.getElementById(`other-member-display-${id}`).classList.add(`bg-contact-${color}`);
     }
 }
+
 
 function checkForFirstMemberColor(singleTask) {
 
@@ -191,6 +202,7 @@ function checkForFirstMemberColor(singleTask) {
     }
 }
 
+
 function checkForColor(memberOfTask) {
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
@@ -203,6 +215,7 @@ function checkForColor(memberOfTask) {
     }
 }
 
+
 function getMembers(singleTask) {
     let taskmembers = [];
     for (let i = 0; i < singleTask.taskmember.length; i++) {
@@ -211,8 +224,8 @@ function getMembers(singleTask) {
         taskmembers.push(firstLetters);
     }
     return taskmembers;
-
 }
+
 
 function getFirstLetters(member) {
     let fullname = member.split(' ');
@@ -224,10 +237,12 @@ function getFirstLetters(member) {
     }
 }
 
+
 function createPriority(prio, id) {
     priorityForBoard(prio, id);
     priorityForDisplay(prio, id);
 }
+
 
 function priorityForBoard(prio, id) {
     switch (prio) {
@@ -242,6 +257,7 @@ function priorityForBoard(prio, id) {
             break;
     }
 }
+
 
 function priorityForDisplay(prio, id) {
     switch (prio) {
@@ -259,11 +275,13 @@ function priorityForDisplay(prio, id) {
     }
 }
 
+
 function priorityForDisplayUrgent(prio, id) {
     document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
     document.getElementById(`prio-display-name-${id}`).innerHTML = 'Urgent';
     document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_urgent_white.svg";
 }
+
 
 function priorityForDisplayMedium(prio, id) {
     document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
@@ -271,15 +289,18 @@ function priorityForDisplayMedium(prio, id) {
     document.getElementById(`prio-img-${id}`).src = "img/add_task/medium_white.svg";
 }
 
+
 function priorityForDisplayLow(prio, id) {
     document.getElementById(`prio-display-field-${id}`).classList.add(`bg-${prio}`, 'color-white')
     document.getElementById(`prio-display-name-${id}`).innerHTML = 'Low';
     document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
 }
 
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
 
 async function moveTo(status) {
     allTasks[currentDraggedElement]['projectstatus'] = status;
@@ -287,18 +308,19 @@ async function moveTo(status) {
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
 
+
 function startDragging(id) {
     currentDraggedElement = id;
-
 }
+
 
 function showDragCard() {
     for (let i = 0; i < projectstatus.length; i++) {
         let status = projectstatus[i];
         document.getElementById(`${status}-dragcard`).classList.remove('d-none');
     }
-    
 }
+
 
 function closeDialog(id) {
     document.getElementById('task-display').classList.add('d-none');
@@ -306,11 +328,13 @@ function closeDialog(id) {
     document.getElementById(`display-content-${id}`).classList.add('d-none');
 }
 
+
 function openDialog(id) {
     document.getElementById('task-display').classList.remove('d-none');
     document.getElementById(`display-${id}`).classList.remove('d-none');
     document.getElementById(`display-content-${id}`).classList.remove('d-none');
 }
+
 
 function checkForCheckbox(id, subtasks, completedsubtasks) {
 
