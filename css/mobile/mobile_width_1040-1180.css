@@ -55,22 +55,6 @@
 @media (max-width: 1175px) {
 
     /* BOARD max-width: 1175px*/
-    .board-head {
-        width: 200px;
-        height: 50px;
-    }
-
-    .board-card {
-        width: 200px;
-    }
-
-    .board-inner-card {
-        width: 200px;
-    }
-
-    .progressbar-outer {
-        width: 160px;
-    }
 
     .board-assigned {
         width: 154px;

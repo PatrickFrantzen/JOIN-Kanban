@@ -133,7 +133,7 @@ function checkboxToggle(id, i, subtask) {
     if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
         saveFinishedSubtask(id, subtask);
     } else {
-        resetFinishedSubtask(id, i, subtask);
+        resetFinishedSubtask(id, subtask);
     }
 }
 
@@ -144,7 +144,7 @@ async function saveFinishedSubtask(id, subtask) {
     openDialog(id);
 }
 
-async function resetFinishedSubtask(id, i, subtask) {
+async function resetFinishedSubtask(id, subtask) {
     let x = allTasks[id].finishedsubtasks.indexOf(subtask);
     allTasks[id].finishedsubtasks.splice(x, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
@@ -313,11 +313,9 @@ function openDialog(id) {
 }
 
 function checkForCheckbox(id, subtasks, completedsubtasks) {
-
     for (let i = 0; i < subtasks.length; i++) {
-        if (completedsubtasks.includes(subtasks[i])) {
+        if (completedsubtasks.includes(subtasks[i])) 
             document.getElementById(`checkbox-${id}-${i}`).checked = true;
-        }
     }
 }
 
@@ -346,9 +344,8 @@ function searchForCriteria(task, searchInput, i) {
 function checkSearchForMembers(task, searchInput) {
     for (let i = 0; i < task.taskmember.length; i++) {
         let member = task.taskmember[i];
-        if (member.includes(searchInput)) {
+        if (member.includes(searchInput))
             return true;
-        }
     }
 }
 

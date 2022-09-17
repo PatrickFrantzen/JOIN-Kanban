@@ -218,30 +218,14 @@
         height: 50px;
     }
 
-    .board-card {
-        width: 200px;
-    }
-
-    .board-inner-card {
-        width: 200px;
-    }
-
     /* TODO */
     .progressbar-outer {
         min-height: 30px;
         width: 230px;
     }
 
-    .progressbar-outer {
-        width: 160px;
-    }
-
     .board-assigned {
         width: 215px;
-    }
-
-    .board-assigned {
-        width: 154px;
     }
 
     .main-board-area {
@@ -259,12 +243,12 @@
         display: flex;
         flex-wrap: wrap;
         width: calc(100vw - 355px);
+        justify-content: space-between;
     }
 
     .board-inner-card {
         width: 250px;
         max-height: 371px;
-        margin-right: 20px;
     }
 
     .board-title {

@@ -208,7 +208,7 @@
     }
 
     .board-title {
-        width: 240px;
+        width: 230px;
     }
 
     .board-description {
@@ -225,6 +225,10 @@
 
     .board-assigned {
         width: 205px;
+    }
+
+    .board-footer {
+        min-height: 320px;
     }
 }
 
