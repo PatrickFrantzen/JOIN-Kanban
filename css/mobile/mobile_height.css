@@ -3,6 +3,18 @@
     .welcome {
         display: none;
     }
+
+    .welcome-mobile {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        background-color: var(--bg-grey);
+        top: -85px;
+        right: 0;
+        bottom: -85px;
+        left: 0;
+        animation: fadeOpacityOut 3s ease 1500ms 1 normal forwards;
+    }
 }
 
 
@@ -33,11 +45,6 @@
         margin-top: 24px !important;
     }
 
-    .right-section {
-        left: 24px !important;
-        top: 50px;
-    }
-
     .contact-overlay {
         height: 700px;
     }
@@ -46,6 +53,13 @@
         top: -294px;
     }
 
+}
+
+@media (max-height: 920px) and (max-width: 770px){
+    .right-section {
+        left: 24px;
+        top: 50px;
+    }
 }
 
 @media (max-height: 820px) {
@@ -155,12 +169,16 @@
     .header {
         height: 80px;
     }
+
+    #add-task-btns {
+        top: -3px;
+    }
 }
 
 
 @media (max-height: 700px) {
 
-    
+
     #contact-content-mobile {
         height: 60vh;
         overflow-y: auto;

@@ -353,3 +353,14 @@ function renderSubtask(inputSubtask){
         <p class="checkbox-text">${inputSubtask}</p>
     </div>`
 }
+
+
+function renderAssignedToMembersTemplate(id, name) {
+    return `
+    <li id="${id}" onclick="">
+        <div class="d-flex justify-content-space-between align-items-center">
+            <span>${name}</span>
+            <input class="m-right-15 assignedTo-checkboxes" type="checkbox">
+        </div>
+    </li> `
+}

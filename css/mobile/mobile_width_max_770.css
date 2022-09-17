@@ -1,8 +1,26 @@
 @media (max-width: 770px) {
+
+    .welcome {
+        display: none;
+    }
+
+    .welcome-mobile {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        background-color: var(--bg-grey);
+        top: -85px;
+        right: 0;
+        bottom: -85px;
+        left: 0;
+        animation: fadeOpacityOut 3s ease 1500ms 1 normal forwards;
+    }
+
     .navbar {
         bottom: 0;
         width: 100vw !important;
         height: 100px !important;
+        z-index: 100;
     }
 
     .navbar-inner-container {
@@ -100,17 +118,24 @@
         display: none;
     }
 
+    .new-contact-btn-container {
+        position: relative;
+    }
+
     #edit-contact-mobile {
         display: block;
         width: 52px;
         padding: 6px 0;
         min-width: unset;
+        position: absolute;
+        top: -73px;
+        right: 0;
     }
 
     .content {
         left: 30px !important;
         display: flex;
-        padding-top: 108px;
+        padding-top: 120px;
         flex-direction: column;
         position: unset;
         left: 277px;
@@ -273,7 +298,11 @@
         width: 100%;
         width: 670px;
         /* TODO */
-  
+    }
+
+    .help-content{
+       padding-top: 158px !important;
+       padding-bottom: 80px;
     }
 }
 
@@ -515,7 +544,7 @@
     }
 
     .summary-card-img {
-        width: 50px;
+        width: 50px !important;
     }
 
     .content-cards-bottom-single {
@@ -703,6 +732,7 @@
 
     .contact-avatar-big img {
         width: 47px;
+        height: 47px;
     }
 
     .contact-avatar-input {
@@ -776,6 +806,31 @@
     .contact-overlay {
         width: 330px;
     }
+
+    .content-cards-top {
+        gap: 17px;
+        width: 334px;
+    }
+
+    .content-cards-middle-single {
+        width: 334px;
+    }
+
+    .content-cards-bottom {
+        gap: 16px;
+    }
+
+    .content-cards-bottom-single {
+        width: 159px;
+    }
+
+    .f-55 {
+        font-size: 28px !important;
+    }
+
+    .f-47 {
+        font-size: 32px;
+    }
 }
 
 
@@ -817,6 +872,9 @@
         width: 230px;
     }
 
+    .board-img {
+        width: 270px;
+    }
 }
 
 @media (max-width: 360px) {

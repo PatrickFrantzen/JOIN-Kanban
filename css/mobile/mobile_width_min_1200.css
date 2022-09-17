@@ -113,6 +113,10 @@
         width: 101px;
     }
 
+    .priority-container{
+        gap: 8px;
+    }
+
     .inputfields-small img {
         padding: 6px !important;
     }

@@ -22,6 +22,10 @@
         height: 73vh;
     }
 
+    #edit-cancel-btn-mobile{
+        display: none;
+    }
+
     .contact-avatar-input {
         position: absolute;
         flex-direction: column;

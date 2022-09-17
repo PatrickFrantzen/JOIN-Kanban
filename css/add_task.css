@@ -206,3 +206,16 @@ input[type="date"]{
     margin-bottom: 150px;
     padding: 16px !important;
 }
+
+.colorpicker{
+    width: 100%;
+}
+
+.assignedTo-container{
+    position: relative;
+}
+
+.assignedTo-list{
+    top: 83px;
+    z-index: 2;
+}

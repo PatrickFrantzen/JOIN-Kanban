@@ -6,6 +6,17 @@ async function initSummary() {
     renderActiveUserName();
     renderProfileImage();
     getAmountOfTasks();
+    greetUser();
+}
+
+
+function greetUser(){
+    setTimeout(closeGreetingUserDisplay, 3000);
+}
+
+
+function closeGreetingUserDisplay(){
+    document.getElementById('welcome').style.display = 'none';
 }
 
 
@@ -101,12 +112,12 @@ function countDifferentStatuses(status) {
 
 
 function renderAmountOfTasks(){
-    document.getElementById('amount-total').innerHTML = taskAmount.total;
-    document.getElementById('amount-progress').innerHTML = taskAmount.progress;
-    document.getElementById('amount-feedback').innerHTML = taskAmount.feedback;
-    document.getElementById('amount-urgent').innerHTML = taskAmount.urgent;
-    document.getElementById('amount-done').innerHTML = taskAmount.done;
-    document.getElementById('amount-todo').innerHTML = taskAmount.toDo;
-    document.getElementById('upcoming-date').innerHTML = taskAmount.urgentDate;
+    document.getElementById('amount-total').innerHTML = `<b>${taskAmount.total}</b>`;
+    document.getElementById('amount-progress').innerHTML = `<b>${taskAmount.progress}</b>`;
+    document.getElementById('amount-feedback').innerHTML = `<b>${taskAmount.feedback}</b>`;
+    document.getElementById('amount-urgent').innerHTML = `<b>${taskAmount.urgent}</b>`;
+    document.getElementById('amount-done').innerHTML = `<b>${taskAmount.done}</b>`;
+    document.getElementById('amount-todo').innerHTML = `<b>${taskAmount.toDo}</b>`;
+    document.getElementById('upcoming-date').innerHTML = `<b>${taskAmount.urgentDate}</b>`;
 }
 

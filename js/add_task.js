@@ -136,13 +136,12 @@ function activateOtherBtns(counter) {
 //TODO
 function addAssignedTo() {
     let outputbox = document.getElementById('user-assignedTo');
-    let teamMembers = document.getElementById('assignedToSelect').selectedOptions;
-    for (let i = 0; i < teamMembers.length; i++) {
-        let member = teamMembers[i];
-        let id = createId(member);
-        renderSelectedMembers(outputbox, member, id);
-
-    }
+    let teamMembers = document.querySelectorAll('input[name:"assignedTo-checkboxes"]');
+    teamMembers.forEach(member => {
+        if(member.checked){
+            currentMembers.push(member);
+        }
+    });
     toggleClassList('assignedTo', 'd-none');
 }
 
