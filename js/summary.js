@@ -10,24 +10,38 @@ async function initSummary() {
 }
 
 
-function greetUser(){
+function greetUser() {
     setTimeout(closeGreetingUserDisplay, 3000);
 }
 
 
-function closeGreetingUserDisplay(){
+function closeGreetingUserDisplay() {
     document.getElementById('welcome').style.display = 'none';
 }
 
 
+
 function renderActiveUserName() {
-    if (activeUser == 'Guest Account') {
-        document.getElementById('good-morning').innerHTML = 'Good morning';
-    } else {
-        document.getElementById('good-morning').innerHTML = 'Good morning,';
+    let greetingOutput = document.getElementById('good-morning');
+    greetingOutput.innerHTML = checkGreetingForm();
+    if (activeUser !== 'Guest Account'){
         document.getElementById('summary-name').innerHTML = activeUser;
+        greetingOutput.innerHTML += ',';
     }
 }
+
+
+/**
+ * checks current time and
+ * @returns form of greeting depending on current time
+ */
+function checkGreetingForm() {
+    let hour = new Date().getHours();
+    if(hour > 5 && hour < 12) return 'Good morning';
+    if(hour > 12 && hour < 18) return 'Good afternoon';
+    return 'Good evening';   
+}
+
 
 function getAmountOfTasks() {
     for (let i = 0; i < allTasks.length; i++) {
@@ -41,7 +55,7 @@ function getAmountOfTasks() {
 }
 
 
-function countTotalAmountOfTasks(){
+function countTotalAmountOfTasks() {
     let totalAmount = 0;
     totalAmount += taskAmount.toDo;
     totalAmount += taskAmount.progress;
@@ -62,8 +76,8 @@ function determineUpcomingDate() {
 }
 
 
-function convertNumberToDate(dateArray){
-    if(dateArray.length > 0){
+function convertNumberToDate(dateArray) {
+    if (dateArray.length > 0) {
         let upcomingDate = new Date(dateArray[0]);
         // taskAmount.urgentDate = upcomingDate;
         let month = months[upcomingDate.getMonth()];
@@ -74,7 +88,7 @@ function convertNumberToDate(dateArray){
 }
 
 
-function sortDates(dateInMs){
+function sortDates(dateInMs) {
     dateInMs = dateInMs.sort(function (a, b) {
         return a - b;
     });
@@ -96,22 +110,22 @@ function countDifferentStatuses(status) {
             break;
         }
         case 'progress': {
-            taskAmount.toDo++;
+            taskAmount.progress++;
             break;
         }
         case 'feedback': {
-            taskAmount.toDo++;
+            taskAmount.feedback++;
             break;
         }
         case 'done': {
-            taskAmount.toDo++;
+            taskAmount.done++;
             break;
         }
     }
 }
 
 
-function renderAmountOfTasks(){
+function renderAmountOfTasks() {
     document.getElementById('amount-total').innerHTML = `<b>${taskAmount.total}</b>`;
     document.getElementById('amount-progress').innerHTML = `<b>${taskAmount.progress}</b>`;
     document.getElementById('amount-feedback').innerHTML = `<b>${taskAmount.feedback}</b>`;
