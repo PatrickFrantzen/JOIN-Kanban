@@ -135,76 +135,12 @@ function activateOtherBtns(counter) {
     }
 }
 
-//TODO
-function addAssignedTo() {
-    let outputbox = document.getElementById('user-assignedTo');
-    let teamMembers = document.querySelectorAll('input[name:"assignedTo-checkboxes"]');
-    teamMembers.forEach(member => {
-        if(member.checked){
-            currentMembers.push(member);
-        }
-    });
-    toggleClassList('assignedTo', 'd-none');
-}
-
 
 function createId(member) {
     let id = member.label.replace(' ', '');
     id = id.toLowerCase();
     return id;
 }
-
-
-//TODO
-function renderSelectedMembers(outputbox, member, id) {
-    if (outputbox.innerHTML == 'Select one or more people') {
-        outputbox.innerHTML = '';
-    }
-    if (!document.getElementById(id)) {
-        outputbox.innerHTML += renderSelectedMembersTemplate(id, member);
-        assignedToMembers.push(id);
-        currentMembers.push(member.label);
-    } else {
-        alert('this user has already been added');
-    }
-}
-
-
-//TODO
-function renderSelectedMembersTemplate(id, member) {
-    return `
-    <div id="${id}" class="d-flex align-items-center justify-content-space-between choosed-member">
-    <span>${member.label}</span>
-    <img class="btn-icons delete-btn" src="img/buttons/clear.png" onclick="removeAssignedTo(event, ${id})">
-    </div`;
-}
-
-
-//TODO
-/**
- * removes choosed member in outputbox and prevent executing parents onclick function,
- * so drop down list of members will not be shown
- * @param {object} event // click event
- * @param {object} id 
- */
-function removeAssignedTo(event, id) {
-    let member = id.id;
-    let outputbox = document.getElementById('user-assignedTo');
-    id.remove();
-    deleteElementOfArray(member);
-    if (assignedToMembers.length < 1) {
-        outputbox.innerHTML = 'Select one or more people';
-    }
-    event.stopPropagation();
-}
-
-
-//TODO
-function deleteElementOfArray(element) {
-    let index = assignedToMembers.indexOf(element);
-    assignedToMembers.splice(index, 1);
-}
-
 
 
 //TODO: outsourcing status, so function can be used from board.html too
@@ -338,12 +274,10 @@ function renderCategoriesInHTML(){
 
 function renderAssignableMembersInHTML(){
     let memberList = document.getElementById('assignedToSelect');
-    memberList.innerHTML = renderYouInAssignedTo();
+    if(notGuestAccount(userInformation[activeUserIndex]))memberList.innerHTML = renderYouInAssignedTo();
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
-        if(notGuestAccount(user)){
-            memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
-        }
+        if(notGuestAccount(user))memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
     }
     memberList.innerHTML += renderInviteNewContactTemplate();
 }
@@ -356,6 +290,67 @@ function notGuestAccount(user){
         return false;
 }
 
+
+function addAssignedToMembers(id){
+    for (let i = 0; i < userInformation.length; i++) {
+        let checkBox = document.getElementById(`checkbox-${id}`);
+        let user = userInformation[i];
+        if(user.mail == id){
+            if(!checkIfUserIsAlreadyAssigned(user) && checkBox.checked) 
+            addMemberToArray(user);
+            if(checkIfUserIsAlreadyAssigned(user) && !checkBox.checked) 
+            deleteMemberFromArray(user);
+        }
+    }
+    renderAssignedToMemberAvatare();
+}
+
+
+function addMemberToArray(user){
+    currentMembers.push(user.fullname);
+}
+
+function deleteMemberFromArray(user){
+    let index = getIndexFromArray(currentMembers, user.fullname);
+    currentMembers.splice(index, 1);
+}
+
+
+function renderAssignedToMemberAvatare(){
+    let assignedToOutput = document.getElementById('assignedTo-avatare-container');
+    assignedToOutput.innerHTML = '';
+    for (let i = 0; i < currentMembers.length; i++) {
+       let member = currentMembers[i];
+       let firstletter = getFirstLetterOfName(i);
+       let secondLetter = splitFullname(i);
+       let color = getColorOfCurrentMember(member);
+       assignedToOutput.innerHTML += renderAssignedToMemberAvatareTemplate(firstletter, secondLetter, color);
+    }
+}
+
+function getFirstLetterOfName(i) {
+    let letter = currentMembers[i].charAt(0);
+    return letter;
+}
+
+function splitFullname(i) {
+    let result = currentMembers[i].split(/(\s+)/);
+    let firstLetter = result[2].charAt(0);
+    return firstLetter;
+}
+
+
+function getColorOfCurrentMember(member){
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if(member == user.fullname) return user.color;
+    }
+}
+
+function checkIfUserIsAlreadyAssigned(user){
+    if(currentMembers.includes(user.fullname))return true;
+    return false;
+}
 
 function clearNewCategoryInputValue(input){
     input.value = '';

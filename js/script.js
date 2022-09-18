@@ -63,7 +63,7 @@ function checkActiveHTML() {
     let path = window.location.pathname;
     for (let i = 0; i < menulinks.length; i++) {
         let name = menulinks[i];
-        if (path == `/JOIN-Kanban/${name}.html`) {
+        if (path == `/${name}.html`) {
             changeClassListMenuLinks(name);
         }
     }

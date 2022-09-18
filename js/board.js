@@ -357,10 +357,10 @@ function searchTasks() {
 
 function searchForCriteria(task, searchInput, i) {
     if (task.tasktitle.includes(searchInput) || task.taskprio.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
-        if (getIndexFromArray(i) == -1)
+        if (getIndexFromArray(search, i) == -1)
             search.push(i);
     } else {
-        let index = getIndexFromArray(i);
+        let index = getIndexFromArray(search, i);
         if (index >= 0)
             search.splice(index, 1);
     }
@@ -376,8 +376,8 @@ function checkSearchForMembers(task, searchInput) {
 }
 
 
-function getIndexFromArray(i) {
-    let index = search.indexOf(i);
+function getIndexFromArray(array, value) {
+    let index = array.indexOf(value);
     return index;
 }
 

@@ -382,10 +382,10 @@ function renderYouInAssignedTo(){
 
 function renderAssignedToMembersTemplate(id, name) {
     return `
-    <li id="${id}" onclick="">
+    <li id="assignedto-${id}" onclick="addAssignedToMembers('${id}')">
         <div class="d-flex justify-content-space-between align-items-center">
             <span>${name}</span>
-            <input class="m-right-15 assignedTo-checkboxes" type="checkbox">
+            <input id="checkbox-${id}" class="m-right-15 assignedTo-checkboxes" type="checkbox">
         </div>
     </li> `
 }
@@ -399,4 +399,14 @@ function renderInviteNewContactTemplate(){
         </div>
     </li>
     `
+}
+
+function renderAssignedToMemberAvatareTemplate(firstLetter, secondLetter, color){
+    return `
+    <div class="contact-avatar-outer d-flex align-items-center justify-content-center">
+        <div
+            class="contact-avatar bg-contact-${color} d-flex align-items-center justify-content-center">
+            ${firstLetter}${secondLetter}
+        </div>
+    </div>`
 }
