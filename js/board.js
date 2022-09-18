@@ -171,7 +171,7 @@ async function saveFinishedSubtask(id, i, title, description, category, date, pr
     allTasks[id].finishedsubtasks.push(displaysubtask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
-    openDialog(id, i, title, description, category, date, prio, displaysubtask);
+    openDialog(id, title, description, category, date, prio);
 }
 
 async function resetFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask) {
@@ -179,7 +179,7 @@ async function resetFinishedSubtask(id, i, title, description, category, date, p
     allTasks[id].finishedsubtasks.splice(x, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
-    openDialog(id, i, title, description, category, date, prio, displaysubtask);
+    openDialog(id, title, description, category, date, prio);
 }
     
 
