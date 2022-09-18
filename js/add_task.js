@@ -1,4 +1,3 @@
-let assignedToMembers = [];
 let currentCategory;
 let currentPrio;
 let currentMembers = [];
@@ -81,6 +80,7 @@ function checkIfBtnIsClicked() {
     for (let i = 0; i < priority.length; i++) {
         let btnIsClicked = priority[i].toggle;
         if (btnIsClicked) {
+            fillHiddenInputField('priority-input');
             disableOtherBtns(i);
         } else {
             counter++;
@@ -132,7 +132,18 @@ function activateOtherBtns(counter) {
         document.getElementById('urgent').style.pointerEvents = "auto";
         document.getElementById('medium').style.pointerEvents = "auto";
         document.getElementById('low').style.pointerEvents = "auto";
+        clearHiddenInputField('priority-input');
     }
+}
+
+
+function clearHiddenInputField(id){
+    document.getElementById(id).value = '';
+}
+
+
+function fillHiddenInputField(id){
+    document.getElementById(id).value = 't';
 }
 
 
@@ -148,11 +159,10 @@ function createId(member) {
  * reads information of inputfields 
  * 
  */
-function createNewTask() {
+async function createNewTask() {
     let title = document.getElementById('title');
     let description = document.getElementById('describtion');
     let category = getCurrentCategory();
-    let assignedTo = currentMembers;
     let originFormatDate = document.getElementById('date').value;
     let date = changeDateFormat(originFormatDate);
     let prio = currentPrio;
@@ -160,7 +170,7 @@ function createNewTask() {
     let subtasks = currentSubTasks;
     let completedSubTasks = [];
     let completedTask = false;
-    addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask);
+    await addNewTaskToArray(title, description, category, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask);
 }
 
 
@@ -175,11 +185,11 @@ function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-async function addNewTaskToArray(title, description, category, assignedTo, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: assignedTo, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask };
+async function addNewTaskToArray(title, description, category, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: currentMembers, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    clearAddTask(title, description);
+    clearAddTaskForm(title, description);
     showUserResponseOverlay('addtask-added-board-overlay');
 }
 
@@ -191,12 +201,28 @@ function showUserResponseOverlay(id){
 
 
 //TODO: clear all fields and reset priority btns
-function clearAddTask(title, description) {
-    let outputbox = document.getElementById('user-assignedTo');
-    outputbox = '';
+function clearAddTaskForm(title, description) {
     title.value = '';
     description.value = '';
+    resetGlobalArrays();
+    renderAssignedToMemberAvatare();
+    clearCategoryInput();
+    clearHiddenInputfields();
+    activateOtherBtns();
+}
+
+
+function clearHiddenInputfields(){
+    clearHiddenInputField('date');
+    clearHiddenInputField('assignedTo-input');
+    clearHiddenInputField('priority-input');
+    clearHiddenInputField('category-input');
+}
+
+
+function resetGlobalArrays(){
     currentSubTasks = [];
+    currentMembers = [];
 }
 
 /**
@@ -283,11 +309,17 @@ function renderAssignableMembersInHTML(){
 }
 
 
+function fillInputFieldForFormValidation(){
+    if(currentMembers.length >= 1)
+    fillHiddenInputField('assignedTo-input');
+    if(currentMembers.length == 0) 
+    clearHiddenInputField('assignedTo-input');
+}
+
+
 function notGuestAccount(user){
-    if(user.fullname !== 'Guest Account')
-        return true;
-    else 
-        return false;
+    if(user.fullname !== 'Guest Account') return true;
+    return false;
 }
 
 
@@ -303,12 +335,14 @@ function addAssignedToMembers(id){
         }
     }
     renderAssignedToMemberAvatare();
+    fillInputFieldForFormValidation();
 }
 
 
 function addMemberToArray(user){
     currentMembers.push(user.fullname);
 }
+
 
 function deleteMemberFromArray(user){
     let index = getIndexFromArray(currentMembers, user.fullname);
@@ -321,19 +355,20 @@ function renderAssignedToMemberAvatare(){
     assignedToOutput.innerHTML = '';
     for (let i = 0; i < currentMembers.length; i++) {
        let member = currentMembers[i];
-       let firstletter = getFirstLetterOfName(i);
-       let secondLetter = splitFullname(i);
+       let firstletter = getFirstletterOfName(i);
+       let secondLetter = getSecondletterOfName(i);
        let color = getColorOfCurrentMember(member);
        assignedToOutput.innerHTML += renderAssignedToMemberAvatareTemplate(firstletter, secondLetter, color);
     }
 }
 
-function getFirstLetterOfName(i) {
+
+function getFirstletterOfName(i) {
     let letter = currentMembers[i].charAt(0);
     return letter;
 }
 
-function splitFullname(i) {
+function getSecondletterOfName(i) {
     let result = currentMembers[i].split(/(\s+)/);
     let firstLetter = result[2].charAt(0);
     return firstLetter;
@@ -400,7 +435,6 @@ function disableOtherColorBtns() {
         } 
         if(i == colorNewCategory && !colorBtnIsClicked){
             activateAllColorBtns();
-            console.log(i);
         }
     }
 }

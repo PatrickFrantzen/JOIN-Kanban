@@ -337,8 +337,6 @@ function openDialog(id) {
 
 
 function checkForCheckbox(id, subtasks, completedsubtasks) {
-    console.log(id, subtasks, completedsubtasks);
-    debugger;
     for (let i = 0; i < subtasks.length; i++) {
         if (completedsubtasks.includes(subtasks[i])) 
             document.getElementById(`checkbox-${id}-${i}`).checked = true;

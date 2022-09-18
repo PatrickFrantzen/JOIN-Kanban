@@ -67,6 +67,10 @@
         margin-top: 24px !important;
     }
 
+    .logout {
+        top: 80px;
+    }
+
     .logo-container {
         margin-top: 0 !important;
     }

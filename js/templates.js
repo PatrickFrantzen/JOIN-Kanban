@@ -330,7 +330,7 @@ function clearSubtaskInput() {
 
 function clearCategoryInputTemplate() {
     return `
-    <input id="category-input" class="category-input" type="text" required>
+    <input id="category-input" class="hidden-input" type="text" required>
     <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
         Select task Category
     </div>

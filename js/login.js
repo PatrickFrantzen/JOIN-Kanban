@@ -1,8 +1,9 @@
 let mailForgotPassword;
+let contacts = [];
 
 async function initLogin() {
     await loadDataFromServer();
-    init();
+    await init();
     setTimeout(addClassList, 1000, 'login-overlay', 'd-none');
 }
 
@@ -16,15 +17,36 @@ async function signup() {
     let name = document.getElementById('signup-name');
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
+    getContactsinformationForNewUser();
+    await addDataToUserInformation(name, email, password);
     switchOverview('signup', 'login', 'd-none');
-    addDataToUserInformation(name, email, password);
 }
 
 
-function addDataToUserInformation(name, email, password){
-    let userInfo = {fullname: name.value, password: password.value, email: email.value, img: "img/contacts/newUser.png", color: "", contacts: []};
+function getContactsinformationForNewUser() {
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if (notGuestAccount(user)) {
+            let name = user.fullname;
+            let email = user.mail;
+            let color = user.color;
+            addContactsToNewUser(name, email, color);
+        }
+    }
+}
+
+
+function addContactsToNewUser(name, email, color){
+    let contact = {fullname: name, mail: email, color: color};
+    contacts.push(contact);
+}
+
+
+
+async function addDataToUserInformation(name, email, password) {
+    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: "", contacts: contacts};
     userInformation.push(userInfo);
-    backend.setItem('userInformation', JSON.stringify(userInformation));
+    await backend.setItem('userInformation', JSON.stringify(userInformation));
 }
 
 
@@ -37,6 +59,7 @@ function login() {
 }
 
 
+//TODO: change alert to other user response
 function checkLoginData(index, password) {
     if (index == -1) {
         alert('Your email is not registered yet, please sign up');
@@ -51,10 +74,10 @@ function checkLoginData(index, password) {
 
 
 function checkIncognitoModeToLogin(index) {
-    try{
+    try {
         setActiveUserToLocalStorage('activeUser', userInformation[index].fullname);
     }
-    catch(e){
+    catch (e) {
         activeUserIndex = 2;
         activeUser = 'Guest Account';
     }
@@ -90,11 +113,10 @@ async function forgotPassword() {
     mailForgotPassword = document.getElementById('mailForgotPassword').value;
     for (let i = 0; i < userInformation.length; i++) {
         let mail = userInformation[i].mail;
-        if(mail == mailForgotPassword){
+        if (mail == mailForgotPassword) {
             let userIndexForgotPassword = i;
             await backend.setItem('userIndexForgotPassword', userIndexForgotPassword);
         }
-        
     }
 }
 
@@ -106,8 +128,10 @@ async function changePassword() {
 }
 
 
+
+//TODO: change alert to other user response
 async function checkNewPassword(password, confirmedPassword) {
-    if(password.value === confirmedPassword.value){
+    if (password.value === confirmedPassword.value) {
         await saveNewPassword(password);
         switchOtherHtml('index.html');
     } else {
@@ -115,15 +139,15 @@ async function checkNewPassword(password, confirmedPassword) {
     }
 }
 
-async function saveNewPassword(password){
+async function saveNewPassword(password) {
     userInformation[userIndexForgotPassword].password = password.value;
     await backend.setItem('userInformation', JSON.stringify(userInformation));
 }
 
 
-function logout(){
+function logout() {
     removeActiveUserFromLocalStorage();
-    switchOtherHtml('index.html?'); 
+    switchOtherHtml('index.html?');
     addClassList('signup', 'd-none');
     addClassList('forgotpassword', 'd-none');
     addClassList('resetpassword', 'd-none');

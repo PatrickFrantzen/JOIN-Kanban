@@ -167,7 +167,7 @@ input[type="date"]{
     cursor:text;
 }
 
-.category-input{
+.hidden-input{
     width: 1px;
     height: 0;
     outline: none;
@@ -226,3 +226,4 @@ input[type="date"]{
     border-radius: 20px;
     height: 90vh;
 }
+

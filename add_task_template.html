@@ -59,7 +59,7 @@
 
                             <div id="category"
                                 class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
-                                <input id="category-input" class="category-input" type="text" required>
+                                <input id="category-input" class="hidden-input" type="text" required>
                                 <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
                                     Select task Category
                                 </div>
@@ -134,6 +134,7 @@
                             <label for="assignedTo" class="m-bottom-18 add-task-titles">Assigned to</label>
                             <div class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                                 onclick="toggleClassList('assignedToSelect', 'd-none')">
+                                <input id="assignedTo-input" class ="hidden-input" type="text" required>
                                 <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
                                     contacts to assign</div>
                                 <img src="img/add_task/dropdown_arrow.svg" alt="">
@@ -158,6 +159,7 @@
 
                     <div class="titleandinput">
                         <p class="m-top-28 add-task-titles">Prio</p>
+                        <input id="priority-input" class="hidden-input" type="text" required>
                         <div class="d-flex justify-content-space-between priority-container">
                             <div id="urgent"
                                 class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center"
