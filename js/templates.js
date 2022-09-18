@@ -159,9 +159,9 @@ function renderLetterContainerMobileTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category) {
+function renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks) {
     return `
-    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog(${id})" class="card board-inner-card d-flex flex-column m-top-28">
+    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog('${id}', '${title}', '${description}', '${category}', '${date}', '${prio}', '${subtasks}', '${completedsubtasks}')" class="card board-inner-card d-flex flex-column m-top-28">
     <span class="board-text board-category bg-category-${category}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description description-scroll">${description}</span>
@@ -214,7 +214,7 @@ function renderDisplay(id) {
 
 function renderDisplayContent(id, title, description, category, date) {
     return `
-            <div id="display-content-${id}" class="display-card w-100 h-100 d-flex d-none">
+            <div id="display-content-${id}" class="display-card w-100 h-100 d-flex">
                 <div class="display-inner-card h-100 m-left-25 m-right-25 d-flex flex-column">
                     <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
@@ -287,11 +287,11 @@ function renderDragContainer(status) {
     `
 }
 
-function renderSubTasks(subtask, i, id) {
+function renderSubTasks(id, i, title, description, category, date, prio, displaysubtask) {
     return `
     <div>
-    <input id="checkbox-${id}-${i}" type="checkbox" onclick="checkboxToggle('${id}', '${i}', '${subtask}')">
-    <label for="checkbox-${id}-${i}" id="subtask-${id}-${i}" class="m-bottom-5 m-left-8">${subtask}</label>
+    <input id="checkbox-${id}-${i}" type="checkbox" onclick="checkboxToggle('${id}', '${i}', '${title}', '${description}', '${category}', '${date}', '${prio}' '${displaysubtask}')">
+    <label for="checkbox-${id}-${i}" id="subtask-${id}-${i}" class="m-bottom-5 m-left-8">${displaysubtask}</label>
     </div>
     `
 }

@@ -78,26 +78,35 @@ function getTaskDetails(i, singleTask) {
     let status = singleTask.projectstatus;
     let subtasks = singleTask.tasksubtasks;
     let completedsubtasks = singleTask.finishedsubtasks;
-    createTask(i, title, description, category, date, prio, status);
-    createDisplay(i, title, description, category, date, prio, members, singleTask);
-    createSubtaskArea(i, subtasks, completedsubtasks);
+    createTask(i, title, description, category, date, prio, status, subtasks, completedsubtasks, singleTask);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
-    checkForCheckbox(i, subtasks, completedsubtasks);
+    
 }
 
 
-function createTask(id, title, description, category, date, prio, status) {
-    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio);
+function createTask(id, title, description, category, date, prio, status, subtasks, completedsubtasks) {
+    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
+    createSubtaskArea(id, subtasks, completedsubtasks);
 }
 
-
-function createDisplay(id, title, description, category, date, prio) {
-    document.getElementById('task-display').innerHTML += renderDisplay(id);
+function openDialog(id, title, description, category, date, prio) {
+    let singledisplayTask = allTasks[id]
+    let displaysubtasks = allTasks[id].tasksubtasks;
+    let displaycompletedsubtasks = allTasks[id].finishedsubtasks;
+    let displaymembers = getMembers(allTasks[id]);
+    document.getElementById('task-display').classList.remove('d-none');
+    document.getElementById('task-display').innerHTML = renderDisplay(id);
+    document.getElementById(`display-${id}`).classList.remove('d-none');
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
+    createAssignedMemberAreaDisplay(displaymembers, singledisplayTask, id);
+    getSubtasks(id, title, description, category, date, prio, displaysubtasks);
+    createDisplayPriority(prio, id);
+    checkForCheckbox(id, displaysubtasks, displaycompletedsubtasks);
 }
+
 
 
 function createSubtaskArea(id, subtasks, completedsubtasks) {
@@ -109,7 +118,7 @@ function createSubtaskArea(id, subtasks, completedsubtasks) {
         document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(id, numberOfSubtasks, numberOfFinishedSubtasks);
         renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks);
     }
-    getSubtasks(subtasks, id);
+    
 }
 
 
@@ -120,8 +129,17 @@ function createAssignedMemberArea(members, singleTask, id) {
         getfirstMember(members, singleTask, id);
         getOtherMembers(members, singleTask, id);
     }
-
 }
+
+function createAssignedMemberAreaDisplay(members, singleTask, id) {
+    if (singleTask.taskmember.length == 1) {
+        getfirstMemberDisplay(members, singleTask, id);
+    } else {
+        getfirstMemberDisplay(members, singleTask, id);
+        getOtherMembersDisplay(members, singleTask, id);
+    }
+}
+
 
 
 function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
@@ -129,48 +147,53 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
 }
 
 
-function getSubtasks(subtasks, id) {
-    for (let i = 0; i < subtasks.length; i++) {
-        let subtask = subtasks[i];
-        document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(subtask, i, id);
+function getSubtasks(id, title, description, category, date, prio, displaysubtasks) {
+    for (let i = 0; i < displaysubtasks.length; i++) {
+        let displaysubtask = displaysubtasks[i];
+        document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(id, i, title, description, category, date, prio, displaysubtask);
     }
 }
 
 
-function checkboxToggle(id, i, subtask) {
+function checkboxToggle(id, i, title, description, category, date, prio, displaysubtask) {
     if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
-        saveFinishedSubtask(id, subtask);
+        saveFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask);
     } else {
-        resetFinishedSubtask(id, subtask);
+        resetFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask);
     }
 }
 
 
-async function saveFinishedSubtask(id, subtask) {
-    allTasks[id].finishedsubtasks.push(subtask);
+async function saveFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask) {
+    allTasks[id].finishedsubtasks.push(displaysubtask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
-    openDialog(id);
+    openDialog(id, i, title, description, category, date, prio, displaysubtask);
 }
 
-async function resetFinishedSubtask(id, subtask) {
-    let x = allTasks[id].finishedsubtasks.indexOf(subtask);
+async function resetFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask) {
+    let x = allTasks[id].finishedsubtasks.indexOf(displaysubtask);
     allTasks[id].finishedsubtasks.splice(x, 1);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     renderCards();
-    openDialog(id);
+    openDialog(id, i, title, description, category, date, prio, displaysubtask);
 }
     
 
 function getfirstMember(members, singleTask, id) {
     let firstMember = members[0];
-    let firstMemberFullName = singleTask.taskmember[0];
     let color = checkForFirstMemberColor(singleTask)
     document.getElementById(`first-member-${id}`).innerHTML = firstMember;
+    document.getElementById(`first-member-${id}`).classList.add(`bg-contact-${color}`);
+}
+
+function getfirstMemberDisplay(members, singleTask, id) {
+    let firstMember = members[0];
+    let firstMemberFullName = singleTask.taskmember[0];
+    let color = checkForFirstMemberColor(singleTask)
     document.getElementById(`first-member-display-${id}`).innerHTML = firstMember;
     document.getElementById(`first-member-name-display-${id}`).innerHTML = firstMemberFullName;
-    document.getElementById(`first-member-${id}`).classList.add(`bg-contact-${color}`);
-    document.getElementById(`first-member-display-${id}`).classList.add(`bg-contact-${color}`)
+    document.getElementById(`first-member-display-${id}`).classList.add(`bg-contact-${color}`);
 }
 
 
@@ -180,9 +203,17 @@ function getOtherMembers(members, singleTask, id) {
         let memberOfInitialArray = members[i];
         let color = checkForColor(memberOfTask);
         document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id);
+        document.getElementById(`other-member-${id}`).classList.add(`bg-contact-${color}`);
+    }
+}
+
+function getOtherMembersDisplay(members, singleTask, id) {
+    for (let i = 1; i < singleTask.taskmember.length; i++) {
+        let memberOfTask = singleTask.taskmember[i];
+        let memberOfInitialArray = members[i];
+        let color = checkForColor(memberOfTask);
         document.getElementById(`assigned-list-${id}`).innerHTML += renderAdditionalMembersDisplay(memberOfInitialArray, id);
         document.getElementById(`other-member-name-display-${id}`).innerHTML = memberOfTask;
-        document.getElementById(`other-member-${id}`).classList.add(`bg-contact-${color}`);
         document.getElementById(`other-member-display-${id}`).classList.add(`bg-contact-${color}`);
     }
 }
@@ -240,6 +271,9 @@ function getFirstLetters(member) {
 
 function createPriority(prio, id) {
     priorityForBoard(prio, id);
+}
+
+function createDisplayPriority(prio, id) {
     priorityForDisplay(prio, id);
 }
 
@@ -329,11 +363,6 @@ function closeDialog(id) {
 }
 
 
-function openDialog(id) {
-    document.getElementById('task-display').classList.remove('d-none');
-    document.getElementById(`display-${id}`).classList.remove('d-none');
-    document.getElementById(`display-content-${id}`).classList.remove('d-none');
-}
 
 
 function checkForCheckbox(id, subtasks, completedsubtasks) {
