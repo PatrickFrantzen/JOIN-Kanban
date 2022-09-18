@@ -393,10 +393,6 @@
         justify-content: space-evenly;
     }
 
-    .input-container-login {
-        margin-top: 0;
-    }
-
     .f-55 {
         font-size: 45px;
     }
@@ -702,6 +698,10 @@
         width: 350px
     }
 
+    .input-container-login {
+        width: 246px;
+    }
+
     .board-img {
         width: 320px;
     }
@@ -788,10 +788,7 @@
 
 
 @media (max-width: 410px) {
-    .input-container-login {
-        width: 280px;
-    }
-
+   
     .imprint-back {
         left: 231px;
         top: -49px;

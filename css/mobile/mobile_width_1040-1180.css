@@ -354,4 +354,9 @@
     h2 {
         font-size: 41px;
     }
+
+    /* LOGIN max-width: 1040px */
+    .input-container-login {
+        width: 320px;
+    }
 }

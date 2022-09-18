@@ -1,4 +1,5 @@
 @media(max-width: 1000px) {
+    /* GENERAL max-width: 1000px */
 
     .subtitle-overlay {
         font-size: 18px;
@@ -9,12 +10,16 @@
         font-size: 36px;
     }
 
-    .overlay-left {
-        width: 100%;
-        align-items: center;
-        border-radius: 10px 10px 0 0;
-        height: 45%;
+    .content {
+        top: 140px;
     }
+
+    .join-logo-mobile {
+        display: block;
+    }
+
+
+    /* CONTACTS max-width: 1000px */
 
     .contact-overlay {
         flex-direction: column;
@@ -43,6 +48,14 @@
         bottom: -322px;
     }
 
+    .input-contact {
+        width: 250px;
+    }
+
+    #create-contact-btn {
+        height: 50px;
+    }
+
     .close-img {
         position: absolute;
         top: -255px;
@@ -54,32 +67,15 @@
         position: absolute;
         top: -60px;
         display: block;
-    }
-
-    .header-text {
-        display: none;
-    }
-
-    #kanban-subheadline {
-        position: absolute;
         font-size: 18px;
         font-weight: unset;
     }
 
-    #h1-imprint {
-        position: relative;
-    }
-
-    #create-contact-btn {
-        height: 50px;
-    }
-   
-    .content {
-        top: 140px;
-    }
-
-    .input-contact {
-        width: 250px;
+    .overlay-left {
+        width: 100%;
+        align-items: center;
+        border-radius: 10px 10px 0 0;
+        height: 45%;
     }
 
     .overlay-right {
@@ -95,14 +91,14 @@
         padding-top: 100px;
     }
 
-    .join-logo-mobile {
-        display: block;
+    .header-text {
+        display: none;
     }
+     
+    /* IMPRINT max-width: 1000px */
 
-    #kanban-subheadline {
-        position: absolute;
-        font-size: 18px;
-        font-weight: unset;
+    #h1-imprint {
+        position: relative;
     }
 
     .imprint-back {
@@ -112,6 +108,8 @@
         width: 30px;
         display: block;
     }
+
+    /*SUMMARY max-width: 1000px */
 
     .content-cards-top-single {
         width: 120px;
@@ -125,6 +123,15 @@
     .content-cards-bottom-single {
         width: 206px;
     }
+
+    
+    /* LOGIN max-width: 1000px */
+
+    .input-container-login {
+        width: 296px;
+    }
+
+    /* BOARD max-width: 1000px */
 
     .board-head {
         width: 300px;

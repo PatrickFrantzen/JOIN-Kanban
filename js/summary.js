@@ -55,6 +55,10 @@ function getAmountOfTasks() {
 }
 
 
+/**
+ * calculates total of all tasks of the four board categories:
+ * To Do, In Progress, Awaiting feedback and Done
+ */
 function countTotalAmountOfTasks() {
     let totalAmount = 0;
     totalAmount += taskAmount.toDo;
@@ -76,10 +80,13 @@ function determineUpcomingDate() {
 }
 
 
+/**
+ * converts first date in array from milliseconds to date format
+ * @param {array} dateArray 
+ */
 function convertNumberToDate(dateArray) {
     if (dateArray.length > 0) {
         let upcomingDate = new Date(dateArray[0]);
-        // taskAmount.urgentDate = upcomingDate;
         let month = months[upcomingDate.getMonth()];
         let day = upcomingDate.getDate();
         let year = upcomingDate.getFullYear();
@@ -88,9 +95,14 @@ function convertNumberToDate(dateArray) {
 }
 
 
+/**
+ * sorts all converted urgent dates => next upcoming date first
+ * @param {array} dateInMs date in millisecond
+ * @returns dateInMS
+ */
 function sortDates(dateInMs) {
-    dateInMs = dateInMs.sort(function (a, b) {
-        return a - b;
+    dateInMs = dateInMs.sort(function (firstDate, secondDate) {
+        return firstDate - secondDate;
     });
     return dateInMs;
 }
@@ -103,6 +115,11 @@ function countUrgentTasks(task) {
     }
 }
 
+
+/**
+ * adds up all tasks of a status category 
+ * @param {string} status status in board
+ */
 function countDifferentStatuses(status) {
     switch (status) {
         case 'toDo': {
