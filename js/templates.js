@@ -290,7 +290,7 @@ function renderDragContainer(status) {
 function renderSubTasks(id, i, title, description, category, date, prio, displaysubtask) {
     return `
     <div>
-    <input id="checkbox-${id}-${i}" type="checkbox" onclick="checkboxToggle('${id}', '${i}', '${title}', '${description}', '${category}', '${date}', '${prio}' '${displaysubtask}')">
+    <input id="checkbox-${id}-${i}" type="checkbox" onclick="checkboxToggle('${id}', '${i}', '${title}', '${description}', '${category}', '${date}', '${prio}', '${displaysubtask}')">
     <label for="checkbox-${id}-${i}" id="subtask-${id}-${i}" class="m-bottom-5 m-left-8">${displaysubtask}</label>
     </div>
     `
