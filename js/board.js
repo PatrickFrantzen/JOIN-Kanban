@@ -81,36 +81,20 @@ function getTaskDetails(i, singleTask) {
     let status = singleTask.projectstatus;
     let subtasks = singleTask.tasksubtasks;
     let completedsubtasks = singleTask.finishedsubtasks;
-    createTask(i, title, description, category, date, prio, status, subtasks, completedsubtasks, singleTask);
-    createAssignedMemberArea(members, singleTask, i);
-    createPriority(prio, i);
-    
+    createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask);
 }
 
+function createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask) {
+    createTask(i, title, description, category, date, prio, status, subtasks, completedsubtasks);
+    createAssignedMemberArea(members, singleTask, i);
+    createPriority(prio, i);
+}
 
 function createTask(id, title, description, category, date, prio, status, subtasks, completedsubtasks) {
     document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
     createSubtaskArea(id, subtasks, completedsubtasks);
 }
-
-function openDialog(id, title, description, category, date, prio) {
-    let singledisplayTask = allTasks[id]
-    let displaysubtasks = allTasks[id].tasksubtasks;
-    let displaycompletedsubtasks = allTasks[id].finishedsubtasks;
-    let displaymembers = getMembers(allTasks[id]);
-    document.getElementById('task-display').classList.remove('d-none');
-    document.getElementById('task-display').innerHTML = renderDisplay(id);
-    document.getElementById(`display-${id}`).classList.remove('d-none');
-    document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
-    document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
-    createAssignedMemberAreaDisplay(displaymembers, singledisplayTask, id);
-    getSubtasks(id, title, description, category, date, prio, displaysubtasks);
-    createDisplayPriority(prio, id);
-    checkForCheckbox(id, displaysubtasks, displaycompletedsubtasks);
-}
-
-
 
 function createSubtaskArea(id, subtasks, completedsubtasks) {
     if (subtasks == '') {
@@ -121,9 +105,11 @@ function createSubtaskArea(id, subtasks, completedsubtasks) {
         document.getElementById(`progressbar-${id}`).innerHTML = renderProgressbarArea(id, numberOfSubtasks, numberOfFinishedSubtasks);
         renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks);
     }
-    
 }
 
+function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
+    document.getElementById(`bar-${id}`).style.width = ((numberOfFinishedSubtasks/numberOfSubtasks)*100) + "%";
+}
 
 function createAssignedMemberArea(members, singleTask, id) {
     if (singleTask.taskmember.length == 1) {
@@ -132,6 +118,33 @@ function createAssignedMemberArea(members, singleTask, id) {
         getfirstMember(members, singleTask, id);
         getOtherMembers(members, singleTask, id);
     }
+}
+
+function createPriority(prio, id) {
+    priorityForBoard(prio, id);
+}
+
+function openDialog(id, title, description, category, date, prio) {
+    let singledisplayTask = allTasks[id];
+    let displaysubtasks = singledisplayTask.tasksubtasks;
+    let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
+    let displaymembers = getMembers(singledisplayTask);
+    createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
+}
+
+function createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks) {
+    createDisplay(id, title, description, category, date, prio)
+    createAssignedMemberAreaDisplay(displaymembers, singledisplayTask, id);
+    createSubtasks(id, title, description, category, date, prio, displaysubtasks);
+    createDisplayPriority(prio, id);
+    checkForCheckbox(id, displaysubtasks, displaycompletedsubtasks);
+    showDisplay(id);
+}
+
+function createDisplay(id, title, description, category, date, prio) {
+    document.getElementById('task-display').innerHTML = renderDisplay(id);
+    document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
+    document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
 }
 
 function createAssignedMemberAreaDisplay(members, singleTask, id) {
@@ -143,20 +156,28 @@ function createAssignedMemberAreaDisplay(members, singleTask, id) {
     }
 }
 
-
-
-function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
-    document.getElementById(`bar-${id}`).style.width = ((numberOfFinishedSubtasks/numberOfSubtasks)*100) + "%";
-}
-
-
-function getSubtasks(id, title, description, category, date, prio, displaysubtasks) {
+function createSubtasks(id, title, description, category, date, prio, displaysubtasks) {
     for (let i = 0; i < displaysubtasks.length; i++) {
         let displaysubtask = displaysubtasks[i];
         document.getElementById(`subtasks-display-${id}`).innerHTML += renderSubTasks(id, i, title, description, category, date, prio, displaysubtask);
     }
 }
 
+function createDisplayPriority(prio, id) {
+    priorityForDisplay(prio, id);
+}
+
+function checkForCheckbox(id, subtasks, completedsubtasks) {
+    for (let i = 0; i < subtasks.length; i++) {
+        if (completedsubtasks.includes(subtasks[i])) 
+            document.getElementById(`checkbox-${id}-${i}`).checked = true;
+    }
+}
+
+function showDisplay(id) {
+    removeClassList('task-display', 'd-none');
+    document.getElementById(`display-${id}`).classList.remove('d-none');
+}
 
 function checkboxToggle(id, i, title, description, category, date, prio, displaysubtask) {
     if (document.getElementById(`checkbox-${id}-${i}`).checked == true) {
@@ -165,7 +186,6 @@ function checkboxToggle(id, i, title, description, category, date, prio, display
         resetFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask);
     }
 }
-
 
 async function saveFinishedSubtask(id, i, title, description, category, date, prio, displaysubtask) {
     allTasks[id].finishedsubtasks.push(displaysubtask);
@@ -181,7 +201,16 @@ async function resetFinishedSubtask(id, i, title, description, category, date, p
     renderCards();
     openDialog(id, title, description, category, date, prio);
 }
-    
+
+function getMembers(singleTask) {
+    let taskmembers = [];
+    for (let i = 0; i < singleTask.taskmember.length; i++) {
+        let member = singleTask.taskmember[i];
+        let firstLetters = getFirstLetters(member);
+        taskmembers.push(firstLetters);
+    }
+    return taskmembers;
+}
 
 function getfirstMember(members, singleTask, id) {
     let firstMember = members[0];
@@ -223,8 +252,7 @@ function getOtherMembersDisplay(members, singleTask, id) {
 
 
 function checkForFirstMemberColor(singleTask) {
-
-    for (let i = 0; i < userInformation.length; i++) {
+for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
         let name = user.fullname;
         let color = user.color;
@@ -250,17 +278,6 @@ function checkForColor(memberOfTask) {
 }
 
 
-function getMembers(singleTask) {
-    let taskmembers = [];
-    for (let i = 0; i < singleTask.taskmember.length; i++) {
-        let member = singleTask.taskmember[i];
-        let firstLetters = getFirstLetters(member);
-        taskmembers.push(firstLetters);
-    }
-    return taskmembers;
-}
-
-
 function getFirstLetters(member) {
     let fullname = member.split(' ');
     for (let i = 0; i < fullname.length; i++) {
@@ -270,16 +287,6 @@ function getFirstLetters(member) {
         return initials;
     }
 }
-
-
-function createPriority(prio, id) {
-    priorityForBoard(prio, id);
-}
-
-function createDisplayPriority(prio, id) {
-    priorityForDisplay(prio, id);
-}
-
 
 function priorityForBoard(prio, id) {
     switch (prio) {
@@ -294,7 +301,6 @@ function priorityForBoard(prio, id) {
             break;
     }
 }
-
 
 function priorityForDisplay(prio, id) {
     switch (prio) {
@@ -366,16 +372,6 @@ function closeDialog(id) {
 }
 
 
-
-
-function checkForCheckbox(id, subtasks, completedsubtasks) {
-    for (let i = 0; i < subtasks.length; i++) {
-        if (completedsubtasks.includes(subtasks[i])) 
-            document.getElementById(`checkbox-${id}-${i}`).checked = true;
-    }
-}
-
-
 function searchTasks() {
     let searchInput = document.getElementById('search').value;
     for (let i = 0; i < allTasks.length; i++) {
@@ -396,7 +392,6 @@ function searchForCriteria(task, searchInput, i) {
     }
 }
 
-
 function checkSearchForMembers(task, searchInput) {
     for (let i = 0; i < task.taskmember.length; i++) {
         let member = task.taskmember[i];
@@ -404,7 +399,6 @@ function checkSearchForMembers(task, searchInput) {
             return true;
     }
 }
-
 
 function getIndexFromArray(array, value) {
     let index = array.indexOf(value);
