@@ -10,8 +10,11 @@ let projectstatus = ['toDo', 'progress', 'feedback', 'done'];
 async function initTasks() {
     await loadDataFromServer();
     await init();
+    await includeHTML('include-addtask-html');
     renderProfileImage();
     renderCards();
+    renderCategoriesInHTML();
+    renderAssignableMembersInHTML();
 }
 
 
@@ -389,4 +392,8 @@ function renderSearchedTasks() {
 }
 
 
+function openAddTaskForm(status){
+    boardStatus = status;
+    removeClassList('add-task-overlay-board', 'd-none');
+}
 

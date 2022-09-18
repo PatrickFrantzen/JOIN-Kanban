@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/color.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
+    <script src="js/add_task.js"></script>
     <script src="js/board.js"></script>
     <script src="js/templates.js"></script>
     <script src="js/includeHTML.js"></script>
@@ -49,7 +50,7 @@
                     <div class="search-line"></div>
                     <img class="btn-icons" src="img/board/search.svg">
                 </form>
-                <button class="static-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center"><span
+                <button class="static-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center" onclick="openAddTaskForm('toDo')"><span
                         class="f-21">Add Task</span> <img class="addTask-btn-icons" src="img/board/plus.svg"></button>
             </div>
         </div>
@@ -62,7 +63,7 @@
                 <div class="todo-area">
                     <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                         <span id="todo-head" class="board-card-header f-21 f-bold">To do</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg">
+                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('toDo')">
                     </div>
                     <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragstart="showDragCard()"
                         ondragover="allowDrop(event)"> </div>
@@ -71,7 +72,7 @@
                 <div class="progress-area">
                     <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                         <span id="progress-head" class="board-card-header f-21 f-bold">In progress</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg">
+                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('progress')">
                     </div>
                     <div id="progress-card" class="board-card" ondrop="moveTo('progress')" ondragstart="showDragCard()"
                         ondragover="allowDrop(event)">
@@ -81,7 +82,7 @@
                 <div class="feedback-area">
                     <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                         <span id="feedback-head" class="board-card-header f-21 f-bold">Awaiting feedback</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg">
+                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('feedback')">
                     </div>
                     <div id="feedback-card" class="board-card" ondrop="moveTo('feedback')" 
                         ondragover="allowDrop(event); showDragCard()">
@@ -91,7 +92,7 @@
                 <div class="done-area">
                     <div class="board-head d-flex justify-content-space-between align-items-center w-250">
                         <span id="done-head" class="board-card-header f-21 f-bold">Done</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg">
+                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('done')">
                     </div>
                     <div id="done-card" class="board-card" ondrop="moveTo('done')" ondragover="allowDrop(event); showDragCard()"> 
                     </div>
@@ -108,6 +109,12 @@
 
     </div>
 
+    <!-- Add Task -->
+    <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none">
+        <div class="add-task-overlay d-flex justify-content-center align-items-center">
+            <div include-addtask-html="add_task_template.html"></div>
+        </div>
+    </div>
 </body>
 
 </html>

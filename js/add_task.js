@@ -4,6 +4,7 @@ let currentMembers = [];
 let currentSubTasks = [];
 let colorNewCategory;
 let colorBtnIsClicked = false;
+let boardStatus = 'toDo';
 
 async function initAddTask() {
     await loadDataFromServer()
@@ -154,7 +155,6 @@ function createId(member) {
 }
 
 
-//TODO: outsourcing status, so function can be used from board.html too
 /**
  * reads information of inputfields 
  * 
@@ -166,11 +166,10 @@ async function createNewTask() {
     let originFormatDate = document.getElementById('date').value;
     let date = changeDateFormat(originFormatDate);
     let prio = currentPrio;
-    let status = 'toDo';
     let subtasks = currentSubTasks;
     let completedSubTasks = [];
     let completedTask = false;
-    await addNewTaskToArray(title, description, category, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask);
+    await addNewTaskToArray(title, description, category, date, originFormatDate, prio, subtasks, completedSubTasks, completedTask);
 }
 
 
@@ -185,8 +184,8 @@ async function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-async function addNewTaskToArray(title, description, category, date, originFormatDate, prio, status, subtasks, completedSubTasks, completedTask) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: currentMembers, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: status, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask };
+async function addNewTaskToArray(title, description, category, date, originFormatDate, prio, subtasks, completedSubTasks, completedTask) {
+    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: currentMembers, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: boardStatus, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTaskForm(title, description);
