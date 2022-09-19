@@ -95,7 +95,7 @@
 
     .not-join-user {
         position: absolute;
-        bottom: 50px;
+        bottom: 40px;
         right: 0px;
         width: 100%;
         justify-content: center;
@@ -246,9 +246,6 @@
         bottom: -283px;
     }
 
-    .login-content {
-        height: 407px;
-    }
 }
 
 

@@ -124,7 +124,7 @@ async function changePassword() {
     let password = document.getElementById('reset-password');
     let confirmedPassword = document.getElementById('confirm-password');
     await checkNewPassword(password, confirmedPassword);
-    backend.setItem('userIndexForgotPassword', NaN);
+    showUserResponseOverlay('reset-password-overlay');
 }
 
 
@@ -142,6 +142,7 @@ async function checkNewPassword(password, confirmedPassword) {
 async function saveNewPassword(password) {
     userInformation[userIndexForgotPassword].password = password.value;
     await backend.setItem('userInformation', JSON.stringify(userInformation));
+    await backend.setItem('userIndexForgotPassword', NaN);
 }
 
 
