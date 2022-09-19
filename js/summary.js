@@ -109,7 +109,7 @@ function sortDates(dateInMs) {
 
 
 function countUrgentTasks(task) {
-    if (task.taskprio == 'urgent') {
+    if (task.prio == 'urgent') {
         taskAmount.urgent++;
         taskAmount.urgentDate.push(task.duedateOrgin)
     }

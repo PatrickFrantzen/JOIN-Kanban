@@ -165,11 +165,7 @@ async function createNewTask() {
     let category = getCurrentCategory();
     let originFormatDate = document.getElementById('date').value;
     let date = changeDateFormat(originFormatDate);
-    let prio = currentPrio;
-    let subtasks = currentSubTasks;
-    let completedSubTasks = [];
-    let completedTask = false;
-    await addNewTaskToArray(title, description, category, date, originFormatDate, prio, subtasks, completedSubTasks, completedTask);
+    await addNewTaskToArray(title, description, category, date, originFormatDate);
 }
 
 
@@ -184,8 +180,8 @@ async function createNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-async function addNewTaskToArray(title, description, category, date, originFormatDate, prio, subtasks, completedSubTasks, completedTask) {
-    let newTask = { tasktitle: title.value, taskdescription: description.value, taskcategory: category, taskmember: currentMembers, duedate: date, duedateOrgin: originFormatDate, taskprio: prio, projectstatus: boardStatus, tasksubtasks: subtasks, finishedsubtasks: completedSubTasks, complete: completedTask };
+async function addNewTaskToArray(title, description, category, date, originFormatDate) {
+    let newTask = { title: title.value, description: description.value, category: category, member: currentMembers, duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus, subtasks: currentSubTasks, finishedsubtasks: [], complete: false };
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTaskForm(title, description);

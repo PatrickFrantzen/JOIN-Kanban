@@ -72,14 +72,14 @@ function createDragContainer() {
  * @param {string} singleTask 
  */
 function getTaskDetails(i, singleTask) {
-    let title = singleTask.tasktitle;
-    let description = singleTask.taskdescription;
-    let category = singleTask.taskcategory;
+    let title = singleTask.title;
+    let description = singleTask.description;
+    let category = singleTask.category;
     let date = singleTask.duedate;
-    let prio = singleTask.taskprio;
+    let prio = singleTask.prio;
     let members = getMembers(singleTask);
-    let status = singleTask.projectstatus;
-    let subtasks = singleTask.tasksubtasks;
+    let status = singleTask.status;
+    let subtasks = singleTask.subtasks;
     let completedsubtasks = singleTask.finishedsubtasks;
     createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask);
 }
@@ -112,7 +112,7 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
 }
 
 function createAssignedMemberArea(members, singleTask, id) {
-    if (singleTask.taskmember.length == 1) {
+    if (singleTask.member.length == 1) {
         getfirstMember(members, singleTask, id);
     } else {
         getfirstMember(members, singleTask, id);
@@ -126,7 +126,7 @@ function createPriority(prio, id) {
 
 function openDialog(id, title, description, category, date, prio) {
     let singledisplayTask = allTasks[id];
-    let displaysubtasks = singledisplayTask.tasksubtasks;
+    let displaysubtasks = singledisplayTask.subtasks;
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
     let displaymembers = getMembers(singledisplayTask);
     createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
@@ -148,7 +148,7 @@ function createDisplay(id, title, description, category, date, prio) {
 }
 
 function createAssignedMemberAreaDisplay(members, singleTask, id) {
-    if (singleTask.taskmember.length == 1) {
+    if (singleTask.member.length == 1) {
         getfirstMemberDisplay(members, singleTask, id);
     } else {
         getfirstMemberDisplay(members, singleTask, id);
@@ -204,8 +204,8 @@ async function resetFinishedSubtask(id, i, title, description, category, date, p
 
 function getMembers(singleTask) {
     let taskmembers = [];
-    for (let i = 0; i < singleTask.taskmember.length; i++) {
-        let member = singleTask.taskmember[i];
+    for (let i = 0; i < singleTask.member.length; i++) {
+        let member = singleTask.member[i];
         let firstLetters = getFirstLetters(member);
         taskmembers.push(firstLetters);
     }
@@ -221,7 +221,7 @@ function getfirstMember(members, singleTask, id) {
 
 function getfirstMemberDisplay(members, singleTask, id) {
     let firstMember = members[0];
-    let firstMemberFullName = singleTask.taskmember[0];
+    let firstMemberFullName = singleTask.member[0];
     let color = checkForFirstMemberColor(singleTask)
     document.getElementById(`first-member-display-${id}`).innerHTML = firstMember;
     document.getElementById(`first-member-name-display-${id}`).innerHTML = firstMemberFullName;
@@ -230,8 +230,8 @@ function getfirstMemberDisplay(members, singleTask, id) {
 
 
 function getOtherMembers(members, singleTask, id) {
-    for (let i = 1; i < singleTask.taskmember.length; i++) {
-        let memberOfTask = singleTask.taskmember[i];
+    for (let i = 1; i < singleTask.member.length; i++) {
+        let memberOfTask = singleTask.member[i];
         let memberOfInitialArray = members[i];
         let color = checkForColor(memberOfTask);
         document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id);
@@ -240,8 +240,8 @@ function getOtherMembers(members, singleTask, id) {
 }
 
 function getOtherMembersDisplay(members, singleTask, id) {
-    for (let i = 1; i < singleTask.taskmember.length; i++) {
-        let memberOfTask = singleTask.taskmember[i];
+    for (let i = 1; i < singleTask.member.length; i++) {
+        let memberOfTask = singleTask.member[i];
         let memberOfInitialArray = members[i];
         let color = checkForColor(memberOfTask);
         document.getElementById(`assigned-list-${id}`).innerHTML += renderAdditionalMembersDisplay(memberOfInitialArray, id);
@@ -256,7 +256,7 @@ for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
         let name = user.fullname;
         let color = user.color;
-        let firstmember = singleTask.taskmember[0];
+        let firstmember = singleTask.member[0];
         if (name == firstmember) {
             let userColor = color;
             return userColor;
@@ -346,7 +346,7 @@ function allowDrop(ev) {
 
 
 async function moveTo(status) {
-    allTasks[currentDraggedElement]['projectstatus'] = status;
+    allTasks[currentDraggedElement]['status'] = status;
     renderCards();
     await backend.setItem('allTasks', JSON.stringify(allTasks));
 }
@@ -382,7 +382,7 @@ function searchTasks() {
 }
 
 function searchForCriteria(task, searchInput, i) {
-    if (task.tasktitle.includes(searchInput) || task.taskprio.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
+    if (task.title.includes(searchInput) || task.prio.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
         if (getIndexFromArray(search, i) == -1)
             search.push(i);
     } else {
@@ -393,8 +393,8 @@ function searchForCriteria(task, searchInput, i) {
 }
 
 function checkSearchForMembers(task, searchInput) {
-    for (let i = 0; i < task.taskmember.length; i++) {
-        let member = task.taskmember[i];
+    for (let i = 0; i < task.member.length; i++) {
+        let member = task.member[i];
         if (member.includes(searchInput))
             return true;
     }
