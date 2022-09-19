@@ -27,7 +27,7 @@
         height: 73vh;
     }
 
-    #edit-cancel-btn-mobile{
+    #edit-cancel-btn-mobile {
         display: none;
     }
 
@@ -94,7 +94,7 @@
     .header-text {
         display: none;
     }
-     
+
     /* IMPRINT max-width: 1000px */
 
     #h1-imprint {
@@ -124,114 +124,60 @@
         width: 206px;
     }
 
-    
+
     /* LOGIN max-width: 1000px */
 
     .input-container-login {
         width: 296px;
     }
 
-    /* BOARD max-width: 1000px */
-
-    .board-head {
-        width: 300px;
-    }
-
-    .board-card-header {
-        font-size: 35px !important;
-    }
-
-    .board-inner-card {
-        width: 300px;
-    }
-
-    .board-title {
-        width: 300px;
-    }
-
-    .board-description {
-        width: 270px;
-    }
-
-    .progressbar-outer {
-        width: 270px;
-    }
-
-    .progressbar-inner {
-        width: 185px;
-    }
-
-    .board-assigned {
-        width: 265px;
-    }
-
 }
 
 @media (max-width: 975px) {
+    /* BOARD max-width: 975px */
+
+
+    .searchbox {
+        width: 55%;
+    }
+
+    .searchbox img {
+        padding-left: 10px;
+    }
 
     .board-head {
-        width: 280px;
+        width: 48%;
     }
 
     .board-inner-card {
-        width: 280px;
-    }
-
-    .board-title {
-        width: 280px;
-    }
-
-    .progressbar-outer {
-        width: 240px;
+        width: 48%;
     }
 
     .progressbar-inner {
-        width: 154px;
+        width: 70%;
     }
 
     .board-assigned {
-        width: 245px;
+        width: 81%;
     }
 }
 
 @media (max-width: 925px) {
 
-
-    .board-headline {
-        flex-direction: column;
-        margin-bottom: 15px;
+    .searchbox {
+        width: 45%;
     }
 
-    .board-head {
-        width: 240px;
+    .board-content {
+        padding: 0px !important;
     }
 
-    .board-category {
-        font-size: 22px;
-    }
-
-    .board-inner-card {
-        width: 240px;
-    }
-
-    .board-title {
-        width: 230px;
-    }
-
-    .board-description {
-        width: 220px;
-    }
-
-    .progressbar-outer {
-        width: 200px;
-    }
-
-    .progressbar-inner {
-        width: 114px;
+    .inputfield {
+        width: 67%;
     }
 
     .board-assigned {
-        width: 205px;
+        width: 84%;
     }
 
     .board-footer {
@@ -240,36 +186,6 @@
 }
 
 @media (max-width: 860px) {
-
-
-    .board-head {
-        width: calc(100vw - 355px);
-    }
-
-
-    .board-inner-card {
-        width: calc(100vw - 355px);
-    }
-
-    .board-title {
-        width: calc(100vw - 355px);
-    }
-
-    .board-description {
-        width: calc(100vw - 387px);
-    }
-
-    .progressbar-outer {
-        width: calc(100vw - 387px);
-    }
-
-    .progressbar-inner {
-        width: calc(100vw - 475px);
-    }
-
-    .board-assigned {
-        width: calc(100vw - 395px);
-    }
 
     .m-left-24 {
         margin-left: 14px;

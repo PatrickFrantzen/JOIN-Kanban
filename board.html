@@ -24,6 +24,7 @@
     <script src="js/script.js"></script>
     <script src="js/add_task.js"></script>
     <script src="js/board.js"></script>
+    <script src="js/display.js"></script>
     <script src="js/templates.js"></script>
     <script src="js/includeHTML.js"></script>
     <script src="js/mini_backend.js"></script>
@@ -34,7 +35,7 @@
 <body onload="initTasks()">
     <div w3-include-html="navbar.html"></div>
 
-    <div class="content">
+    <div class="content board-content">
         <!-- Headline with Search and Add Task-->
         <div class="board-headline d-flex align-items-center justify-content-space-between">
             <div class="mobil-head">
@@ -43,7 +44,7 @@
                 <img class="addTask-btn-icons" src="img/board/plus.svg">
             </button>
             </div>
-            <div class="d-flex">
+            <div class="d-flex justify-content-end">
                 <form class="searchbox d-flex justify-content-space-between align-items-center w-250" role="search">
                     <input id="search" class="inputfield" placeholder="Find task" minlength="3" type="text"
                         onkeyup="searchTasks()">
@@ -60,18 +61,18 @@
 
             <div class="main-board-area d-flex justify-content-space-between ">
 
-                <div class="todo-area">
-                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                        <span id="todo-head" class="board-card-header f-21 f-bold">To do</span>
+                <div class="todo-area w-23">
+                    <div class="board-head d-flex justify-content-space-between align-items-center">
+                        <span id="todo-head" class="board-card-header f-21-board f-bold">To do</span>
                         <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('toDo')">
                     </div>
                     <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragstart="showDragCard()"
                         ondragover="allowDrop(event)"> </div>
                 </div>
 
-                <div class="progress-area">
-                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                        <span id="progress-head" class="board-card-header f-21 f-bold">In progress</span>
+                <div class="progress-area w-23">
+                    <div class="board-head d-flex justify-content-space-between align-items-center">
+                        <span id="progress-head" class="board-card-header f-21-board f-bold">In progress</span>
                         <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('progress')">
                     </div>
                     <div id="progress-card" class="board-card" ondrop="moveTo('progress')" ondragstart="showDragCard()"
@@ -79,9 +80,9 @@
                     </div>
                 </div>
 
-                <div class="feedback-area">
-                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                        <span id="feedback-head" class="board-card-header f-21 f-bold">Awaiting feedback</span>
+                <div class="feedback-area w-23">
+                    <div class="board-head d-flex justify-content-space-between align-items-center">
+                        <span id="feedback-head" class="board-card-header f-21-board f-bold">Awaiting feedback</span>
                         <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('feedback')">
                     </div>
                     <div id="feedback-card" class="board-card" ondrop="moveTo('feedback')" 
@@ -89,9 +90,9 @@
                     </div>
                 </div>
 
-                <div class="done-area">
-                    <div class="board-head d-flex justify-content-space-between align-items-center w-250">
-                        <span id="done-head" class="board-card-header f-21 f-bold">Done</span>
+                <div class="done-area w-23">
+                    <div class="board-head d-flex justify-content-space-between align-items-center">
+                        <span id="done-head" class="board-card-header f-21-board f-bold">Done</span>
                         <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('done')">
                     </div>
                     <div id="done-card" class="board-card" ondrop="moveTo('done')" ondragover="allowDrop(event); showDragCard()"> 

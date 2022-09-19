@@ -47,6 +47,10 @@ a {
     font-size: 12px;
 }
 
+.f-21-board {
+    font-size: 21px;
+}
+
 .f-bold {
     font-weight: bold;
 }
@@ -185,6 +189,10 @@ a {
 
 .w-80 {
     width: 80%;
+}
+
+.w-23 {
+    width: 23%;
 }
 
 .h-80 {

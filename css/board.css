@@ -1,3 +1,6 @@
+.board-content {
+    right: 123px;
+}
 
 .mobil-button {
     display: none !important;
@@ -11,7 +14,7 @@
 }
 
 .board-headline{
-    width: calc(100vw - 500px) ;
+    width: 100% ;
 }
 
 .board-head{
@@ -52,11 +55,11 @@
 
 .main-board {
     max-height: calc(100vh - 247px);
+    width: 103%;
     position: relative;
     overflow-y: scroll;
     scrollbar-color: rebeccapurple green;
     scrollbar-width: thin;
-    padding-right: 24px;
 }
 
 .drag-card {
@@ -76,7 +79,7 @@
 }
 
 .board-inner-card {
-    width: 250px;
+    width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
 }
@@ -95,7 +98,7 @@
 }
 
 .board-card {
-    width: 250px;
+    width: 100%;
 }
 
 .board-category {
@@ -115,6 +118,7 @@
 }
 
 .board-title {
+    width: 85%;
     font-weight: 700;
     word-wrap: break-word;
 }
@@ -128,17 +132,16 @@
 
 .board-description {
     word-wrap: break-word;
-    width: 180px;
+    width: 85%;
 }
 
 .progressbar-outer {
-    width: 240px;
+    width: 85%;
     
 }
 
 .progressbar-inner {
-    
-    width: 180px;
+    width: 65%;
     background-color: var(--light-grey);
     margin-right: 15px;
     border-radius: 10px;
@@ -151,7 +154,7 @@
 }
 
 .board-assigned {
-    width: 210px;
+    width: 80%;
 }
 
 .assigned-outer {

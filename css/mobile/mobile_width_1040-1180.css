@@ -52,77 +52,6 @@
     }
 }
 
-@media (max-width: 1175px) {
-
-    /* BOARD max-width: 1175px*/
-
-    .board-assigned {
-        width: 154px;
-    }
-
-    .board-head {
-        width: 365px;
-    }
-
-    .board-inner-card {
-        width: 370px;
-        margin-right: 0;
-    }
-
-    .board-title {
-        max-width: 340px;
-    }
-
-    .board-description {
-        width: 325px;
-    }
-
-    .progressbar-outer {
-        width: 330px;
-    }
-
-    .progressbar-inner {
-        width: 237px;
-    }
-
-    .board-assigned {
-        width: 320px;
-    }
-}
-
-
-@media (max-width: 1099px) {
-
-    /* BOARD max-width: 1099px*/
-    .board-head {
-        width: 330px;
-    }
-
-    .board-inner-card {
-        width: 330px;
-    }
-
-    .board-title {
-        width: 300px;
-    }
-
-    .board-description {
-        width: 300px;
-    }
-
-    .progressbar-outer {
-        width: 300px;
-    }
-
-    .progressbar-inner {
-        width: 212px;
-    }
-
-    .board-assigned {
-        width: 280px;
-    }
-}
-
 
 @media (max-width: 1074px) {
 
@@ -226,6 +155,11 @@
     .navbar {
         width: 230px !important;
     }
+
+    /* BOARD max-width: 1074px*/
+    .progressbar-inner {
+        width: 60%;
+    }
 }
 
 
@@ -304,33 +238,7 @@
 
     /* BOARD max-width: 1040px*/
 
-    .board-head {
-        width: 320px;
-    }
 
-    .board-card-header {
-        font-size: 35px !important;
-    }
-
-    .board-inner-card {
-        width: 320px;
-    }
-
-    .board-title {
-        width: 320px;
-    }
-
-    .progressbar-outer {
-        width: 290px;
-    }
-
-    .progressbar-inner {
-        width: 205px;
-    }
-
-    .board-assigned {
-        width: 285px;
-    }
 
     /* NAVBAR max-width: 1040px */
     .header-text {

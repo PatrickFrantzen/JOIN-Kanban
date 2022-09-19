@@ -57,41 +57,25 @@
         left: 310px;
     }
 
-    /* BOARD max-width: 1452px*/
-    .board-headline {
-        width: calc(100vw - 355px);
+    .board-content {
+        right: 63px;
     }
 
-    .main-board {
-        width: calc(100vw - 336px);
-    }
 }
 
-
-@media (max-width: 1353px) {
-
-    /* BOARD max-width: 1353px*/
-    .board-head {
-        width: 225px;
-    }
-
-    .board-card {
-        width: 225px;
-    }
-
-    .board-inner-card {
-        width: 225px;
-    }
-
+@media (max-width: 1332px) {
     .progressbar-outer {
-        width: 195px;
+        width: 80%;
+    }
+
+    .progressbar-inner {
+        width: 60%;
     }
 
     .board-assigned {
-        width: 183px;
+        width: 75%;
     }
 }
-
 
 @media (max-width: 1323px) {
 
@@ -113,7 +97,7 @@
         width: 101px;
     }
 
-    .priority-container{
+    .priority-container {
         gap: 8px;
     }
 
@@ -151,30 +135,25 @@
     .welcome span {
         text-align: center;
     }
-}
 
-
-@media (max-width: 1272px) {
-
-    /* BOARD max-width: 1272px*/
-    .board-head {
-        width: 215px;
-    }
-
-    .board-card {
-        width: 215px;
-    }
-
-    .board-inner-card {
-        width: 215px;
-    }
-
-    /* GENERAL max-width: 1272px*/
-    .f-21 {
-        font-size: 20px;
+    .f-21-board {
+        font-size: 19px;
     }
 }
 
+@media (max-width: 1268px) {
+    .progressbar-outer {
+        width: 85%;
+    }
+
+    .progressbar-inner {
+        width: 57%;
+    }
+
+    .board-assigned {
+        width: 72%;
+    }
+}
 
 @media (max-width: 1261px) {
 
@@ -217,21 +196,6 @@
 @media (max-width: 1245px) {
 
     /* BOARD max-width: 1245px*/
-    .board-head {
-        width: 200px;
-        height: 50px;
-    }
-
-    /* TODO */
-    .progressbar-outer {
-        min-height: 30px;
-        width: 230px;
-    }
-
-    .board-assigned {
-        width: 215px;
-    }
-
     .main-board-area {
         flex-direction: column;
     }
@@ -240,18 +204,17 @@
         position: unset;
         padding-top: 32px;
         padding-bottom: 0px;
-        width: 250px;
+        width: 23%
     }
 
     .board-card {
         display: flex;
         flex-wrap: wrap;
-        width: calc(100vw - 355px);
         justify-content: space-between;
     }
 
     .board-inner-card {
-        width: 250px;
+        width: 23%;
         max-height: 371px;
     }
 
@@ -263,12 +226,28 @@
         height: 40px;
         overflow-y: scroll;
         padding: 0;
-        width: 230px;
+        min-height: 60px;
+    }
+
+    .progressbar-outer {
+        min-height: 30px;
+    }
+
+    .w-23 {
+        width: 100%;
+    }
+
+    .f-21-board {
+        font-size: 25px;
+    }
+    
+    .board-text {
+        margin: 10px 15px;
     }
 
     .main-board {
         flex-direction: row;
-        max-width: calc(100vw - 100px);
+        width: 102%;
     }
 
     /* width */
@@ -292,34 +271,14 @@
 @media (max-width: 1200px) {
 
     /* BOARD max-width: 1200px*/
-    .board-head {
-        width: 200px;
-        height: 50px;
-    }
 
-    .board-card {
-        width: 200px;
-    }
-
-    .board-inner-card {
-        width: 200px;
-    }
-
-    .progressbar-outer {
-        width: 160px;
-    }
-
-    .board-assigned {
-        width: 154px;
-    }
-
-    .board-head {
-        width: 395px;
+    .board-head{
+        width: 32%;
     }
 
     .board-card {
         justify-content: space-between;
-        width: calc(100vw - 355px);
+        width: 100%
     }
 
     .board-head img {
@@ -328,55 +287,16 @@
     }
 
     .board-inner-card {
-        width: 400px;
+        width: 32%;
         max-height: 430px;
-        margin-right: 0;
-    }
-
-    .progressbar-outer {
-        width: 360px;
     }
 
     .progressbar-inner {
-        width: 274px;
+        width: 65%;
     }
 
     .board-assigned {
-        width: 356px;
-    }
-
-    .board-category {
-        font-size: 25px;
-    }
-
-    .board-title {
-        font-size: 22px;
-        max-width: 380px;
-    }
-
-    .board-description {
-        font-size: 18px;
-        height: 65px;
-        width: 350px;
-    }
-
-    .subtasks span {
-        font-size: 16px;
-    }
-
-    .assigned-inner {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-    }
-
-    .relative {
-        left: -4px;
-    }
-
-    .board-assigned-urgent img {
-        height: 30px;
-        width: 30px;
+        width: 78%;
     }
 
 }
