@@ -60,10 +60,12 @@
                             <div id="category"
                                 class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
                                 <input id="category-input" class="hidden-input" type="text" required>
-                                <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
-                                    Select task Category
+                                <div class="output-container d-flex justify-content-space-between">
+                                    <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
+                                        Select task Category
+                                    </div>
+                                    <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
                                 </div>
-                                <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
                             </div>
 
                             <ul class="add-task-lists d-none scroll" id="categories">
@@ -134,16 +136,18 @@
                             <label for="assignedTo" class="m-bottom-18 add-task-titles">Assigned to</label>
                             <div class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                                 onclick="toggleClassList('assignedToSelect', 'd-none')">
-                                <input id="assignedTo-input" class ="hidden-input" type="text" required>
-                                <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
-                                    contacts to assign</div>
-                                <img src="img/add_task/dropdown_arrow.svg" alt="">
+                                <input id="assignedTo-input" class="hidden-input" type="text" required>
+                                <div class="output-container d-flex justify-content-space-between">
+                                    <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
+                                        contacts to assign</div>
+                                    <img src="img/add_task/dropdown_arrow.svg" alt="">
+                                </div>
                             </div>
                             <ul id="assignedToSelect" class="assignedTo-list add-task-lists scroll d-none">
 
                             </ul>
                             <div id="assignedTo-avatare-container" class="d-flex">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -186,9 +190,11 @@
                         <p class="m-top-28 add-task-titles">Subtasks</p>
                         <div id="subtasks-container"
                             class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
-                            <input id="subtask-input" class="inputfield-nearby-icon" type="text"
-                                placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
-                            <img src="img/add_task/add.svg" alt="">
+                            <div class="output-container d-flex justify-content-space-between">
+                                <input id="subtask-input" class="inputfield-nearby-icon" type="text"
+                                    placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
+                                <img src="img/add_task/add.svg" alt="" onclick="changeIconsInSubtasks()">
+                            </div>
                         </div>
                         <div id="subtasks-output" class="d-flex flex-column">
 

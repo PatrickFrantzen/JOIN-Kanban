@@ -208,7 +208,7 @@ input[type="date"]{
 }
 
 .colorpicker{
-    width: 100%;
+    width: 319px;
 }
 
 .assignedTo-container{
@@ -227,3 +227,7 @@ input[type="date"]{
     height: 90vh;
 }
 
+
+.output-container {
+    width: 373px;
+}

@@ -343,18 +343,22 @@ function renderNewSubTaskInput(subtaskInput) {
 
 function clearSubtaskInput() {
     document.getElementById('subtasks-container').innerHTML = `
+    <div class="output-container d-flex justify-content-space-between">
     <input id="subtask-input" class="inputfield-nearby-icon" type="text" placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
-    <img src="img/add_task/add.svg" alt="">
+    <img src="img/add_task/add.svg" alt="" onclick="changeIconsInSubtasks()">
+    </div>
     `
 }
 
 function clearCategoryInputTemplate() {
     return `
     <input id="category-input" class="hidden-input" type="text" required>
-    <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
+    <div class="output-container d-flex justify-content-space-between">
+        <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
         Select task Category
+        </div>
+        <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
     </div>
-    <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
     `
 }
 
