@@ -191,8 +191,8 @@ function renderSingleCard(id, title, description, category, date, prio, subtasks
     </div>
 
     <div id="assigned-${id}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
-        <div id="assigned-area-${id}" class="d-flex"></div>
-        <div class="board-assigned-urgent"><img id="prio-${id}" src=""> </div>
+        <div id="assigned-area-${id}" class="assigned-area d-flex"></div>
+        <div class="board-assigned-urgent"><img m-right-25 id="prio-${id}" src=""> </div>
     </div>
 </div>
 `
@@ -205,7 +205,7 @@ function renderProgressbarArea(id, numberOfSubtasks, numberOfFinishedSubtasks) {
         <div id="bar-${id}" class="bar"></div>
         </div>
             <div class="subtasks d-flex text-align-center">
-                <span class="f-12">${numberOfFinishedSubtasks}/${numberOfSubtasks} Done</span>
+                <span class="f-12 ">${numberOfFinishedSubtasks}/${numberOfSubtasks} Done</span>
             </div>
     `
 }

@@ -238,7 +238,9 @@
 
     /* BOARD max-width: 1040px*/
 
-
+    .progressbar-inner {
+        width: 58%;
+    }
 
     /* NAVBAR max-width: 1040px */
     .header-text {

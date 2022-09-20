@@ -17,7 +17,7 @@
     .join-logo-mobile {
         display: block;
     }
-
+}
 
     /* CONTACTS max-width: 1000px */
 
@@ -131,6 +131,10 @@
         width: 296px;
     }
 
+    /* BOARD max-width: 1000px */
+    .progressbar-inner {
+        width: 57%;
+
 }
 
 @media (max-width: 975px) {
@@ -154,11 +158,11 @@
     }
 
     .progressbar-inner {
-        width: 70%;
+        width: 65%;
     }
 
     .board-assigned {
-        width: 81%;
+        width: 75%;
     }
 }
 
@@ -176,8 +180,12 @@
         width: 67%;
     }
 
+    .progressbar-inner {
+        width: 62%;
+    }
+
     .board-assigned {
-        width: 84%;
+        width: 74%;
     }
 
     .board-footer {
@@ -187,7 +195,25 @@
 
 @media (max-width: 860px) {
 
+    .board-headline {
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .searchbox {
+        width: 100%;
+    }
+
+    .inputfield {
+        width: 100%;
+    }
+
     .m-left-24 {
         margin-left: 14px;
+    }
+
+    .progressbar-inner {
+        width: 55%;
+
     }
 }

@@ -141,7 +141,7 @@
 }
 
 .progressbar-inner {
-    width: 65%;
+    width: 60%;
     background-color: var(--light-grey);
     margin-right: 15px;
     border-radius: 10px;
@@ -154,7 +154,7 @@
 }
 
 .board-assigned {
-    width: 80%;
+    width: 75%;
 }
 
 .assigned-outer {

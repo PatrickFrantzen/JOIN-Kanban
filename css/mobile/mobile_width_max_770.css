@@ -233,46 +233,92 @@
         top: 50px;
     }
 
+    .board-content {
+        right: 30px;
+        padding-top: 120px !important;
+    }
 
     .board-headline {
         width: 100%;
         align-items: flex-start;
     }
 
+    .board-text {
+        margin: 15px;
+    }
+
+    .f-12 {
+        font-size: 18px;
+    }
+
+    .board-card {
+        width: 100%;
+    }
+
     .board-head {
-        width: 670px;
+        width: 96%;
     }
 
     .board-inner-card {
-        width: 670px;
+        width: 96%;
+    }
+
+    .board-category {
+        font-size: 22px;
     }
 
     .board-title {
-        width: 640px;
+        width: 94%;
+        font-size: 22px;
     }
 
     .board-description {
-        width: 640px;
+        width: 94%;
+        font-size: 22px;
+        height: 60px;
     }
 
     .progressbar-outer {
-        width: 640px;
+        width: 94%;
     }
 
     .progressbar-inner {
-        width: 550px;
+        width: 80%;
     }
 
     .board-assigned {
-        width: 630px;
+        width: 88%;
+    }
+
+    .assigned-inner {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .relative {
+        left: -2px;
+    }
+
+    .board-assigned-urgent img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .assigned-area {
+        height: 50px;
     }
 
     .board-footer {
         min-height: 150px;
     }
 
+    .mobile-searchbox {
+        width: 50%;
+    }
+
     .searchbox {
-        width: 300px;
+        width: 100%;
     }
 
     .main-board {
@@ -282,13 +328,8 @@
         overflow-y: unset;
     }
 
-
     .static-button {
         display: none;
-    }
-
-    .board-card {
-        width: 100%;
     }
 
     .mobil-head {
@@ -296,7 +337,6 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        width: 670px;
         /* TODO */
     }
 
@@ -306,84 +346,17 @@
     }
 }
 
-@media (max-width: 730px) {
-    .mobil-head {
-        width: 620px;
-    }
-
-    .board-head {
-        width: 620px;
-    }
-
-    .board-inner-card {
-        width: 620px;
-    }
-
-    .board-title {
-        width: 590px;
-    }
-
-    .board-description {
-        width: 590px;
-    }
-
-    .progressbar-outer {
-        width: 590px;
-    }
-
-    .progressbar-inner {
-        width: 500px;
-    }
-
-    .board-assigned {
-        width: 580px;
-    }
-}
-
 
 @media (max-width: 680px) {
     .single-menu a {
         width: 140px !important;
     }
-}
-
-
-
-@media (max-width: 671px) {
-
-    .mobil-head {
-        width: 570px;
-    }
-
-    .board-head {
-        width: 570px;
-    }
-
-    .board-inner-card {
-        width: 570px;
-    }
-
-    .board-title {
-        width: 540px;
-    }
-
-    .board-description {
-        width: 540px;
-    }
-
-    .progressbar-outer {
-        width: 540px;
-    }
-
-    .progressbar-inner {
-        width: 450px;
-    }
 
     .board-assigned {
-        width: 530px;
+        width: 90%;
     }
+    
 }
-
 
 @media (max-width: 665px) {
     .login-content {
@@ -404,80 +377,18 @@
     .back-btn {
         top: 26px;
     }
-}
 
-
-@media (max-width: 624px) {
-
-    .mobil-head {
-        width: 520px;
-    }
-
-    .board-head {
-        width: 520px;
-    }
-
-    .board-inner-card {
-        width: 520px;
-    }
-
-    .board-title {
-        width: 490px;
-    }
-
-    .board-description {
-        width: 490px;
-    }
-
-    .progressbar-outer {
-        width: 490px;
-    }
 
     .progressbar-inner {
-        width: 400px;
+        width: 75%;
     }
 
     .board-assigned {
-        width: 480px;
+        width: 86%;
     }
-
 }
 
-@media (max-width: 574px) {
 
-    .mobil-head {
-        width: 470px;
-    }
-
-    .board-head {
-        width: 470px;
-    }
-
-    .board-inner-card {
-        width: 470px;
-    }
-
-    .board-title {
-        width: 440px;
-    }
-
-    .board-description {
-        width: 440px;
-    }
-
-    .progressbar-outer {
-        width: 440px;
-    }
-
-    .progressbar-inner {
-        width: 350px;
-    }
-
-    .board-assigned {
-        width: 430px;
-    }
-
-}
 
 @media (max-width: 560px) {
     .single-menu a {
@@ -487,43 +398,12 @@
     .board-img {
         width: 400px;
     }
+
+    .mobile-searchbox {
+        width: 64%;
+    }
 }
 
-@media (max-width: 524px) {
-
-    .mobil-head {
-        width: 420px;
-    }
-
-    .board-head {
-        width: 420px;
-    }
-
-    .board-inner-card {
-        width: 420px;
-    }
-
-    .board-title {
-        width: 390px;
-    }
-
-    .board-description {
-        width: 390px;
-    }
-
-    .progressbar-outer {
-        width: 390px;
-    }
-
-    .progressbar-inner {
-        width: 300px;
-    }
-
-    .board-assigned {
-        width: 380px;
-    }
-
-}
 
 
 @media (max-width: 515px) {
@@ -563,42 +443,25 @@
     .contact-overlay {
         width: 400px;
     }
-}
 
+    .progressbar-inner {
+        width: 67%;
+    }
+
+    .board-assigned {
+        width: 84%;
+    }
+}
 
 
 @media (max-width: 474px) {
 
-    .mobil-head {
-        width: 370px;
-    }
-
-    .board-head {
-        width: 370px;
-    }
-
-    .board-inner-card {
-        width: 370px;
-    }
-
-    .board-title {
-        width: 340px;
-    }
-
-    .board-description {
-        width: 340px;
-    }
-
-    .progressbar-outer {
-        width: 340px;
-    }
-
     .progressbar-inner {
-        width: 250px;
+        width: 65%;
     }
 
     .board-assigned {
-        width: 330px;
+        width: 84%;
     }
 }
 
@@ -764,135 +627,37 @@
         top: -108px;
         right: 12px;
     }
+
+    .progressbar-inner {
+        width: 65%;
+    }
+
+    .board-assigned {
+        width: 84%;
+    }
 }
 
 
 @media (max-width: 424px) {
 
-    .mobil-head {
-        width: 320px;
-    }
-
-    .board-head {
-        width: 320px;
-    }
-
-    .board-inner-card {
-        width: 320px;
-    }
-
-    .board-title {
-        width: 290px;
-    }
-
-    .board-description {
-        width: 290px;
-    }
-
-    .progressbar-outer {
-        width: 290px;
-    }
-
     .progressbar-inner {
-        width: 200px;
+        width: 60%;
     }
 
     .board-assigned {
-        width: 280px;
-    }
-
-}
-
-
-@media (max-width: 410px) {
-
-    .imprint-back {
-        left: 231px;
-        top: -49px;
-
-    }
-
-    #kanban-subheadline {
-        width: 250px;
-        top: -69px;
-    }
-
-    .contact-overlay {
-        width: 330px;
-    }
-
-    .content-cards-top {
-        gap: 17px;
-        width: 334px;
-    }
-
-    .content-cards-middle-single {
-        width: 334px;
-    }
-
-    .content-cards-bottom {
-        gap: 16px;
-    }
-
-    .content-cards-bottom-single {
-        width: 159px;
-    }
-
-    .f-55 {
-        font-size: 28px !important;
-    }
-
-    .f-47 {
-        font-size: 32px;
-    }
-
-    .back-btn {
-        top: 17px;
-        left: 19px;
+        width: 83%;
     }
 }
 
 
 @media (max-width: 375px) {
 
-    .searchbox {
-        width: 250px;
-    }
-
-    .mobil-head {
-        width: 270px;
-    }
-
-    .board-head {
-        width: 270px;
-    }
-
-    .board-inner-card {
-        width: 270px;
-    }
-
-    .board-title {
-        width: 240px;
-    }
-
-    .board-description {
-        width: 240px;
-    }
-
-    .progressbar-outer {
-        width: 240px;
-    }
-
     .progressbar-inner {
-        width: 150px;
+        width: 52%;
     }
 
     .board-assigned {
-        width: 230px;
-    }
-
-    .board-img {
-        width: 270px;
+        width: 81%;
     }
 }
 
@@ -911,39 +676,11 @@
         width: 300px;
     }
 
-    .searchbox {
-        width: 230px;
-    }
-
-    .mobil-head {
-        width: 250px;
-    }
-
-    .board-head {
-        width: 250px;
-    }
-
-    .board-inner-card {
-        width: 250px;
-    }
-
-    .board-title {
-        width: 220px;
-    }
-
-    .board-description {
-        width: 220px;
-    }
-
-    .progressbar-outer {
-        width: 220px;
-    }
-
     .progressbar-inner {
-        width: 130px;
+        width: 46%;
     }
 
     .board-assigned {
-        width: 210px;
+        width: 78%;
     }
 }

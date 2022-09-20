@@ -266,22 +266,6 @@
         margin-bottom: 16px;
     }
 
-    .board-title {
-        max-width: 320px;
-    }
-
-    .progressbar-outer {
-        width: 235px;
-    }
-
-    .progressbar-inner {
-        width: 149px;
-    }
-
-    .board-assigned {
-        width: 230px;
-    }
-
     .right-section {
         top: 24px;
     }
