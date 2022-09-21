@@ -58,8 +58,10 @@
     width: 103%;
     position: relative;
     overflow-y: scroll;
-    scrollbar-color: rebeccapurple green;
-    scrollbar-width: thin;
+}
+
+.overflow {
+    overflow: hidden;
 }
 
 .drag-card {
@@ -85,6 +87,7 @@
 }
 
 .display-inner-card {
+    width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
 }
@@ -133,6 +136,14 @@
 .board-description {
     word-wrap: break-word;
     width: 85%;
+}
+
+.display-description {
+    font-size: 21px;
+}
+
+.display-size {
+    font-size: 20px;
 }
 
 .progressbar-outer {
@@ -187,8 +198,8 @@
 
 .task-overlay {
     width: 500px;
-    height: 75vh;
+    min-height: 50vh;
     background-color: white;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     margin-left: 250px; 
 }

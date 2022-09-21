@@ -234,29 +234,29 @@ function renderDisplay(id) {
 
 function renderDisplayContent(id, title, description, category, date) {
     return `
-            <div id="display-content-${id}" class="display-card w-100 h-100 d-flex">
-                <div class="display-inner-card h-100 m-left-25 m-right-25 d-flex flex-column">
+            <div id="display-content-${id}" class="display-card w-100 d-flex">
+                <div class="display-inner-card m-left-25 m-right-25 d-flex flex-column">
                     <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
-                    <img class="m-right-24 m-top-20 close-img" onclick="closeDialog(${id})" src="img/buttons/close.png">
+                    <img class="m-right-24 m-top-20" onclick="closeDialog(${id})" src="img/buttons/close.png">
                     </div>
                     <!-- Headlines -->
                     <span class="display-text display-category bg-category-${category}">${category}</span>
                     <span class="display-text display-title">${title}</span>
-                    <span class="display-text">${description}</span>
+                    <span class="display-text display-description">${description}</span>
 
                     <div class="d-flex flex-column display-text">
                         <span class="f-bold m-bottom-5">Subtasks:</span>
-                        <div id="subtasks-display-${id}" class="d-flex flex-column">
+                        <div id="subtasks-display-${id}" class="d-flex flex-column display-size">
                         </div>
                     </div>
 
-                    <div class="d-flex display-text">
+                    <div class="d-flex display-text display-size">
                         <span class="f-bold">Due date: </span>
                         <span class="m-left-8">${date}</span>
                     </div>
 
-                    <div class="d-flex display-text align-items-center">
+                    <div class="d-flex display-text align-items-center display-size">
                         <span class="f-bold">Priority: </span>
                         <span class="m-left-8">
                             <div id="prio-display-field-${id}" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
@@ -274,11 +274,11 @@ function renderDisplayContent(id, title, description, category, date) {
 
 function renderMembersOfTaskAreaDisplay(id) {
     return `
-            <span class="f-bold">Assigned To:</span>
+            <span class="f-bold display-size">Assigned To:</span>
                         <ul id="assigned-list-${id}">
-                            <li class="d-flex  align-items-center">
+                            <li class="d-flex align-items-center">
                                 <div class="assigned-outer">
-                                    <div id="first-member-display-${id}" class="assigned-inner d-flex justify-content-center align-items-center"></div> 
+                                    <div id="first-member-display-${id}" class="assigned-inner d-flex justify-content-center align-items-center display-size"></div> 
                                 </div>
                                 <span id="first-member-name-display-${id}" class="m-left-8"></span>
                             </li>
@@ -289,10 +289,10 @@ function renderMembersOfTaskAreaDisplay(id) {
 
 function renderAdditionalMembersDisplay(memberOfInitialArray, id) {
     return `
-                            <li  class="d-flex  align-items-center">
+                            <li  class="d-flex align-items-center">
                                 <div class="assigned-outer position-circle">
                                     <div id="other-member-display-${id}"
-                                        class="assigned-inner d-flex justify-content-center align-items-center">
+                                        class="assigned-inner d-flex justify-content-center align-items-center display-size">
                                         ${memberOfInitialArray}
                                     </div>
                                 </div>

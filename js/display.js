@@ -51,6 +51,7 @@ function checkForCheckbox(id, subtasks, completedsubtasks) {
 function showDisplay(id) {
     removeClassList('task-display', 'd-none');
     document.getElementById(`display-${id}`).classList.remove('d-none');
+    document.getElementById('main-board').classList.add('overflow');
 }
 
 function checkboxToggle(id, i, title, description, category, date, prio, displaysubtask) {
