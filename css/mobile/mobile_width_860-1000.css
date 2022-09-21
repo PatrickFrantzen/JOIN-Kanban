@@ -17,7 +17,7 @@
     .join-logo-mobile {
         display: block;
     }
-}
+
 
     /* CONTACTS max-width: 1000px */
 
@@ -137,6 +137,8 @@
 
 }
 
+}
+
 @media (max-width: 975px) {
     /* BOARD max-width: 975px */
 
@@ -216,4 +218,12 @@
         width: 55%;
 
     }
+
+    .password-mask {
+        width: 580px;
+    }
 }
+
+
+/* 
+ */

@@ -101,56 +101,59 @@
         <div class="m-top-50 d-flex justify-content-space-between">
             <img class="m-left-50 join-logo" src="img/login/logo.png" alt="">
         </div>
-        <div class="login-content-container d-flex justify-content-center m-top-50">
-            <div class="login-content">
-                <img class="back-btn" src="img/buttons/back.png" alt=""
-                    onclick="switchOverview('signup', 'login', 'd-none')">
-                <div class="d-flex flex-column align-items-center">
-                    <h2 class="color-black f-55 text-center">Sign up</h2>
-                    <div class="horizontal-line horizontal-line-login"></div>
-                </div>
-                <form action="" onsubmit="signup(); return false;">
+        
+            <div class="login-content-container d-flex justify-content-center m-top-50">
+                <div class="login-content">
+                    <img class="back-btn" src="img/buttons/back.png" alt=""
+                        onclick="switchOverview('signup', 'login', 'd-none')">
                     <div class="d-flex flex-column align-items-center">
-                        <div
-                            class="d-flex input-container-login border-fields input-with-image align-items-center justify-content-space-between">
-                            <input id="signup-name"
-                                class="d-flex justify-content-center align-items-center input-contact"
-                                placeholder="Name" type="text" required>
-                            <img src="img/contacts/person.png" alt="">
-                        </div>
-                        <div
-                            class="d-flex input-container-login border-fields input-with-image align-items-center justify-content-space-between">
-                            <input id="signup-email"
-                                class="d-flex justify-content-center align-items-center input-contact"
-                                placeholder="Email" type="email" required>
-                            <img src="img/contacts/mail.png" alt="">
-                        </div>
-                        <div
-                            class="d-flex input-container-login border-fields input-with-image align-items-center justify-content-space-between">
-                            <input id="signup-password"
-                                class="d-flex justify-content-center align-items-center input-contact"
-                                placeholder="Password" type="password" required>
-                            <img src="img/login/password.png" alt="">
-                        </div>
+                        <h2 class="color-black f-55 text-center">Sign up</h2>
+                        <div class="horizontal-line horizontal-line-login"></div>
                     </div>
+                    <form action="" onsubmit="signup(); return false;">
+                        <div class="d-flex flex-column align-items-center">
+                            <div
+                                class="d-flex input-container-login border-fields input-with-image align-items-center justify-content-space-between">
+                                <input id="signup-name"
+                                    class="d-flex justify-content-center align-items-center input-contact"
+                                    placeholder="Name" type="text" required>
+                                <img src="img/contacts/person.png" alt="">
+                            </div>
+                            <div
+                                class="d-flex input-container-login border-fields input-with-image align-items-center justify-content-space-between">
+                                <input id="signup-email"
+                                    class="d-flex justify-content-center align-items-center input-contact"
+                                    placeholder="Email" type="email" required>
+                                <img src="img/contacts/mail.png" alt="">
+                            </div>
+                            <div
+                                class="d-flex input-container-login border-fields input-with-image align-items-center justify-content-space-between">
+                                <input id="signup-password"
+                                    class="d-flex justify-content-center align-items-center input-contact"
+                                    placeholder="Password" type="password" required>
+                                <img src="img/login/password.png" alt="">
+                            </div>
+                        </div>
 
-                    <div class="d-flex justify-content-center m-top-28">
-                        <button class="darkblue-btn ">
-                            <span class="f-18">Sign up</span>
-                        </button>
-                    </div>
-                </form>
+                        <div class="d-flex justify-content-center m-top-28">
+                            <button class="darkblue-btn ">
+                                <span class="f-18">Sign up</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        
     </div>
 
     <!-- forgot password -->
 
     <div id="forgotpassword" class="login-container d-none">
-        <div class="m-top-50 d-flex justify-content-space-between">
+        <div class="d-flex justify-content-space-between">
             <img class="m-left-50 join-logo" src="img/login/logo.png" alt="">
         </div>
-        <div class="login-content-container d-flex justify-content-center m-top-50">
+        <div class="d-flex justify-content-center">
+        <div class="login-content-container d-flex justify-content-center m-top-50 forgotPassword-content">
             <div class="login-content password-mask">
                 <img class="back-btn" src="img/buttons/back.png" alt=""
                     onclick="switchOverview('forgotpassword', 'login', 'd-none')">
@@ -187,6 +190,7 @@
                 </form>
             </div>
         </div>
+    </div>
     </div>
 
 </body>

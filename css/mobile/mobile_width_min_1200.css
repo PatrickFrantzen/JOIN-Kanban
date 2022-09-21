@@ -122,6 +122,10 @@
         width: 281px;
     }
 
+    .priority-container {
+        width: 319px;
+    }
+
     /* SUMMARY max-width: 1323px*/
     .main-content {
         flex-direction: column;

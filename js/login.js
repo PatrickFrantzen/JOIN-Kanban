@@ -17,12 +17,15 @@ async function signup() {
     let name = document.getElementById('signup-name');
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
+    let color = await getNextFreeColor();
     getContactsinformationForNewUser();
-    await addDataToUserInformation(name, email, password);
+    await addDataToUserInformation(name, email, password, color);
     switchOverview('signup', 'login', 'd-none');
 }
 
 
+
+//TODO: edit contacts structure, so this function will not longer be needed
 function getContactsinformationForNewUser() {
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
@@ -42,9 +45,20 @@ function addContactsToNewUser(name, email, color){
 }
 
 
+async function getNextFreeColor(){
+    for (let i = 0; i < contactColors.length; i++) {
+        let color = contactColors[i];
+        if(!color.used){
+            contactColors[i].used = true;
+            await backend.setItem('contactColors', contactColors);
+            return color.color;
+        }
+    }
+}
 
-async function addDataToUserInformation(name, email, password) {
-    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: "", contacts: contacts};
+
+async function addDataToUserInformation(name, email, password, color) {
+    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, contacts: contacts};
     userInformation.push(userInfo);
     await backend.setItem('userInformation', JSON.stringify(userInformation));
 }
