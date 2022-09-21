@@ -51,6 +51,10 @@
         width: 80vw !important;
     }
 
+    .sections {
+        width: auto;
+    }
+
     .back-mobile {
         top: -144px;
         right: 40px;
@@ -344,6 +348,7 @@
         padding-top: 158px !important;
         padding-bottom: 80px;
     }
+
 }
 
 
@@ -360,18 +365,14 @@
 
 @media (max-width: 665px) {
     .login-content {
-        width: 461px;
+        width: calc(100vw - 32px);
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
     }
 
     .f-55 {
         font-size: 45px;
-    }
-
-    .password-mask {
-        width: 580px;
     }
 
     .back-btn {
@@ -481,12 +482,6 @@
 
     .content-contacts {
         top: 80px;
-    }
-
-    .login-content {
-        width: calc(100vw - 32px);
-        justify-content: center;
-        display: flex;
     }
 
     .rememberme-forgot {

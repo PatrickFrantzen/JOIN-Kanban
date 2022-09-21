@@ -221,12 +221,19 @@ input[type="date"]{
 }
 
 .add-task-overlay{
-    background-color: var(--white);
+    background-color: var(--bg-grey);
     width: 80%;
     border-radius: 20px;
     height: 90vh;
+    position: relative;
 }
 
+.close-add-task-overlay {
+    position: absolute;
+    top: 31px;
+    right: 31px;
+    cursor: pointer;
+}
 
 .output-container {
     width: 373px;

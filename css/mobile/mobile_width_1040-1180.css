@@ -218,6 +218,7 @@
 
     .sections {
         flex-direction: column;
+        width: calc(100vw - 350px);
     }
 
     .section-right {
@@ -232,8 +233,14 @@
 
     #add-task-btns {
         position: absolute;
-        bottom: 30px;
         right: 0;
+        top: -116px;
+        z-index: 1000;
+    }
+
+    #createTask {
+        position: fixed;
+        height: 58px;
     }
 
     /* BOARD max-width: 1040px*/
