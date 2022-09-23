@@ -137,4 +137,5 @@ function closeDialog(id) {
     document.getElementById('task-display').classList.add('d-none');
     document.getElementById(`display-${id}`).classList.add('d-none');
     document.getElementById(`display-content-${id}`).classList.add('d-none');
+    document.getElementById('main-board').classList.remove('overflow');
 }

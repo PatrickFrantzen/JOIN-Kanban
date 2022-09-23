@@ -58,14 +58,14 @@
         </div>
 
         <!-- Task Progress Headline -->
-        <div id="main-board" class="main-board flex-column d-flex scroll overflow">
+        <div id="main-board" class="main-board flex-column d-flex scroll">
 
             <div class="main-board-area d-flex justify-content-space-between ">
 
                 <div class="todo-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="todo-head" class="board-card-header f-21-board f-bold">To do</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('toDo')">
+                        <img class="board-icons cursor" src="img/board/blackPlus.svg" onclick="openAddTaskForm('toDo')">
                     </div>
                     <div id="toDo-card" class="board-card" ondrop="moveTo('toDo')" ondragstart="showDragCard()"
                         ondragover="allowDrop(event)"> </div>
@@ -74,7 +74,7 @@
                 <div class="progress-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="progress-head" class="board-card-header f-21-board f-bold">In progress</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('progress')">
+                        <img class="board-icons cursor" src="img/board/blackPlus.svg" onclick="openAddTaskForm('progress')">
                     </div>
                     <div id="progress-card" class="board-card" ondrop="moveTo('progress')" ondragstart="showDragCard()"
                         ondragover="allowDrop(event)">
@@ -84,7 +84,7 @@
                 <div class="feedback-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="feedback-head" class="board-card-header f-21-board f-bold">Awaiting feedback</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('feedback')">
+                        <img class="board-icons cursor" src="img/board/blackPlus.svg" onclick="openAddTaskForm('feedback')">
                     </div>
                     <div id="feedback-card" class="board-card" ondrop="moveTo('feedback')"
                         ondragover="allowDrop(event); showDragCard()">
@@ -94,7 +94,7 @@
                 <div class="done-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="done-head" class="board-card-header f-21-board f-bold">Done</span>
-                        <img class="board-icons" src="img/board/blackPlus.svg" onclick="openAddTaskForm('done')">
+                        <img class="board-icons cursor" src="img/board/blackPlus.svg" onclick="openAddTaskForm('done')">
                     </div>
                     <div id="done-card" class="board-card" ondrop="moveTo('done')"
                         ondragover="allowDrop(event); showDragCard()">

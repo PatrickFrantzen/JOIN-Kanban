@@ -54,7 +54,7 @@
 }
 
 .main-board {
-    max-height: calc(100vh - 247px);
+    max-height: calc(100vh - 340px);
     width: 103%;
     position: relative;
     overflow-y: scroll;
