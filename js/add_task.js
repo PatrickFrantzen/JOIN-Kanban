@@ -202,11 +202,13 @@ function showUserResponseOverlay(id) {
 function clearAddTaskForm(title, description) {
     title.value = '';
     description.value = '';
+    clearSubtasks();
     resetGlobalArrays();
     renderAssignedToMemberAvatare();
     clearCategoryInput();
     clearHiddenInputfields();
-    activateOtherBtns();
+    activateOtherBtns(3);
+    
 }
 
 
@@ -264,7 +266,21 @@ function addNewSubtask() {
     }
 }
 
+function clearSubtasks() {
+    clearSubtaskCheckbox();
+    document.getElementById('subtasks-output').innerHTML = '';
 
+}
+
+function clearSubtaskCheckbox() {
+    let assignedId = document.getElementById('assignedToSelect').children;
+    for (let i = 0; i < assignedId.length; i++) {
+        let userId = assignedId[i].id.slice(11);
+        if (userId != "") {
+            document.getElementById(`checkbox-${userId}`).checked = false;
+        }
+    }
+}
 
 async function addNewCategory() {
     let value = await addNewCategoryToArray();
