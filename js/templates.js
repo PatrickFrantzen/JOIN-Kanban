@@ -238,7 +238,7 @@ function renderDisplayContent(id, title, description, category, date) {
                 <div class="display-inner-card m-left-25 m-right-25 d-flex flex-column">
                     <!-- Close button -->
                     <div class="w-100 d-flex justify-content-end">
-                    <img class="m-right-24 m-top-20" onclick="closeDialog(${id})" src="img/buttons/close.png">
+                    <img class="m-right-24 m-top-20 cursor" onclick="closeDialog(${id})" src="img/buttons/close.png">
                     </div>
                     <!-- Headlines -->
                     <span class="display-text display-category bg-category-${category}">${category}</span>
@@ -266,7 +266,12 @@ function renderDisplayContent(id, title, description, category, date) {
                     </div>
 
                     <div id="assigned-display-area-${id}" class="d-flex flex-column board-text"></div>
-                    
+
+
+                    <!-- Edit button -->
+                    <div class="w-100 d-flex justify-content-end">
+                    <img class="m-right-24 m-bottom-18 cursor" onclick="editTask(${id}, 'toDo')" src="img/board/edit.svg">
+                    </div>
                 </div>
             </div>
     `

@@ -199,7 +199,7 @@ function showUserResponseOverlay(id) {
 }
 
 
-//TODO: clear all fields and reset priority btns
+//TODO: clear all fields and reset priority btns - DONE
 function clearAddTaskForm(title, description) {
     title.value = '';
     description.value = '';

@@ -278,3 +278,31 @@ function openAddTaskForm(status){
     removeClassList('add-task-overlay-board', 'd-none');
 }
 
+function editTask(id, status) {
+    boardStatus = status;
+    let edittask = allTasks[id];
+    let title = edittask.title;
+    let description = edittask.description;
+    let category = edittask.category;
+    let date = edittask.duedate;
+    let prio = edittask.prio;
+    let members = getMembers(edittask);
+    let editstatus = edittask.status;
+    let subtasks = edittask.subtasks;
+    let completedsubtasks = edittask.finishedsubtasks;
+    removeClassList('add-task-overlay-board', 'd-none');
+    renderEditLayout(title, description, category, date, prio, members, editstatus, subtasks, completedsubtasks);
+}
+
+function renderEditLayout(title, description, category, date, prio, members, status, subtasks, completedsubtasks) {
+    document.getElementById('title').value = title;
+    document.getElementById('describtion').value = description;
+    setValue(category);
+
+}
+
+function setValue(category) {
+    clearCategoryInput();
+    let content = document.getElementById(category).innerHTML;
+    document.getElementById('category-output').innerHTML = content;
+}
