@@ -408,7 +408,7 @@ function renderAssignedToMembersTemplate(id, name) {
     return `
     <li id="assignedto-${id}" onclick="addAssignedToMembers('${id}')">
         <div class="d-flex justify-content-space-between align-items-center">
-            <span>${name}</span>
+            <label for="checkbox-${id}">${name}</label>
             <input id="checkbox-${id}" class="m-right-15 assignedTo-checkboxes" type="checkbox">
         </div>
     </li> `
