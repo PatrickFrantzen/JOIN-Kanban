@@ -389,10 +389,10 @@ function renderCategoriesInHTMLTemplate(id, name, color) {
 }
 
 
-function renderSubtask(inputSubtask) {
+function renderSubtask(i, inputSubtask) {
     return `
     <div class="d-flex">
-        <input type="checkbox">
+        <input id="${inputSubtask}-${i}" type="checkbox" onclick="checkSubtask('${inputSubtask}')" checked>
         <p class="checkbox-text">${inputSubtask}</p>
     </div>`
 }

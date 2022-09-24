@@ -161,7 +161,7 @@ function createId(member) {
  */
 async function createNewTask() {
     let title = document.getElementById('title');
-    let description = document.getElementById('describtion');
+    let description = document.getElementById('description');
     let category = getCurrentCategory();
     let originFormatDate = document.getElementById('date').value;
     let date = changeDateFormat(originFormatDate);
@@ -259,9 +259,13 @@ function changeIconsInSubtasks() {
 function addNewSubtask() {
     let inputSubtask = document.getElementById('subtask-input').value;
     if (inputSubtask.length >= 3) {
+        document.getElementById('subtasks-output').innerHTML = '';
         let outputbox = document.getElementById('subtasks-output');
-        currentSubTasks.push(inputSubtask);
-        outputbox.innerHTML += renderSubtask(inputSubtask);
+        addSubtask(inputSubtask);
+        for (let i = 0; i < currentSubTasks.length; i++) {
+            let subtask = currentSubTasks[i];
+            outputbox.innerHTML += renderSubtask(i, subtask);
+        }
         clearSubtaskInput();
     }
 }
@@ -269,7 +273,23 @@ function addNewSubtask() {
 function clearSubtasks() {
     clearSubtaskCheckbox();
     document.getElementById('subtasks-output').innerHTML = '';
+}
 
+function checkSubtask(subtask) {
+    if (currentSubTasks.includes(subtask) ) {
+        removeSubtask(subtask)
+    } else {
+        addSubtask(subtask)
+    }
+}
+
+function removeSubtask(subtask) {
+    let index = currentSubTasks.indexOf(subtask);
+    currentSubTasks.splice(index, 1);
+}
+
+function addSubtask(subtask) {
+    currentSubTasks.push(subtask);
 }
 
 function clearSubtaskCheckbox() {

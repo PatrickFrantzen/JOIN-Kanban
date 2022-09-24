@@ -283,26 +283,57 @@ function editTask(id, status) {
     let edittask = allTasks[id];
     let title = edittask.title;
     let description = edittask.description;
-    let category = edittask.category;
-    let date = edittask.duedate;
+    let category = edittask.category.toLowerCase();
+    let date = edittask.duedateOrgin;
     let prio = edittask.prio;
-    let members = getMembers(edittask);
-    let editstatus = edittask.status;
+    currentMembers = edittask.member
     let subtasks = edittask.subtasks;
-    let completedsubtasks = edittask.finishedsubtasks;
     removeClassList('add-task-overlay-board', 'd-none');
-    renderEditLayout(title, description, category, date, prio, members, editstatus, subtasks, completedsubtasks);
+    renderEditLayout(title, description, category, date, prio, subtasks);
 }
 
-function renderEditLayout(title, description, category, date, prio, members, status, subtasks, completedsubtasks) {
-    document.getElementById('title').value = title;
-    document.getElementById('describtion').value = description;
+function renderEditLayout(title, description, category, date, prio, subtasks) {
+    addValue('title', title);
+    addValue('description', description);
+    addValue('date', date);
     setValue(category);
-
+    setAssignedTo();
+    setPrioButton(prio);
+    setSubtasks(subtasks);
 }
 
 function setValue(category) {
     clearCategoryInput();
-    let content = document.getElementById(category).innerHTML;
-    document.getElementById('category-output').innerHTML = content;
+    let content = document.getElementById(category);
+    document.getElementById('category-output').innerHTML = content.innerHTML;
+}
+
+function setAssignedTo() {
+    for (let i = 0; i < currentMembers.length; i++) {
+        let member = currentMembers[i];
+        let email = getEmailofCurrentMember(member);
+        document.getElementById(`checkbox-${email}`).checked = true;
+    }
+    renderAssignedToMemberAvatare();
+}
+
+function setPrioButton(prio) {
+    changePriority(prio, `btn-${prio}`);
+}
+
+function getEmailofCurrentMember(member){
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if (member == user.fullname) return user.mail;
+    }
+}
+
+function setSubtasks(subtasks) {
+    document.getElementById('subtasks-output').innerHTML = '';
+    for (let i = 0; i < subtasks.length; i++) {
+        let subtask = subtasks[i];
+        let outputbox = document.getElementById('subtasks-output');
+        currentSubTasks.push(subtask);
+        outputbox.innerHTML += renderSubtask(i, subtask);
+    }
 }

@@ -44,6 +44,9 @@ function addClassList(id, classList) {
     document.getElementById(id).classList.add(classList);
 }
 
+function addValue(id, value) {
+    document.getElementById(id).value = value;
+}
 
 /**
  * @param {string} id 
