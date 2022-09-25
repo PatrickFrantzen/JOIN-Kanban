@@ -23,6 +23,7 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
     <script src="js/add_task.js"></script>
+    <script src="js/edit_task.js"></script>
     <script src="js/board.js"></script>
     <script src="js/display.js"></script>
     <script src="js/templates.js"></script>
@@ -121,6 +122,16 @@
             <img src="img/buttons/close.png" alt="" class="close-add-task-overlay" onclick="addClassList('add-task-overlay-board', 'd-none')">
         </div>
     </div>
+
+        <!-- Edit Task -->
+        <div id="edit-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none">
+            <div class="add-task-overlay d-flex justify-content-center align-items-center">
+                <div class="edit-task-content-display">
+                    <div include-edittask-html="edit_task_template.html"></div>
+                </div>
+                <img src="img/buttons/close.png" alt="" class="close-add-task-overlay" onclick="addClassList('edit-task-overlay-board', 'd-none')">
+            </div>
+        </div>
 </body>
 
 </html>
