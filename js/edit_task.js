@@ -1,3 +1,6 @@
+let currentId = 'empty';
+let TaskIsEdited = false;
+
 async function initEditTask() {
     await loadDataFromServer()
     await init();
@@ -17,11 +20,19 @@ function editTask(id, status) {
     let prio = edittask.prio;
     currentMembers = edittask.member
     let subtasks = edittask.subtasks;
-    removeClassList('edit-task-overlay-board', 'd-none');
+    currentId = id;
+    TaskIsEdited = true;
+    removeClassList('add-task-overlay-board', 'd-none');
+    removeClassList('editTask', 'd-none');
+    addClassList('createTask', 'd-none');
+    addClassList('task-display', 'd-none');
+    addClassList(`display-${id}`, 'd-none');
+    addClassList(`display-content-${id}`, 'd-none');
     renderEditLayout(title, description, category, date, prio, subtasks);
 }
 
 function renderEditLayout(title, description, category, date, prio, subtasks) {
+    changeInnerHTML('content-header', 'Edit Task');
     addValue('title', title);
     addValue('description', description);
     addValue('date', date);

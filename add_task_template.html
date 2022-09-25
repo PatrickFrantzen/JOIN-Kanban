@@ -35,7 +35,7 @@
 
 <body>
     <div class="content-add-task">
-        <h1>Add Task</h1>
+        <h1 id="content-header">Add Task</h1>
         <form onsubmit="createNewTask(); return false;">
             <div class="sections d-flex">
 
@@ -211,6 +211,10 @@
                         </button>
                         <button id="createTask" class="darkblue-btn m-left-24">
                             <span class="f-18">create task</span>
+                            <img class="btn-icons" src="img/buttons/create.png" alt="">
+                        </button>
+                        <button id="editTask" class="darkblue-btn m-left-24 d-none">
+                            <span class="f-18">edit task</span>
                             <img class="btn-icons" src="img/buttons/create.png" alt="">
                         </button>
                     </div>

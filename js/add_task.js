@@ -160,12 +160,40 @@ function createId(member) {
  * 
  */
 async function createNewTask() {
-    let title = document.getElementById('title');
-    let description = document.getElementById('description');
-    let category = getCurrentCategory();
-    let originFormatDate = document.getElementById('date').value;
-    let date = changeDateFormat(originFormatDate);
-    await addNewTaskToArray(title, description, category, date, originFormatDate);
+    if (currentId == 'empty') {
+        let title = document.getElementById('title');
+        let description = document.getElementById('description');
+        let category = getCurrentCategory();
+        let originFormatDate = document.getElementById('date').value;
+        let date = changeDateFormat(originFormatDate);
+        await addNewTaskToArray(title, description, category, date, originFormatDate);
+    } else {
+        let id = currentId;
+        let index = allTasks.indexOf(allTasks[id]);
+        let title = document.getElementById('title');
+        let description = document.getElementById('description');
+        let category = getCurrentCategory();
+        let originFormatDate = document.getElementById('date').value;
+        let date = changeDateFormat(originFormatDate);
+        let editedTask = {
+            title: title.value, description: description.value, category: category, member: currentMembers,
+            duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
+            subtasks: currentSubTasks, finishedsubtasks: [], complete: false
+        };
+        allTasks.splice(index, 1, editedTask)
+        await backend.setItem('allTasks', JSON.stringify(allTasks));
+        clearAddTaskForm(title, description);
+        initTasks();
+        addClassList('add-task-overlay-board', 'd-none');
+        addClassList('editTask', 'd-none');
+
+        removeClassList('task-display', 'd-none');
+        removeClassList(`display-${id}`, 'd-none');
+        removeClassList(`display-content-${id}`, 'd-none');
+        removeClassList('createTask', 'd-none');
+        
+    }
+
 }
 
 
@@ -223,6 +251,8 @@ function clearHiddenInputfields() {
 function resetGlobalArrays() {
     currentSubTasks = [];
     currentMembers = [];
+    currentId = '';
+    TaskIsEdited = false;
 }
 
 /**

@@ -48,6 +48,10 @@ function addValue(id, value) {
     document.getElementById(id).value = value;
 }
 
+function changeInnerHTML(id, string) {
+    document.getElementById(id).innerHTML = string;
+}
+
 /**
  * @param {string} id 
  * @param {string} classList 
