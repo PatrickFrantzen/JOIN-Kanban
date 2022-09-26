@@ -10,8 +10,7 @@ async function initEditTask() {
     renderAssignableMembersInHTML();
 }
 
-function editTask(id, status) {
-    boardStatus = status;
+function editTask(id) {
     let edittask = allTasks[id];
     let title = edittask.title;
     let description = edittask.description;
@@ -22,13 +21,17 @@ function editTask(id, status) {
     let subtasks = edittask.subtasks;
     currentId = id;
     TaskIsEdited = true;
+    showEditTaskDisplay(id);
+    renderEditLayout(title, description, category, date, prio, subtasks);
+}
+
+function showEditTaskDisplay(id) {
     removeClassList('add-task-overlay-board', 'd-none');
     removeClassList('editTask', 'd-none');
     addClassList('createTask', 'd-none');
     addClassList('task-display', 'd-none');
     addClassList(`display-${id}`, 'd-none');
     addClassList(`display-content-${id}`, 'd-none');
-    renderEditLayout(title, description, category, date, prio, subtasks);
 }
 
 function renderEditLayout(title, description, category, date, prio, subtasks) {
