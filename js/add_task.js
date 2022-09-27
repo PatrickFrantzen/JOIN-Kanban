@@ -156,7 +156,7 @@ function createId(member) {
 
 
 /**
- * reads information of inputfields 
+ * checks if the Task is a new Task or a Task to edit
  * 
  */
 async function createNewTask() {
@@ -167,6 +167,10 @@ async function createNewTask() {
     }
 }
 
+/**
+ * get the Data from the New Task Input fields
+ * 
+ */
 async function getDataForNewTask() {
     let title = document.getElementById('title');
     let description = document.getElementById('description');
@@ -176,6 +180,11 @@ async function getDataForNewTask() {
     await addNewTaskToArray(title, description, category, originFormatDate, date);
 }
 
+
+/**
+ * get Data from Task, which is edited
+ * 
+ */
 async function getDataForEditTask() {
     let id = currentId;
     let index = allTasks.indexOf(allTasks[id]);
@@ -210,6 +219,20 @@ async function addNewTaskToArray(title, description, category, date, originForma
     showUserResponseOverlay('addtask-added-board-overlay');
 }
 
+
+/**
+ * united all information of inputfields in a json,
+ * slice old information from allTasks,
+ * add new information to allTasks and send it to server
+ * @param {object} title 
+ * @param {object} description 
+ * @param {string} category 
+ * @param {date} date 
+ * @param {date} originFormatDate 
+ * @param {number} index 
+ * @param {string} prio
+ * @param {array} assignedTo //assigned members
+ */
 async function addEditTaskToArray(title, description, category, date, originFormatDate, index) {
     let editedTask = {
         title: title.value, description: description.value, category: category, member: currentMembers,
@@ -222,7 +245,10 @@ async function addEditTaskToArray(title, description, category, date, originForm
     setTimeout(reloadEditTaskDisplay, 3200, title, description);
 }
 
-
+/**
+ * function to show overlay when task is added to board
+ * @param {string} id 
+ */
 function showUserResponseOverlay(id) {
     removeClassList(id, 'd-none');
     setTimeout(addClassList, 3000, id, 'd-none');
@@ -230,6 +256,12 @@ function showUserResponseOverlay(id) {
 
 
 //TODO: clear all fields and reset priority btns - DONE
+/**
+ * function to reset all fields of add Task Menu
+ * 
+ * @param {object} title 
+ * @param {object} description 
+ */
 function clearAddTaskForm(title, description) {
     title.value = '';
     description.value = '';
@@ -241,6 +273,12 @@ function clearAddTaskForm(title, description) {
     clearPrioButton();
 }
 
+/**
+ * function to close Displays after editing a task and reset all fields
+ * 
+ * @param {object} title 
+ * @param {object} description 
+ */
 function reloadEditTaskDisplay(title, description) {
     initTasks();
     addClassList('add-task-overlay-board', 'd-none');
@@ -250,6 +288,10 @@ function reloadEditTaskDisplay(title, description) {
     clearAddTaskForm(title, description);
 }
 
+/**
+ * Function to clear all Hidden InputFields
+ * 
+ */
 function clearHiddenInputfields() {
     clearHiddenInputField('date');
     clearHiddenInputField('assignedTo-input');
@@ -257,7 +299,10 @@ function clearHiddenInputfields() {
     clearHiddenInputField('category-input');
 }
 
-
+/**
+ * Function to clear all GlobalArrays and set them to default
+ * 
+ */
 function resetGlobalArrays() {
     currentSubTasks = [];
     currentMembers = [];
@@ -289,9 +334,14 @@ function changeDateFormat(originFormatDate) {
     return `${day}.${month}.${year}`
 }
 
-
+//TODO: In subtask-input kann kein Text eingegegeben werden, es wird direkt die changeIconsInSubtask Funktion ausgeführt und subtaskInput ist "".
+//Wird dann die Zeile let subtaskInput = document.getElementById('subtask-input').value; überhaupt benötigt?
+/**
+ * Function to get the value of inputfield Subtasks and add this as a variable to the render function
+ * 
+ */
 function changeIconsInSubtasks() {
-    let subtaskInput = document.getElementById('subtask-input').value
+    let subtaskInput = document.getElementById('subtask-input').value;
     document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
 }
 
