@@ -235,8 +235,7 @@ async function addNewTaskToArray(title, description, category, date, originForma
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTaskForm(title, description);
     showUserResponseOverlay('addtask-added-board-overlay');
-    setTimeout(initTasks, 3200);
-    addClassList('add-task-overlay-board', 'd-none');
+    setTimeout(initAddTask, 3200);
 }
 
 
@@ -292,6 +291,8 @@ function clearAddTaskForm(title, description) {
     clearCategoryInput();
     clearHiddenInputfields();
     clearPrioButton();
+    renderCategoriesInHTML();
+    renderAssignableMembersInHTML();
 }
 
 /**

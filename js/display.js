@@ -265,6 +265,14 @@ function priorityForDisplayLow(prio, id) {
     document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
 }
 
+async function deleteMessage(id) {
+    closeDialog(id);
+    let index = allTasks.indexOf(allTasks[id]);
+    allTasks.splice(index, 1);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderCards();
+}
+
 /**
  * Function to close the Display of a task
  * 

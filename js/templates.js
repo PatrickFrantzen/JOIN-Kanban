@@ -269,13 +269,17 @@ function renderDisplayContent(id, title, description, category, date) {
 
 
                     <!-- Edit button -->
-                    <div class="w-100 d-flex justify-content-end">
+                    <div class="w-100 d-flex justify-content-space-between">
+                    <button id="delete-button" onclick="deleteMessage(${id})" class="darkblue-btn m-bottom-18 d-flex justify-content-center align-items-center ">
+                    <span>Delete Task<span>
+                    </button>
                     <img class="m-right-24 m-bottom-18 cursor" onclick="editTask(${id})" src="img/board/edit.svg">
                     </div>
                 </div>
             </div>
     `
 }
+
 
 function renderMembersOfTaskAreaDisplay(id) {
     return `
