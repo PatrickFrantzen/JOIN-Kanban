@@ -265,6 +265,11 @@ function priorityForDisplayLow(prio, id) {
     document.getElementById(`prio-img-${id}`).src = "img/add_task/arrow_low_white.svg";
 }
 
+/**
+ * Function to delete a specified Task from allTask Array
+ * 
+ * @param {number} id 
+ */
 async function deleteMessage(id) {
     closeDialog(id);
     let index = allTasks.indexOf(allTasks[id]);
