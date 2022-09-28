@@ -266,6 +266,7 @@ function clearAddTaskForm(title, description) {
     title.value = '';
     description.value = '';
     clearSubtasks();
+    clearAssignedMemberCheckbox();
     resetGlobalArrays();
     renderAssignedToMemberAvatare();
     clearCategoryInput();
@@ -345,44 +346,81 @@ function changeIconsInSubtasks() {
     document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
 }
 
-
+/**
+ * Function to get value of inputfield, push it to an array and render all Subtasks in this Array
+ * 
+ */
 function addNewSubtask() {
     let inputSubtask = document.getElementById('subtask-input').value;
     if (inputSubtask.length >= 3) {
         document.getElementById('subtasks-output').innerHTML = '';
         let outputbox = document.getElementById('subtasks-output');
         addSubtask(inputSubtask);
-        for (let i = 0; i < currentSubTasks.length; i++) {
-            let subtask = currentSubTasks[i];
-            outputbox.innerHTML += renderSubtask(i, subtask);
-        }
+        showSubtask(outputbox);
         clearSubtaskInput();
     }
 }
 
+/**
+ * Function to clear the Output-innerHTML
+ * 
+ */
 function clearSubtasks() {
-    clearSubtaskCheckbox();
     document.getElementById('subtasks-output').innerHTML = '';
 }
 
+
+/**
+ * Function to check if an Subtask is in Array currentSubtasks.
+ * If yes, the Subtask is removed when Checkbox is unchecked. 
+ * If no, the Subtask is added when Checkbox is checked.  
+ * 
+ * @param {string} subtask 
+ */
 function checkSubtask(subtask) {
-    if (currentSubTasks.includes(subtask) ) {
+    if (currentSubTasks.includes(subtask)) {
         removeSubtask(subtask)
     } else {
         addSubtask(subtask)
     }
 }
 
+/**
+ * Function to remove a subtask from position of its index
+ * 
+ * @param {string} subtask 
+ */
 function removeSubtask(subtask) {
     let index = currentSubTasks.indexOf(subtask);
     currentSubTasks.splice(index, 1);
 }
 
+/**
+ * Function to add the subtask to array currentSubtask
+ * 
+ * @param {string} subtask 
+ */
 function addSubtask(subtask) {
     currentSubTasks.push(subtask);
 }
 
-function clearSubtaskCheckbox() {
+/**
+ * Function to render all Subtasks which are in the Array currentSubTasks
+ * 
+ * @param {object} outputbox 
+ */
+function showSubtask(outputbox) {
+    for (let i = 0; i < currentSubTasks.length; i++) {
+        let subtask = currentSubTasks[i];
+        outputbox.innerHTML += renderSubtask(i, subtask);
+    }
+}
+
+/**
+ * Function to uncheck the Checkboxes of former assigned Taskmembers
+ * 
+ */
+function clearAssignedMemberCheckbox() {
     let assignedId = document.getElementById('assignedToSelect').children;
     for (let i = 0; i < assignedId.length; i++) {
         let userId = assignedId[i].id.slice(11);
@@ -392,6 +430,10 @@ function clearSubtaskCheckbox() {
     }
 }
 
+/**
+ * Function to reset the PrioButton
+ * 
+ */
 function clearPrioButton() {
     for (let i = 0; i < priority.length; i++) {
         if (currentPrio == priority[i].level) {
@@ -404,185 +446,200 @@ function clearPrioButton() {
     }
 }
 
-    async function addNewCategory() {
-        let value = await addNewCategoryToArray();
-        clearCategoryInput();
-        renderCategoriesInHTML();
-        changeValue(value);
+/**
+ * Function to add a new Category
+ * 
+ */
+async function addNewCategory() {
+    let value = await addNewCategoryToArray();
+    clearCategoryInput();
+    renderCategoriesInHTML();
+    changeValue(value);
+}
+
+/**
+ * Function to get the name of the new category, push it with color to array allCategories and send it to server
+ * 
+ * @returns the name of the new category
+ * 
+ */
+async function addNewCategoryToArray() {
+    let input = document.getElementById('category-input');
+    let id = input.value.toLowerCase();
+    let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
+    allCategories.push(category);
+    await backend.setItem('allCategories', JSON.stringify(allCategories));
+    clearNewCategoryInputValue(input);
+    return id;
+}
+
+/**
+ * Function to add the new Category to the list of categories and render the Template with all categories
+ * 
+ */
+function renderCategoriesInHTML() {
+    let categoryList = document.getElementById('categories');
+    categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
+    for (let i = 0; i < allCategories.length; i++) {
+        let category = allCategories[i];
+        let id = category.id;
+        let name = category.name;
+        let color = category.color;
+        categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
     }
+}
 
-
-    async function addNewCategoryToArray() {
-        let input = document.getElementById('category-input');
-        let id = input.value.toLowerCase();
-        let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
-        allCategories.push(category);
-        await backend.setItem('allCategories', JSON.stringify(allCategories));
-        clearNewCategoryInputValue(input);
-        return id;
+/**
+ * 
+ * 
+ */
+function renderAssignableMembersInHTML() {
+    let memberList = document.getElementById('assignedToSelect');
+    if (notGuestAccount(userInformation[activeUserIndex])) memberList.innerHTML = renderYouInAssignedTo();
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
     }
+    memberList.innerHTML += renderInviteNewContactTemplate();
+}
 
 
-    function renderCategoriesInHTML() {
-        let categoryList = document.getElementById('categories');
-        categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
-        for (let i = 0; i < allCategories.length; i++) {
-            let category = allCategories[i];
-            let id = category.id;
-            let name = category.name;
-            let color = category.color;
-            categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
+function fillInputFieldForFormValidation() {
+    if (currentMembers.length >= 1)
+        fillHiddenInputField('assignedTo-input');
+    if (currentMembers.length == 0)
+        clearHiddenInputField('assignedTo-input');
+}
+
+
+function notGuestAccount(user) {
+    if (user.fullname !== 'Guest Account') return true;
+    return false;
+}
+
+
+function addAssignedToMembers(id) {
+    for (let i = 0; i < userInformation.length; i++) {
+        let checkBox = document.getElementById(`checkbox-${id}`);
+        let user = userInformation[i];
+        if (user.mail == id) {
+            if (!checkIfUserIsAlreadyAssigned(user) && checkBox.checked)
+                addMemberToArray(user);
+            if (checkIfUserIsAlreadyAssigned(user) && !checkBox.checked)
+                deleteMemberFromArray(user);
         }
     }
+    renderAssignedToMemberAvatare();
+    fillInputFieldForFormValidation();
+}
 
 
-    function renderAssignableMembersInHTML() {
-        let memberList = document.getElementById('assignedToSelect');
-        if (notGuestAccount(userInformation[activeUserIndex])) memberList.innerHTML = renderYouInAssignedTo();
-        for (let i = 0; i < userInformation.length; i++) {
-            let user = userInformation[i];
-            if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
+function addMemberToArray(user) {
+    currentMembers.push(user.fullname);
+}
+
+
+function deleteMemberFromArray(user) {
+    let index = getIndexFromArray(currentMembers, user.fullname);
+    currentMembers.splice(index, 1);
+}
+
+
+function renderAssignedToMemberAvatare() {
+    let assignedToOutput = document.getElementById('assignedTo-avatare-container');
+    assignedToOutput.innerHTML = '';
+    for (let i = 0; i < currentMembers.length; i++) {
+        let member = currentMembers[i];
+        let firstletter = getFirstletterOfName(i);
+        let secondLetter = getSecondletterOfName(i);
+        let color = getColorOfCurrentMember(member);
+        assignedToOutput.innerHTML += renderAssignedToMemberAvatareTemplate(firstletter, secondLetter, color);
+    }
+}
+
+
+function getFirstletterOfName(i) {
+    let letter = currentMembers[i].charAt(0);
+    return letter;
+}
+
+function getSecondletterOfName(i) {
+    let result = currentMembers[i].split(/(\s+)/);
+    let firstLetter = result[2].charAt(0);
+    return firstLetter;
+}
+
+
+function getColorOfCurrentMember(member) {
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if (member == user.fullname) return user.color;
+    }
+}
+
+function checkIfUserIsAlreadyAssigned(user) {
+    if (currentMembers.includes(user.fullname)) return true;
+    return false;
+}
+
+function clearNewCategoryInputValue(input) {
+    input.value = '';
+    activateAllColorBtns();
+    for (let i = 0; i < 6; i++) {
+        removeClassList('color-' + i, 'color-outer-circle-clicked');
+        document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
+    }
+}
+
+
+function changeIconsInCategory() {
+    let input = document.getElementById('category-input').value
+    document.getElementById('category').innerHTML = renderNewCategoryInput(input);
+    removeClassList('colorpicker', 'd-none');
+    addClassList('colorpicker', 'd-flex');
+}
+
+
+function clearCategoryInput() {
+    document.getElementById('category').innerHTML = clearCategoryInputTemplate();
+    addClassList('colorpicker', 'd-none');
+}
+
+
+function addNewColorToCategory(id, index) {
+    colorNewCategory = index;
+    toggleClassList(id, 'color-outer-circle-clicked');
+    checkIfColorBtnIsClicked();
+    disableOtherColorBtns();
+}
+
+
+function checkIfColorBtnIsClicked() {
+    if (colorBtnIsClicked) {
+        colorBtnIsClicked = false;
+    } else {
+        colorBtnIsClicked = true;
+    }
+}
+
+
+function disableOtherColorBtns() {
+    for (let i = 0; i < 6; i++) {
+        if (i !== colorNewCategory && colorBtnIsClicked) {
+            document.getElementById('colorpicker-' + i).style.pointerEvents = 'none';
         }
-        memberList.innerHTML += renderInviteNewContactTemplate();
-    }
-
-
-    function fillInputFieldForFormValidation() {
-        if (currentMembers.length >= 1)
-            fillHiddenInputField('assignedTo-input');
-        if (currentMembers.length == 0)
-            clearHiddenInputField('assignedTo-input');
-    }
-
-
-    function notGuestAccount(user) {
-        if (user.fullname !== 'Guest Account') return true;
-        return false;
-    }
-
-
-    function addAssignedToMembers(id) {
-        for (let i = 0; i < userInformation.length; i++) {
-            let checkBox = document.getElementById(`checkbox-${id}`);
-            let user = userInformation[i];
-            if (user.mail == id) {
-                if (!checkIfUserIsAlreadyAssigned(user) && checkBox.checked)
-                    addMemberToArray(user);
-                if (checkIfUserIsAlreadyAssigned(user) && !checkBox.checked)
-                    deleteMemberFromArray(user);
-            }
-        }
-        renderAssignedToMemberAvatare();
-        fillInputFieldForFormValidation();
-    }
-
-
-    function addMemberToArray(user) {
-        currentMembers.push(user.fullname);
-    }
-
-
-    function deleteMemberFromArray(user) {
-        let index = getIndexFromArray(currentMembers, user.fullname);
-        currentMembers.splice(index, 1);
-    }
-
-
-    function renderAssignedToMemberAvatare() {
-        let assignedToOutput = document.getElementById('assignedTo-avatare-container');
-        assignedToOutput.innerHTML = '';
-        for (let i = 0; i < currentMembers.length; i++) {
-            let member = currentMembers[i];
-            let firstletter = getFirstletterOfName(i);
-            let secondLetter = getSecondletterOfName(i);
-            let color = getColorOfCurrentMember(member);
-            assignedToOutput.innerHTML += renderAssignedToMemberAvatareTemplate(firstletter, secondLetter, color);
-        }
-    }
-
-
-    function getFirstletterOfName(i) {
-        let letter = currentMembers[i].charAt(0);
-        return letter;
-    }
-
-    function getSecondletterOfName(i) {
-        let result = currentMembers[i].split(/(\s+)/);
-        let firstLetter = result[2].charAt(0);
-        return firstLetter;
-    }
-
-
-    function getColorOfCurrentMember(member) {
-        for (let i = 0; i < userInformation.length; i++) {
-            let user = userInformation[i];
-            if (member == user.fullname) return user.color;
-        }
-    }
-
-    function checkIfUserIsAlreadyAssigned(user) {
-        if (currentMembers.includes(user.fullname)) return true;
-        return false;
-    }
-
-    function clearNewCategoryInputValue(input) {
-        input.value = '';
-        activateAllColorBtns();
-        for (let i = 0; i < 6; i++) {
-            removeClassList('color-' + i, 'color-outer-circle-clicked');
-            document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
-        }
-    }
-
-
-    function changeIconsInCategory() {
-        let input = document.getElementById('category-input').value
-        document.getElementById('category').innerHTML = renderNewCategoryInput(input);
-        removeClassList('colorpicker', 'd-none');
-        addClassList('colorpicker', 'd-flex');
-    }
-
-
-    function clearCategoryInput() {
-        document.getElementById('category').innerHTML = clearCategoryInputTemplate();
-        addClassList('colorpicker', 'd-none');
-    }
-
-
-    function addNewColorToCategory(id, index) {
-        colorNewCategory = index;
-        toggleClassList(id, 'color-outer-circle-clicked');
-        checkIfColorBtnIsClicked();
-        disableOtherColorBtns();
-    }
-
-
-    function checkIfColorBtnIsClicked() {
-        if (colorBtnIsClicked) {
-            colorBtnIsClicked = false;
-        } else {
-            colorBtnIsClicked = true;
+        if (i == colorNewCategory && !colorBtnIsClicked) {
+            activateAllColorBtns();
         }
     }
+}
 
 
-    function disableOtherColorBtns() {
-        for (let i = 0; i < 6; i++) {
-            if (i !== colorNewCategory && colorBtnIsClicked) {
-                document.getElementById('colorpicker-' + i).style.pointerEvents = 'none';
-            }
-            if (i == colorNewCategory && !colorBtnIsClicked) {
-                activateAllColorBtns();
-            }
-        }
+function activateAllColorBtns() {
+    for (let i = 0; i < 6; i++) {
+        document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
     }
-
-
-    function activateAllColorBtns() {
-        for (let i = 0; i < 6; i++) {
-            document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
-        }
-    }
+}
 
 
 
