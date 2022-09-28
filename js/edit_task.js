@@ -1,15 +1,11 @@
 let currentId = 'empty';
 let TaskIsEdited = false;
 
-async function initEditTask() {
-    await loadDataFromServer()
-    await init();
-    await includeHTML('include-edittask-html');
-    renderProfileImage();
-    renderCategoriesInHTML();
-    renderAssignableMembersInHTML();
-}
-
+/**
+ * Function to get all Informations from a specific task to edit
+ * 
+ * @param {number} id 
+ */
 function editTask(id) {
     let edittask = allTasks[id];
     let title = edittask.title;
@@ -25,6 +21,11 @@ function editTask(id) {
     renderEditLayout(title, description, category, date, prio, subtasks);
 }
 
+/**
+ * Function to remove and add some classes of specific IDs
+ * 
+ * @param {number} id 
+ */
 function showEditTaskDisplay(id) {
     removeClassList('add-task-overlay-board', 'd-none');
     removeClassList('editTask', 'd-none');
@@ -33,6 +34,17 @@ function showEditTaskDisplay(id) {
     addClassList(`display-${id}`, 'd-none');
     addClassList(`display-content-${id}`, 'd-none');
 }
+
+/**
+ * Functio to change the Add Task Layout to Edit Task Layout, fill in all information
+ * 
+ * @param {string} title 
+ * @param {string} description 
+ * @param {string} category 
+ * @param {date} date 
+ * @param {string} prio 
+ * @param {Array} subtasks 
+ */
 
 function renderEditLayout(title, description, category, date, prio, subtasks) {
     changeInnerHTML('content-header', 'Edit Task');
@@ -45,12 +57,21 @@ function renderEditLayout(title, description, category, date, prio, subtasks) {
     setSubtasks(subtasks);
 }
 
+/**
+ * Function to clear the Category and set it to the given category
+ * 
+ * @param {string} category 
+ */
 function setValue(category) {
     clearCategoryInput();
     let content = document.getElementById(category);
     document.getElementById('category-output').innerHTML = content.innerHTML;
 }
 
+/**
+ * Function to render all assigned Members of the Task to edit and render Avatars
+ * 
+ */
 function setAssignedTo() {
     for (let i = 0; i < currentMembers.length; i++) {
         let member = currentMembers[i];
@@ -60,10 +81,21 @@ function setAssignedTo() {
     renderAssignedToMemberAvatare();
 }
 
+/**
+ * Function to set the Priority of the Task to edit
+ * 
+ * @param {string} prio 
+ */
 function setPrioButton(prio) {
     changePriority(prio, `btn-${prio}`);
 }
 
+/**
+ * Function to get the Emailadress to get the right ID of function setAssignedTo
+ * 
+ * @param {string} member 
+ * @returns the Email adress of the currentMember
+ */
 function getEmailofCurrentMember(member){
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
@@ -71,6 +103,11 @@ function getEmailofCurrentMember(member){
     }
 }
 
+/**
+ * Function to load all Subtask of the Task to edit
+ * 
+ * @param {array} subtasks 
+ */
 function setSubtasks(subtasks) {
     document.getElementById('subtasks-output').innerHTML = '';
     for (let i = 0; i < subtasks.length; i++) {

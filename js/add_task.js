@@ -6,6 +6,10 @@ let colorNewCategory;
 let colorBtnIsClicked = false;
 let boardStatus = 'toDo';
 
+/**
+ * Initialisation Function to load the page AddTask HTML
+ * 
+ */
 async function initAddTask() {
     await loadDataFromServer()
     await init();
@@ -137,17 +141,31 @@ function activateOtherBtns(counter) {
     }
 }
 
-
+/**
+ * Function to clear the content of a given field with a specific ID
+ * 
+ * @param {string} id 
+ */
 function clearHiddenInputField(id) {
     document.getElementById(id).value = '';
 }
 
-
+/**
+ * Function to fill a hidden Inputfield with content
+ * 
+ * @param {string} id 
+ */
 function fillHiddenInputField(id) {
     document.getElementById(id).value = 't';
 }
 
 
+//TODO: Prüfen, ob diese Funkion gebraucht wird. Habe sie in keiner anderen JS oder HTML Datei gefunden.
+/**
+ * 
+ * @param {*} member 
+ * @returns 
+ */
 function createId(member) {
     let id = member.label.replace(' ', '');
     id = id.toLowerCase();
@@ -217,6 +235,8 @@ async function addNewTaskToArray(title, description, category, date, originForma
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTaskForm(title, description);
     showUserResponseOverlay('addtask-added-board-overlay');
+    setTimeout(initTasks, 3200);
+    addClassList('add-task-overlay-board', 'd-none');
 }
 
 
@@ -286,6 +306,7 @@ function reloadEditTaskDisplay(title, description) {
     addClassList('editTask', 'd-none');
     addClassList('task-display', 'd-none');
     removeClassList('createTask', 'd-none');
+    removeClassList('main-board', 'overflow');
     clearAddTaskForm(title, description);
 }
 
@@ -490,7 +511,8 @@ function renderCategoriesInHTML() {
 }
 
 /**
- * 
+ * Function to check if Acoount is not a Guest and render the user as "You" in the Assignable Member List,
+ * then render all other Users to the AssignedMember List and add the option to invide new Contact
  * 
  */
 function renderAssignableMembersInHTML() {
@@ -503,7 +525,10 @@ function renderAssignableMembersInHTML() {
     memberList.innerHTML += renderInviteNewContactTemplate();
 }
 
-
+/**
+ * Function to fill the HiddenInputFields to check for Form Validation
+ * 
+ */
 function fillInputFieldForFormValidation() {
     if (currentMembers.length >= 1)
         fillHiddenInputField('assignedTo-input');
@@ -511,13 +536,25 @@ function fillInputFieldForFormValidation() {
         clearHiddenInputField('assignedTo-input');
 }
 
-
+/**
+ * Function checks if the current Account is a Guest or a real Account
+ * 
+ * @param {string} user 
+ * @returns true if the current Account is not a Guest, otherwise it is returned false
+ */
 function notGuestAccount(user) {
     if (user.fullname !== 'Guest Account') return true;
     return false;
 }
 
-
+/**
+ * Function to check if the clicked Member is already in Array currentMember.
+ * If no, the member is added to the Array currentMember and the checkbos is checked. 
+ * If yes, the member is deleted and the checkbox is unchecked.
+ * Afterwards, the Avater is rendered and the Form Validation is executed.
+ * 
+ * @param {string} id equals the email adress of the assigned Member
+ */
 function addAssignedToMembers(id) {
     for (let i = 0; i < userInformation.length; i++) {
         let checkBox = document.getElementById(`checkbox-${id}`);
@@ -533,18 +570,29 @@ function addAssignedToMembers(id) {
     fillInputFieldForFormValidation();
 }
 
-
+/**
+ * Function to push the full name of the assigned Member to the Array currentMembers
+ * 
+ * @param {string} user 
+ */
 function addMemberToArray(user) {
     currentMembers.push(user.fullname);
 }
 
-
+/**
+ * Function to get the index of the users fullname in the Array currentMembers and delete it
+ * 
+ * @param {string} user 
+ */
 function deleteMemberFromArray(user) {
     let index = getIndexFromArray(currentMembers, user.fullname);
     currentMembers.splice(index, 1);
 }
 
-
+/**
+ * Function to clear the MemberAvatar area and fill it with all assigned Members from the Array currentMembers
+ * 
+ */
 function renderAssignedToMemberAvatare() {
     let assignedToOutput = document.getElementById('assignedTo-avatare-container');
     assignedToOutput.innerHTML = '';
@@ -557,19 +605,36 @@ function renderAssignedToMemberAvatare() {
     }
 }
 
-
+/**
+ * Functions to get the Member of the Array currentMember at position i and get the Charakter at position 0.
+ * 
+ * @param {number} i 
+ * @returns the first Letter of the Name
+ */
 function getFirstletterOfName(i) {
     let letter = currentMembers[i].charAt(0);
     return letter;
 }
 
+
+/**
+ * Function to split the full name of Member from Array currentMember at the position of whitespace and create the array result with First name, '', Last Name.
+ * 
+ * @param {number} i 
+ * @returns the first Charakter from the string result at position 2
+ */
 function getSecondletterOfName(i) {
     let result = currentMembers[i].split(/(\s+)/);
     let firstLetter = result[2].charAt(0);
     return firstLetter;
 }
 
-
+/**
+ *Function to get the definied Color of a specific member from array userInformation
+ *  
+ * @param {string} member 
+ * @returns the color from the array userInformation
+ */
 function getColorOfCurrentMember(member) {
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
@@ -577,11 +642,23 @@ function getColorOfCurrentMember(member) {
     }
 }
 
+
+/**
+ * Function to check if the assigned Member is already assigned and part of Array currentMembers
+ * 
+ * @param {string} user 
+ * @returns true if the full name of a assigned member is already in Array currentMembers
+ */
 function checkIfUserIsAlreadyAssigned(user) {
     if (currentMembers.includes(user.fullname)) return true;
     return false;
 }
 
+/**
+ * Function to reset the fields to create a new category
+ * 
+ * @param {object} input 
+ */
 function clearNewCategoryInputValue(input) {
     input.value = '';
     activateAllColorBtns();
@@ -591,7 +668,10 @@ function clearNewCategoryInputValue(input) {
     }
 }
 
-
+/**
+ * Function to show the Colorpicker-Bar when clicking on "New Category"
+ * 
+ */
 function changeIconsInCategory() {
     let input = document.getElementById('category-input').value
     document.getElementById('category').innerHTML = renderNewCategoryInput(input);
@@ -599,13 +679,22 @@ function changeIconsInCategory() {
     addClassList('colorpicker', 'd-flex');
 }
 
-
+/**
+ * Function to reset the Inputfield of Category
+ * 
+ */
 function clearCategoryInput() {
     document.getElementById('category').innerHTML = clearCategoryInputTemplate();
     addClassList('colorpicker', 'd-none');
 }
 
-
+/**
+ * Function to set the global variable colorNewCategory to the given index number
+ * Clicked color change the class and gets checked if already clicked
+ * 
+ * @param {string} id 
+ * @param {number} index 
+ */
 function addNewColorToCategory(id, index) {
     colorNewCategory = index;
     toggleClassList(id, 'color-outer-circle-clicked');
@@ -613,7 +702,10 @@ function addNewColorToCategory(id, index) {
     disableOtherColorBtns();
 }
 
-
+/**
+ * Function to check if a Colorbutton is already checked or not
+ * 
+ */
 function checkIfColorBtnIsClicked() {
     if (colorBtnIsClicked) {
         colorBtnIsClicked = false;
@@ -622,7 +714,10 @@ function checkIfColorBtnIsClicked() {
     }
 }
 
-
+/**
+ * Function to disable all other color Buttons when one Color is clicked
+ * 
+ */
 function disableOtherColorBtns() {
     for (let i = 0; i < 6; i++) {
         if (i !== colorNewCategory && colorBtnIsClicked) {
@@ -634,7 +729,10 @@ function disableOtherColorBtns() {
     }
 }
 
-
+/**
+ * Function to activate all Colorbuttons
+ * 
+ */
 function activateAllColorBtns() {
     for (let i = 0; i < 6; i++) {
         document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
