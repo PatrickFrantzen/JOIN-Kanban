@@ -260,11 +260,11 @@
     }
 
     .board-head {
-        width: 96%;
+        width: 53%;
     }
 
     .board-inner-card {
-        width: 96%;
+        min-width: 53%;
     }
 
     .board-category {
@@ -393,6 +393,13 @@
         top: 26px;
     }
 
+    .board-head {
+        width: 60%;
+    }
+
+    .board-inner-card {
+        min-width: 60%
+    }
 
     .progressbar-inner {
         width: 75%;
@@ -470,6 +477,14 @@
 
 
 @media (max-width: 474px) {
+
+    .board-head {
+        width: 68%;
+    }
+
+    .board-inner-card {
+        min-width: 68%;
+    }
 
     .progressbar-inner {
         width: 65%;
@@ -649,6 +664,14 @@
 
 @media (max-width: 424px) {
 
+    .board-head {
+        width: 90%;
+    }
+
+    .board-inner-card{
+        min-width: 90%;
+    }
+
     .progressbar-inner {
         width: 60%;
     }
@@ -660,6 +683,14 @@
 
 
 @media (max-width: 375px) {
+
+    .board-head {
+        width: 100%;
+    }
+
+    .board-inner-card{
+        min-width: 100%;
+    }
 
     .progressbar-inner {
         width: 52%;

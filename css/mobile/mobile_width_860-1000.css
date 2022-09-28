@@ -156,7 +156,7 @@
     }
 
     .board-inner-card {
-        width: 48%;
+        min-width: 48%;
     }
 
     .progressbar-inner {
@@ -190,9 +190,6 @@
         width: 74%;
     }
 
-    .board-footer {
-        min-height: 320px;
-    }
 }
 
 @media (max-width: 860px) {
@@ -212,6 +209,14 @@
 
     .m-left-24 {
         margin-left: 14px;
+    }
+
+    .board-head {
+        width: 53%;
+    }
+
+    .board-inner-card {
+        min-width: 53%;
     }
 
     .progressbar-inner {
