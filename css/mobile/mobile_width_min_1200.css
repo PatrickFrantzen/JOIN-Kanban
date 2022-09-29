@@ -224,7 +224,7 @@
         min-width: 23%;
         max-height: 371px;
         margin-right: 15px;
-        width: unset;
+        width: 23%;
     }
 
     .board-title {
@@ -300,6 +300,7 @@
     .board-inner-card {
         min-width: 32%;
         max-height: 430px;
+        width: 32%;
     }
 
     .progressbar-inner {

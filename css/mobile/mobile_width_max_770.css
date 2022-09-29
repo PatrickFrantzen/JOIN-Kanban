@@ -265,6 +265,7 @@
 
     .board-inner-card {
         min-width: 53%;
+        width: 53%;
     }
 
     .board-category {
@@ -351,6 +352,8 @@
 
     .task-overlay {
         margin-left: 0;
+        max-height: 77vh;
+        overflow-y: scroll;
     }
 
     .assigned-outer {
@@ -398,7 +401,8 @@
     }
 
     .board-inner-card {
-        min-width: 60%
+        min-width: 60%;
+        width: 60%;
     }
 
     .progressbar-inner {
@@ -484,6 +488,7 @@
 
     .board-inner-card {
         min-width: 68%;
+        width: 68%;
     }
 
     .progressbar-inner {
@@ -670,6 +675,7 @@
 
     .board-inner-card{
         min-width: 90%;
+        width: 90%;
     }
 
     .progressbar-inner {
@@ -690,6 +696,7 @@
 
     .board-inner-card{
         min-width: 100%;
+        width: 100%;
     }
 
     .progressbar-inner {

@@ -157,6 +157,7 @@
 
     .board-inner-card {
         min-width: 48%;
+        width: 48%;
     }
 
     .progressbar-inner {
@@ -217,6 +218,7 @@
 
     .board-inner-card {
         min-width: 53%;
+        width: 53%;
     }
 
     .progressbar-inner {
