@@ -199,9 +199,6 @@
 
     /* BOARD max-width: 1245px*/
 
-    .main-board {
-        max-height: unset;
-    }
 
     .main-board-area {
         flex-direction: column;

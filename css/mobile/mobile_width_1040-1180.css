@@ -50,6 +50,12 @@
     .headline-text {
         font-size: 18px !important;
     }
+
+    /*Board max-width: 1180px*/
+
+    .task-overlay {
+        width: 55%;
+    }
 }
 
 
@@ -167,6 +173,10 @@
         width: 39%;
     }
     .progressbar-inner {
+        width: 60%;
+    }
+
+    .task-overlay {
         width: 60%;
     }
 }

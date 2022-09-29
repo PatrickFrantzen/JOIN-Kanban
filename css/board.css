@@ -197,7 +197,7 @@
 }
 
 .task-overlay {
-    width: 500px;
+    width: 50%;
     min-height: 50vh;
     background-color: white;
     border-radius: 10px;
