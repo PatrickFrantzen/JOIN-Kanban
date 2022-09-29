@@ -366,6 +366,20 @@
         top: 100px;
         bottom: 100px;
     }
+
+    .button-mobile {
+        top: unset !important;
+        bottom: -260px;
+        right: unset !important;
+        left: 300px;
+    }
+
+    .add-button-mobile {
+        top: unset !important;
+        bottom: -135px;
+        right: unset !important;
+        left: 240px;
+    }
 }
 
 

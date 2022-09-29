@@ -44,8 +44,8 @@ function addClassList(id, classList) {
     document.getElementById(id).classList.add(classList);
 }
 
-function addValue(id, value) {
-    document.getElementById(id).value = value;
+function addValue(id, text) {
+    document.getElementById(id).value = text;
 }
 
 function changeInnerHTML(id, string) {

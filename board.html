@@ -117,7 +117,7 @@
             <div class="add-task-content-display">
                 <div include-addtask-html="add_task_template.html"></div>
             </div>
-            <img src="img/buttons/close.png" alt="" class="close-add-task-overlay" onclick="addClassList('add-task-overlay-board', 'd-none')">
+            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay" onclick="addClassList('add-task-overlay-board', 'd-none'), removeClassList('main-board', 'overflow'), initTasks()">
         </div>
     </div>
 

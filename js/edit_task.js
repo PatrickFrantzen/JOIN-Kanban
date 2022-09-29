@@ -11,7 +11,7 @@ function editTask(id) {
     let title = edittask.title;
     let description = edittask.description;
     let category = edittask.category.toLowerCase();
-    let date = edittask.duedateOrgin;
+    let date = edittask.duedate;
     let prio = edittask.prio;
     currentMembers = edittask.member
     let subtasks = edittask.subtasks;
@@ -33,6 +33,8 @@ function showEditTaskDisplay(id) {
     addClassList('task-display', 'd-none');
     addClassList(`display-${id}`, 'd-none');
     addClassList(`display-content-${id}`, 'd-none');
+    addClassList('sections', 'sections-mobile');
+    addClassList('add-task-btns', 'button-mobile');
 }
 
 /**

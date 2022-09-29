@@ -222,9 +222,9 @@ input[type="date"]{
 
 .add-task-overlay{
     background-color: var(--bg-grey);
-    width: 80%;
+    width: 75%;
     border-radius: 20px;
-    height: 90vh;
+    height: 82vh;
     position: relative;
 }
 

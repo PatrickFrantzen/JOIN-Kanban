@@ -405,5 +405,8 @@ function renderSearchedTasks() {
 function openAddTaskForm(status){
     boardStatus = status;
     removeClassList('add-task-overlay-board', 'd-none');
+    addClassList('sections', 'sections-mobile');
+    addClassList('add-task-btns', 'add-button-mobile');
+    addClassList('createTask','unset-position');
 }
 
