@@ -512,15 +512,18 @@ function renderCategoriesInHTML() {
 }
 
 /**
- * Function to check if Acoount is not a Guest and render the user as "You" in the Assignable Member List,
+ * Function to check if Account is not a Guest and render the user as "You" in the Assignable Member List,
  * then render all other Users to the AssignedMember List and add the option to invide new Contact
  * 
  */
 function renderAssignableMembersInHTML() {
     let memberList = document.getElementById('assignedToSelect');
-    if (notGuestAccount(userInformation[activeUserIndex])) memberList.innerHTML = renderYouInAssignedTo();
-    for (let i = 0; i < userInformation.length; i++) {
-        let user = userInformation[i];
+    let you = userInformation[activeUserIndex];
+    let chooseFrom = userInformation.slice(0);
+    chooseFrom.splice(activeUserIndex,1);
+    if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);
+    for (let i = 0; i < chooseFrom.length; i++) {
+        let user = chooseFrom[i];
         if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
     }
     memberList.innerHTML += renderInviteNewContactTemplate();

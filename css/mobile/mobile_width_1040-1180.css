@@ -232,6 +232,7 @@
         width: 100%;
         height: 100%;
         overflow-y: scroll;
+        border-radius: unset;
     }
 
     /* ADD TASK max-width: 1040px */
@@ -252,10 +253,11 @@
     }
 
     #add-task-btns {
-        position: absolute;
-        right: 0;
-        top: -116px;
+        position: fixed;
+        right: 24px;
+        top: 7px;
         z-index: 1000;
+        height: 55px;
     }
 
     #createTask {
@@ -267,19 +269,8 @@
         height: 90vh;
     }
 
-    .button-mobile {
-        top: unset !important;
-        bottom: -165px;
-        right: unset !important;
-        left: 240px;
-    }
 
-    .add-button-mobile {
-        top: unset !important;
-        bottom: -135px;
-        right: unset !important;
-        left: 240px;
-    }
+
 
     .unset-position {
         position: unset !important;

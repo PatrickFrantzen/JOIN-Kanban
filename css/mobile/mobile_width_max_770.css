@@ -180,10 +180,11 @@
     }
 
     #add-task-btns {
-        position: absolute;
-        top: 5px;
-        z-index: 1000;
+        position: fixed;
         right: 24px;
+        top: 7px;
+        z-index: 1000;
+        
     }
 
     .profile-pic {
@@ -367,18 +368,8 @@
         bottom: 100px;
     }
 
-    .button-mobile {
-        top: unset !important;
-        bottom: -260px;
-        right: unset !important;
-        left: 300px;
-    }
-
-    .add-button-mobile {
-        top: unset !important;
-        bottom: -135px;
-        right: unset !important;
-        left: 240px;
+    .sections-mobile {
+        height: 68vh;
     }
 }
 

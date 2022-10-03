@@ -402,12 +402,12 @@ function renderSubtask(i, inputSubtask) {
 }
 
 
-function renderYouInAssignedTo(){
+function renderYouInAssignedTo(id, name){
     return `
-    <li>
+    <li id="assignedto-${id}" onclick="addAssignedToMembers('${id}')">
         <div class="d-flex justify-content-space-between align-items-center">
-            <span>You</span>
-            <input class="m-right-15 curserPointer" name="assignedTo-checkboxes" type="checkbox">
+        <label for="checkbox-${id}">You</label>
+        <input id="checkbox-${id}" class="m-right-15 assignedTo-checkboxes" type="checkbox">
         </div>
     </li>
     `;
