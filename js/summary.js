@@ -1,4 +1,6 @@
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let today = new Date();
+let todaydate = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
 
 async function initSummary() {
     await loadDataFromServer()
@@ -46,7 +48,7 @@ function checkGreetingForm() {
 function getAmountOfTasks() {
     for (let i = 0; i < allTasks.length; i++) {
         let task = allTasks[i];
-        countDifferentStatuses(task.projectstatus);
+        countDifferentStatuses(task.status);
         countUrgentTasks(task);
     }
     countTotalAmountOfTasks();
@@ -72,8 +74,8 @@ function countTotalAmountOfTasks() {
 function determineUpcomingDate() {
     let dateInMs = [];
     taskAmount.urgentDate.forEach(date => {
-        let transformDate = Date.parse(date);
-        dateInMs.push(transformDate);
+            let transformDate = Date.parse(date);
+            dateInMs.push(transformDate);
     });
     dateInMs = sortDates(dateInMs);
     convertNumberToDate(dateInMs);
@@ -111,7 +113,7 @@ function sortDates(dateInMs) {
 function countUrgentTasks(task) {
     if (task.prio == 'urgent') {
         taskAmount.urgent++;
-        taskAmount.urgentDate.push(task.duedateOrgin)
+        taskAmount.urgentDate.push(task.duedate)
     }
 }
 
