@@ -402,7 +402,7 @@ function renderSubtask(i, inputSubtask) {
 }
 
 
-function renderYouInAssignedTo(id, name){
+function renderYouInAssignedTo(id){
     return `
     <li id="assignedto-${id}" onclick="addAssignedToMembers('${id}')">
         <div class="d-flex justify-content-space-between align-items-center">
