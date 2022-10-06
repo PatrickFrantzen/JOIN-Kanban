@@ -11,7 +11,7 @@ async function initSummary() {
 
 
 function greetUser() {
-    setTimeout(closeGreetingUserDisplay, 3000);
+    setTimeout(closeGreetingUserDisplay, 1500);
 }
 
 

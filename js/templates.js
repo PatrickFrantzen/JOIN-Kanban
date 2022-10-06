@@ -2,33 +2,7 @@ let userInformation;
 let contactColors;
 let allTasks = [];
 let allCategories = [];
-//  [
-//     {
-//         'id': 'marketing',
-//         'name': 'Marketing',
-//         'color': 'bg-category-Marketing'
-//     },
-//     {
-//         'id': 'sales',
-//         'name': 'Sales',
-//         'color': 'bg-category-Sales'
-//     },
-//     {
-//         'id': 'media',
-//         'name': 'Media',
-//         'color': 'bg-category-Media'
-//     },
-//     {
-//         'id': 'backoffice',
-//         'name': 'Backoffice',
-//         'color': 'bg-category-Backoffice'
-//     },
-//     {
-//         'id': 'developtment',
-//         'name': 'Developtment',
-//         'color': 'bg-category-Developtment'
-//     },
-// ];
+
 let priority = [
     {
         "level": "urgent",

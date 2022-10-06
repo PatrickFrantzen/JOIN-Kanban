@@ -67,7 +67,9 @@ function renderEditLayout(title, description, category, date, prio, subtasks) {
 function setValue(category) {
     clearCategoryInput();
     let content = document.getElementById(category);
+    document.getElementById('category-input').value = category;
     document.getElementById('category-output').innerHTML = content.innerHTML;
+    currentCategory = category;
 }
 
 /**
@@ -80,6 +82,7 @@ function setAssignedTo() {
         let email = getEmailofCurrentMember(member);
         document.getElementById(`checkbox-${email}`).checked = true;
     }
+    fillHiddenInputField('assignedTo-input');
     renderAssignedToMemberAvatare();
 }
 
@@ -90,6 +93,7 @@ function setAssignedTo() {
  */
 function setPrioButton(prio) {
     changePriority(prio, `btn-${prio}`);
+    fillHiddenInputField('priority-input');
 }
 
 /**
