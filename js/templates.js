@@ -49,7 +49,7 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
                         </div>
                         <div class="contact-data-big">
                             <p id="contact-name-big" class="contact-name-big">${name}</p>
-                            <div class="add-task d-flex curserPointer">
+                            <div class="add-task d-flex curserPointer" onclick="openAddTaskForm('status')">
                                 <img src="img/buttons/add_light_blue.svg" alt="">
                                 <p>Add task</p>
                             </div>
