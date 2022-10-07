@@ -211,6 +211,10 @@
         height: 58px;
     }
 
+    .close-add-task-overlay {
+        right: 31px;
+    }
+
     #h1-imprint {
         text-align: start;
     }

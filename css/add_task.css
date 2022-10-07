@@ -152,6 +152,7 @@ option{
 
 #subtasks-output{
     height: 156px;
+    overflow-y: scroll;
 }
 
 #add-task-btns{

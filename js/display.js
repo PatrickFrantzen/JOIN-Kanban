@@ -1,4 +1,4 @@
-
+let displayId;
 /**
  * Function to open the Dialog window of a Task to see Details 
  * 
@@ -14,6 +14,7 @@ function openDialog(id, title, description, category, date, prio) {
     let displaysubtasks = singledisplayTask.subtasks;
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
     let displaymembers = getMembers(singledisplayTask);
+    displayId = id;
     createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
 }
 

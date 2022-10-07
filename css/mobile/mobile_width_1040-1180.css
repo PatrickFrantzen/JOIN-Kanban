@@ -269,8 +269,9 @@
         height: 90vh;
     }
 
-
-
+    .close-add-task-overlay {
+        right: 222px;
+    }
 
     .unset-position {
         position: unset !important;
