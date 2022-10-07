@@ -13,7 +13,7 @@
         right: 0;
         bottom: -85px;
         left: 0;
-        animation: fadeOpacityOut 3s ease 1500ms 1 normal forwards;
+        animation: fadeOpacityOut 2s ease 1000ms 1 normal forwards;
     }
 }
 

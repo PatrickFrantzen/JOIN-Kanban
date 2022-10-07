@@ -23,10 +23,14 @@ function closeGreetingUserDisplay() {
 
 function renderActiveUserName() {
     let greetingOutput = document.getElementById('good-morning');
+    let staticGreetingOutput = document.getElementById('good-morning-static');
     greetingOutput.innerHTML = checkGreetingForm();
+    staticGreetingOutput.innerHTML = checkGreetingForm();
     if (activeUser !== 'Guest Account'){
         document.getElementById('summary-name').innerHTML = activeUser;
+        document.getElementById('summary-name-static').innerHTML = activeUser;
         greetingOutput.innerHTML += ',';
+        staticGreetingOutput.innerHTML += ',';
     }
 }
 
@@ -141,6 +145,23 @@ function countDifferentStatuses(status) {
     }
 }
 
+function changeSummaryPictures(id, source) {
+    switch (source) {
+        case 'img/summary/pen.svg':
+        document.getElementById(`${id}`).src = "img/summary/pen_white.svg";
+        break;
+        case 'img/summary/pen_white.svg':
+        document.getElementById(`${id}`).src = "img/summary/pen.svg";
+        break;
+        case 'img/summary/check.svg':
+        document.getElementById(`${id}`).src = "img/summary/check_white.svg";
+        break;
+        case 'img/summary/check_white.svg':
+        document.getElementById(`${id}`).src = "img/summary/check.svg";
+        break; 
+    }
+    
+}
 
 function renderAmountOfTasks() {
     document.getElementById('amount-total').innerHTML = `<b>${taskAmount.total}</b>`;

@@ -32,7 +32,7 @@
 
     <div w3-include-html="navbar.html"></div>
 
-    <div class="content">
+    <div class="content summary-width">
         <!-- Headline -->
         <div class="headline d-flex align-items-center">
             <span class="header-text-mobile">Kanban Project Management Tool</span>
@@ -43,29 +43,29 @@
             </div>
         </div>
 
-        <div class="main-content d-flex justify-content-space-between">
+        <div class="main-content d-flex">
             <div class="flex-column d-flex align-items-center">
                 <!-- First row -->
                 <div class="content-cards-top d-flex justify-content-space-between align-items-center">
-                    <div
-                        class="card content-cards-top-single d-flex justify-content-center flex-column align-items-center text-align-center">
+                    <a
+                        class="card content-cards-top-single d-flex justify-content-center flex-column align-items-center text-align-center" href="board.html">
                         <span id="amount-total" class="f-47">5</span>
                         <span class="f-21">Tasks in Board</span>
-                    </div>
-                    <div
-                        class="card content-cards-top-single d-flex justify-content-center flex-column align-items-center text-align-center">
+                    </a>
+                    <a
+                        class="card content-cards-top-single d-flex justify-content-center flex-column align-items-center text-align-center" href="board.html">
                         <span id="amount-progress" class="f-47">2</span>
                         <span class="f-21">Tasks in Progress</span>
-                    </div>
-                    <div
-                        class="card content-cards-top-single d-flex justify-content-center flex-column align-items-center text-align-center">
-                        <span  id="amount-feedback" class="f-47">2</span>
+                    </a>
+                    <a
+                        class="card content-cards-top-single d-flex justify-content-center flex-column align-items-center text-align-center" href="board.html">
+                        <span id="amount-feedback" class="f-47">2</span>
                         <span class="f-21">Awaiting feedback</span>
-                    </div>
+                </a>
                 </div>
                 <!-- Second row -->
                 <div class="content-cards-middle d-flex justify-content-space-between align-items-center">
-                    <div class="card content-cards-middle-single d-flex justify-content-evenly align-items-center">
+                    <a class="card content-cards-middle-single d-flex justify-content-evenly align-items-center" href="board.html">
                         <div class="middle-left d-flex">
                             <img class="summary-card-img" src="img/summary/red-arrow.svg">
                             <div class="d-flex justify-content-center flex-column text-align-center">
@@ -78,34 +78,38 @@
                             <span id="upcoming-date" class="middle-right-date f-21 f-bold">October 16, 2022</span>
                             <span>Upcoming Deadline</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!-- Third row -->
                 <div class="content-cards-bottom d-flex justify-content-space-between">
-                    <div class="card content-cards-bottom-single d-flex justify-content-center align-items-center">
+                    <a onmouseover="changeSummaryPictures('summary-toDo', 'img/summary/pen.svg')" onmouseout="changeSummaryPictures('summary-toDo', 'img/summary/pen_white.svg')" class="card content-cards-bottom-single d-flex justify-content-center align-items-center" href="board.html">
                         <div class="d-flex">
-                            <img class="summary-card-img" src="img/summary/pen.svg">
+                            <img id="summary-toDo" class="summary-card-img" src="img/summary/pen.svg">
                             <div class="d-flex flex-column justify-content-center text-align-center">
                                 <span id="amount-todo" class="f-47">1</span>
                                 <span>To-Do</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="card content-cards-bottom-single d-flex justify-content-center align-items-center">
-                        <div class="d-flex">
-                            <img class="summary-card-img" src="img/summary/check.svg">
+                    </a>
+                    <a onmouseover="changeSummaryPictures('summary-done', 'img/summary/check.svg')" onmouseout="changeSummaryPictures('summary-done', 'img/summary/check_white.svg')" class="card content-cards-bottom-single d-flex justify-content-center align-items-center" href="board.html">
+                        <div class="d-flex" >
+                            <img id="summary-done" class="summary-card-img" src="img/summary/check.svg">
                             <div class="d-flex flex-column justify-content-center text-align-center">
                                 <span id="amount-done" class="f-47">1</span>
                                 <span>Done</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Welcome text -->
             <div id="welcome" class="welcome d-flex justify-content-center flex-column welcome-mobile">
                 <span id="good-morning" class="f-47"></span>
                 <span id="summary-name" class="name f-55 f-bold"></span>
+            </div>
+            <div id="welcome-static" class="welcome-static d-flex justify-content-center flex-column">
+                <span id="good-morning-static" class="f-47"></span>
+                <span id="summary-name-static" class="name f-55 f-bold"></span>
             </div>
         </div>
     </div>

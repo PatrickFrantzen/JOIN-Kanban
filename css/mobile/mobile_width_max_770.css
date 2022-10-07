@@ -16,6 +16,10 @@
         animation: fadeOpacityOut 3s ease 1500ms 1 normal forwards;
     }
 
+    .welcome-static {
+        display: none;
+    }
+
     .navbar {
         bottom: 0;
         width: 100vw !important;
