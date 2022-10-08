@@ -53,6 +53,9 @@
         top: -294px;
     }
 
+    .add-task-overlay {
+        height: 90vh;
+    }
 }
 
 @media (max-height: 920px) and (max-width: 770px){
@@ -170,6 +173,10 @@
 
     #add-task-btns {
         top: -3px;
+    }
+
+    .add-task-overlay {
+        height: 100vh;
     }
 }
 

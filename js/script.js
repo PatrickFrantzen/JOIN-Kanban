@@ -142,13 +142,13 @@ function renderProfileImage() {
     document.getElementById('profile-pic').src = userInformation[activeUserIndex].img;
 }
 
-document.addEventListener('click', function handleClickOutsideBox(event) {
+/*document.addEventListener('click', function handleClickOutsideBox(event) {
     let box = document.getElementById('assignedToSelect');
     if (!box.classList.contains('d-none')) {
         if (!box.contains(event.target)) 
             toggleClassList('assignedToSelect', 'd-none')
         
     }
-});
+});*/
 
 
