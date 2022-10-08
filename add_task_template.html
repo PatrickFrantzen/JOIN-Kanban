@@ -55,8 +55,8 @@
 
                     <div class="titleandinput">
                         <p class="m-top-28 add-task-titles">Category</p>
-                        <div class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
-                            onclick="toggleClassList('categories', 'd-none')">
+                        <div id="categorybox" class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                            onclick="dropdown('categorybox','categories')">
 
 
                             <div id="category"
@@ -136,8 +136,8 @@
                     <div class="titleandinput">
                         <div class=" d-flex flex-column m-top-28 assignedTo-container">
                             <label for="assignedTo" class="m-bottom-18 add-task-titles">Assigned to</label>
-                            <div class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
-                                onclick="toggleClassList('assignedToSelect', 'd-none')">
+                            <div id="outputbox" class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                                onclick="dropdown('outputbox','assignedToSelect')">
                                 <input id="assignedTo-input" class="hidden-input" type="text" required>
                                 <div class="output-container d-flex justify-content-space-between">
                                     <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select

@@ -1,6 +1,4 @@
-let menulinks = [
-    'summary', 'board', 'add_task', 'contacts', 'imprint'];
-
+let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint'];
 let activeUser;
 let activeUserIndex;
 let userIndexForgotPassword;
@@ -142,13 +140,18 @@ function renderProfileImage() {
     document.getElementById('profile-pic').src = userInformation[activeUserIndex].img;
 }
 
-/*document.addEventListener('click', function handleClickOutsideBox(event) {
-    let box = document.getElementById('assignedToSelect');
-    if (!box.classList.contains('d-none')) {
-        if (!box.contains(event.target)) 
-            toggleClassList('assignedToSelect', 'd-none')
-        
-    }
-});*/
-
+/**
+ * Function when clicking outside the menu, the menu is closed
+ * 
+ * @param {string} box 
+ * @param {string} id 
+ */
+function dropdown(box, id) {
+    toggleClassList(id, 'd-none');
+    document.addEventListener('click', function handleClickOutsideBox(event) {
+    let area = document.getElementById(`${box}`);
+        if (!area.contains(event.target)) 
+            addClassList(`${id}`, 'd-none')
+})
+};
 

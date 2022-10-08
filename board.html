@@ -37,7 +37,7 @@
 <body onload="initTasks()">
     <div w3-include-html="navbar.html"></div>
 
-    <div class="content board-content">
+    <div id="board-content" class="content board-content">
         <!-- Headline with Search and Add Task-->
         <div class="board-headline d-flex align-items-center justify-content-space-between">
             <div class="mobil-head">
@@ -110,11 +110,11 @@
     </div>
 
     <!-- Display -->
-    <div id="task-display" class="overlay d-flex justify-content-center align-items-center d-none"></div>
+    <div id="task-display" class="overlay d-flex justify-content-center align-items-center d-none" onclick="closeDialog(displayId)"></div>
 
     <!-- Add Task -->
     <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none">
-        <div class="add-task-overlay d-flex justify-content-center align-items-center">
+        <div id="add-task-overlay" class="add-task-overlay d-flex justify-content-center align-items-center">
             <div class="add-task-content-display">
                 <div include-addtask-html="add_task_template.html"></div>
             </div>
