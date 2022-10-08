@@ -144,8 +144,8 @@ function renderProfileImage() {
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
     let box = document.getElementById('assignedToSelect');
-    if (!box.classList.contains('d-none') && (!box.contains(event.target))) {
-         
+    if (!box.classList.contains('d-none')) {
+        if (!box.contains(event.target)) 
             toggleClassList('assignedToSelect', 'd-none')
         
     }
