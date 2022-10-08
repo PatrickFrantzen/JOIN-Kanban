@@ -151,6 +151,7 @@ option{
 }
 
 #subtasks-output{
+    width: 422px;
     height: 156px;
     overflow-y: scroll;
 }

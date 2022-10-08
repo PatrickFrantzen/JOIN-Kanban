@@ -221,7 +221,7 @@ function renderDisplayContent(id, title, description, category, date) {
 
                     <div class="d-flex flex-column display-text">
                         <span class="f-bold m-bottom-5">Subtasks:</span>
-                        <div id="subtasks-display-${id}" class="d-flex flex-column display-size">
+                        <div id="subtasks-display-${id}" class="d-flex flex-column display-size scroll display-subtask">
                         </div>
                     </div>
 

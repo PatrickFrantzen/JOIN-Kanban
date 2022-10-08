@@ -6,6 +6,7 @@ let activeUserIndex;
 let userIndexForgotPassword;
 
 
+
 async function init() {
     await includeHTML('w3-include-html');
     checkActiveHTML();
@@ -141,6 +142,13 @@ function renderProfileImage() {
     document.getElementById('profile-pic').src = userInformation[activeUserIndex].img;
 }
 
-
+document.addEventListener('click', function handleClickOutsideBox(event) {
+    let box = document.getElementById('assignedToSelect');
+    if (!box.classList.contains('d-none') && (!box.contains(event.target))) {
+         
+            toggleClassList('assignedToSelect', 'd-none')
+        
+    }
+});
 
 

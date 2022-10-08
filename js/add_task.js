@@ -17,6 +17,7 @@ async function initAddTask() {
     renderProfileImage();
     renderCategoriesInHTML();
     renderAssignableMembersInHTML();
+    renderDate();
 }
 
 
@@ -34,6 +35,13 @@ function changeValue(value) {
     currentCategory = value;
 }
 
+/**
+ * Function to set the Date of the Due Date to today
+ * 
+ */
+function renderDate() {
+    document.getElementById('date').valueAsDate = new Date();
+}
 
 /**
  * changes classlist of priority-btns

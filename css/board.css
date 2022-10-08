@@ -147,6 +147,11 @@
     font-size: 20px;
 }
 
+.display-subtask {
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
 .progressbar-outer {
     width: 85%;
     
