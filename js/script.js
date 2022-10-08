@@ -1,5 +1,5 @@
 let menulinks = [
-    'summary', 'board', 'add_task', 'contacts', 'imprint', 'privacy'];
+    'summary', 'board', 'add_task', 'contacts', 'imprint'];
 
 let activeUser;
 let activeUserIndex;
