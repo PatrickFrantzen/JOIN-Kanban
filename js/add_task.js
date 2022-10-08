@@ -141,14 +141,6 @@ function activateOtherBtns(counter) {
     }
 }
 
-/**
- * Function to clear the content of a given field with a specific ID
- * 
- * @param {string} id 
- */
-function clearHiddenInputField(id) {
-    document.getElementById(id).value = '';
-}
 
 /**
  * Function to fill a hidden Inputfield with content
@@ -200,21 +192,6 @@ async function getDataForNewTask() {
 
 
 /**
- * get Data from Task, which is edited
- * 
- */
-async function getDataForEditTask() {
-    let id = currentId;
-    let index = allTasks.indexOf(allTasks[id]);
-    let title = document.getElementById('title');
-    let description = document.getElementById('description');
-    let category = getCurrentCategory();
-    let originFormatDate = document.getElementById('date').value;
-    let date = changeDateFormat(originFormatDate);
-    await addEditTaskToArray(title, description, category, date, originFormatDate, index);
-}
-
-/**
  * united all information of inputfields in a json,
  * adds it to allTasks and send it to server
  * @param {object} title 
@@ -238,32 +215,6 @@ async function addNewTaskToArray(title, description, category, date, originForma
     setTimeout(initAddTask, 3200);
 }
 
-
-/**
- * united all information of inputfields in a json,
- * slice old information from allTasks,
- * add new information to allTasks and send it to server
- * @param {object} title 
- * @param {object} description 
- * @param {string} category 
- * @param {date} date 
- * @param {date} originFormatDate 
- * @param {number} index 
- * @param {string} prio
- * @param {array} assignedTo //assigned members
- */
-async function addEditTaskToArray(title, description, category, date, originFormatDate, index) {
-    let editedTask = {
-        title: title.value, description: description.value, category: category, member: currentMembers,
-        duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
-        subtasks: currentSubTasks, finishedsubtasks: [], complete: false
-    };
-    allTasks.splice(index, 1, editedTask);
-    await backend.setItem('allTasks', JSON.stringify(allTasks));
-    showUserResponseOverlay('edittask-added-board-overlay');
-    setTimeout(reloadEditTaskDisplay, 3200, title, description);
-}
-
 /**
  * function to show overlay when task is added to board
  * @param {string} id 
@@ -273,65 +224,6 @@ function showUserResponseOverlay(id) {
     setTimeout(addClassList, 3000, id, 'd-none');
 }
 
-
-//TODO: clear all fields and reset priority btns - DONE
-/**
- * function to reset all fields of add Task Menu
- * 
- * @param {object} title 
- * @param {object} description 
- */
-function clearAddTaskForm(title, description) {
-    title.value = '';
-    description.value = '';
-    clearSubtasks();
-    clearAssignedMemberCheckbox();
-    resetGlobalArrays();
-    renderAssignedToMemberAvatare();
-    clearCategoryInput();
-    clearHiddenInputfields();
-    clearPrioButton();
-    renderCategoriesInHTML();
-    renderAssignableMembersInHTML();
-}
-
-/**
- * function to close Displays after editing a task and reset all fields
- * 
- * @param {object} title 
- * @param {object} description 
- */
-function reloadEditTaskDisplay(title, description) {
-    initTasks();
-    addClassList('add-task-overlay-board', 'd-none');
-    addClassList('editTask', 'd-none');
-    addClassList('task-display', 'd-none');
-    removeClassList('createTask', 'd-none');
-    removeClassList('main-board', 'overflow');
-    clearAddTaskForm(title, description);
-}
-
-/**
- * Function to clear all Hidden InputFields
- * 
- */
-function clearHiddenInputfields() {
-    clearHiddenInputField('date');
-    clearHiddenInputField('assignedTo-input');
-    clearHiddenInputField('priority-input');
-    clearHiddenInputField('category-input');
-}
-
-/**
- * Function to clear all GlobalArrays and set them to default
- * 
- */
-function resetGlobalArrays() {
-    currentSubTasks = [];
-    currentMembers = [];
-    currentId = 'empty';
-    TaskIsEdited = false;
-}
 
 /**
  * This function transforms the first letter of the category to Uppercase
@@ -383,14 +275,6 @@ function addNewSubtask() {
     }
 }
 
-/**
- * Function to clear the Output-innerHTML
- * 
- */
-function clearSubtasks() {
-    document.getElementById('subtasks-output').innerHTML = '';
-}
-
 
 /**
  * Function to check if an Subtask is in Array currentSubtasks.
@@ -435,36 +319,6 @@ function showSubtask(outputbox) {
     for (let i = 0; i < currentSubTasks.length; i++) {
         let subtask = currentSubTasks[i];
         outputbox.innerHTML += renderSubtask(i, subtask);
-    }
-}
-
-/**
- * Function to uncheck the Checkboxes of former assigned Taskmembers
- * 
- */
-function clearAssignedMemberCheckbox() {
-    let assignedId = document.getElementById('assignedToSelect').children;
-    for (let i = 0; i < assignedId.length; i++) {
-        let userId = assignedId[i].id.slice(11);
-        if (userId != "") {
-            document.getElementById(`checkbox-${userId}`).checked = false;
-        }
-    }
-}
-
-/**
- * Function to reset the PrioButton
- * 
- */
-function clearPrioButton() {
-    for (let i = 0; i < priority.length; i++) {
-        if (currentPrio == priority[i].level) {
-            priority[i].toggle = false;
-            let img = priority[i]["img-normal"];
-            toggleClassList(currentPrio, `btn-${currentPrio}`)
-            document.getElementById(`${currentPrio}-img`).src = img;
-        }
-        activateOtherBtns(3);
     }
 }
 
@@ -584,16 +438,6 @@ function addMemberToArray(user) {
 }
 
 /**
- * Function to get the index of the users fullname in the Array currentMembers and delete it
- * 
- * @param {string} user 
- */
-function deleteMemberFromArray(user) {
-    let index = getIndexFromArray(currentMembers, user.fullname);
-    currentMembers.splice(index, 1);
-}
-
-/**
  * Function to clear the MemberAvatar area and fill it with all assigned Members from the Array currentMembers
  * 
  */
@@ -646,7 +490,6 @@ function getColorOfCurrentMember(member) {
     }
 }
 
-
 /**
  * Function to check if the assigned Member is already assigned and part of Array currentMembers
  * 
@@ -659,20 +502,6 @@ function checkIfUserIsAlreadyAssigned(user) {
 }
 
 /**
- * Function to reset the fields to create a new category
- * 
- * @param {object} input 
- */
-function clearNewCategoryInputValue(input) {
-    input.value = '';
-    activateAllColorBtns();
-    for (let i = 0; i < 6; i++) {
-        removeClassList('color-' + i, 'color-outer-circle-clicked');
-        document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
-    }
-}
-
-/**
  * Function to show the Colorpicker-Bar when clicking on "New Category"
  * 
  */
@@ -681,15 +510,6 @@ function changeIconsInCategory() {
     document.getElementById('category').innerHTML = renderNewCategoryInput(input);
     removeClassList('colorpicker', 'd-none');
     addClassList('colorpicker', 'd-flex');
-}
-
-/**
- * Function to reset the Inputfield of Category
- * 
- */
-function clearCategoryInput() {
-    document.getElementById('category').innerHTML = clearCategoryInputTemplate();
-    addClassList('colorpicker', 'd-none');
 }
 
 /**
@@ -742,9 +562,3 @@ function activateAllColorBtns() {
         document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
     }
 }
-
-
-
-
-
-

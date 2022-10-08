@@ -123,3 +123,60 @@ function setSubtasks(subtasks) {
         outputbox.innerHTML += renderSubtask(i, subtask);
     }
 }
+
+/**
+ * get Data from Task, which is edited
+ * 
+ */
+ async function getDataForEditTask() {
+    let id = currentId;
+    let index = allTasks.indexOf(allTasks[id]);
+    let title = document.getElementById('title');
+    let description = document.getElementById('description');
+    let category = getCurrentCategory();
+    let originFormatDate = document.getElementById('date').value;
+    let date = changeDateFormat(originFormatDate);
+    await addEditTaskToArray(title, description, category, date, originFormatDate, index);
+}
+
+/**
+ * united all information of inputfields in a json,
+ * slice old information from allTasks,
+ * add new information to allTasks and send it to server
+ * @param {object} title 
+ * @param {object} description 
+ * @param {string} category 
+ * @param {date} date 
+ * @param {date} originFormatDate 
+ * @param {number} index 
+ * @param {string} prio
+ * @param {array} assignedTo //assigned members
+ */
+ async function addEditTaskToArray(title, description, category, date, originFormatDate, index) {
+    let editedTask = {
+        title: title.value, description: description.value, category: category, member: currentMembers,
+        duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
+        subtasks: currentSubTasks, finishedsubtasks: [], complete: false
+    };
+    allTasks.splice(index, 1, editedTask);
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    showUserResponseOverlay('edittask-added-board-overlay');
+    setTimeout(reloadEditTaskDisplay, 3200, title, description);
+}
+
+
+/**
+ * function to close Displays after editing a task and reset all fields
+ * 
+ * @param {object} title 
+ * @param {object} description 
+ */
+ function reloadEditTaskDisplay(title, description) {
+    initTasks();
+    addClassList('add-task-overlay-board', 'd-none');
+    addClassList('editTask', 'd-none');
+    addClassList('task-display', 'd-none');
+    removeClassList('createTask', 'd-none');
+    removeClassList('main-board', 'overflow');
+    clearAddTaskForm(title, description);
+}

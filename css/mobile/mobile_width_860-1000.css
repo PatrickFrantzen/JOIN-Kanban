@@ -18,6 +18,11 @@
         display: block;
     }
 
+    /* ADD Task max-width: 1000px */
+
+    #add-task-btns {
+        top: 150px;
+    }
 
     /* CONTACTS max-width: 1000px */
 

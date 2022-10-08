@@ -730,6 +730,18 @@
 }
 
 @media (max-width: 360px) {
+
+    .darkblue-btn {
+        min-width: 120px;
+        max-width: 135px;
+        padding: 8px;
+    }
+
+    .light-btn {
+        width: 120px;
+        padding: 0 8px 0 8px;
+    }
+
     .single-menu a {
         width: 80px !important;
         font-size: 14px;

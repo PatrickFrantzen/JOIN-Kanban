@@ -248,14 +248,19 @@
         padding-left: 0;
     }
 
-    #cancel-btn-add_task {
-        display: none;
-    }
 
     #add-task-btns {
         position: fixed;
         right: 24px;
-        top: 7px;
+        top: 120px;
+        z-index: 1000;
+        height: 55px;
+    }
+
+    .display-add-task-btns {
+        position: fixed;
+        right: 24px;
+        top: 7px !important;
         z-index: 1000;
         height: 55px;
     }
@@ -270,7 +275,7 @@
     }
 
     .close-add-task-overlay {
-        right: 222px;
+        right: 350px;
     }
 
     .unset-position {
