@@ -155,3 +155,14 @@ function dropdown(box, id) {
 })
 };
 
+function dialog(id) {
+    if (displayOpen == true) {
+        document.addEventListener('click', function ClickOutsideBox(event) {
+            let area = document.getElementById(`display-${id}`);
+                if (!area.contains(event.target))
+                document.getElementById('task-display').classList.add('d-none');
+        document.getElementById(`display-${id}`).classList.add('d-none');
+        displayOpen = false;
+        })
+    }
+}
