@@ -1,5 +1,4 @@
 let displayId;
-let displayOpen = false;
 /**
  * Function to open the Dialog window of a Task to see Details 
  * 
@@ -16,7 +15,6 @@ function openDialog(id, title, description, category, date, prio) {
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
     let displaymembers = getMembers(singledisplayTask);
     displayId = id;
-    displayOpen = true;
     createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
 }
 
@@ -291,5 +289,4 @@ function closeDialog(id) {
     document.getElementById(`display-${id}`).classList.add('d-none');
     document.getElementById(`display-content-${id}`).classList.add('d-none');
     document.getElementById('main-board').classList.remove('overflow');
-    displayOpen = false;
 }

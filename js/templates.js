@@ -202,7 +202,7 @@ function renderAdditionalMembers(memberOfInitialArray, id) {
 
 function renderDisplay(id) {
     return `
-    <div id="display-${id}" class="task-overlay d-flex d-none scroll"></div>
+    <div id="display-${id}" class="task-overlay d-flex d-none scroll" onclick="event.stopPropagation()"></div>
     `
 }
 

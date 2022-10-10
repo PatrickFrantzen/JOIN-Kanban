@@ -17,7 +17,6 @@ function editTask(id) {
     let subtasks = edittask.subtasks;
     currentId = id;
     TaskIsEdited = true;
-    displayOpen = false;
     showEditTaskDisplay(id);
     renderEditLayout(title, description, category, date, prio, subtasks);
 }
