@@ -520,6 +520,10 @@ function changeIconsInCategory() {
     addClassList('colorpicker', 'd-flex');
 }
 
+function inviteNewContact() {
+    document.getElementById('outputbox').innerHTML = renderInviteContact();
+}
+
 /**
  * Function to set the global variable colorNewCategory to the given index number
  * Clicked color change the class and gets checked if already clicked

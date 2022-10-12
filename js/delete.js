@@ -119,6 +119,10 @@ function resetGlobalArrays() {
     addClassList('colorpicker', 'd-none');
 }
 
+function clearAssignedToInput() {
+    document.getElementById('outputbox').innerHTML = clearAssignedToInputTemplate();
+}
+
 /**
  * Function to get the index of the users fullname in the Array currentMembers and delete it
  * 

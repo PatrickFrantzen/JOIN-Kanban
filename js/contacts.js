@@ -272,3 +272,7 @@ function saveEditedContactDataInArray(name, email, phone) {
     userInformation[activeUserIndex].contacts[activeContactIndex].mail = email;
     userInformation[activeUserIndex].contacts[activeContactIndex].phone = phone;
 }
+
+function inviteContact() {
+    console.log('Success');
+}

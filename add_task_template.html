@@ -31,6 +31,7 @@
     <script src="js/board.js"></script>
     <script src="js/summary.js"></script>
     <script src="js/delete.js"></script>
+    <script src="js/contacts.js"></script>
     <title>Join-Kanban Add Task</title>
 </head>
 
@@ -137,7 +138,7 @@
                         <div class=" d-flex flex-column m-top-28 assignedTo-container">
                             <label for="assignedTo" class="m-bottom-18 add-task-titles">Assigned to</label>
                             <div id="outputbox" class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
-                                onclick="dropdown('outputbox','assignedToSelect')">
+                                onclick="dropdown('outputbox','assignedToSelect'), event.stopPropagation()">
                                 <input id="assignedTo-input" class="hidden-input" type="text" required>
                                 <div class="output-container d-flex justify-content-space-between">
                                     <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
@@ -145,6 +146,9 @@
                                     <img src="img/add_task/dropdown_arrow.svg" alt="">
                                 </div>
                             </div>
+
+                            
+
                             <ul id="assignedToSelect" class="assignedTo-list add-task-lists scroll d-none">
 
                             </ul>

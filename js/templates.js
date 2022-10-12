@@ -400,13 +400,36 @@ function renderAssignedToMembersTemplate(id, name) {
 function renderInviteNewContactTemplate(){
     return `
     <li>
-        <div class="d-flex justify-content-space-between align-items-center">
+        <div class="d-flex justify-content-space-between align-items-center" onclick="inviteNewContact()">
              <span>Invite new contact</span>
             <img class="m-right-8" src="img/add_task/member.png" alt="">
         </div>
     </li>
     `
 }
+
+function renderInviteContact() {
+    return `
+    <div action="https://gruppe-306.developerakademie.net/JOIN-Kanban/send_mail/send_mail_invite.php"
+        onsubmit="inviteContact()"; method="POST" class="d-flex subtask-switch-container">
+       <input id="invite-contact" class="inputfield-nearby-icon" autofocus type="email" placeholder="Invite new Contact" required>
+       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearAssignedToInput()">
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="">
+    </div>
+    `
+}
+
+function clearAssignedToInputTemplate() {
+    return `
+    <input id="assignedTo-input" class="hidden-input" type="text" required>
+    <div class="output-container d-flex justify-content-space-between">
+        <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
+            contacts to assign</div>
+        <img src="img/add_task/dropdown_arrow.svg" alt="">
+    </div>
+    `
+}
+
 
 function renderAssignedToMemberAvatareTemplate(firstLetter, secondLetter, color){
     return `
