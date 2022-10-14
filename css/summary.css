@@ -24,11 +24,12 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     background-color: var(--white);
     color: var(--black);
+    margin: 15px 0;
 }
 
 .card:hover {
     cursor: pointer;
-    box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 2px 9px rgb(0 0 0 / 50%);
 }
 
 .content-cards-top {
