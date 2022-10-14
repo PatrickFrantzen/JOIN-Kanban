@@ -210,7 +210,7 @@ async function getDataForNewTask() {
  * @param {string} prio 
  * @param {string} status 
  */
-async function addNewTaskToArray(title, description, category, date, originFormatDate) {
+async function addNewTaskToArray(title, description, category, originFormatDate, date) {
     let newTask = {
         title: title.value, description: description.value, category: category, member: currentMembers,
         duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,

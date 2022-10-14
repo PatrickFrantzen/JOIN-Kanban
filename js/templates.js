@@ -233,7 +233,7 @@ function renderDisplayContent(id, title, description, category, date) {
                     <div class="d-flex display-text align-items-center display-size">
                         <span class="f-bold">Priority: </span>
                         <span class="m-left-8">
-                            <div id="prio-display-field-${id}" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center">
+                            <div id="prio-display-field-${id}" class="input-with-image inputfields-small border-fields d-flex justify-content-center align-items-center disabled">
                             <p id="prio-display-name-${id}" class="f-18"></p>
                             <img id="prio-img-${id}" class="p-12" src="img/add_task/arrow_urgent_white.svg" alt="">
                         </div></span>

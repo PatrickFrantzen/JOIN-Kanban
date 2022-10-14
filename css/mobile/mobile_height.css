@@ -54,7 +54,12 @@
     }
 
     .add-task-overlay {
-        height: 90vh;
+        height: 100vh;
+    }
+
+    .display-add-task-btns {
+        position: unset !important;
+        margin-bottom: 25px;
     }
 }
 

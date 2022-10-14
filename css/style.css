@@ -363,3 +363,6 @@ a {
     object-fit: cover;
 }
 
+.disabled {
+    pointer-events: none;
+}

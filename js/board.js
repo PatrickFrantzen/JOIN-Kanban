@@ -75,7 +75,7 @@ function getTaskDetails(i, singleTask) {
     let title = singleTask.title;
     let description = singleTask.description;
     let category = singleTask.category;
-    let date = singleTask.duedateOrgin;
+    let date = singleTask.duedate;
     let prio = singleTask.prio;
     let members = getMembers(singleTask);
     let status = singleTask.status;

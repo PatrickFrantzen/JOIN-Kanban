@@ -136,7 +136,7 @@
         padding: 6px 0;
         min-width: unset;
         position: absolute;
-        top: -73px;
+        top: -100px;
         right: 0;
     }
 
@@ -685,6 +685,7 @@
     .task-overlay{
         width: 95%;
     }
+
 }
 
 

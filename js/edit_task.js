@@ -11,7 +11,7 @@ function editTask(id) {
     let title = edittask.title;
     let description = edittask.description;
     let category = edittask.category.toLowerCase();
-    let date = edittask.duedate;
+    let date = edittask.duedateOrgin;
     let prio = edittask.prio;
     currentMembers = edittask.member
     let subtasks = edittask.subtasks;
