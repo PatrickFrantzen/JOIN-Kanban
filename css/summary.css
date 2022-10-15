@@ -114,6 +114,10 @@
     padding-left: 50px;
 }
 
+.welcome-mobile{
+    display: none;
+}
+
 .name {
     color: var(--light-blue);
 }

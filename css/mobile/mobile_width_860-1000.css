@@ -172,6 +172,18 @@
     .board-assigned {
         width: 75%;
     }
+
+    .display-category {
+        font-size: 20px;
+    }
+
+    .display-description {
+        font-size: 19px;
+    }
+
+    .display-title {
+        font-size: 34px;
+    }
 }
 
 @media (max-width: 925px) {
