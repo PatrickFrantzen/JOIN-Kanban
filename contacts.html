@@ -46,7 +46,7 @@
                 </div>
 
                 <div id="contact-content-mobile" class="contact-content w-80 d-none flex-column align-items-center">
-                    
+
                 </div>
 
             </div>
@@ -68,17 +68,22 @@
                 </div>
             </div>
             <div id="mobile-contact-btn-container" class="d-flex justify-content-end new-contact-btn-container">
-                
-               
+                <button id="new-contact-btn-mobile" class="darkblue-btn m-left-24"
+                    onclick="showOverlayContact('new-contact', 'new-contact-overlay')">
+                    <span class="f-18">New Contact</span>
+                    <img class="btn-icons-contact" src="img/buttons/newcontact.png" alt="">
+                </button>
+
             </div>
 
         </div>
     </div>
 
-    
+
 
     <!-- add new contact overlay -->
-    <div id="new-contact" class="overlay d-flex justify-content-center align-items-center d-none animateOpacityIn d-none">
+    <div id="new-contact"
+        class="overlay d-flex justify-content-center align-items-center d-none animateOpacityIn d-none">
         <div id="new-contact-overlay" class="contact-overlay d-flex animateFade">
             <div class="overlay-left d-flex justify-content-center">
                 <div class="d-flex flex-column justify-content-center h-80">
@@ -138,7 +143,7 @@
         </div>
     </div>
 
-  
+
     <!-- edit contact overlay -->
     <div id="edit-contact" class="overlay d-flex justify-content-center align-items-center d-none animateOpacityIn">
         <div id="edit-contact-overlay" class="contact-overlay d-flex">
@@ -202,7 +207,8 @@
     <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none">
         <div class="add-task-overlay d-flex justify-content-center align-items-center">
             <div include-addtask-html="add_task_template.html"></div>
-            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay" onclick="addClassList('add-task-overlay-board', 'd-none'), initContacts()">
+            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay"
+                onclick="addClassList('add-task-overlay-board', 'd-none'), initContacts()">
         </div>
     </div>
 </body>
