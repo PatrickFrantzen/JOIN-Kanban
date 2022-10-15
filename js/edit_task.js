@@ -161,7 +161,7 @@ function setSubtasks(subtasks) {
     allTasks.splice(index, 1, editedTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     showUserResponseOverlay('edittask-added-board-overlay');
-    setTimeout(reloadEditTaskDisplay, 3200, title, description);
+    setTimeout(reloadEditTaskDisplay, 1500, title, description);
 }
 
 
