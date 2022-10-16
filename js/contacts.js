@@ -13,7 +13,7 @@ async function initContacts() {
 
 
 // contact list overview
-
+//TODO
 function findOutConacts() {
     let contacts = userInformation[activeUserIndex].contacts;
     let firstletters = [];
@@ -57,6 +57,7 @@ function clearContactContainerMobile (){
 }
 
 
+//TODO
 function getInformationToRenderContacts(contacts) {
     for (let i = 0; i < contacts.length; i++) {
         let name = contacts[i].fullname;
@@ -78,7 +79,7 @@ function renderContacts(name, email, firstLetter, secondLetter, color) {
 
 
 //contact detail overview
-
+//TODO
 function showContactDetails(id) {
     removeBgStyleForAllContacts();
     addClassList(id, 'clickedContact');
@@ -92,6 +93,7 @@ function showContactDetails(id) {
 }
 
 
+//TODO
 function getContactDetails(contacts, i) {
     let animationContact = checkIfContactWasAlreadyClicked();
     let firstLetter = getFirstLetterOfName(contacts, i);
@@ -106,12 +108,10 @@ function getContactDetails(contacts, i) {
 
 
 function showContactDetailsMobile(id) {
-   
     document.getElementById('contact-content-mobile').style.display = 'none';
     showContactDetails(id);
     document.getElementById('right-section').style.display = 'flex';
     addClassList('new-contact-btn-mobile', 'd-none');
-  
 }
 
 
@@ -144,6 +144,7 @@ function checkIfContactWasAlreadyClicked() {
 }
 
 
+//TODO
 function removeBgStyleForAllContacts() {
     for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
         let contactId = userInformation[activeUserIndex].contacts[i].mail;
@@ -153,7 +154,6 @@ function removeBgStyleForAllContacts() {
 
 
 //for new and edit contact overlays
-
 function showOverlayContact(idToShow, idToAnimate, id) {
     if (idToShow == 'edit-contact') {
         getDataToEditContact(id);
@@ -180,7 +180,6 @@ function setAnimationClassLists(idToShow, idToAnimate) {
 
 
 // new contact
-
 function newContact() {
     let name = document.getElementById('newContact-name');
     let email = document.getElementById('newContact-email');
@@ -189,6 +188,7 @@ function newContact() {
 }
 
 
+//TODO
 async function addNewContactToArray(name, email, phone) {
     let contact = { fullname: name.value, mail: email.value, phone: phone.value };
     userInformation[activeUserIndex].contacts.push(contact);
@@ -208,6 +208,7 @@ function clearNewContactInputfields(name, email, phone) {
 //edit contact
 
 
+//TODO
 /**
  * sets data of choosed contact in inputfields in edit contact overlay
  * 
@@ -261,6 +262,7 @@ function showDataInEditContact(contact) {
 }
 
 
+//TODO
 /**
  * saves edited contact data in array userInformation
  * @param {string} name 

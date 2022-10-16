@@ -38,17 +38,17 @@ function getContactsinformationForNewUser() {
     }
 }
 
-
-function addContactsToNewUser(name, email, color){
-    let contact = {fullname: name, mail: email, color: color};
+//TODO
+function addContactsToNewUser(name, email, color) {
+    let contact = { fullname: name, mail: email, color: color };
     contacts.push(contact);
 }
 
 
-async function getNextFreeColor(){
+async function getNextFreeColor() {
     for (let i = 0; i < contactColors.length; i++) {
         let color = contactColors[i];
-        if(!color.used){
+        if (!color.used) {
             contactColors[i].used = true;
             await backend.setItem('contactColors', contactColors);
             return color.color;
@@ -58,7 +58,7 @@ async function getNextFreeColor(){
 
 
 async function addDataToUserInformation(name, email, password, color) {
-    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, contacts: contacts};
+    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, contacts: contacts };
     userInformation.push(userInfo);
     await backend.setItem('userInformation', JSON.stringify(userInformation));
 }
@@ -77,20 +77,31 @@ function login() {
 function checkLoginData(index, password) {
     let text;
     if (index == -1) {
-        text = 'Your email is not registered yet, please sign up';
-        userResonse(text, 'login-user-response');
-        switchOverview('login', 'signup', 'd-none');
+        loginMailError(text);
     } else if (userInformation[index].password === password.value) {
         switchOtherHtml('summary.html?');
         checkIncognitoModeToLogin(index);
     } else {
-        text = 'Your password is not correct, please try again';
-        userResonse(text, 'login-user-response');
+        loginPasswordError(text);
     }
 }
 
 
-function userResonse(text, id){
+function loginMailError(text) {
+    text = 'Your email is not registered yet, please sign up';
+    userResonse(text, 'login-user-response');
+    switchOverview('login', 'signup', 'd-none');
+    document.getElementById('login-password').value = '';
+}
+
+
+function loginPasswordError(text){
+    text = 'Your password is not correct, please try again';
+    userResonse(text, 'login-user-response');
+}
+
+
+function userResonse(text, id) {
     document.getElementById('login-user-response-text').innerHTML = text;
     showUserResponseOverlay(id);
 }
@@ -147,19 +158,24 @@ async function changePassword() {
     let password = document.getElementById('reset-password');
     let confirmedPassword = document.getElementById('confirm-password');
     await checkNewPassword(password, confirmedPassword);
-    showUserResponseOverlay('reset-password-overlay');
 }
 
 
-
-//TODO: change alert to other user response
 async function checkNewPassword(password, confirmedPassword) {
+    let text;
     if (password.value === confirmedPassword.value) {
         await saveNewPassword(password);
+        showUserResponseOverlay('reset-password-overlay');
         switchOtherHtml('index.html');
     } else {
-        alert('The entered passwords do not match. Please repeat your entry');
+        loginChangePasswordError(text);
     }
+}
+
+
+function loginChangePasswordError(text){
+    text = 'The entered passwords do not match. Please repeat your entry';
+    userResonse(text, 'login-user-response');
 }
 
 async function saveNewPassword(password) {
