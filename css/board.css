@@ -214,3 +214,8 @@
 .display-card {
     z-index:301;
 }
+
+.edit-btn-board{
+    width: 66px;
+    min-width: unset;
+}

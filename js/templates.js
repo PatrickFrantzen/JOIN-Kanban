@@ -247,7 +247,9 @@ function renderDisplayContent(id, title, description, category, date) {
                     <button id="delete-button" onclick="deleteMessage(${id})" class="darkblue-btn m-bottom-18 d-flex justify-content-center align-items-center ">
                     <span>Delete Task<span>
                     </button>
-                    <img class="m-right-24 m-bottom-18 cursor" onclick="editTask(${id})" src="img/board/edit.svg">
+                    <button onclick="editTask(${id})" class="darkblue-btn m-bottom-18 m-right-24 d-flex justify-content-center align-items-center edit-btn-board">
+                    <img class="cursor" src="img/buttons/edit.png">
+                    </button>
                     </div>
                 </div>
             </div>
