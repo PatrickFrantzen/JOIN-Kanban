@@ -163,6 +163,8 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
     document.getElementById(`bar-${id}`).style.width = ((numberOfFinishedSubtasks/numberOfSubtasks)*100) + "%";
 }
 
+
+//TODO
 /**
  * Function to check if there are more than one assigned member
  * 
@@ -257,8 +259,10 @@ function getOtherMembers(members, singleTask, id) {
         let memberOfTask = singleTask.member[i];
         let memberOfInitialArray = members[i];
         let color = checkForColor(memberOfTask);
-        document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id);
-        document.getElementById(`other-member-${id}`).classList.add(`bg-contact-${color}`);
+        let leftPosition = i * 10;
+        document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, i);
+        document.getElementById(`other-member-${i}`).classList.add(`bg-contact-${color}`);
+        document.getElementById(`other-member-${i}`).style.left = `-${leftPosition}px`;
     }
 }
 
