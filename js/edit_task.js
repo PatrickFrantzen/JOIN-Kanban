@@ -103,8 +103,8 @@ function setPrioButton(prio) {
  * @returns the Email adress of the currentMember
  */
 function getEmailofCurrentMember(member){
-    for (let i = 0; i < userInformation.length; i++) {
-        let user = userInformation[i];
+    for (let i = 0; i < allContacts.length; i++) {
+        let user = allContacts[i];
         if (member == user.fullname) return user.mail;
     }
 }

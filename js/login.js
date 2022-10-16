@@ -1,5 +1,4 @@
 let mailForgotPassword;
-// let contacts = [];
 
 async function initLogin() {
     await loadDataFromServer();
@@ -18,7 +17,6 @@ async function signup() {
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
     let color = await getNextFreeColor();
-    getContactsinformationForNewUser();
     await addDataToUserInformation(name, email, password, color);
     switchOverview('signup', 'login', 'd-none');
 }
@@ -30,7 +28,7 @@ async function getNextFreeColor() {
         let color = contactColors[i];
         if (!color.used) {
             contactColors[i].used = true;
-            await backend.setItem('contactColors', contactColors);
+            await backend.setItem('contactColors', JSON.stringify(contactColors));
             return color.color;
         }
     }
@@ -38,7 +36,7 @@ async function getNextFreeColor() {
 
 
 async function addDataToUserInformation(name, email, password, color) {
-    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, contacts: contacts };
+    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, phone: '' };
     userInformation.push(userInfo);
     await backend.setItem('userInformation', JSON.stringify(userInformation));
 }

@@ -46,7 +46,7 @@
 }
 
 .content-cards-top-single:hover {
-    background-color: var(--black);
+    background-color: var(--dark-blue);
     color: var(--white);
     cursor: pointer;
 }
@@ -64,7 +64,7 @@
 }
 
 .content-cards-middle-single:hover {
-    background-color: var(--black);
+    background-color: var(--dark-blue);
     color: var(--white);
     cursor: pointer;
 }
@@ -100,7 +100,7 @@
 }
 
 .content-cards-bottom-single:hover {
-    background-color: var(--black);
+    background-color: var(--dark-blue);
     color: var(--white);
     cursor: pointer;
 }

@@ -15,12 +15,12 @@ async function init() {
 async function loadDataFromServer() {
     setURL('https://gruppe-306.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    putLoadedDataToArray()
+    await putLoadedDataToArray()
 }
 
 async function putLoadedDataToArray() {
     userInformation = await JSON.parse(jsonFromServer.userInformation) || [];
-    contactColors = await JSON.parse(JSON.stringify(jsonFromServer.contactColors)) || [];
+    contactColors= JSON.parse(jsonFromServer.contactColors) || [];
     userIndexForgotPassword = await jsonFromServer.userIndexForgotPassword;
     allTasks = await JSON.parse(jsonFromServer.allTasks) || [];
     allCategories = await JSON.parse(jsonFromServer.allCategories) || [];
