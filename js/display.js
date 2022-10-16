@@ -1,3 +1,5 @@
+displayId;
+
 /**
  * Function to open dialog window of a task to see details 
  * 
@@ -8,6 +10,7 @@ function openDialog(id) {
     let displaysubtasks = singledisplayTask.subtasks;
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
     let displaymembers = getMembers(singledisplayTask);
+    displayId = id;
     getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id);
     
 }
