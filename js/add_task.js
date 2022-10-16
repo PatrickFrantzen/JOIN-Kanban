@@ -533,6 +533,7 @@ function inviteNewContact() {
  */
 function addNewColorToCategory(id, index) {
     colorNewCategory = index;
+    document.getElementById('color-input').value = 1;
     toggleClassList(id, 'color-outer-circle-clicked');
     checkIfColorBtnIsClicked();
     disableOtherColorBtns();

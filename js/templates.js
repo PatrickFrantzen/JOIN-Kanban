@@ -351,7 +351,8 @@ function clearCategoryInputTemplate() {
 function renderNewCategoryInput(input) {
     return `
     <div class="d-flex subtask-switch-container">
-       <input id="category-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Category" value="${input}">
+       <input id="category-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Category" value="${input}" required>
+       <input id="color-input" class="hidden-input" type="number" required>
        <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearCategoryInput()">
        <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewCategory()">
     </div>
