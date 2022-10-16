@@ -15,14 +15,26 @@ async function initContacts() {
 // contact list overview
 //TODO
 function findOutConacts() {
-    let contacts = userInformation[activeUserIndex].contacts;
-    let firstletters = [];
-    for (let i = 0; i < contacts.length; i++) {
-        let firstLetter = getFirstLetterOfName(contacts, i);
-        firstletters.push(firstLetter);
+    let allContacts = contacts;
+    for (let i = 0; i < userInformation.length; i++) {
+        let user = userInformation[i];
+        if(user.fullname !== "Guest Account"){
+            allContacts.push(user);
+        }
     }
-    let firstlettersUnique = removeDoubleLetters(firstletters);
-    renderLetterContainer(firstlettersUnique, contacts);
+    createLetterContainer();
+  
+}
+
+
+function createLetterContainer(){
+      let firstletters = [];
+    // for (let i = 0; i < contacts.length; i++) {
+    //     let firstLetter = getFirstLetterOfName(contacts, i);
+    //     firstletters.push(firstLetter);
+    // }
+    // let firstlettersUnique = removeDoubleLetters(firstletters);
+    // renderLetterContainer(firstlettersUnique, contacts);
 }
 
 

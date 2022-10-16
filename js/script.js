@@ -2,6 +2,7 @@ let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint'];
 let activeUser;
 let activeUserIndex;
 let userIndexForgotPassword;
+let contacts;
 
 
 
@@ -23,6 +24,7 @@ function putLoadedDataToArray() {
     userIndexForgotPassword = jsonFromServer.userIndexForgotPassword;
     allTasks = JSON.parse(jsonFromServer.allTasks) || [];
     allCategories = JSON.parse(jsonFromServer.allCategories) || [];
+    contacts = JSON.parse(jsonFromServer.contacts) || [];
 }
 
 
