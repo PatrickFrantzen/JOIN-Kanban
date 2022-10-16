@@ -1,5 +1,6 @@
 let activeContactIndex;
 let animation = false;
+let allContacts;
 
 async function initContacts() {
     await loadDataFromServer()
@@ -13,28 +14,27 @@ async function initContacts() {
 
 
 // contact list overview
-//TODO
 function findOutConacts() {
-    let allContacts = contacts;
+    allContacts = contacts;
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
-        if(user.fullname !== "Guest Account"){
+        if (user.fullname !== "Guest Account") {
             allContacts.push(user);
         }
     }
-    createLetterContainer();
-  
+    createLetterContainer(allContacts);
+
 }
 
 
-function createLetterContainer(){
-      let firstletters = [];
-    // for (let i = 0; i < contacts.length; i++) {
-    //     let firstLetter = getFirstLetterOfName(contacts, i);
-    //     firstletters.push(firstLetter);
-    // }
-    // let firstlettersUnique = removeDoubleLetters(firstletters);
-    // renderLetterContainer(firstlettersUnique, contacts);
+function createLetterContainer(allContacts) {
+    let firstletters = [];
+    for (let i = 0; i < allContacts.length; i++) {
+        let firstLetter = getFirstLetterOfName(allContacts, i);
+        firstletters.push(firstLetter);
+    }
+    let firstlettersUnique = removeDoubleLetters(firstletters);
+    renderLetterContainer(firstlettersUnique, allContacts);
 }
 
 
@@ -55,21 +55,21 @@ function renderLetterContainer(firstlettersUnique, contacts) {
 }
 
 
-function clearContactContainer (){
+function clearContactContainer() {
     let contactContainer = document.getElementById('contact-content');
     contactContainer.innerHTML = '';
     return contactContainer;
 }
 
 
-function clearContactContainerMobile (){
+function clearContactContainerMobile() {
     let contactContainerMobile = document.getElementById('contact-content-mobile');
+    contactContainerMobile.innerHTML = '';
     contactContainerMobile.innerHTML = renderNewContactBtn();
     return contactContainerMobile;
 }
 
 
-//TODO
 function getInformationToRenderContacts(contacts) {
     for (let i = 0; i < contacts.length; i++) {
         let name = contacts[i].fullname;
@@ -91,29 +91,26 @@ function renderContacts(name, email, firstLetter, secondLetter, color) {
 
 
 //contact detail overview
-//TODO
 function showContactDetails(id) {
     removeBgStyleForAllContacts();
     addClassList(id, 'clickedContact');
-    for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
-        let contacts = userInformation[activeUserIndex].contacts;
-        let contactMail = contacts[i].mail;
+    for (let i = 0; i < allContacts.length; i++) {
+        let contactMail = allContacts[i].mail;
         if (id == contactMail) {
-            getContactDetails(contacts, i);
+            getContactDetails(i);
         }
     }
 }
 
 
-//TODO
-function getContactDetails(contacts, i) {
+function getContactDetails(i) {
     let animationContact = checkIfContactWasAlreadyClicked();
-    let firstLetter = getFirstLetterOfName(contacts, i);
-    let secondLetter = splitFullname(contacts, i);
-    let name = contacts[i].fullname;
-    let email = contacts[i].mail;
-    let color = contacts[i].color;
-    let phone = contacts[i].phone;
+    let firstLetter = getFirstLetterOfName(allContacts, i);
+    let secondLetter = splitFullname(allContacts, i);
+    let name = allContacts[i].fullname;
+    let email = allContacts[i].mail;
+    let color = allContacts[i].color;
+    let phone = allContacts[i].phone;
     document.getElementById('contact-data-content').innerHTML = renderContactDetails(firstLetter, secondLetter, name, email, color, phone, animationContact);
     document.getElementById('mobile-contact-btn-container').innerHTML = renderContactMobileBtnTemplate(email);
 }
@@ -156,10 +153,9 @@ function checkIfContactWasAlreadyClicked() {
 }
 
 
-//TODO
 function removeBgStyleForAllContacts() {
-    for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
-        let contactId = userInformation[activeUserIndex].contacts[i].mail;
+    for (let i = 0; i < allContacts.length; i++) {
+        let contactId = allContacts[i].mail;
         removeClassList(contactId, 'clickedContact');
     }
 }
@@ -203,8 +199,9 @@ function newContact() {
 //TODO
 async function addNewContactToArray(name, email, phone) {
     let contact = { fullname: name.value, mail: email.value, phone: phone.value };
-    userInformation[activeUserIndex].contacts.push(contact);
-    await backend.setItem('userInformation', JSON.stringify(userInformation));
+    contacts.push(contact);
+    await backend.setItem('contacts', JSON.stringify(contacts));
+    allContacts;
     findOutConacts();
     clearNewContactInputfields(name, email, phone);
 }
@@ -220,15 +217,14 @@ function clearNewContactInputfields(name, email, phone) {
 //edit contact
 
 
-//TODO
 /**
  * sets data of choosed contact in inputfields in edit contact overlay
  * 
  * @param {string} id 
  */
 function getDataToEditContact(id) {
-    for (let i = 0; i < userInformation[activeUserIndex].contacts.length; i++) {
-        let contact = userInformation[activeUserIndex].contacts[i];
+    for (let i = 0; i < allContacts.length; i++) {
+        let contact = allContacts[i];
         if (id == contact.mail) {
             activeContactIndex = i;
             showDataInEditContact(contact);
@@ -274,7 +270,6 @@ function showDataInEditContact(contact) {
 }
 
 
-//TODO
 /**
  * saves edited contact data in array userInformation
  * @param {string} name 
@@ -282,9 +277,9 @@ function showDataInEditContact(contact) {
  * @param {string} phone 
  */
 function saveEditedContactDataInArray(name, email, phone) {
-    userInformation[activeUserIndex].contacts[activeContactIndex].fullname = name;
-    userInformation[activeUserIndex].contacts[activeContactIndex].mail = email;
-    userInformation[activeUserIndex].contacts[activeContactIndex].phone = phone;
+    allContacts[activeContactIndex].fullname = name;
+    allContacts[activeContactIndex].mail = email;
+    allContacts[activeContactIndex].phone = phone;
 }
 
 function inviteContact() {

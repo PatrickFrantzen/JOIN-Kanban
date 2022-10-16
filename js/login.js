@@ -1,5 +1,5 @@
 let mailForgotPassword;
-let contacts = [];
+// let contacts = [];
 
 async function initLogin() {
     await loadDataFromServer();
@@ -25,24 +25,24 @@ async function signup() {
 
 
 
-//TODO: edit contacts structure, so this function will not longer be needed
-function getContactsinformationForNewUser() {
-    for (let i = 0; i < userInformation.length; i++) {
-        let user = userInformation[i];
-        if (notGuestAccount(user)) {
-            let name = user.fullname;
-            let email = user.mail;
-            let color = user.color;
-            addContactsToNewUser(name, email, color);
-        }
-    }
-}
+// //TODO: edit contacts structure, so this function will not longer be needed
+// function getContactsinformationForNewUser() {
+//     for (let i = 0; i < userInformation.length; i++) {
+//         let user = userInformation[i];
+//         if (notGuestAccount(user)) {
+//             let name = user.fullname;
+//             let email = user.mail;
+//             let color = user.color;
+//             addContactsToNewUser(name, email, color);
+//         }
+//     }
+// }
 
-//TODO
-function addContactsToNewUser(name, email, color) {
-    let contact = { fullname: name, mail: email, color: color };
-    contacts.push(contact);
-}
+// //TODO
+// function addContactsToNewUser(name, email, color) {
+//     let contact = { fullname: name, mail: email, color: color };
+//     contacts.push(contact);
+// }
 
 
 async function getNextFreeColor() {

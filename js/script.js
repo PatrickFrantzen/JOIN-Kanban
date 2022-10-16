@@ -2,7 +2,7 @@ let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint'];
 let activeUser;
 let activeUserIndex;
 let userIndexForgotPassword;
-let contacts;
+let contacts = [];
 
 
 
