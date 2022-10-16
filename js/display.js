@@ -230,9 +230,9 @@ function getOtherMembersDisplay(members, singleTask, id) {
         let memberOfTask = singleTask.member[i];
         let memberOfInitialArray = members[i];
         let color = checkForColor(memberOfTask);
-        document.getElementById(`assigned-list-${id}`).innerHTML += renderAdditionalMembersDisplay(memberOfInitialArray, id);
-        document.getElementById(`other-member-name-display-${id}`).innerHTML = memberOfTask;
-        document.getElementById(`other-member-display-${id}`).classList.add(`bg-contact-${color}`);
+        document.getElementById(`assigned-list-${id}`).innerHTML += renderAdditionalMembersDisplay(memberOfInitialArray, i);
+        document.getElementById(`other-member-name-display-${i}`).innerHTML = memberOfTask;
+        document.getElementById(`other-member-display-${i}`).classList.add(`bg-contact-${color}`);
     }
 }
 

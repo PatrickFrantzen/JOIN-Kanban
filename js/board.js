@@ -173,13 +173,13 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
  * @param {number} id 
  */
 function createAssignedMemberArea(members, singleTask, id) {
-    if (singleTask.member.length == 1) {
+    /*if (singleTask.member.length == 1) {
         getfirstMember(members, singleTask, id);
-    } else {
+    } else {*/
         getfirstMember(members, singleTask, id);
         getOtherMembers(members, singleTask, id);
     }
-}
+//}
 
 /**
  * Function to set the right priority image for the task
@@ -260,9 +260,9 @@ function getOtherMembers(members, singleTask, id) {
         let memberOfInitialArray = members[i];
         let color = checkForColor(memberOfTask);
         let leftPosition = i * 10;
-        document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, i);
-        document.getElementById(`other-member-${i}`).classList.add(`bg-contact-${color}`);
-        document.getElementById(`other-member-${i}`).style.left = `-${leftPosition}px`;
+        document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id, i);
+        document.getElementById(`other-member-${id}-${i}`).classList.add(`bg-contact-${color}`);
+        document.getElementById(`other-member-${id}-${i}`).style.left = `-${leftPosition}px`;
     }
 }
 

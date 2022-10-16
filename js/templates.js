@@ -192,10 +192,10 @@ function renderMembersOfTaskArea(id) {
     `
 }
 
-function renderAdditionalMembers(memberOfInitialArray, id) {
+function renderAdditionalMembers(memberOfInitialArray, id, i) {
     return `
     <div class="assigned-outer position-circle">
-        <div id="other-member-${id}" class="assigned-inner d-flex justify-content-center align-items-center relative">${memberOfInitialArray}</div>
+        <div id="other-member-${id}-${i}" class="assigned-inner d-flex justify-content-center align-items-center relative">${memberOfInitialArray}</div>
     </div>
     `
 }
