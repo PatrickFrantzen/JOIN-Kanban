@@ -16,7 +16,7 @@ function openDialog(id) {
 function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id){
     let title = singledisplayTask.title;
     let description = singledisplayTask.description;
-    let date = singledisplayTask.date;
+    let date = singledisplayTask.duedate;
     let prio = singledisplayTask.prio;
     let category = singledisplayTask.category;
     let color = getCategoryColor(category);

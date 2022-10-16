@@ -269,9 +269,10 @@ function getOtherMembers(members, singleTask, id) {
  * @returns the color of the first assigned member
  */
 function checkForFirstMemberColor(singleTask) {
-for (let i = 0; i < userInformation.length; i++) {
-        let name = userInformation[i].fullname;
-        let color = userInformation[i].color;
+    findOutConacts();
+for (let i = 0; i < allContacts.length; i++) {
+        let name = allContacts[i].fullname;
+        let color = allContacts[i].color;
         let firstmember = singleTask.member[0];
         if (name == firstmember) {
             let userColor = color;
@@ -287,9 +288,10 @@ for (let i = 0; i < userInformation.length; i++) {
  * @returns the color of additional members
  */
 function checkForColor(memberOfTask) {
-    for (let i = 0; i < userInformation.length; i++) {
-        let name = userInformation[i].fullname;
-        let color = userInformation[i].color;
+    findOutConacts();
+    for (let i = 0; i < allContacts.length; i++) {
+        let name = allContacts[i].fullname;
+        let color = allContacts[i].color;
         if (name == memberOfTask) {
             let userColor = color;
             return userColor;

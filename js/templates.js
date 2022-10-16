@@ -155,7 +155,7 @@ function renderLetterContainerMobileTemplate(letter) {
 
 function renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks, color) {
     return `
-    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog('${id}', '${title}', '${description}', '${category}', '${date}', '${prio}', '${subtasks}', '${completedsubtasks}')" class="card board-inner-card d-flex flex-column m-top-28">
+    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog('${id}')" class="card board-inner-card d-flex flex-column m-top-28">
     <span class="board-text board-category ${color}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description description-scroll">${description}</span>

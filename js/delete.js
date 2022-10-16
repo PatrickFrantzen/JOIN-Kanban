@@ -43,7 +43,6 @@ function clearAddTaskFields() {
     clearHiddenInputField('assignedTo-input');
     clearHiddenInputField('priority-input');
     clearHiddenInputField('category-input');
-    clearHiddenInputField('color-input');
 }
 
 /**

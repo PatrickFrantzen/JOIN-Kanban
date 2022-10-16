@@ -453,9 +453,9 @@ function notGuestAccount(user) {
  * @param {string} id equals the email adress of the assigned Member
  */
 function addAssignedToMembers(id) {
-    for (let i = 0; i < userInformation.length; i++) {
+    for (let i = 0; i < allContacts.length; i++) {
         let checkBox = document.getElementById(`checkbox-${id}`);
-        let user = userInformation[i];
+        let user = allContacts[i];
         if (user.mail == id) {
             if (!checkIfUserIsAlreadyAssigned(user) && checkBox.checked)
                 addMemberToArray(user);
@@ -520,11 +520,11 @@ function getSecondletterOfName(i) {
  *Function to get the definied Color of a specific member from array userInformation
  *  
  * @param {string} member 
- * @returns the color from the array userInformation
+ * @returns the color from the array allContacts
  */
 function getColorOfCurrentMember(member) {
-    for (let i = 0; i < userInformation.length; i++) {
-        let user = userInformation[i];
+    for (let i = 0; i < allContacts.length; i++) {
+        let user = allContacts[i];
         if (member == user.fullname) return user.color;
     }
 }
