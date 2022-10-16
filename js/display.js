@@ -1,22 +1,28 @@
-let displayId;
 /**
- * Function to open the Dialog window of a Task to see Details 
+ * Function to open dialog window of a task to see details 
  * 
  * @param {number} id 
- * @param {string} title 
- * @param {string} description 
- * @param {string} category 
- * @param {date} date 
- * @param {string} prio 
  */
-function openDialog(id, title, description, category, date, prio) {
+function openDialog(id) {
     let singledisplayTask = allTasks[id];
     let displaysubtasks = singledisplayTask.subtasks;
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
     let displaymembers = getMembers(singledisplayTask);
-    displayId = id;
-    createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
+    getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id);
+    
 }
+
+
+function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id){
+    let title = singledisplayTask.title;
+    let description = singledisplayTask.description;
+    let date = singledisplayTask.date;
+    let prio = singledisplayTask.prio;
+    let category = singledisplayTask.category;
+    let color = getCategoryColor(category);
+    createDisplayOverlay(id, title, description, category, date, prio, color, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
+}
+
 
 /**
  * Function to create all Details of the Task
@@ -32,8 +38,8 @@ function openDialog(id, title, description, category, date, prio) {
  * @param {Array} displaysubtasks 
  * @param {Array} displaycompletedsubtasks 
  */
-function createDisplayOverlay(id, title, description, category, date, prio, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks) {
-    createDisplay(id, title, description, category, date, prio)
+function createDisplayOverlay(id, title, description, category, date, prio, color, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks) {
+    createDisplay(id, title, description, category, date, color)
     createAssignedMemberAreaDisplay(displaymembers, singledisplayTask, id);
     createSubtasks(id, title, description, category, date, prio, displaysubtasks);
     createDisplayPriority(prio, id);
@@ -51,9 +57,9 @@ function createDisplayOverlay(id, title, description, category, date, prio, disp
  * @param {date} date 
  * @param {string} prio 
  */
-function createDisplay(id, title, description, category, date, prio) {
+function createDisplay(id, title, description, category, date, color) {
     document.getElementById('task-display').innerHTML = renderDisplay(id);
-    document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, prio);
+    document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, color);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
 }
 

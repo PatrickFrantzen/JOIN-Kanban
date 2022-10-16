@@ -153,10 +153,10 @@ function renderLetterContainerMobileTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks) {
+function renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks, color) {
     return `
     <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog('${id}', '${title}', '${description}', '${category}', '${date}', '${prio}', '${subtasks}', '${completedsubtasks}')" class="card board-inner-card d-flex flex-column m-top-28">
-    <span class="board-text board-category bg-category-${category}">${category}</span>
+    <span class="board-text board-category ${color}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description description-scroll">${description}</span>
 
@@ -206,7 +206,7 @@ function renderDisplay(id) {
     `
 }
 
-function renderDisplayContent(id, title, description, category, date) {
+function renderDisplayContent(id, title, description, category, date, color) {
     return `
             <div id="display-content-${id}" class="display-card w-100 d-flex">
                 <div class="display-inner-card m-left-25 m-right-25 d-flex flex-column">
@@ -215,7 +215,7 @@ function renderDisplayContent(id, title, description, category, date) {
                     <img class="m-right-24 m-top-20 cursor" onclick="closeDialog(${id})" src="img/buttons/close.png">
                     </div>
                     <!-- Headlines -->
-                    <span class="display-text display-category bg-category-${category}">${category}</span>
+                    <span class="display-text display-category ${color}">${category}</span>
                     <span class="display-text display-title">${title}</span>
                     <span class="display-text display-description">${description}</span>
 

@@ -336,9 +336,11 @@ function showSubtask(outputbox) {
  */
 async function addNewCategory() {
     let value = await addNewCategoryToArray();
-    clearCategoryInput();
-    renderCategoriesInHTML();
-    changeValue(value);
+    if (value){
+        clearCategoryInput();
+        renderCategoriesInHTML();
+        changeValue(value);
+    }
 }
 
 /**
@@ -347,14 +349,44 @@ async function addNewCategory() {
  * @returns the name of the new category
  * 
  */
-async function addNewCategoryToArray() {
+async function checkIfColorIsPicked() {
     let input = document.getElementById('category-input');
+    let id;
+    if (!colorNewCategory){
+        colorPickerError();
+    } else if (checkIfCategoryIsEntered(input)){
+        id = await addNewCategoryToArray(input);
+    } else {
+        newCategoryError();
+    }
+    clearNewCategoryInputValue(input);
+}
+
+
+function checkIfCategoryIsEntered(){
+    if (input.value.length > 0) return true;
+}
+
+
+async function addNewCategoryToArray(input){
     let id = input.value.toLowerCase();
     let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
     allCategories.push(category);
     await backend.setItem('allCategories', JSON.stringify(allCategories));
-    clearNewCategoryInputValue(input);
     return id;
+}
+
+
+
+function colorPickerError(){
+    let text = 'Please pick a color';
+    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
+}
+
+
+function newCategoryError(){
+    let text = 'Please enter the name of new category';
+    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
 /**

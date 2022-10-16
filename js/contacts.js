@@ -13,28 +13,37 @@ async function initContacts() {
 }
 
 
-// contact list overview
+/**
+ * fills a new array with contacts information of already
+ * existing user and new created user
+ */
 function findOutConacts() {
-    allContacts = contacts;
+    allContacts = Object.assign([], contacts);
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
         if (user.fullname !== "Guest Account") {
             allContacts.push(user);
         }
     }
-    createLetterContainer(allContacts);
-
+    createLetterContainer();
 }
 
 
-function createLetterContainer(allContacts) {
+
+function createLetterContainer() {
     let firstletters = [];
     for (let i = 0; i < allContacts.length; i++) {
         let firstLetter = getFirstLetterOfName(allContacts, i);
         firstletters.push(firstLetter);
     }
     let firstlettersUnique = removeDoubleLetters(firstletters);
+    firstlettersUnique = sortLetters(firstlettersUnique);
     renderLetterContainer(firstlettersUnique, allContacts);
+}
+
+
+function sortLetters(firstlettersUnique){
+    return firstlettersUnique.sort();
 }
 
 
@@ -42,6 +51,7 @@ function removeDoubleLetters(firstletters) {
     let unique = [...new Set(firstletters)];
     return unique;
 }
+
 
 function renderLetterContainer(firstlettersUnique, contacts) {
     let contactContainer = clearContactContainer();
@@ -188,17 +198,18 @@ function setAnimationClassLists(idToShow, idToAnimate) {
 
 
 // new contact
-function newContact() {
+async function newContact() {
     let name = document.getElementById('newContact-name');
     let email = document.getElementById('newContact-email');
     let phone = document.getElementById('newContact-phone');
-    addNewContactToArray(name, email, phone);
+    let color = await getNextFreeColor();
+    addNewContactToArray(name, email, phone, color);
 }
 
 
 //TODO
-async function addNewContactToArray(name, email, phone) {
-    let contact = { fullname: name.value, mail: email.value, phone: phone.value };
+async function addNewContactToArray(name, email, phone, color) {
+    let contact = { fullname: name.value, mail: email.value, phone: phone.value, color: color };
     contacts.push(contact);
     await backend.setItem('contacts', JSON.stringify(contacts));
     allContacts;

@@ -81,8 +81,18 @@ function getTaskDetails(i, singleTask) {
     let status = singleTask.status;
     let subtasks = singleTask.subtasks;
     let completedsubtasks = singleTask.finishedsubtasks;
-    createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask);
+    let color = getCategoryColor(category);
+    createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask, color);
 }
+
+
+function getCategoryColor(category){
+    for (let i = 0; i < allCategories.length; i++) {
+        let currentCategory = allCategories[i].name;
+        if(currentCategory == category) return allCategories[i].color;
+    }
+}
+
 
 /**
  * Function to create the Overlay of a single Task
@@ -99,8 +109,8 @@ function getTaskDetails(i, singleTask) {
  * @param {array} completedsubtasks 
  * @param {object} singleTask 
  */
-function createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask) {
-    createTask(i, title, description, category, date, prio, status, subtasks, completedsubtasks);
+function createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask, color) {
+    createTask(i, title, description, category, date, prio, status, subtasks, completedsubtasks, color);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
 }
@@ -118,8 +128,8 @@ function createOverlay(i, title, description, category, date, prio, members, sta
  * @param {array} subtasks 
  * @param {array} completedsubtasks 
  */
-function createTask(id, title, description, category, date, prio, status, subtasks, completedsubtasks) {
-    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks);
+function createTask(id, title, description, category, date, prio, status, subtasks, completedsubtasks, color) {
+    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks, color);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
     createSubtaskArea(id, subtasks, completedsubtasks);
 }

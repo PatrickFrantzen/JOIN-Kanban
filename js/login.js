@@ -25,26 +25,6 @@ async function signup() {
 
 
 
-// //TODO: edit contacts structure, so this function will not longer be needed
-// function getContactsinformationForNewUser() {
-//     for (let i = 0; i < userInformation.length; i++) {
-//         let user = userInformation[i];
-//         if (notGuestAccount(user)) {
-//             let name = user.fullname;
-//             let email = user.mail;
-//             let color = user.color;
-//             addContactsToNewUser(name, email, color);
-//         }
-//     }
-// }
-
-// //TODO
-// function addContactsToNewUser(name, email, color) {
-//     let contact = { fullname: name, mail: email, color: color };
-//     contacts.push(contact);
-// }
-
-
 async function getNextFreeColor() {
     for (let i = 0; i < contactColors.length; i++) {
         let color = contactColors[i];
@@ -89,7 +69,7 @@ function checkLoginData(index, password) {
 
 function loginMailError(text) {
     text = 'Your email is not registered yet, please sign up';
-    userResonse(text, 'login-user-response');
+    userResonse(text, 'login-user-response', 'login-user-response-text');
     switchOverview('login', 'signup', 'd-none');
     document.getElementById('login-password').value = '';
 }
@@ -97,12 +77,12 @@ function loginMailError(text) {
 
 function loginPasswordError(text){
     text = 'Your password is not correct, please try again';
-    userResonse(text, 'login-user-response');
+    userResonse(text, 'login-user-response', 'login-user-response-text');
 }
 
 
-function userResonse(text, id) {
-    document.getElementById('login-user-response-text').innerHTML = text;
+function userResonse(text, id, idText) {
+    document.getElementById(idText).innerHTML = text;
     showUserResponseOverlay(id);
 }
 
