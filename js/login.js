@@ -73,17 +73,26 @@ function login() {
 }
 
 
-//TODO: change alert to other user response
+
 function checkLoginData(index, password) {
+    let text;
     if (index == -1) {
-        alert('Your email is not registered yet, please sign up');
+        text = 'Your email is not registered yet, please sign up';
+        userResonse(text, 'login-user-response');
         switchOverview('login', 'signup', 'd-none');
     } else if (userInformation[index].password === password.value) {
         switchOtherHtml('summary.html?');
         checkIncognitoModeToLogin(index);
     } else {
-        alert('Your password is not correct, please try again');
+        text = 'Your password is not correct, please try again';
+        userResonse(text, 'login-user-response');
     }
+}
+
+
+function userResonse(text, id){
+    document.getElementById('login-user-response-text').innerHTML = text;
+    showUserResponseOverlay(id);
 }
 
 
