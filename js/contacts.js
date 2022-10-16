@@ -8,6 +8,7 @@ async function initContacts() {
     await includeHTML('include-addtask-html');
     renderProfileImage();
     findOutConacts();
+    createLetterContainer();
     renderCategoriesInHTML();
     renderAssignableMembersInHTML();
 }
@@ -25,7 +26,6 @@ function findOutConacts() {
             allContacts.push(user);
         }
     }
-    createLetterContainer();
 }
 
 
@@ -42,7 +42,7 @@ function createLetterContainer() {
 }
 
 
-function sortLetters(firstlettersUnique){
+function sortLetters(firstlettersUnique) {
     return firstlettersUnique.sort();
 }
 
@@ -207,7 +207,7 @@ async function newContact() {
 }
 
 
-//TODO
+
 async function addNewContactToArray(name, email, phone, color) {
     let contact = { fullname: name.value, mail: email.value, phone: phone.value, color: color };
     contacts.push(contact);
@@ -215,6 +215,14 @@ async function addNewContactToArray(name, email, phone, color) {
     allContacts;
     findOutConacts();
     clearNewContactInputfields(name, email, phone);
+    createdNewContactResponse();
+}
+
+
+function createdNewContactResponse() {
+    let text = 'new contact successfully created';
+    userResonse(text, 'contact-user-response-overlay', 'contact-user-response-overlay-text');
+
 }
 
 

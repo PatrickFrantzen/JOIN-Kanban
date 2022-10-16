@@ -411,13 +411,12 @@ function renderCategoriesInHTML() {
  * 
  */
 function renderAssignableMembersInHTML() {
+    findOutConacts();
     let memberList = document.getElementById('assignedToSelect');
     let you = userInformation[activeUserIndex];
-    let chooseFrom = userInformation.slice(0);
-    chooseFrom.splice(activeUserIndex,1);
     if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);
-    for (let i = 0; i < chooseFrom.length; i++) {
-        let user = chooseFrom[i];
+    for (let i = 0; i < allContacts.length; i++) {
+        let user = allContacts[i];
         if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
     }
     memberList.innerHTML += renderInviteNewContactTemplate();
