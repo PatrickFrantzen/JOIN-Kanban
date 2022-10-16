@@ -71,13 +71,9 @@ function createDisplay(id, title, description, category, date, color) {
  * @param {number} id 
  */
 function createAssignedMemberAreaDisplay(members, singleTask, id) {
-    if (singleTask.member.length == 1) {
-        getfirstMemberDisplay(members, singleTask, id);
-    } else {
-        getfirstMemberDisplay(members, singleTask, id);
+        getFirstMemberDisplay(members, singleTask, id);
         getOtherMembersDisplay(members, singleTask, id);
     }
-}
 
 /**
  * Function to render all Subtasks on Display
@@ -209,7 +205,7 @@ async function resetFinishedSubtask(id, title, description, category, date, prio
  * @param {array} singleTask 
  * @param {number} id 
  */
-function getfirstMemberDisplay(members, singleTask, id) {
+function getFirstMemberDisplay(members, singleTask, id) {
     let firstMember = members[0];
     let firstMemberFullName = singleTask.member[0];
     let color = checkForFirstMemberColor(singleTask)

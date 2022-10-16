@@ -173,13 +173,9 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
  * @param {number} id 
  */
 function createAssignedMemberArea(members, singleTask, id) {
-    /*if (singleTask.member.length == 1) {
-        getfirstMember(members, singleTask, id);
-    } else {*/
-        getfirstMember(members, singleTask, id);
+        getFirstMember(members, singleTask, id);
         getOtherMembers(members, singleTask, id);
     }
-//}
 
 /**
  * Function to set the right priority image for the task
@@ -240,7 +236,7 @@ function getFirstLetters(member) {
  * @param {array} singleTask 
  * @param {number} id 
  */
-function getfirstMember(members, singleTask, id) {
+function getFirstMember(members, singleTask, id) {
     let firstMember = members[0];
     let color = checkForFirstMemberColor(singleTask)
     document.getElementById(`first-member-${id}`).innerHTML = firstMember;
