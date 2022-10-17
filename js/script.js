@@ -26,7 +26,7 @@ async function putLoadedDataToArray() {
     allTasks = await JSON.parse(jsonFromServer.allTasks) || [];
     allCategories = await JSON.parse(jsonFromServer.allCategories) || [];
     contacts = JSON.parse(jsonFromServer.contacts) || [];
-    currentAddTaskData = jsonFromServer.currentAddTaskData || {};
+    currentAddTaskData = JSON.parse(jsonFromServer.currentAddTaskData) || {};
 }
 
 

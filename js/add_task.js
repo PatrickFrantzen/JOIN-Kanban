@@ -18,6 +18,7 @@ async function initAddTask() {
     renderCategoriesInHTML();
     renderAssignableMembersInHTML();
     renderDate();
+    checkCurrentAddTaskData();
 }
 
 
@@ -41,7 +42,7 @@ function changeValue(value) {
  */
 function renderDate() {
     let date = document.getElementById('date');
-    if(date) date.valueAsDate = new Date();
+    if (date) date.valueAsDate = new Date();
 }
 
 /**
@@ -364,7 +365,7 @@ async function checkIfColorIsPicked() {
 }
 
 
-function checkIfCategoryIsEntered() {
+function checkIfCategoryIsEntered(input) {
     if (input.value.length > 0) return true;
 }
 
@@ -378,13 +379,19 @@ async function addNewCategoryToArray(input) {
 }
 
 
-
+/**
+ * shows a user response and request to pick a color
+ */
 function colorPickerError() {
     let text = 'Please pick a color';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
 
+
+/**
+ * shows a user response and request to enter a name for new category
+ */
 function newCategoryError() {
     let text = 'Please enter the name of new category';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
@@ -545,6 +552,7 @@ function checkIfUserIsAlreadyAssigned(user) {
     return false;
 }
 
+
 /**
  * Function to show the Colorpicker-Bar when clicking on "New Category"
  * 
@@ -556,12 +564,70 @@ function changeIconsInCategory() {
     addClassList('colorpicker', 'd-flex');
 }
 
-function inviteNewContact() {
+
+/**
+ * 
+ */
+function changeIconsInAssignedTo() {
     document.getElementById('outputbox').innerHTML = renderInviteContact();
 }
 
 
-async function inviteContact() {
+/**
+ * checks if data already exist in checkCurrentAddTaskData
+ */
+function checkCurrentAddTaskData() {
+    if (currentAddTaskData) {
+        fillAddTaskFields();
+    }
+}
+
+
+//TODO
+function fillAddTaskFields(){
+    document.getElementById('title').value = currentAddTaskData.title;
+    document.getElementById('description').value = currentAddTaskData.description;
+    document.getElementById('assignedTo-input').value = 't';
+    fillAddTaskCategoryFields();
+    addMembersToAddTask();
+   // delete data in currentAddTaskData
+}
+
+//TODO
+// function addMembersToAddTask(){
+//     let memberEmails =[];
+//     for (let i = 0; i < currentAddTaskData.member.length; i++) {
+//         let member = currentAddTaskData.member[i];
+//         memberEmails = allContacts.forEach(contact => {
+//             if(member == contact.name) memberEmails.push(contact.mail);
+//         });
+//     }
+//     console.log(memberEmails);
+// }
+
+/**
+ * find out id of saved category in currentAddTaskData 
+ * and adds value in outputbox
+ */
+function fillAddTaskCategoryFields(){
+    let id;
+    for (let i = 0; i < allCategories.length; i++) {
+        let oneCategory = allCategories[i];
+        if(oneCategory.name == currentAddTaskData.category){
+            id = oneCategory.id;
+        }
+    }
+    changeValue(id); 
+}
+
+
+
+/**
+ * checks if inputfield of invite contact includes an @ to be sure it's
+ * an email adress, calls function to set values in inputfields and calls
+ * function to save previous data in add task on server
+ */
+async function setInputForInviteContact() {
     let mailInput = document.getElementById('invite-contact').value;
     if (mailInput.includes('@')) {
         setInputValues(mailInput);
@@ -571,17 +637,25 @@ async function inviteContact() {
 }
 
 
+/**
+ * sets value of hidden inputfield for sending invitation mail to new contact
+ * @param {String} mailInput inputfield-value for invite contact 
+ */
 function setInputValues(mailInput) {
-    document.getElementById('assignedTo-input').value = 't';
     document.getElementById('invite-input').value = mailInput;
 }
 
 
+
+/**
+ * saves already existing data in addtask, because page will be reload after
+ * sending invitation email
+ */
 async function savePreviousAddTaskData() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('category-input').value;
-    currentAddTaskData = { title: title, description: description, category: category };
+    currentAddTaskData = { title: title, description: description, category: category, members: currentMembers};
     await backend.setItem('currentAddTaskData', currentAddTaskData);
 }
 

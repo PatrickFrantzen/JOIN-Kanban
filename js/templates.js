@@ -403,7 +403,7 @@ function renderAssignedToMembersTemplate(id, name) {
 function renderInviteNewContactTemplate(){
     return `
     <li>
-        <div class="d-flex justify-content-space-between align-items-center" onclick="inviteNewContact()">
+        <div class="d-flex justify-content-space-between align-items-center" onclick="changeIconsInAssignedTo()">
              <span>Invite new contact</span>
             <img class="m-right-8" src="img/add_task/member.png" alt="">
         </div>
@@ -415,8 +415,9 @@ function renderInviteContact() {
     return `
     <div class="d-flex subtask-switch-container">
        <input id="invite-contact" class="inputfield-nearby-icon" autofocus type="email" placeholder="Invite new Contact">
+       <input id="assignedTo-input" class="hidden-input" type="text" required>
        <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearAssignedToInput()">
-       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="inviteContact()">
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="setInputForInviteContact()">
     </div>
     `
 }
