@@ -589,7 +589,7 @@ function fillAddTaskFields(){
     document.getElementById('description').value = currentAddTaskData.description;
     document.getElementById('assignedTo-input').value = 't';
     fillAddTaskCategoryFields();
-    addMembersToAddTask();
+    // addMembersToAddTask();
    // delete data in currentAddTaskData
 }
 
