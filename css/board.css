@@ -242,3 +242,7 @@
     opacity: 1;
 }
 
+.filter-plus-img:hover{
+    filter: invert(54%) sepia(55%) saturate(5447%) hue-rotate(164deg) brightness(98%) contrast(104%);
+}
+
