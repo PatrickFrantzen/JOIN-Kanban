@@ -413,11 +413,10 @@ function renderInviteNewContactTemplate(){
 
 function renderInviteContact() {
     return `
-    <div action="https://gruppe-306.developerakademie.net/JOIN-Kanban/send_mail/send_mail_invite.php"
-        onsubmit="inviteContact(); return false;"; method="POST" class="d-flex subtask-switch-container">
-       <input id="invite-contact" class="inputfield-nearby-icon" autofocus type="email" placeholder="Invite new Contact" required>
+    <div class="d-flex subtask-switch-container">
+       <input id="invite-contact" class="inputfield-nearby-icon" autofocus type="email" placeholder="Invite new Contact">
        <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearAssignedToInput()">
-       <button><img class="subtask-check-img" src="img/add_task/check.png" alt="" type="submit"></button>
+       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="inviteContact()">
     </div>
     `
 }

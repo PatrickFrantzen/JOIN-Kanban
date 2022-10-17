@@ -56,14 +56,15 @@
 
                     <div class="titleandinput">
                         <p class="m-top-28 add-task-titles">Category</p>
-                        <div id="categorybox" class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                        <div id="categorybox"
+                            class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                             onclick="dropdown('categorybox','categories')">
-                            
+
 
                             <div id="category"
                                 class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
                                 <input id="category-input" class="hidden-input" type="text" required>
-                                
+
                                 <div class="output-container d-flex justify-content-space-between">
                                     <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
                                         Select task Category
@@ -75,7 +76,7 @@
                             <ul class="add-task-lists d-none scroll" id="categories">
 
                             </ul>
-                            
+
                         </div>
                     </div>
 
@@ -139,7 +140,8 @@
                     <div class="titleandinput">
                         <div class=" d-flex flex-column m-top-28 assignedTo-container">
                             <label for="assignedTo" class="m-bottom-18 add-task-titles">Assigned to</label>
-                            <div id="outputbox" class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                            <div id="outputbox"
+                                class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
                                 onclick="dropdown('outputbox','assignedToSelect')">
                                 <input id="assignedTo-input" class="hidden-input" type="text" required>
                                 <div class="output-container d-flex justify-content-space-between">
@@ -208,8 +210,8 @@
                     </div>
 
                     <div id="add-task-btns" class="buttons">
-                        <button id="cancel-btn-add_task" class="light-btn" type="button" value="Previous" onclick="clearAddTaskFields()"
-                            formnovalidate="formnovalidate">
+                        <button id="cancel-btn-add_task" class="light-btn" type="button" value="Previous"
+                            onclick="clearAddTaskFields()" formnovalidate="formnovalidate">
                             <span class="f-18">clear</span>
                             <img class="btn-icons" src="img/buttons/clear.png" alt="">
                         </button>
@@ -228,25 +230,35 @@
     </div>
 
     </div>
-    <div id="addtask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none">
+    <div id="addtask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none disabled">
         <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
             <span>Task added to board</span>
             <img class="m-left-16" src="img/board/board.png" alt="">
         </div>
     </div>
 
-    <div id="edittask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none">
+    <div id="edittask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none disabled">
         <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
             <span>Task successfully edited</span>
             <img class="m-left-16" src="img/board/board.png" alt="">
         </div>
     </div>
 
-    <div id="addtask-user-response-overlay" class="user-response-overlay d-flex justify-content-center d-none">
+    <div id="addtask-user-response-overlay" class="user-response-overlay d-flex justify-content-center d-none disabled">
         <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
             <span id="addtask-user-response-overlay-text"></span>
         </div>
     </div>
+
+
+    <form action="https://gruppe-306.developerakademie.net/JOIN-Kanban/send_mail/send_mail_invite.php"
+        onsubmit="inviteContact()" method="POST" class="d-none">
+        <input id="invite-input" type="email" name="mail" required>
+        <button id="invite-btn" class="darkblue-btn" type="onsubmit">
+            <span class="f-18">Send me the email</span>
+        </button>
+    </form>
+
 </body>
 
 </html>

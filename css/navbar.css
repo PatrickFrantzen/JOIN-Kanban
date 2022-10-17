@@ -115,9 +115,6 @@
     right: 103px;
     color: white;
     width: 125px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .logout:hover {

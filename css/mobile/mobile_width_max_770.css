@@ -267,6 +267,10 @@
         margin: 15px;
     }
 
+    .search-blend {
+        top: 51px;
+    }
+
     .f-12 {
         font-size: 18px;
     }
@@ -367,6 +371,10 @@
     .help-content {
         padding-top: 158px !important;
         padding-bottom: 80px;
+    }
+
+    .help-container{
+        display: none;
     }
 
     .task-overlay {

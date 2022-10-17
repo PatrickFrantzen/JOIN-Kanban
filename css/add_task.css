@@ -202,11 +202,15 @@ input[type="date"]{
     left: 0;
     right: 0;
     align-items: flex-end;
+    text-align: center;
 }
 
 .added-to-board{
     margin-bottom: 350px;
     padding: 16px !important;
+    position: absolute;
+    top: 80vh;
+    right: calc(50vh - 230px);
 }
 
 .colorpicker{

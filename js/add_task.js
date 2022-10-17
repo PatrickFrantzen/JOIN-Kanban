@@ -336,7 +336,7 @@ function showSubtask(outputbox) {
  */
 async function addNewCategory() {
     let value = await addNewCategoryToArray();
-    if (value){
+    if (value) {
         clearCategoryInput();
         renderCategoriesInHTML();
         changeValue(value);
@@ -352,9 +352,9 @@ async function addNewCategory() {
 async function checkIfColorIsPicked() {
     let input = document.getElementById('category-input');
     let id;
-    if (!colorNewCategory){
+    if (!colorNewCategory) {
         colorPickerError();
-    } else if (checkIfCategoryIsEntered(input)){
+    } else if (checkIfCategoryIsEntered(input)) {
         id = await addNewCategoryToArray(input);
     } else {
         newCategoryError();
@@ -363,12 +363,12 @@ async function checkIfColorIsPicked() {
 }
 
 
-function checkIfCategoryIsEntered(){
+function checkIfCategoryIsEntered() {
     if (input.value.length > 0) return true;
 }
 
 
-async function addNewCategoryToArray(input){
+async function addNewCategoryToArray(input) {
     let id = input.value.toLowerCase();
     let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
     allCategories.push(category);
@@ -378,13 +378,13 @@ async function addNewCategoryToArray(input){
 
 
 
-function colorPickerError(){
+function colorPickerError() {
     let text = 'Please pick a color';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
 
-function newCategoryError(){
+function newCategoryError() {
     let text = 'Please enter the name of new category';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
@@ -555,6 +555,32 @@ function inviteNewContact() {
     document.getElementById('outputbox').innerHTML = renderInviteContact();
 }
 
+
+async function inviteContact() {
+    let mailInput = document.getElementById('invite-contact').value;
+    if (mailInput.includes('@')) {
+        setInputValues(mailInput);
+        await savePreviousAddTaskData();
+        document.getElementById('invite-btn').click();
+    }
+}
+
+
+function setInputValues(mailInput) {
+    document.getElementById('assignedTo-input').value = 't';
+    document.getElementById('invite-input').value = mailInput;
+}
+
+
+async function savePreviousAddTaskData(){
+    let title = document.getElementById('title').value;
+    let description = document.getElementById('description').value;
+    let category = document.getElementById('category-input').value;
+    currentAddTaskData = {title: title, description: description, category: category};
+    await backend.setItem('currentAddTaskData', currentAddTaskData);
+}
+
+
 /**
  * Function to set the global variable colorNewCategory to the given index number
  * Clicked color change the class and gets checked if already clicked
@@ -606,3 +632,4 @@ function activateAllColorBtns() {
         document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
     }
 }
+

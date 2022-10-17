@@ -246,8 +246,10 @@
     .password-mask {
         width: 580px;
     }
+
+    .btn-text-board{
+        width: 146px;
+    }
 }
 
 
-/* 
- */
