@@ -40,7 +40,8 @@ function changeValue(value) {
  * 
  */
 function renderDate() {
-    document.getElementById('date').valueAsDate = new Date();
+    let date = document.getElementById('date');
+    if(date) date.valueAsDate = new Date();
 }
 
 /**
@@ -395,13 +396,15 @@ function newCategoryError() {
  */
 function renderCategoriesInHTML() {
     let categoryList = document.getElementById('categories');
-    categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
-    for (let i = 0; i < allCategories.length; i++) {
-        let category = allCategories[i];
-        let id = category.id;
-        let name = category.name;
-        let color = category.color;
-        categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
+    if (categoryList) {
+        categoryList.innerHTML = '<li id="newCategory" onclick="changeIconsInCategory()">New Category</li>';
+        for (let i = 0; i < allCategories.length; i++) {
+            let category = allCategories[i];
+            let id = category.id;
+            let name = category.name;
+            let color = category.color;
+            categoryList.innerHTML += renderCategoriesInHTMLTemplate(id, name, color);
+        }
     }
 }
 
@@ -413,13 +416,15 @@ function renderCategoriesInHTML() {
 function renderAssignableMembersInHTML() {
     findOutConacts();
     let memberList = document.getElementById('assignedToSelect');
-    let you = userInformation[activeUserIndex];
-    if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);
-    for (let i = 0; i < allContacts.length; i++) {
-        let user = allContacts[i];
-        if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
+    if (memberList) {
+        let you = userInformation[activeUserIndex];
+        if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);
+        for (let i = 0; i < allContacts.length; i++) {
+            let user = allContacts[i];
+            if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
+        }
+        memberList.innerHTML += renderInviteNewContactTemplate();
     }
-    memberList.innerHTML += renderInviteNewContactTemplate();
 }
 
 /**
@@ -572,11 +577,11 @@ function setInputValues(mailInput) {
 }
 
 
-async function savePreviousAddTaskData(){
+async function savePreviousAddTaskData() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('category-input').value;
-    currentAddTaskData = {title: title, description: description, category: category};
+    currentAddTaskData = { title: title, description: description, category: category };
     await backend.setItem('currentAddTaskData', currentAddTaskData);
 }
 
