@@ -65,8 +65,13 @@
     font-size: 21px;
 }
 
+#forgot-password-text{
+    width: 162px;
+}
 
-
+.back-btn:hover{
+    width: 30px;
+}
 
 
 

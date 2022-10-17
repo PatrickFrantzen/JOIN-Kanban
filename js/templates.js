@@ -51,7 +51,7 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
                             <p id="contact-name-big" class="contact-name-big">${name}</p>
                             <div class="add-task d-flex curserPointer" onclick="openAddTaskForm('status')">
                                 <img src="img/buttons/add_light_blue.svg" alt="">
-                                <p>Add task</p>
+                                <p class="blue-font">Add task</p>
                             </div>
                         </div>
                     </div>

@@ -40,6 +40,10 @@
         display: none !important;
     }
 
+    .hide-nav{
+        display: block;
+    }
+
     .footer {
         display: none !important;
     }
@@ -74,6 +78,10 @@
         height: 50px;
         min-width: unset;
         min-height: unset;
+    }
+
+    .mobile-nav {
+        padding: 6px 0;
     }
 
     .mobil-button img {
@@ -350,6 +358,10 @@
         align-items: center;
         width: 100%;
         /* TODO */
+    }
+
+    #nav-item-logout {
+        border-radius: 0 0 20px 20px;
     }
 
     .help-content {

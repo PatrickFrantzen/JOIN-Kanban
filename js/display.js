@@ -1,4 +1,4 @@
-displayId;
+let displayId;
 
 /**
  * Function to open dialog window of a task to see details 

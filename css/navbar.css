@@ -1,9 +1,7 @@
-
-
 .header {
     position: fixed;
     width: 100%;
-    height: 100px;  
+    height: 100px;
     padding-left: 373px;
     padding-right: 100px;
     box-sizing: border-box;
@@ -26,7 +24,7 @@
     opacity: 0.7;
 }
 
-.profile-pic:hover{
+.profile-pic:hover {
     opacity: 1;
 }
 
@@ -55,7 +53,7 @@
     position: fixed;
 }
 
-.navbar-inner-container{
+.navbar-inner-container {
     height: calc(100vh - 150px);
 }
 
@@ -85,7 +83,7 @@
     width: 170px;
 }
 
-.single-menu:hover span{
+.single-menu:hover span {
     color: var(--white);
 }
 
@@ -102,30 +100,56 @@
     margin-left: 30px;
 }
 
-.menulink-active{
+.menulink-active {
     background-color: var(--dark-blue3);
-    cursor: pointer; 
+    cursor: pointer;
     color: white;
 }
 
 
-.logout{
+.logout {
     position: absolute;
     border-radius: 20px 0px 20px 20px;
     background-color: var(--dark-blue);
-    padding: 4px 32px 4px 32px;
     top: 100px;
     right: 103px;
     color: white;
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.logout:hover{
-    cursor: pointer;
-    background-color: var(--light-blue); 
+.logout:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.question-help-img:hover{
-    filter: invert(92%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(89%) contrast(96%);;
+.mobile-nav {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
 }
 
+.hide-nav {
+    display: none;
+}
+
+
+
+#nav-item-logout {
+    border-radius: 20px 0 20px 20px;
+}
+
+#nav-item-help {
+    border-radius: 20px 0 0 0;
+}
+
+.mobile-nav:hover {
+    background-color: var(--light-blue);
+    cursor: pointer;
+}
+
+.question-help-img:hover {
+    filter: invert(92%) sepia(2%) saturate(0%) hue-rotate(174deg) brightness(89%) contrast(96%);
+    ;
+}
