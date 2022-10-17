@@ -1,4 +1,4 @@
-let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint'];
+let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint', 'privacy'];
 let activeUser;
 let activeUserIndex;
 let userIndexForgotPassword;

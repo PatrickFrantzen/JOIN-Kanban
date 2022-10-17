@@ -31,7 +31,8 @@
         <span class="header-text">Kanban Project Management Tool</span>
         <img class="d-none join-logo-mobile" src="img/buttons/join-logo-mobile.png" alt="">
         <div class="header-pics d-flex align-items-center">
-            <div class="help-container"><a href="help.html"><img class="question-help-img" src="img/navbar/question.svg"></a></div>
+            <div class="help-container"><a href="help.html"><img class="question-help-img"
+                        src="img/navbar/question.svg"></a></div>
             <div class="outer-circle d-flex justify-content-center align-items-center"
                 onclick="toggleClassList('logout-btn', 'd-none')">
                 <div class="inner-circle d-flex justify-content-center align-items-center"><img id="profile-pic"
@@ -41,6 +42,7 @@
         <div id="logout-btn" class="logout d-none">
             <div id="nav-item-help" class="mobile-nav hide-nav" onclick="switchOtherHtml('help.html?')">Help</div>
             <div class="mobile-nav hide-nav" onclick="switchOtherHtml('imprint.html?')">Imprint</div>
+            <div class="mobile-nav hide-nav" onclick="switchOtherHtml('privacy.html?')">Privacy</div>
             <div id="nav-item-logout" class="mobile-nav" onclick="logout()">Log Out</div>
         </div>
     </div>
@@ -72,6 +74,9 @@
                 <div id="imprint" class="single-menu d-flex align-items-center"><a class="d-flex align-items-center"
                         href="imprint.html"><img id="imprint-icon" src="img/navbar/legal.png"> <span id="imprint-text"
                             class="menu-text">Legal notice</span></a></div>
+                <div id="privacy" class="single-menu d-flex align-items-center"><a class="d-flex align-items-center"
+                        href="privacy.html"><img id="privacy-icon" src="img/navbar/legal.png"> <span id="privacy-text"
+                            class="menu-text">Data Privacy</span></a></div>
             </div>
         </div>
     </nav>

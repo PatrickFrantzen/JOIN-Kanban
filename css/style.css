@@ -366,3 +366,12 @@ a {
 .disabled {
     pointer-events: none;
 }
+
+.privacy{
+    padding-right: 50px;
+    overflow: hidden;
+}
+
+.br-privacy{
+    overflow-wrap: break-word; 
+}
