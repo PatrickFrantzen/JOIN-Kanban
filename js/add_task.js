@@ -577,6 +577,12 @@ async function fillAddTaskFields() {
     fillAddTaskCategoryFields();
     addMembersEmailToArray();
     await deleteCurrentAddTaskData();
+    showUserResponseInviteContact();
+}
+
+function showUserResponseInviteContact() {
+    let text = 'An inivitation has been sent via email';
+    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
 
