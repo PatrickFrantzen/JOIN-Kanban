@@ -606,7 +606,6 @@ function addMembersEmailToArray() {
 
 
 function addMembersToAddTask(memberEmails) {
-    if(currentAddTaskData.invite) memberEmails.push(currentAddTaskData.invite);
     for (let i = 0; i < memberEmails.length; i++) {
         let email = memberEmails[i];
         let id = 'checkbox-' + email;
@@ -615,6 +614,7 @@ function addMembersToAddTask(memberEmails) {
             addAssignedToMembers(email);
         }
     }
+    document.getElementById('invited-member').innerHTML = renderInvitedMail(currentSubTasks.invite);
 }
 
 /**

@@ -443,3 +443,11 @@ function renderAssignedToMemberAvatareTemplate(firstLetter, secondLetter, color)
         </div>
     </div>`
 }
+
+
+function renderInvitedMail(email){
+    return `
+    <p>${email}</p>
+    <p class="m-left-24 color-red">Pending Invitation</p>
+    `
+}

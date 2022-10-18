@@ -209,7 +209,7 @@ input[type="date"]{
     margin-bottom: 350px;
     padding: 16px !important;
     position: absolute;
-    top: 80vh;
+    top: 70vh;
     right: calc(50vh - 230px);
 }
 

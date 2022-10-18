@@ -27,6 +27,9 @@
     --progress: #29ABE2;
 }
 
+.color-red{
+    color: red;
+}
 
 .color-white {
     color: var(--white);
