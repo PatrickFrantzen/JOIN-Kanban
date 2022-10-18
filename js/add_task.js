@@ -262,27 +262,36 @@ function renderCategoriesInHTML() {
 
 
 /**
- * Function to check if Account is not a Guest and render the user as "You" in the Assignable Member List,
- * then render all other Users to the AssignedMember List and add the option to invide new Contact
+ *  Function, when the assignedToSelect area is activated by dropdown menu, the assignable Member area is created and the InviteContact is added
  * 
  */
 function renderAssignableMembersInHTML() {
     findOutConacts();
     let memberList = document.getElementById('assignedToSelect');
-    //let assignableMembers = Object.assign([], allContacts);
+    let assignableMembers = Object.assign([], allContacts);
     if (memberList) {
-        let you = userInformation[activeUserIndex];
-        if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);//you ist nicht die richtige Variable
-        //let index = assignableMembers.indexOf(`${you}`);
-        //assignableMembers.splice(index, 1);
-        for (let i = 0; i < allContacts.length; i++) {
-            let user = allContacts[i];
-            if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
-        }
+        createAssignableMembers(memberList, assignableMembers);
         memberList.innerHTML += renderInviteNewContactTemplate();
     }
 }
 
+/**
+ * Function to check if Account is not a Guest and render the user as "You" in the Assignable Member List,
+ * then render all other Users to the AssignedMember List
+ * 
+ * @param {string} memberList 
+ * @param {array} assignableMembers 
+ */
+function createAssignableMembers(memberList, assignableMembers) {
+    let you = userInformation[activeUserIndex];
+    if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);
+    let index = assignableMembers.indexOf(you);
+    assignableMembers.splice(index, 1);
+    for (let i = 0; i < assignableMembers.length; i++) {
+        let user = assignableMembers[i];
+        if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
+    }
+}
 
 //TODO
 /**
