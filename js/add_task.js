@@ -162,19 +162,6 @@ function fillHiddenInputField(id) {
 }
 
 
-//TODO: Prüfen, ob diese Funkion gebraucht wird. Habe sie in keiner anderen JS oder HTML Datei gefunden.
-/**
- * 
- * @param {*} member 
- * @returns 
- */
-function createId(member) {
-    let id = member.label.replace(' ', '');
-    id = id.toLowerCase();
-    return id;
-}
-
-
 /**
  * checks if the Task is a new Task or a Task to edit
  * 
@@ -388,7 +375,6 @@ function colorPickerError() {
 }
 
 
-
 /**
  * shows a user response and request to enter a name for new category
  */
@@ -458,9 +444,9 @@ function notGuestAccount(user) {
 
 /**
  * Function to check if the clicked Member is already in Array currentMember.
- * If no, the member is added to the Array currentMember and the checkbos is checked. 
- * If yes, the member is deleted and the checkbox is unchecked.
- * Afterwards, the Avater is rendered and the Form Validation is executed.
+ * case no: member is added to the Array currentMember and the checkbos is checked. 
+ * case yes: member is deleted and the checkbox is unchecked.
+ * Afterwards avatar will be rendered and Form Validation is executed.
  * 
  * @param {string} id equals the email adress of the assigned Member
  */
@@ -480,7 +466,7 @@ function addAssignedToMembers(id) {
 }
 
 /**
- * Function to push the full name of the assigned Member to the Array currentMembers
+ * Function to push fullname of assigned Member to array currentMembers
  * 
  * @param {string} user 
  */
@@ -577,47 +563,61 @@ function changeIconsInAssignedTo() {
  * checks if data already exist in checkCurrentAddTaskData
  */
 function checkCurrentAddTaskData() {
-    if (currentAddTaskData) {
+    if (currentAddTaskData.invite) {
         fillAddTaskFields();
     }
 }
 
 
 //TODO
-function fillAddTaskFields(){
+function fillAddTaskFields() {
     document.getElementById('title').value = currentAddTaskData.title;
     document.getElementById('description').value = currentAddTaskData.description;
     document.getElementById('assignedTo-input').value = 't';
     fillAddTaskCategoryFields();
-    // addMembersToAddTask();
-   // delete data in currentAddTaskData
+    addMembersEmailToArray();
+    // delete data in currentAddTaskData
 }
 
 //TODO
-// function addMembersToAddTask(){
-//     let memberEmails =[];
-//     for (let i = 0; i < currentAddTaskData.member.length; i++) {
-//         let member = currentAddTaskData.member[i];
-//         memberEmails = allContacts.forEach(contact => {
-//             if(member == contact.name) memberEmails.push(contact.mail);
-//         });
-//     }
-//     console.log(memberEmails);
-// }
+function addMembersEmailToArray() {
+    let memberEmails = [];
+    for (let i = 0; i < currentAddTaskData.members.length; i++) {
+        let member = currentAddTaskData.members[i];
+        for (let j = 0; j < allContacts.length; j++) {
+            let contact = allContacts[j];
+            if (member == contact.fullname) memberEmails.push(contact.mail);
+        }
+    }
+    addMembersToAddTask(memberEmails);
+}
+
+
+function addMembersToAddTask(memberEmails) {
+    if(currentAddTaskData.invite) memberEmails.push(currentAddTaskData.invite);
+    for (let i = 0; i < memberEmails.length; i++) {
+        let email = memberEmails[i];
+        let id = 'checkbox-' + email;
+        if (id) {
+            document.getElementById(id).checked = true;
+            addAssignedToMembers(email);
+        }
+    }
+}
 
 /**
  * find out id of saved category in currentAddTaskData 
  * and adds value in outputbox
  */
-function fillAddTaskCategoryFields(){
+function fillAddTaskCategoryFields() {
     let id;
     for (let i = 0; i < allCategories.length; i++) {
         let oneCategory = allCategories[i];
-        if(oneCategory.name == currentAddTaskData.category){
+        if (oneCategory.name == currentAddTaskData.category) {
             id = oneCategory.id;
         }
     }
-    changeValue(id); 
+    if(id) changeValue(id);
 }
 
 
@@ -631,7 +631,7 @@ async function setInputForInviteContact() {
     let mailInput = document.getElementById('invite-contact').value;
     if (mailInput.includes('@')) {
         setInputValues(mailInput);
-        await savePreviousAddTaskData();
+        await savePreviousAddTaskData(mailInput);
         document.getElementById('invite-btn').click();
     }
 }
@@ -651,12 +651,12 @@ function setInputValues(mailInput) {
  * saves already existing data in addtask, because page will be reload after
  * sending invitation email
  */
-async function savePreviousAddTaskData() {
+async function savePreviousAddTaskData(mailInput) {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('category-input').value;
-    currentAddTaskData = { title: title, description: description, category: category, members: currentMembers};
-    await backend.setItem('currentAddTaskData', currentAddTaskData);
+    currentAddTaskData = { title: title, description: description, category: category, members: currentMembers, invite: mailInput };
+    await backend.setItem('currentAddTaskData', JSON.stringify(currentAddTaskData));
 }
 
 
