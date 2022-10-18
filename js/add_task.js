@@ -614,7 +614,7 @@ function addMembersToAddTask(memberEmails) {
             addAssignedToMembers(email);
         }
     }
-    document.getElementById('invited-member').innerHTML = renderInvitedMail(currentSubTasks.invite);
+    document.getElementById('invited-member').innerHTML = renderInvitedMail(currentAddTaskData.invite);
 }
 
 /**
