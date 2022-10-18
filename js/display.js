@@ -33,7 +33,7 @@ async function deleteInvitationStatus(id, fullname) {
     allTasks[id].member.push(fullname);
     allTasks[id].invite = 'none';
     await backend.setItem('allTasks', JSON.stringify(allTasks));
-    createCards();
+    renderCards();
 }
 
 
