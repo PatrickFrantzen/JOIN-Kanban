@@ -269,9 +269,12 @@ function renderCategoriesInHTML() {
 function renderAssignableMembersInHTML() {
     findOutConacts();
     let memberList = document.getElementById('assignedToSelect');
+    let assignableMembers = Object.assign([], allContacts);
     if (memberList) {
         let you = userInformation[activeUserIndex];
         if (notGuestAccount(you)) memberList.innerHTML = renderYouInAssignedTo(you.mail);
+        let index = assignableMembers.indexOf(`${you}`);
+        assignableMembers.splice(index, 1);
         for (let i = 0; i < allContacts.length; i++) {
             let user = allContacts[i];
             if (notGuestAccount(user)) memberList.innerHTML += renderAssignedToMembersTemplate(user.mail, user.fullname);
