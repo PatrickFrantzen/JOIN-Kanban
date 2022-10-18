@@ -6,6 +6,7 @@ let displayId;
  * @param {number} id 
  */
 function openDialog(id) {
+    checkInvitationStatus(id);
     let singledisplayTask = allTasks[id];
     let displaysubtasks = singledisplayTask.subtasks;
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
@@ -16,6 +17,16 @@ function openDialog(id) {
 }
 
 
+function  checkInvitationStatus(id){
+    for (let i = 0; i < allContacts.length; i++) {
+        let mail = allContacts[i].mail;
+        if (allTasks[id].invite && allTasks[id].invite == mail)
+        console.log('invited gelöscht');
+    }
+   
+}
+
+
 function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id){
     let title = singledisplayTask.title;
     let description = singledisplayTask.description;
@@ -23,7 +34,8 @@ function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtask
     let prio = singledisplayTask.prio;
     let category = singledisplayTask.category;
     let color = getCategoryColor(category);
-    createDisplayOverlay(id, title, description, category, date, prio, color, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks);
+    let inviteMail = singledisplayTask.invite;
+    createDisplayOverlay(id, title, description, category, date, prio, color, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks, inviteMail);
 }
 
 
@@ -41,8 +53,8 @@ function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtask
  * @param {Array} displaysubtasks 
  * @param {Array} displaycompletedsubtasks 
  */
-function createDisplayOverlay(id, title, description, category, date, prio, color, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks) {
-    createDisplay(id, title, description, category, date, color)
+function createDisplayOverlay(id, title, description, category, date, prio, color, displaymembers, singledisplayTask, displaysubtasks, displaycompletedsubtasks, inviteMail) {
+    createDisplay(id, title, description, category, date, color, inviteMail)
     createAssignedMemberAreaDisplay(displaymembers, singledisplayTask, id);
     createSubtasks(id, title, description, category, date, prio, displaysubtasks);
     createDisplayPriority(prio, id);
@@ -60,10 +72,11 @@ function createDisplayOverlay(id, title, description, category, date, prio, colo
  * @param {date} date 
  * @param {string} prio 
  */
-function createDisplay(id, title, description, category, date, color) {
+function createDisplay(id, title, description, category, date, color, inviteMail) {
     document.getElementById('task-display').innerHTML = renderDisplay(id);
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, color);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
+    if(inviteMail && inviteMail !== 'none') document.getElementById('invited-member-board').innerHTML += renderInvitedMail(inviteMail);
 }
 
 /**

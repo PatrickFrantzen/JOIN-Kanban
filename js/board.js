@@ -94,6 +94,7 @@ function getCategoryColor(category){
 }
 
 
+
 /**
  * Function to create the Overlay of a single Task
  * 

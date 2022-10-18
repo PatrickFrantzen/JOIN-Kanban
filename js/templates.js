@@ -267,8 +267,8 @@ function renderMembersOfTaskAreaDisplay(id) {
                                 </div>
                                 <span id="first-member-name-display-${id}" class="m-left-8"></span>
                             </li>
-                            
                         </ul>
+                        <div id="invited-member-board" class="d-flex"></div>
     `
 }
 

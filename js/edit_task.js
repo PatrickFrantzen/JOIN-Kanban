@@ -149,12 +149,10 @@ function setSubtasks(subtasks) {
  * @param {date} date 
  * @param {date} originFormatDate 
  * @param {number} index 
- * @param {string} prio
- * @param {array} assignedTo //assigned members
  */
  async function addEditTaskToArray(title, description, category, date, originFormatDate, index) {
     let editedTask = {
-        title: title.value, description: description.value, category: category, member: currentMembers,
+        title: title.value, description: description.value, category: category, member: currentMembers, invite: invitedContact,
         duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
         subtasks: currentSubTasks, finishedsubtasks: [], complete: false
     };

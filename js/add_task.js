@@ -5,6 +5,7 @@ let currentSubTasks = [];
 let colorNewCategory;
 let colorBtnIsClicked = false;
 let boardStatus = 'toDo';
+let invitedContact = 'none';
 
 /**
  * Initialisation Function to load the page AddTask HTML
@@ -201,7 +202,7 @@ async function getDataForNewTask() {
  */
 async function addNewTaskToArray(title, description, category, originFormatDate, date) {
     let newTask = {
-        title: title.value, description: description.value, category: category, member: currentMembers,
+        title: title.value, description: description.value, category: category, member: currentMembers, invite: invitedContact,
         duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
         subtasks: currentSubTasks, finishedsubtasks: [], complete: false
     };
@@ -615,6 +616,7 @@ function addMembersToAddTask(memberEmails) {
         }
     }
     document.getElementById('invited-member').innerHTML = renderInvitedMail(currentAddTaskData.invite);
+    invitedContact = currentAddTaskData.invite;
 }
 
 /**
