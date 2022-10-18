@@ -183,7 +183,9 @@ function showSubtask(outputbox) {
  * 
  */
 async function addNewCategory() {
-    let value = await addNewCategoryToArray();
+    let input = document.getElementById('category-input');
+    checkIfColorIsPicked(input);
+    let value = await addNewCategoryToArray(input);
     if (value) {
         clearCategoryInput();
         renderCategoriesInHTML();
@@ -198,8 +200,7 @@ async function addNewCategory() {
  * @returns the name of the new category
  * 
  */
-async function checkIfColorIsPicked() {
-    let input = document.getElementById('category-input');
+async function checkIfColorIsPicked(input) {
     let id;
     if (!colorNewCategory) {
         colorPickerError();
