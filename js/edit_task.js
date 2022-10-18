@@ -153,7 +153,7 @@ function setSubtasks(subtasks) {
  async function addEditTaskToArray(title, description, category, date, originFormatDate, index) {
     let editedTask = {
         title: title.value, description: description.value, category: category, member: currentMembers, invite: invitedContact,
-        duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
+        duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: allTasks[index].status,
         subtasks: currentSubTasks, finishedsubtasks: [], complete: false
     };
     allTasks.splice(index, 1, editedTask);

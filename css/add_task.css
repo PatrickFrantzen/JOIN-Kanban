@@ -165,6 +165,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    filter: invert(54%) sepia(55%) saturate(5447%) hue-rotate(164deg) brightness(98%) contrast(104%);
+}
+
 input[type="date"]{
     cursor:text;
 }

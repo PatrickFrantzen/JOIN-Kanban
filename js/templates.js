@@ -315,12 +315,12 @@ function renderNewContactBtn() {
 }
 
 
-function renderNewSubTaskInput(subtaskInput) {
+function renderNewSubTaskInput() {
     return `
     <div class="d-flex subtask-switch-container">
-       <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask" value="${subtaskInput}">
-       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
-       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
+       <input id="subtask-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Subtask">
+       <img class="subtask-cancel-img filter-plus-img" src="img/add_task/cancel.png" alt="" onclick="clearSubtaskInput()">
+       <img class="subtask-check-img filter-plus-img" src="img/add_task/check.png" alt="" onclick="addNewSubtask()">
     </div>
 `
 }
@@ -342,7 +342,7 @@ function clearCategoryInputTemplate() {
         <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
         Select task Category
         </div>
-        <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
+        <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" class="filter-plus-img" alt="">
     </div>
     `
 }
@@ -353,8 +353,8 @@ function renderNewCategoryInput(input) {
     <div class="d-flex subtask-switch-container">
        <input id="category-input" class="inputfield-nearby-icon" autofocus type="text" placeholder="Add new Category" value="${input}" required>
        <input id="color-input" class="hidden-input" type="number" required>
-       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearCategoryInput()">
-       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="addNewCategory()">
+       <img class="subtask-cancel-img filter-plus-img" src="img/add_task/cancel.png" alt="" onclick="clearCategoryInput()">
+       <img class="subtask-check-img filter-plus-img" src="img/add_task/check.png" alt="" onclick="addNewCategory()">
     </div>
 `
 }
@@ -416,8 +416,8 @@ function renderInviteContact() {
     <div class="d-flex subtask-switch-container">
        <input id="invite-contact" class="inputfield-nearby-icon" autofocus type="email" placeholder="Invite new Contact">
        <input id="assignedTo-input" class="hidden-input" type="text" required>
-       <img class="subtask-cancel-img" src="img/add_task/cancel.png" alt="" onclick="clearAssignedToInput()">
-       <img class="subtask-check-img" src="img/add_task/check.png" alt="" onclick="setInputForInviteContact()">
+       <img class="subtask-cancel-img filter-plus-img" src="img/add_task/cancel.png" alt="" onclick="clearAssignedToInput()">
+       <img class="subtask-check-img filter-plus-img" src="img/add_task/check.png" alt="" onclick="setInputForInviteContact()">
     </div>
     `
 }
@@ -428,7 +428,7 @@ function clearAssignedToInputTemplate() {
     <div class="output-container d-flex justify-content-space-between">
         <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
             contacts to assign</div>
-        <img src="img/add_task/dropdown_arrow.svg" alt="">
+        <img src="img/add_task/dropdown_arrow.svg" class="filter-plus-img" alt="">
     </div>
     `
 }

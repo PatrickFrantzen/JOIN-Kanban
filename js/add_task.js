@@ -87,15 +87,12 @@ async function addNewTaskToArray(title, description, category, originFormatDate,
 }
 
 
-//TODO: In subtask-input kann kein Text eingegegeben werden, es wird direkt die changeIconsInSubtask Funktion ausgeführt und subtaskInput ist "".
-//Wird dann die Zeile let subtaskInput = document.getElementById('subtask-input').value; überhaupt benötigt?
 /**
  * Function to get the value of inputfield Subtasks and add this as a variable to the render function
  * 
  */
 function changeIconsInSubtasks() {
-    let subtaskInput = document.getElementById('subtask-input').value;
-    document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
+    document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput();
 }
 
 
@@ -177,9 +174,8 @@ function showSubtask(outputbox) {
 }
 
 
-//TODO
 /**
- * Function to add a new Category
+ * Function to add a new Category when a Color is picked and input field has content
  * 
  */
 async function addNewCategory() {
@@ -217,7 +213,12 @@ function checkIfCategoryIsEntered(input) {
     if (input.value.length > 0) return true;
 }
 
-
+/**
+ * adds id, input-value & color to allCategories array and sends it to server
+ * 
+ * @param {object} input 
+ * @returns 
+ */
 async function addNewCategoryToArray(input) {
     let id = input.value.toLowerCase();
     let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
@@ -294,9 +295,10 @@ function createAssignableMembers(memberList, assignableMembers) {
     }
 }
 
-//TODO
+
 /**
- * Function to fill the HiddenInputFields to check for Form Validation
+ * fills the hidden Inputfield when the lenght of currentMembers array is >= 1
+ * otherwise the hidden Inputfield will be cleared
  * 
  */
 function fillInputFieldForFormValidation() {
@@ -305,7 +307,6 @@ function fillInputFieldForFormValidation() {
     if (currentMembers.length == 0)
         clearHiddenInputField('assignedTo-input');
 }
-
 
 
 /**
@@ -331,6 +332,7 @@ function addAssignedToMembers(id) {
     fillInputFieldForFormValidation();
 }
 
+
 /**
  * Function to push fullname of assigned Member to array currentMembers
  * 
@@ -339,6 +341,7 @@ function addAssignedToMembers(id) {
 function addMemberToArray(user) {
     currentMembers.push(user.fullname);
 }
+
 
 /**
  * Function to clear the MemberAvatar area and fill it with all assigned Members from the Array currentMembers
@@ -357,7 +360,6 @@ function renderAssignedToMemberAvatare() {
 }
 
 
-
 /**
  *Function to get the definied Color of a specific member from array userInformation
  *  
@@ -370,6 +372,7 @@ function getColorOfCurrentMember(member) {
         if (member == user.fullname) return user.color;
     }
 }
+
 
 /**
  * Function to check if the assigned Member is already assigned and part of Array currentMembers
@@ -395,9 +398,6 @@ function changeIconsInCategory() {
 }
 
 
-/**
- * 
- */
 function changeIconsInAssignedTo() {
     document.getElementById('outputbox').innerHTML = renderInviteContact();
 }
@@ -412,7 +412,10 @@ function checkCurrentAddTaskData() {
     }
 }
 
-
+/**
+ * After invitation of new user value of title, description, assignedTo-input, category and choosen members will be filled
+ * 
+ */
 async function fillAddTaskFields() {
     document.getElementById('title').value = currentAddTaskData.title;
     document.getElementById('description').value = currentAddTaskData.description;
@@ -429,7 +432,10 @@ async function deleteCurrentAddTaskData(){
     await backend.setItem('currentAddTaskData', JSON.stringify(currentAddTaskData));
 }
 
-
+/**
+ * gets Email of saved members in currentAddTaskData 
+ * 
+ */
 function addMembersEmailToArray() {
     let memberEmails = [];
     for (let i = 0; i < currentAddTaskData.members.length; i++) {
@@ -442,7 +448,12 @@ function addMembersEmailToArray() {
     addMembersToAddTask(memberEmails);
 }
 
-
+/**
+ * checkboxes of members part of memberEmails are checked and avatars are created
+ * Invited contact is rendered
+ * 
+ * @param {array} memberEmails 
+ */
 function addMembersToAddTask(memberEmails) {
     for (let i = 0; i < memberEmails.length; i++) {
         let email = memberEmails[i];
@@ -455,7 +466,6 @@ function addMembersToAddTask(memberEmails) {
     document.getElementById('invited-member').innerHTML = renderInvitedMail(currentAddTaskData.invite);
     invitedContact = currentAddTaskData.invite;
 }
-
 
 
 /**
@@ -482,7 +492,6 @@ function setInputValues(mailInput) {
 }
 
 
-
 /**
  * saves already existing data in addtask, because page will be reload after
  * sending invitation email
@@ -494,8 +503,3 @@ async function savePreviousAddTaskData(mailInput) {
     currentAddTaskData = { title: title, description: description, category: category, members: currentMembers, invite: mailInput };
     await backend.setItem('currentAddTaskData', JSON.stringify(currentAddTaskData));
 }
-
-
-
-
-
