@@ -8,7 +8,7 @@ let boardStatus = 'toDo';
 let invitedContact = 'none';
 
 /**
- * Initialisation Function to load the page AddTask HTML
+ * Initialisation function to load page AddTask HTML
  * 
  */
 async function initAddTask() {
@@ -37,131 +37,6 @@ function changeValue(value) {
     currentCategory = value;
 }
 
-/**
- * Function to set the Date of the Due Date to today
- * 
- */
-function renderDate() {
-    let date = document.getElementById('date');
-    if (date) date.valueAsDate = new Date();
-}
-
-/**
- * changes classlist of priority-btns
- * @param {String} id 
- * @param {String} classList 
- */
-function changePriority(id, classList) {
-    let imgName = `${id}-img`;
-    let imgPath = document.getElementById(imgName);
-    toggleClassList(id, classList);
-    for (let i = 0; i < priority.length; i++) {
-        let prio = priority[i].level;
-        if (prio == id) {
-            changePriorityIcons(imgPath, i);
-            currentPrio = prio;
-        }
-    }
-    checkIfBtnIsClicked();
-}
-
-
-/**
- * changes icons of clicked priority btn
- * @param {object} imgPath 
- * @param {number} i 
- */
-function changePriorityIcons(imgPath, i) {
-    switch (true) {
-        case priority[i].toggle: {
-            priority[i].toggle = false;
-            imgPath.src = priority[i]["img-normal"];
-            break;
-        }
-        default: {
-            priority[i].toggle = true;
-            imgPath.src = priority[i]["img-choosed"];
-            break;
-        }
-    }
-}
-
-
-/**
- * checks, if a priority-btn is clicked
- * if yes, calls function for disabling the other btns
- */
-function checkIfBtnIsClicked() {
-    let counter = 0;
-    for (let i = 0; i < priority.length; i++) {
-        let btnIsClicked = priority[i].toggle;
-        if (btnIsClicked) {
-            fillHiddenInputField('priority-input');
-            disableOtherBtns(i);
-        } else {
-            counter++;
-        }
-    }
-    activateOtherBtns(counter);
-}
-
-
-/**
- * checks value of index of clicked btn and calls function for disabling the other btns
- * @param {number} i 
- */
-function disableOtherBtns(i) {
-    switch (i) {
-        case 0: {
-            deactivateBtns('medium', 'low');
-            break;
-        }
-        case 1: {
-            deactivateBtns('urgent', 'low');
-            break;
-        }
-        case 2: {
-            deactivateBtns('medium', 'urgent');
-            break;
-        }
-    }
-}
-
-
-/**
- * disables btns
- * @param {String} id1 //id of first btn to disable
- * @param {String} id2 //id of second btn to disable
- */
-function deactivateBtns(id1, id2) {
-    document.getElementById(id1).style.pointerEvents = "none";
-    document.getElementById(id2).style.pointerEvents = "none";
-}
-
-
-/**
- * activates all priority btns, when counter is equal 3
- * @param {number} counter 
- */
-function activateOtherBtns(counter) {
-    if (counter == 3) {
-        document.getElementById('urgent').style.pointerEvents = "auto";
-        document.getElementById('medium').style.pointerEvents = "auto";
-        document.getElementById('low').style.pointerEvents = "auto";
-        clearHiddenInputField('priority-input');
-    }
-}
-
-
-/**
- * Function to fill a hidden Inputfield with content
- * 
- * @param {string} id 
- */
-function fillHiddenInputField(id) {
-    document.getElementById(id).value = 't';
-}
-
 
 /**
  * checks if the Task is a new Task or a Task to edit
@@ -176,7 +51,7 @@ async function createNewTask() {
 }
 
 /**
- * get the Data from the New Task Input fields
+ * gets data of new task inputfields
  * 
  */
 async function getDataForNewTask() {
@@ -201,11 +76,9 @@ async function getDataForNewTask() {
  * @param {string} status 
  */
 async function addNewTaskToArray(title, description, category, originFormatDate, date) {
-    let newTask = {
-        title: title.value, description: description.value, category: category, member: currentMembers, invite: invitedContact,
-        duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
-        subtasks: currentSubTasks, finishedsubtasks: [], complete: false
-    };
+    let newTask = {title: title.value, description: description.value, category: category, member: currentMembers, 
+        invite: invitedContact, duedate: date, duedateOrgin: originFormatDate, prio: currentPrio, status: boardStatus,
+        subtasks: currentSubTasks, finishedsubtasks: [], complete: false};
     allTasks.push(newTask);
     await backend.setItem('allTasks', JSON.stringify(allTasks));
     clearAddTaskForm(title, description);
@@ -213,39 +86,6 @@ async function addNewTaskToArray(title, description, category, originFormatDate,
     setTimeout(initAddTask, 3200);
 }
 
-/**
- * function to show overlay when task is added to board
- * @param {string} id 
- */
-function showUserResponseOverlay(id) {
-    removeClassList(id, 'd-none');
-    setTimeout(addClassList, 3000, id, 'd-none');
-}
-
-
-/**
- * This function transforms the first letter of the category to Uppercase
- * 
- * @returns the current category but with first letter uppercase
- * 
- */
-function getCurrentCategory() {
-    let actualCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
-    return actualCategory;
-}
-
-/**
- * This function gets the Date of the Task and transforms it into a string, European Standard Time
- * 
- * @param {string} originFormatDate 
- * @returns the date as a string in European Standard Time
- */
-function changeDateFormat(originFormatDate) {
-    let day = originFormatDate.slice(8, 10);
-    let month = originFormatDate.slice(5, 7);
-    let year = originFormatDate.slice(0, 4);
-    return `${day}.${month}.${year}`
-}
 
 //TODO: In subtask-input kann kein Text eingegegeben werden, es wird direkt die changeIconsInSubtask Funktion ausgeführt und subtaskInput ist "".
 //Wird dann die Zeile let subtaskInput = document.getElementById('subtask-input').value; überhaupt benötigt?
@@ -257,6 +97,7 @@ function changeIconsInSubtasks() {
     let subtaskInput = document.getElementById('subtask-input').value;
     document.getElementById('subtasks-container').innerHTML = renderNewSubTaskInput(subtaskInput);
 }
+
 
 /**
  * Function to get value of inputfield, push it to an array and render all Subtasks in this Array
@@ -275,9 +116,9 @@ function addNewSubtask() {
 
 
 /**
- * Function to check if an Subtask is in Array currentSubtasks.
- * If yes, the Subtask is removed when Checkbox is unchecked. 
- * If no, the Subtask is added when Checkbox is checked.  
+ * Function to check if a subtask is in array currentSubtasks.
+ * If yes, subtask will be removed if checkbox is unchecked. 
+ * If no, subtask will be added if checkbox is checked.  
  * 
  * @param {string} subtask 
  */
@@ -289,6 +130,7 @@ function checkSubtask(subtask) {
     }
 }
 
+
 /**
  * Function to remove a subtask from position of its index
  * 
@@ -299,6 +141,7 @@ function removeSubtask(subtask) {
     currentSubTasks.splice(index, 1);
 }
 
+
 /**
  * Function to add the subtask to array currentSubtask
  * 
@@ -307,6 +150,7 @@ function removeSubtask(subtask) {
 function addSubtask(subtask) {
     currentSubTasks.push(subtask);
 }
+
 
 /**
  * Function to render all Subtasks which are in the Array currentSubTasks
@@ -320,6 +164,20 @@ function showSubtask(outputbox) {
     }
 }
 
+
+/**
+ * transforms first letter of the category to uppercase
+ * 
+ * @returns the current category, but with first letter uppercase
+ * 
+ */
+ function getCurrentCategory() {
+    let actualCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+    return actualCategory;
+}
+
+
+//TODO
 /**
  * Function to add a new Category
  * 
@@ -333,8 +191,9 @@ async function addNewCategory() {
     }
 }
 
+
 /**
- * Function to get the name of the new category, push it with color to array allCategories and send it to server
+ * Function to get name of the new category, push it with color to array allCategories and send it to server
  * 
  * @returns the name of the new category
  * 
@@ -368,23 +227,6 @@ async function addNewCategoryToArray(input) {
 
 
 /**
- * shows a user response and request to pick a color
- */
-function colorPickerError() {
-    let text = 'Please pick a color';
-    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
-}
-
-
-/**
- * shows a user response and request to enter a name for new category
- */
-function newCategoryError() {
-    let text = 'Please enter the name of new category';
-    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
-}
-
-/**
  * Function to add the new Category to the list of categories and render the Template with all categories
  * 
  */
@@ -401,6 +243,23 @@ function renderCategoriesInHTML() {
         }
     }
 }
+
+
+/**
+ * find out id of saved category in currentAddTaskData 
+ * and adds value in outputbox
+ */
+ function fillAddTaskCategoryFields() {
+    let id;
+    for (let i = 0; i < allCategories.length; i++) {
+        let oneCategory = allCategories[i];
+        if (oneCategory.name == currentAddTaskData.category) {
+            id = oneCategory.id;
+        }
+    }
+    if(id) changeValue(id);
+}
+
 
 /**
  * Function to check if Account is not a Guest and render the user as "You" in the Assignable Member List,
@@ -421,6 +280,8 @@ function renderAssignableMembersInHTML() {
     }
 }
 
+
+//TODO
 /**
  * Function to fill the HiddenInputFields to check for Form Validation
  * 
@@ -432,16 +293,7 @@ function fillInputFieldForFormValidation() {
         clearHiddenInputField('assignedTo-input');
 }
 
-/**
- * Function checks if the current Account is a Guest or a real Account
- * 
- * @param {string} user 
- * @returns true if the current Account is not a Guest, otherwise it is returned false
- */
-function notGuestAccount(user) {
-    if (user.fullname !== 'Guest Account') return true;
-    return false;
-}
+
 
 /**
  * Function to check if the clicked Member is already in Array currentMember.
@@ -491,29 +343,7 @@ function renderAssignedToMemberAvatare() {
     }
 }
 
-/**
- * Functions to get the Member of the Array currentMember at position i and get the Charakter at position 0.
- * 
- * @param {number} i 
- * @returns the first Letter of the Name
- */
-function getFirstletterOfName(i) {
-    let letter = currentMembers[i].charAt(0);
-    return letter;
-}
 
-
-/**
- * Function to split the full name of Member from Array currentMember at the position of whitespace and create the array result with First name, '', Last Name.
- * 
- * @param {number} i 
- * @returns the first Charakter from the string result at position 2
- */
-function getSecondletterOfName(i) {
-    let result = currentMembers[i].split(/(\s+)/);
-    let firstLetter = result[2].charAt(0);
-    return firstLetter;
-}
 
 /**
  *Function to get the definied Color of a specific member from array userInformation
@@ -570,7 +400,6 @@ function checkCurrentAddTaskData() {
 }
 
 
-//TODO
 async function fillAddTaskFields() {
     document.getElementById('title').value = currentAddTaskData.title;
     document.getElementById('description').value = currentAddTaskData.description;
@@ -579,11 +408,6 @@ async function fillAddTaskFields() {
     addMembersEmailToArray();
     await deleteCurrentAddTaskData();
     showUserResponseInviteContact();
-}
-
-function showUserResponseInviteContact() {
-    let text = 'An inivitation has been sent via email';
-    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
 
@@ -617,21 +441,6 @@ function addMembersToAddTask(memberEmails) {
     }
     document.getElementById('invited-member').innerHTML = renderInvitedMail(currentAddTaskData.invite);
     invitedContact = currentAddTaskData.invite;
-}
-
-/**
- * find out id of saved category in currentAddTaskData 
- * and adds value in outputbox
- */
-function fillAddTaskCategoryFields() {
-    let id;
-    for (let i = 0; i < allCategories.length; i++) {
-        let oneCategory = allCategories[i];
-        if (oneCategory.name == currentAddTaskData.category) {
-            id = oneCategory.id;
-        }
-    }
-    if(id) changeValue(id);
 }
 
 
@@ -674,55 +483,6 @@ async function savePreviousAddTaskData(mailInput) {
 }
 
 
-/**
- * Function to set the global variable colorNewCategory to the given index number
- * Clicked color change the class and gets checked if already clicked
- * 
- * @param {string} id 
- * @param {number} index 
- */
-function addNewColorToCategory(id, index) {
-    colorNewCategory = index;
-    document.getElementById('color-input').value = 1;
-    toggleClassList(id, 'color-outer-circle-clicked');
-    checkIfColorBtnIsClicked();
-    disableOtherColorBtns();
-}
 
-/**
- * Function to check if a Colorbutton is already checked or not
- * 
- */
-function checkIfColorBtnIsClicked() {
-    if (colorBtnIsClicked) {
-        colorBtnIsClicked = false;
-    } else {
-        colorBtnIsClicked = true;
-    }
-}
 
-/**
- * Function to disable all other color Buttons when one Color is clicked
- * 
- */
-function disableOtherColorBtns() {
-    for (let i = 0; i < 6; i++) {
-        if (i !== colorNewCategory && colorBtnIsClicked) {
-            document.getElementById('colorpicker-' + i).style.pointerEvents = 'none';
-        }
-        if (i == colorNewCategory && !colorBtnIsClicked) {
-            activateAllColorBtns();
-        }
-    }
-}
-
-/**
- * Function to activate all Colorbuttons
- * 
- */
-function activateAllColorBtns() {
-    for (let i = 0; i < 6; i++) {
-        document.getElementById('colorpicker-' + i).style.pointerEvents = 'auto';
-    }
-}
 
