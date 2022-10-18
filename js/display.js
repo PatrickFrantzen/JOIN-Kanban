@@ -5,29 +5,38 @@ let displayId;
  * 
  * @param {number} id 
  */
-function openDialog(id) {
-    checkInvitationStatus(id);
+async function openDialog(id) {
+    await checkInvitationStatus(id);
     let singledisplayTask = allTasks[id];
     let displaysubtasks = singledisplayTask.subtasks;
     let displaycompletedsubtasks = singledisplayTask.finishedsubtasks;
     let displaymembers = getMembers(singledisplayTask);
     displayId = id;
     getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id);
-    
+
 }
 
 
-function  checkInvitationStatus(id){
+async function checkInvitationStatus(id) {
     for (let i = 0; i < allContacts.length; i++) {
-        let mail = allContacts[i].mail;
-        if (allTasks[id].invite && allTasks[id].invite == mail)
-        console.log('invited gelöscht');
+        let contact = allContacts[i];
+        if (allTasks[id].invite && allTasks[id].invite == contact.mail){
+            let fullname = contact.fullname;
+            await deleteInvitationStatus(id, fullname);
+        }
+        
     }
-   
 }
 
 
-function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id){
+async function deleteInvitationStatus(id, fullname) {
+    allTasks[id].member.push(fullname);
+    allTasks[id].invite = 'none';
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+}
+
+
+function getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id) {
     let title = singledisplayTask.title;
     let description = singledisplayTask.description;
     let date = singledisplayTask.duedate;
@@ -76,7 +85,7 @@ function createDisplay(id, title, description, category, date, color, inviteMail
     document.getElementById('task-display').innerHTML = renderDisplay(id);
     document.getElementById(`display-${id}`).innerHTML = renderDisplayContent(id, title, description, category, date, color);
     document.getElementById(`assigned-display-area-${id}`).innerHTML = renderMembersOfTaskAreaDisplay(id);
-    if(inviteMail && inviteMail !== 'none') document.getElementById('invited-member-board').innerHTML += renderInvitedMail(inviteMail);
+    if (inviteMail && inviteMail !== 'none') document.getElementById('invited-member-board').innerHTML += renderInvitedMail(inviteMail);
 }
 
 /**
@@ -87,9 +96,9 @@ function createDisplay(id, title, description, category, date, color, inviteMail
  * @param {number} id 
  */
 function createAssignedMemberAreaDisplay(members, singleTask, id) {
-        getFirstMemberDisplay(members, singleTask, id);
-        getOtherMembersDisplay(members, singleTask, id);
-    }
+    getFirstMemberDisplay(members, singleTask, id);
+    getOtherMembersDisplay(members, singleTask, id);
+}
 
 /**
  * Function to render all Subtasks on Display
@@ -140,7 +149,7 @@ function createDisplayPriority(prio, id) {
  */
 function checkForCheckbox(id, subtasks, completedsubtasks) {
     for (let i = 0; i < subtasks.length; i++) {
-        if (completedsubtasks.includes(subtasks[i])) 
+        if (completedsubtasks.includes(subtasks[i]))
             document.getElementById(`checkbox-${id}-${i}`).checked = true;
     }
 }

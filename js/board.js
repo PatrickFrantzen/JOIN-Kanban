@@ -362,7 +362,7 @@ function searchTasks() {
  * @param {number} i 
  */
 function searchForCriteria(task, searchInput, i) {
-    if (task.title.includes(searchInput) || task.prio.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
+    if (task.title.includes(searchInput) || task.prio.includes(searchInput) || task.description.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
         if (getIndexFromArray(search, i) == -1)
             search.push(i);
     } else {
