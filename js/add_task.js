@@ -570,16 +570,22 @@ function checkCurrentAddTaskData() {
 
 
 //TODO
-function fillAddTaskFields() {
+async function fillAddTaskFields() {
     document.getElementById('title').value = currentAddTaskData.title;
     document.getElementById('description').value = currentAddTaskData.description;
     document.getElementById('assignedTo-input').value = 't';
     fillAddTaskCategoryFields();
     addMembersEmailToArray();
-    // delete data in currentAddTaskData
+    await deleteCurrentAddTaskData();
 }
 
-//TODO
+
+async function deleteCurrentAddTaskData(){
+    currentAddTaskData = {};
+    await backend.setItem('currentAddTaskData', JSON.stringify(currentAddTaskData));
+}
+
+
 function addMembersEmailToArray() {
     let memberEmails = [];
     for (let i = 0; i < currentAddTaskData.members.length; i++) {
