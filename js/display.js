@@ -316,7 +316,9 @@ async function deleteMessage(id) {
  */
 function closeDialog(id) {
     animation = false;
+    if(document.getElementById('display-' + id)){
     closeOverlayContact('task-display', 'display-' + id);
     document.getElementById(`display-content-${id}`).classList.add('d-none');
     document.getElementById('main-board').classList.remove('overflow');
+    }
 }

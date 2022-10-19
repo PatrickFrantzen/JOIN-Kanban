@@ -207,6 +207,9 @@ a {
     height: max-content;
 }
 
+.pos-relative {
+    position: relative;
+}
 
 .filter-white {
     filter: invert(0) sepia(94%) saturate(18%) hue-rotate(287deg) brightness(105%) contrast(100%);

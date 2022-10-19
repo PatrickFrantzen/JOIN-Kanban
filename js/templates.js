@@ -155,7 +155,7 @@ function renderLetterContainerMobileTemplate(letter) {
 
 function renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks, color) {
     return `
-    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog('${id}')" class="card board-inner-card d-flex flex-column m-top-28">
+    <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" ontouchstart="toggleClassList(board-mobile-menu-superior-${id}, 'd-none')" onclick="openDialog('${id}')" class="card board-inner-card d-flex flex-column m-top-28">
     <span class="board-text board-category ${color}">${category}</span>
     <span class="board-text board-title">${title}</span>
     <span class="board-text board-description description-scroll">${description}</span>
@@ -168,7 +168,23 @@ function renderSingleCard(id, title, description, category, date, prio, subtasks
         <div id="assigned-area-${id}" class="assigned-area d-flex"></div>
         <div class="board-assigned-urgent"><img m-right-25 id="prio-${id}" src=""> </div>
     </div>
-</div>
+
+    <div id="board-mobile-menu-superior-${id}" class="board-mobile-menu d-none">
+        <div class="mobile-nav mobile-nav-above" onclick="openDialog(${id})">Open Details</div>
+        <div id="board-mobile-menu-${id}" class="mobile-nav pos-relative" onclick="openBoardMobileAsideMenu(${id}, event)">Move to
+            <img src="img/add_task/dropdown_arrow.svg" alt="" class="board-mobile-menu-img">
+            <div id="board-mobile-aside-menu-${id}" class="board-mobile-menu-aside d-none">
+                <div class="mobile-nav mobile-aside-nav-above" onclick="moveTaskTo(${id}, 'toDo', event)">To do</div>
+                <div class="mobile-nav" onclick="moveTaskTo(${id}, 'progress', event)">In Progress</div>
+                <div class="mobile-nav" onclick="moveTaskTo(${id}, 'feedback', event)">Feedback</div>
+                <div id="nav-item-logout" class="mobile-nav" onclick="moveTaskTo(${id}, 'done', event)">Done</div>
+            </div>
+        </div>
+    <div class="mobile-nav" onclick="deleteTaskFromMobileMenu(${id}, event)">Delete</div>
+    <div id="nav-item-logout" class="mobile-nav" onclick="editTaskFromMobileMenu(${id}, event)">Edit</div>
+    </div>
+    </div>
+    </div>
 `
 }
 
