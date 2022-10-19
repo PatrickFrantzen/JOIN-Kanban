@@ -432,4 +432,29 @@ function closeAddTaskForm(idToHide, idToAnimate){
 }
 
 
+function openBoardMobileAsideMenu(id, event){
+    event.stopPropagation();
+    dropdown(`board-mobile-menu-${id}`, `board-mobile-aside-menu-${id}`);
+}
+
+
+function deleteTaskFromMobileMenu(id, event){
+    event.stopPropagation();
+    deleteMessage(id);
+}
+
+
+function editTaskFromMobileMenu(id, event){
+    event.stopPropagation();
+    editTask(id);
+}
+
+async function moveTaskTo(id, status, event){
+    event.stopPropagation();
+    allTasks[id]['status'] = status;
+    renderCards();
+    await backend.setItem('allTasks', JSON.stringify(allTasks));
+    addClassList(`board-mobile-menu-superior-${id}`, 'd-none');
+    addClassList(`board-mobile-aside-menu-${id}`, 'd-none');
+}
 

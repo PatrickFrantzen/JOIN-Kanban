@@ -44,7 +44,8 @@
         <div class="board-headline d-flex align-items-center justify-content-space-between">
             <div class="mobil-head">
                 <h1>Board</h1>
-                <button onclick="openAddTaskForm('toDo')" class="mobil-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center ">
+                <button onclick="openAddTaskForm('toDo')"
+                    class="mobil-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center ">
                     <img class="addTask-btn-icons" src="img/board/plus.svg">
                 </button>
             </div>
@@ -52,13 +53,13 @@
                 <form class="searchbox d-flex justify-content-space-between align-items-center w-250" role="search">
                     <input id="search" class="inputfield" placeholder="Find task" minlength="3" type="text"
                         onkeyup="searchTasks()">
-                    <div class="search-blend">Search for title, urgency, member and describtion...</div>    
+                    <div class="search-blend">Search for title, urgency, member and describtion...</div>
                     <div class="search-line"></div>
                     <img class="btn-icons" src="img/board/search.svg">
                 </form>
                 <button class="static-button darkblue-btn m-left-24 d-flex justify-content-center align-items-center"
-                    onclick="openAddTaskForm('toDo')"><span class="f-21 btn-text-board">Add Task</span> <img class="addTask-btn-icons"
-                        src="img/board/plus.svg"></button>
+                    onclick="openAddTaskForm('toDo')"><span class="f-21 btn-text-board">Add Task</span> <img
+                        class="addTask-btn-icons" src="img/board/plus.svg"></button>
             </div>
         </div>
 
@@ -70,7 +71,8 @@
                 <div class="todo-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="todo-head" class="board-card-header f-21-board f-bold">To do</span>
-                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg" onclick="openAddTaskForm('toDo')">
+                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg"
+                            onclick="openAddTaskForm('toDo')">
                     </div>
                     <div id="toDo-card" class="board-card scroll" ondrop="moveTo('toDo')" ondragstart="showDragCard()"
                         ondragover="allowDrop(event)"> </div>
@@ -79,17 +81,19 @@
                 <div class="progress-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="progress-head" class="board-card-header f-21-board f-bold">In progress</span>
-                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg" onclick="openAddTaskForm('progress')">
+                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg"
+                            onclick="openAddTaskForm('progress')">
                     </div>
-                    <div id="progress-card" class="board-card scroll" ondrop="moveTo('progress')" ondragstart="showDragCard()"
-                        ondragover="allowDrop(event)">
+                    <div id="progress-card" class="board-card scroll" ondrop="moveTo('progress')"
+                        ondragstart="showDragCard()" ondragover="allowDrop(event)">
                     </div>
                 </div>
 
                 <div class="feedback-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="feedback-head" class="board-card-header f-21-board f-bold">Awaiting feedback</span>
-                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg" onclick="openAddTaskForm('feedback')">
+                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg"
+                            onclick="openAddTaskForm('feedback')">
                     </div>
                     <div id="feedback-card" class="board-card scroll" ondrop="moveTo('feedback')"
                         ondragover="allowDrop(event); showDragCard()">
@@ -99,7 +103,8 @@
                 <div class="done-area w-23">
                     <div class="board-head d-flex justify-content-space-between align-items-center">
                         <span id="done-head" class="board-card-header f-21-board f-bold">Done</span>
-                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg" onclick="openAddTaskForm('done')">
+                        <img class="board-icons cursor filter-plus-img" src="img/board/blackPlus.svg"
+                            onclick="openAddTaskForm('done')">
                     </div>
                     <div id="done-card" class="board-card scroll" ondrop="moveTo('done')"
                         ondragover="allowDrop(event); showDragCard()">
@@ -113,19 +118,23 @@
     </div>
 
     <!-- Display -->
-    <div id="task-display" class="overlay d-flex justify-content-center align-items-center d-none" onclick="closeDialog(displayId)"></div>
+    <div id="task-display" class="overlay d-flex justify-content-center align-items-center d-none"
+        onclick="closeDialog(displayId)"></div>
 
     <!-- Add Task -->
-    <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none" onclick="addClassList('add-task-overlay-board', 'd-none')">
-        <div id="add-task-overlay" class="add-task-overlay d-flex justify-content-center align-items-center" onclick="event.stopPropagation()">
+    <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none"
+        onclick="addClassList('add-task-overlay-board', 'd-none')">
+        <div id="add-task-overlay" class="add-task-overlay d-flex justify-content-center align-items-center"
+            onclick="event.stopPropagation()">
             <div class="add-task-content-display">
                 <div include-addtask-html="add_task_template.html"></div>
             </div>
-            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay" onclick="closeAddTaskForm('add-task-overlay-board', 'add-task-overlay'), initTasks()">
+            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay"
+                onclick="closeAddTaskForm('add-task-overlay-board', 'add-task-overlay'), initTasks()">
         </div>
     </div>
 
-
+    
 </body>
 
 </html>
