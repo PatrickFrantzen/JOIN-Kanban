@@ -6,8 +6,7 @@ let activeUserIndex;
 let userIndexForgotPassword;
 let contacts = [];
 let currentAddTaskData;
-
-
+let mobileNavToggle = false;
 
 async function init() {
     await includeHTML('w3-include-html');
@@ -23,7 +22,7 @@ async function loadDataFromServer() {
 
 async function putLoadedDataToArray() {
     userInformation = await JSON.parse(jsonFromServer.userInformation) || [];
-    contactColors= JSON.parse(jsonFromServer.contactColors) || [];
+    contactColors = JSON.parse(jsonFromServer.contactColors) || [];
     userIndexForgotPassword = await jsonFromServer.userIndexForgotPassword;
     allTasks = await JSON.parse(jsonFromServer.allTasks) || [];
     allCategories = await JSON.parse(jsonFromServer.allCategories) || [];
@@ -84,10 +83,31 @@ async function checkActiveHTML() {
 }
 
 
-function saveActiveHTMLpathOnServer(){
-    backend.setItem('activeHTML', activeHTML);
+async function saveActiveHTMLpathOnServer() {
+    await backend.setItem('activeHTML', activeHTML);
 }
 
+
+function mobileNavMenuOpenAndClose() {
+    if (mobileNavToggle) {
+        closeMobileMenu();
+        return;
+    }
+    if (!mobileNavToggle) openMobileMenu();
+}
+
+
+function openMobileMenu() {
+    removeClassList('logout-btn', 'd-none');
+    mobileNavToggle = true;
+    setAnimationClassLists('empty-container', 'logout-btn');
+}
+
+
+function closeMobileMenu() {
+    closeOverlayContact('empty-container', 'logout-btn');
+    mobileNavToggle = false;
+}
 
 
 /**
@@ -113,7 +133,7 @@ function changeClassListMenuLinks(id) {
  */
 function checkActiveUser() {
     checkIncognitoMode();
-    if(activeUser == 'Guest Account'){
+    if (activeUser == 'Guest Account') {
         activeUserIndex = 2;
     } else {
         checkActiveUserIndex();
@@ -123,12 +143,12 @@ function checkActiveUser() {
 function checkIncognitoMode() {
     try {
         activeUser = getActiveUserFromLocalStorage('activeUser');
-        if(!activeUser){
-            activeUser = 'Guest Account' 
+        if (!activeUser) {
+            activeUser = 'Guest Account'
         }
     }
-    catch(e){
-       console.log(e); 
+    catch (e) {
+        console.log(e);
     }
 }
 
@@ -156,7 +176,7 @@ function renderProfileImage() {
 }
 
 /**
- * Function when clicking outside the menu, the menu is closed
+ * By clicking outside the overlay display, it will be closed
  * 
  * @param {string} box 
  * @param {string} id 
@@ -164,8 +184,8 @@ function renderProfileImage() {
 function dropdown(box, id) {
     toggleClassList(id, 'd-none');
     document.addEventListener('click', function handleClickOutsideBox(event) {
-    let area = document.getElementById(`${box}`);
-        if (!area.contains(event.target)) 
+        let area = document.getElementById(`${box}`);
+        if (!area.contains(event.target))
             addClassList(`${id}`, 'd-none')
-})
+    })
 };

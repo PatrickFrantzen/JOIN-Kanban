@@ -29,7 +29,6 @@ function findOutConacts() {
 }
 
 
-
 function createLetterContainer() {
     let firstletters = [];
     for (let i = 0; i < allContacts.length; i++) {
@@ -205,7 +204,6 @@ async function newContact() {
     let color = await getNextFreeColor();
     addNewContactToArray(name, email, phone, color);
 }
-
 
 
 async function addNewContactToArray(name, email, phone, color) {

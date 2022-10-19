@@ -34,12 +34,12 @@
             <div class="help-container"><a href="help.html"><img class="question-help-img"
                         src="img/navbar/question.svg"></a></div>
             <div class="outer-circle d-flex justify-content-center align-items-center"
-                onclick="toggleClassList('logout-btn', 'd-none')">
+                onclick="mobileNavMenuOpenAndClose()">
                 <div class="inner-circle d-flex justify-content-center align-items-center"><img id="profile-pic"
                         class="profile-pic" src="img/profil_pics/patrick_pic.jpg"></div>
             </div>
         </div>
-        <div id="logout-btn" class="logout d-none">
+        <div id="logout-btn" class="logout d-none animateFadeIn">
             <div id="nav-item-help" class="mobile-nav hide-nav" onclick="switchOtherHtml('help.html?')">Help</div>
             <div class="mobile-nav hide-nav" onclick="switchOtherHtml('imprint.html?')">Imprint</div>
             <div class="mobile-nav hide-nav" onclick="switchOtherHtml('privacy.html?')">Privacy</div>
@@ -80,6 +80,7 @@
             </div>
         </div>
     </nav>
+    <div id="empty-container"></div>
 </body>
 
 </html>
