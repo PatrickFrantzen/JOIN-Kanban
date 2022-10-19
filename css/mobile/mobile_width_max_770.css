@@ -22,7 +22,7 @@
 
     .navbar {
         bottom: 0;
-        width: 100vw !important;
+        width: 100% !important;
         height: 100px !important;
         z-index: 100;
     }
@@ -335,7 +335,7 @@
     }
 
     .board-footer {
-        min-height: 150px;
+        min-height: 50px;
     }
 
     .mobile-searchbox {

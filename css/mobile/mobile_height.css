@@ -317,6 +317,17 @@
     }
 }
 
+@media(max-width: 360px) and (max-height: 740px) {
+
+    .main-board {
+        max-height: calc(100vh - 150px);
+    }
+
+    .board-content {
+        width: 100%;
+    }
+}
+
 @media (max-width: 665px) and (min-height: 720px){
     .not-join-user {
         position: absolute;
@@ -344,3 +355,4 @@
         margin-right: 0;
     }
 }
+

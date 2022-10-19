@@ -166,6 +166,7 @@ function showDisplay(id) {
     removeClassList('task-display', 'd-none');
     document.getElementById(`display-${id}`).classList.remove('d-none');
     document.getElementById('main-board').classList.add('overflow');
+    document.getElementById('body-board').classList.add('overflow');
 }
 
 /**
@@ -319,4 +320,5 @@ function closeDialog(id) {
     closeOverlayContact('task-display', 'display-' + id);
     document.getElementById(`display-content-${id}`).classList.add('d-none');
     document.getElementById('main-board').classList.remove('overflow');
+    document.getElementById('body-board').classList.remove('overflow');
 }
