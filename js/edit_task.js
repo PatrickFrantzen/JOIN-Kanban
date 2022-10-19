@@ -27,6 +27,7 @@ function editTask(id) {
  * @param {number} id 
  */
 function showEditTaskDisplay(id) {
+    setAnimationClassLists('add-task-overlay-board', 'add-task-overlay');
     removeClassList('add-task-overlay-board', 'd-none');
     removeClassList('editTask', 'd-none');
     addClassList('createTask', 'd-none');

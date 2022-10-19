@@ -205,19 +205,22 @@
         </div>
     </div>
 
-    <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none">
-        <div class="add-task-overlay d-flex justify-content-center align-items-center">
-            <div include-addtask-html="add_task_template.html"></div>
-            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay"
-                onclick="addClassList('add-task-overlay-board', 'd-none'), initContacts()">
-        </div>
-    </div>
-
     <div id="contact-user-response-overlay" class="user-response-overlay d-flex justify-content-center disabled d-none">
         <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
             <span id="contact-user-response-overlay-text">contact successfully created</span>
         </div>
     </div>
+
+     <!-- Add Task -->
+     <div id="add-task-overlay-board" class="overlay d-flex justify-content-center align-items-center d-none" onclick="addClassList('add-task-overlay-board', 'd-none')">
+        <div id="add-task-overlay" class="add-task-overlay d-flex justify-content-center align-items-center" onclick="event.stopPropagation()">
+            <div class="add-task-content-display">
+                <div include-addtask-html="add_task_template.html"></div>
+            </div>
+            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay" onclick="closeAddTaskForm('add-task-overlay-board', 'add-task-overlay')">
+        </div>
+    </div>
+
 </body>
 
 </html>

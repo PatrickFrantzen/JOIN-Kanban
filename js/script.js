@@ -1,5 +1,6 @@
 let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint', 'privacy'];
 let activeUser;
+let activeHTML;
 let activeUserIndex;
 let userIndexForgotPassword;
 let contacts = [];
@@ -74,6 +75,7 @@ function checkActiveHTML() {
         let name = menulinks[i];
         if (path == `/JOIN-Kanban/${name}.html` || path == `/${name}.html`) {
             changeClassListMenuLinks(name);
+            activeHTML = name;
         }
     }
 }

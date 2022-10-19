@@ -428,7 +428,7 @@ function openAddTaskForm(status){
 
 function closeAddTaskForm(idToHide, idToAnimate){
     closeOverlayContact(idToHide, idToAnimate);
-    removeClassList('main-board', 'overflow');
+    if(activeHTML == 'board')removeClassList('main-board', 'overflow');
 }
 
 

@@ -161,6 +161,8 @@ function checkForCheckbox(id, subtasks, completedsubtasks) {
  * @param {number} id 
  */
 function showDisplay(id) {
+    if(!animation) setAnimationClassLists('task-display', 'display-' + id);
+    animation = true;
     removeClassList('task-display', 'd-none');
     document.getElementById(`display-${id}`).classList.remove('d-none');
     document.getElementById('main-board').classList.add('overflow');
@@ -313,8 +315,8 @@ async function deleteMessage(id) {
  * @param {number} id 
  */
 function closeDialog(id) {
-    document.getElementById('task-display').classList.add('d-none');
-    document.getElementById(`display-${id}`).classList.add('d-none');
+    animation = false;
+    closeOverlayContact('task-display', 'display-' + id);
     document.getElementById(`display-content-${id}`).classList.add('d-none');
     document.getElementById('main-board').classList.remove('overflow');
 }
