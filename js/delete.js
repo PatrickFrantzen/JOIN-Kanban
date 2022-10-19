@@ -92,7 +92,6 @@ function resetGlobalArrays() {
             toggleClassList(currentPrio, `btn-${currentPrio}`)
             document.getElementById(`${currentPrio}-img`).src = img;
         }
-        activateOtherBtns(3);
     }
 }
 

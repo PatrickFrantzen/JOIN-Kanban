@@ -375,3 +375,7 @@ a {
 .br-privacy{
     overflow-wrap: break-word; 
 }
+
+.privacy-back{
+    top: 111px !important;
+}

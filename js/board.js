@@ -417,10 +417,19 @@ function renderSearchedTasks() {
  */
 function openAddTaskForm(status){
     boardStatus = status;
+    setAnimationClassLists('add-task-overlay-board', 'add-task-overlay');
     removeClassList('add-task-overlay-board', 'd-none');
     addClassList('sections', 'sections-mobile');
     addClassList('add-task-btns', 'add-button-mobile');
     addClassList('createTask','unset-position');
-    addClassList('add-task-btns', 'display-add-task-btns')
+    addClassList('add-task-btns', 'display-add-task-btns');
 }
+
+
+function closeAddTaskForm(idToHide, idToAnimate){
+    closeOverlayContact(idToHide, idToAnimate);
+    removeClassList('main-board', 'overflow');
+}
+
+
 

@@ -36,7 +36,7 @@
     <title>Join-Kanban Board</title>
 </head>
 
-<body onload="initTasks()">
+<body class="body-contact" onload="initTasks()">
     <div w3-include-html="navbar.html"></div>
 
     <div id="board-content" class="content board-content">
@@ -121,7 +121,7 @@
             <div class="add-task-content-display">
                 <div include-addtask-html="add_task_template.html"></div>
             </div>
-            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay" onclick="addClassList('add-task-overlay-board', 'd-none'), removeClassList('main-board', 'overflow'), initTasks()">
+            <img src="img/buttons/close.png" id="close-add-task" alt="" class="close-add-task-overlay" onclick="closeAddTaskForm('add-task-overlay-board', 'add-task-overlay'), initTasks()">
         </div>
     </div>
 

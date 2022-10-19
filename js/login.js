@@ -24,13 +24,14 @@ async function signup() {
 
 
 async function getNextFreeColor() {
+    let counter = 0;
     for (let i = 0; i < contactColors.length; i++) {
         let color = contactColors[i];
         if (!color.used) {
             contactColors[i].used = true;
             await backend.setItem('contactColors', JSON.stringify(contactColors));
             return color.color;
-        }
+        }else counter++;
     }
 }
 

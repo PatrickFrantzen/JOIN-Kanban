@@ -5,15 +5,15 @@
  * @param {String} id 
  * @param {String} classList 
  */
- function changePriority(id, classList) {
+function changePriority(id, classList) {
     let imgName = `${id}-img`;
     let imgPath = document.getElementById(imgName);
     toggleClassList(id, classList);
     for (let i = 0; i < priority.length; i++) {
         let prio = priority[i].level;
         if (prio == id) {
-            changePriorityIcons(imgPath, i);
             currentPrio = prio;
+            changePriorityIcons(imgPath, i);
         }
     }
     checkIfBtnIsClicked();
@@ -51,12 +51,10 @@ function checkIfBtnIsClicked() {
         let btnIsClicked = priority[i].toggle;
         if (btnIsClicked) {
             fillHiddenInputField('priority-input');
-            disableOtherBtns(i);
-        } else {
-            counter++;
-        }
+        } else counter++;
     }
-    activateOtherBtns(counter);
+    if (counter == 3) clearHiddenInputField('priority-input');
+    resetOtherPrioBtns();
 }
 
 
@@ -64,18 +62,18 @@ function checkIfBtnIsClicked() {
  * checks value of index of clicked btn and calls function for disabling the other btns
  * @param {number} i 
  */
-function disableOtherBtns(i) {
-    switch (i) {
-        case 0: {
-            deactivateBtns('medium', 'low');
+function resetOtherPrioBtns() {
+    switch (currentPrio) {
+        case 'urgent': {
+            resetPrioBtns('medium', 'low');
             break;
         }
-        case 1: {
-            deactivateBtns('urgent', 'low');
+        case 'medium': {
+            resetPrioBtns('urgent', 'low');
             break;
         }
-        case 2: {
-            deactivateBtns('medium', 'urgent');
+        case 'low': {
+            resetPrioBtns('medium', 'urgent');
             break;
         }
     }
@@ -83,28 +81,32 @@ function disableOtherBtns(i) {
 
 
 /**
- * disables btns
- * @param {String} id1 //id of first btn to disable
- * @param {String} id2 //id of second btn to disable
+ * reset settings like classlist for bg, img-icons and toggle-status
+ * @param {String} id1 
+ * @param {String} id2 
  */
-function deactivateBtns(id1, id2) {
-    document.getElementById(id1).style.pointerEvents = "none";
-    document.getElementById(id2).style.pointerEvents = "none";
-}
-
-
-/**
- * activates all priority btns, when counter is equal 3
- * @param {number} counter 
- */
-function activateOtherBtns(counter) {
-    if (counter == 3) {
-        document.getElementById('urgent').style.pointerEvents = "auto";
-        document.getElementById('medium').style.pointerEvents = "auto";
-        document.getElementById('low').style.pointerEvents = "auto";
-        clearHiddenInputField('priority-input');
+function resetPrioBtns(id1, id2) {
+    let prioIds = [];
+    prioIds.push(id1);
+    prioIds.push(id2);
+    for (let i = 0; i < prioIds.length; i++) {
+        let prioId = prioIds[i];
+        removeClassList(prioId, 'btn-' + prioId);
+        for (let j = 0; j < priority.length; j++) {
+            let prio = priority[j];
+            if (prio.level == prioId) resetOtherPrioImg(j, prioId);
+        }
     }
 }
+
+
+function resetOtherPrioImg(j, prioId){
+    priority[j].toggle = false;
+    let imgName = `${prioId}-img`;
+    let imgPath = document.getElementById(imgName);
+    imgPath.src = priority[j]["img-normal"];
+}
+
 
 
 // Colorpicker
@@ -113,7 +115,7 @@ function activateOtherBtns(counter) {
  * Function to check if a Colorbutton is already checked or not
  * 
  */
- function checkIfColorBtnIsClicked() {
+function checkIfColorBtnIsClicked() {
     if (colorBtnIsClicked) {
         colorBtnIsClicked = false;
     } else {
@@ -168,7 +170,7 @@ function addNewColorToCategory(id, index) {
  * Function to set date of due date to today
  * 
  */
- function renderDate() {
+function renderDate() {
     let date = document.getElementById('date');
     if (date) date.valueAsDate = new Date();
 }
@@ -182,7 +184,7 @@ function addNewColorToCategory(id, index) {
  * 
  * @param {string} id 
  */
- function fillHiddenInputField(id) {
+function fillHiddenInputField(id) {
     document.getElementById(id).value = 't';
 }
 
@@ -191,7 +193,7 @@ function addNewColorToCategory(id, index) {
  * function to show a user response
  * @param {string} id 
  */
- function showUserResponseOverlay(id) {
+function showUserResponseOverlay(id) {
     removeClassList(id, 'd-none');
     setTimeout(addClassList, 3000, id, 'd-none');
 }
@@ -200,7 +202,7 @@ function addNewColorToCategory(id, index) {
 /**
  * shows a user response and request to pick a color
  */
- function colorPickerError() {
+function colorPickerError() {
     let text = 'Please pick a color';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
@@ -209,7 +211,7 @@ function addNewColorToCategory(id, index) {
 /**
  * shows a user response and request to enter a name for new category
  */
- function newCategoryError() {
+function newCategoryError() {
     let text = 'Please enter the name of new category';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
@@ -227,7 +229,7 @@ function showUserResponseInviteContact() {
  * @param {string} user 
  * @returns true if the current Account is not a Guest, otherwise it is returned false
  */
- function notGuestAccount(user) {
+function notGuestAccount(user) {
     if (user.fullname !== 'Guest Account') return true;
     return false;
 }
@@ -253,7 +255,7 @@ function changeDateFormat(originFormatDate) {
  * @param {number} i 
  * @returns the first Letter of the Name
  */
- function getFirstletterOfName(i) {
+function getFirstletterOfName(i) {
     let letter = currentMembers[i].charAt(0);
     return letter;
 }
@@ -265,7 +267,7 @@ function changeDateFormat(originFormatDate) {
  * @param {number} i 
  * @returns the first Charakter from the string result at position 2
  */
- function getSecondletterOfName(i) {
+function getSecondletterOfName(i) {
     let result = currentMembers[i].split(/(\s+)/);
     let firstLetter = result[2].charAt(0);
     return firstLetter;
