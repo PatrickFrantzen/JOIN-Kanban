@@ -535,6 +535,33 @@
         width: 24px;
         height: 24px;
     }
+
+    .board-category {
+        font-size: 16px;
+    }
+
+    .board-inner-card {
+        min-width: 95%;
+    }
+
+    .board-assigned-urgent img {
+        width: 23px;
+    }
+
+    .assigned-inner {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .board-description {
+        font-size: 19px;
+        min-height: 20px;
+    }
+
+    .board-title {
+        font-size: 20px;
+    }
 }
 
 
@@ -809,9 +836,14 @@
         width: 81%;
     }
 
+    .board-img {
+        width: 300px;
+    }
+
     .summary-width {
         margin-left: 20px;
-    }   
+    }  
+    
 }
 
 @media (max-width: 360px) {

@@ -311,6 +311,10 @@
     .right-section {
         top: 24px;
     }
+
+    .main-board {
+        max-height: calc(100vh - 290px);
+    }
 }
 
 @media (max-width: 665px) and (min-height: 720px){

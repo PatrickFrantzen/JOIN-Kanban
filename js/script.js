@@ -1,6 +1,7 @@
 let menulinks = ['summary', 'board', 'add_task', 'contacts', 'imprint', 'privacy'];
 let activeUser;
 let activeHTML;
+let lastActiveHTML;
 let activeUserIndex;
 let userIndexForgotPassword;
 let contacts = [];
@@ -10,7 +11,7 @@ let currentAddTaskData;
 
 async function init() {
     await includeHTML('w3-include-html');
-    checkActiveHTML();
+    await checkActiveHTML();
     checkActiveUser();
 }
 
@@ -28,6 +29,7 @@ async function putLoadedDataToArray() {
     allCategories = await JSON.parse(jsonFromServer.allCategories) || [];
     contacts = JSON.parse(jsonFromServer.contacts) || [];
     currentAddTaskData = JSON.parse(jsonFromServer.currentAddTaskData) || {};
+    lastActiveHTML = jsonFromServer.activeHTML;
 }
 
 
@@ -69,16 +71,23 @@ function removeClassList(id, classList) {
  * checks current html side to call function for changing bg on 
  * menu link in navbar
  */
-function checkActiveHTML() {
+async function checkActiveHTML() {
     let path = window.location.pathname;
     for (let i = 0; i < menulinks.length; i++) {
         let name = menulinks[i];
         if (path == `/JOIN-Kanban/${name}.html` || path == `/${name}.html`) {
             changeClassListMenuLinks(name);
-            activeHTML = name;
+            activeHTML = path;
+            await saveActiveHTMLpathOnServer();
         }
     }
 }
+
+
+function saveActiveHTMLpathOnServer(){
+    backend.setItem('activeHTML', activeHTML);
+}
+
 
 
 /**

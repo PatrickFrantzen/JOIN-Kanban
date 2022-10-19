@@ -39,7 +39,7 @@ function renderContactDetails(firstLetter, secondLetter, name, email, color, pho
     return `
     <div id="contact-detail-data-container" class="${animationContact} d-flex flex-column" >
             <div class="contact-card-big d-flex ">
-                        <img class="back-mobile curserPointer" src="img/add_task/arrow-left-line.png" alt="" onclick="returnToContactOverview()">
+                        <img class="back-mobile curserPointer filter-plus-img" src="img/add_task/arrow-left-line.png" alt="" onclick="returnToContactOverview()">
                         <div
                             class="contact-avatar-outer-big bg-contact-blue d-flex align-items-center justify-content-center">
                             <div id="names-letter"

@@ -108,6 +108,10 @@ function switchOtherHtml(htmlName) {
     window.location.href = htmlName;
 }
 
+function switchToLastHtml() {
+    window.location.href = lastActiveHTML;
+}
+
 
 function getIndexOfArray(array, value) {
     return array.indexOf(value);
