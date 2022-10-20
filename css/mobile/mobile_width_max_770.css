@@ -518,10 +518,6 @@
         width: 358px;
     }
 
-    .contact-overlay {
-        width: 400px;
-    }
-
     .progressbar-inner {
         width: 67%;
     }
@@ -565,6 +561,15 @@
 
     .board-title {
         font-size: 20px;
+    }
+
+    .overlay-left{
+        border-radius: 0;
+    }
+
+    .contact-overlay {
+        height: 100vh;
+        margin-top: 0;
     }
 }
 
@@ -714,7 +719,7 @@
         font-size: 20px !important;
     }
 
-    .contact-avatar-outer-big {
+    /* .contact-avatar-outer-big {
         width: 65px !important;
         height: 65px !important;
     }
@@ -727,7 +732,7 @@
     .contact-avatar-big img {
         width: 47px;
         height: 47px;
-    }
+    } */
 
     .contact-avatar-input {
         top: 92px !important;
@@ -870,10 +875,6 @@
     .menu img {
         width: 25px;
         height: 25px;
-    }
-
-    .contact-overlay {
-        width: 300px;
     }
 
     .progressbar-inner {

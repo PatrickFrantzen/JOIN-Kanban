@@ -177,7 +177,7 @@ function renderSingleCard(id, title, description, category, date, prio, subtasks
                 <div class="mobile-nav mobile-aside-nav-above" onclick="moveTaskTo(${id}, 'toDo', event)">To do</div>
                 <div class="mobile-nav" onclick="moveTaskTo(${id}, 'progress', event)">In Progress</div>
                 <div class="mobile-nav" onclick="moveTaskTo(${id}, 'feedback', event)">Feedback</div>
-                <div class="mobile-nav" onclick="moveTaskTo(${id}, 'done', event)">Done</div>
+                <div id="nav-item-logout" class="mobile-nav" onclick="moveTaskTo(${id}, 'done', event)">Done</div>
             </div>
         </div>
     <div class="mobile-nav" onclick="deleteTaskFromMobileMenu(${id}, event)">Delete</div>

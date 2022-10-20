@@ -213,14 +213,12 @@ async function addNewContactToArray(name, email, phone, color) {
     allContacts;
     findOutConacts();
     clearNewContactInputfields(name, email, phone);
-    createdNewContactResponse();
+    createNewContactResponse('new contact successfully created');
 }
 
 
-function createdNewContactResponse() {
-    let text = 'new contact successfully created';
+function createNewContactResponse(text) {
     userResonse(text, 'contact-user-response-overlay', 'contact-user-response-overlay-text');
-
 }
 
 
@@ -259,6 +257,7 @@ async function saveEditedContact() {
     let email = readEditedContactData();
     await backend.setItem('userInformation', JSON.stringify(userInformation));
     showContactDetails(email);
+    createNewContactResponse('contact successfully edited');
 }
 
 

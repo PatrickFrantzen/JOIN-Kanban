@@ -56,10 +56,6 @@
         margin-top: 24px !important;
     }
 
-    .contact-overlay {
-        height: 700px;
-    }
-
     .close-img {
         top: -294px;
     }
@@ -116,11 +112,6 @@
     
     .navbar-join-logo {
         height: 90px;
-    }
-
-    .contact-overlay {
-        margin-top: 50px;
-        height: 630px;
     }
 
     .close-img {
@@ -255,16 +246,8 @@
         margin-bottom: 16px;
     }
 
-    .contact-overlay {
-        height: 560px;
-    }
-
     .close-img {
         top: -235px;
-    }
-
-    .btn-container-contacts {
-        bottom: -283px;
     }
 
 }

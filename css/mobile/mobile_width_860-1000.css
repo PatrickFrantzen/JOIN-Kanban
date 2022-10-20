@@ -29,7 +29,7 @@
     .contact-overlay {
         flex-direction: column;
         width: 450px;
-        height: 73vh;
+        height: 100vh;
     }
 
     #edit-cancel-btn-mobile {

@@ -153,6 +153,7 @@
     font-size: 40px;
     color: var(--white);
     font-weight: bold;
+    border: solid 3px white;
 }
 
 .contact-avatar-outer {
