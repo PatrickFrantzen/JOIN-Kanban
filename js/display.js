@@ -8,6 +8,12 @@ let displayId;
 async function openDialog(id) {
     let usingMobileDev = checkMobileDevice();
     if(usingMobileDev){
+        await getSubTaskData(id);
+    } else toggleClassList(`board-mobile-menu-superior-${id}`, 'd-none');
+}
+
+
+async function getSubTaskData(id){
     await checkInvitationStatus(id);
     let singledisplayTask = allTasks[id];
     let displaysubtasks = singledisplayTask.subtasks;
@@ -15,7 +21,6 @@ async function openDialog(id) {
     let displaymembers = getMembers(singledisplayTask);
     displayId = id;
     getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id);
-    } else toggleClassList(`board-mobile-menu-superior-${id}`, 'd-none');
 }
 
 

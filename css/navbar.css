@@ -123,18 +123,22 @@
 
 .mobile-nav {
     width: 100%;
-    text-align: center;
+    text-align: start;
     padding: 14px 0;
+    box-sizing: border-box;
+}
+
+.mobile-menu-link-img{
+    padding: 6px 0 0 0;
 }
 
 .hide-nav {
     display: none;
 }
 
-
-
 #nav-item-logout {
     border-radius: 20px 0 20px 20px;
+    text-align: center;
 }
 
 #nav-item-help {

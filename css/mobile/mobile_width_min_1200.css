@@ -225,8 +225,9 @@
 
     .board-card {
         display: flex;
-        /*flex-wrap: wrap;*/
-        overflow-x: scroll;
+        box-sizing: border-box;
+        padding-left: 7px;
+        overflow-x: auto;
     }
 
     .board-inner-card {

@@ -334,9 +334,15 @@ function startDragging(id) {
  * 
  */
 function showDragCard() {
+    let cardWidth = document.getElementById(`card-${currentDraggedElement}`).getBoundingClientRect();
+    let cardHeight = document.getElementById(`card-${currentDraggedElement}`).getBoundingClientRect();
+
     for (let i = 0; i < projectstatus.length; i++) {
         let status = projectstatus[i];
+        document.getElementById(`${status}-dragcard`).style.width = cardWidth.width + 'px';
+        document.getElementById(`${status}-dragcard`).style.height = cardHeight.height + 'px';
         document.getElementById(`${status}-dragcard`).classList.remove('d-none');
+        document.getElementById(`card-${currentDraggedElement}`).style.transform = 'rotate(3deg)';
     }
 }
 

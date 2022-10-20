@@ -65,7 +65,6 @@
 }
 
 .drag-card {
-    min-height: 301px;
     background-color: var(--bg-grey);
     border: 2px dotted rgba(0, 0, 0, 0.2);
     
@@ -275,7 +274,7 @@
     color: white;
     width: 125px;
     left: 125px;
-    top: 6px;
+    top: -2px;
 }
 
 .mobile-aside-nav-above{

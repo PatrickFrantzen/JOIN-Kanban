@@ -170,14 +170,14 @@ function renderSingleCard(id, title, description, category, date, prio, subtasks
     </div>
 
     <div id="board-mobile-menu-superior-${id}" class="board-mobile-menu d-none">
-        <div class="mobile-nav mobile-nav-above" onclick="openDialog(${id})">Open Details</div>
-        <div id="board-mobile-menu-${id}" class="mobile-nav pos-relative" onclick="openBoardMobileAsideMenu(${id}, event)">Move to
-            <img src="img/add_task/dropdown_arrow.svg" alt="" class="board-mobile-menu-img">
+        <div class="mobile-nav mobile-nav-above" onclick="getSubTaskData(${id})">Open Details</div>
+        <div id="board-mobile-menu-${id}" class="mobile-nav pos-relative d-flex justify-content-start board-mobile-menu-with-img" onclick="openBoardMobileAsideMenu(${id}, event)">Move to
+            <div><img src="img/add_task/dropdown_arrow.svg" alt="" class="board-mobile-menu-img"></div>
             <div id="board-mobile-aside-menu-${id}" class="board-mobile-menu-aside d-none">
                 <div class="mobile-nav mobile-aside-nav-above" onclick="moveTaskTo(${id}, 'toDo', event)">To do</div>
                 <div class="mobile-nav" onclick="moveTaskTo(${id}, 'progress', event)">In Progress</div>
                 <div class="mobile-nav" onclick="moveTaskTo(${id}, 'feedback', event)">Feedback</div>
-                <div id="nav-item-logout" class="mobile-nav" onclick="moveTaskTo(${id}, 'done', event)">Done</div>
+                <div class="mobile-nav" onclick="moveTaskTo(${id}, 'done', event)">Done</div>
             </div>
         </div>
     <div class="mobile-nav" onclick="deleteTaskFromMobileMenu(${id}, event)">Delete</div>
