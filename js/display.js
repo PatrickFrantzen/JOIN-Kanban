@@ -323,9 +323,6 @@ function closeDialog(id) {
     closeOverlayContact('task-display', 'display-' + id);
     document.getElementById(`display-content-${id}`).classList.add('d-none');
     document.getElementById('main-board').classList.remove('overflow');
-<<<<<<< HEAD
     document.getElementById('body-board').classList.remove('overflow');
-=======
     }
->>>>>>> fe8a6fa7bafd35d85da06bc8d3d5a075d9a9928e
 }
