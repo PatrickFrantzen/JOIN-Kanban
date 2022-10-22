@@ -171,9 +171,9 @@ function showDisplay(id) {
     if(!animation) setAnimationClassLists('task-display', 'display-' + id);
     animation = true;
     removeClassList('task-display', 'd-none');
-    document.getElementById(`display-${id}`).classList.remove('d-none');
-    document.getElementById('main-board').classList.add('overflow');
-    document.getElementById('body-board').classList.add('overflow');
+    removeClassList('display-' + id, 'd-none');
+    addClassList('main-board','overflow');
+    addClassList('body-board','overflow');
 }
 
 /**
@@ -326,8 +326,12 @@ function closeDialog(id) {
     animation = false;
     if(document.getElementById('display-' + id)){
     closeOverlayContact('task-display', 'display-' + id);
-    document.getElementById(`display-content-${id}`).classList.add('d-none');
-    document.getElementById('main-board').classList.remove('overflow');
-    document.getElementById('body-board').classList.remove('overflow');
+    addClassList('display-content-' + id, 'd-none');
+    addClassList('add-task-overlay-board', 'd-none');
+    addClassList('task-display', 'd-none');
+    removeClassList('main-board','overflow');
+    removeClassList('body-board','overflow');
     }
 }
+
+

@@ -62,7 +62,9 @@
 
 .overflow {
     overflow-y:hidden;
+    
 }
+
 
 .drag-card {
     background-color: var(--bg-grey);

@@ -316,8 +316,8 @@ function allowDrop(ev) {
  */
 async function moveTo(status) {
     allTasks[currentDraggedElement]['status'] = status;
-    renderCards();
     await backend.setItem('allTasks', JSON.stringify(allTasks));
+    renderCards();
 }
 
 /**
