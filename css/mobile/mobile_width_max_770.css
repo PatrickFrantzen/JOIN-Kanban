@@ -388,7 +388,7 @@
     .task-overlay {
         width: 75%;
         margin-left: 0;
-        max-height: 77vh;
+        max-height: 75vh;
         overflow-y: scroll;
     }
 
