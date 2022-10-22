@@ -177,5 +177,6 @@ function setSubtasks(subtasks) {
     addClassList('task-display', 'd-none');
     removeClassList('createTask', 'd-none');
     removeClassList('main-board', 'overflow');
+    removeClassList('body-board', 'overflow');
     clearAddTaskForm(title, description);
 }

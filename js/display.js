@@ -174,6 +174,7 @@ function showDisplay(id) {
     removeClassList('display-' + id, 'd-none');
     addClassList('main-board','overflow');
     addClassList('body-board','overflow');
+    addClassList('task-display','overflow');
 }
 
 /**
@@ -325,12 +326,12 @@ async function deleteMessage(id) {
 function closeDialog(id) {
     animation = false;
     if(document.getElementById('display-' + id)){
+    addClassList('task-display', 'd-none');
     closeOverlayContact('task-display', 'display-' + id);
     addClassList('display-content-' + id, 'd-none');
-    addClassList('add-task-overlay-board', 'd-none');
-    addClassList('task-display', 'd-none');
     removeClassList('main-board','overflow');
     removeClassList('body-board','overflow');
+    removeClassList('task-display','overflow');
     }
 }
 
