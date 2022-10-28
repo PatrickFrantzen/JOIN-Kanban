@@ -320,6 +320,14 @@ async function moveTo(status) {
     renderCards();
 }
 
+function endDrop() {
+    for (let i = 0; i < projectstatus.length; i++) {
+        let status = projectstatus[i];
+        document.getElementById(`${status}-dragcard`).classList.add('d-none');
+        document.getElementById(`card-${currentDraggedElement}`).style.transform = '';
+    }
+}
+
 /**
  *Function to identify the dragged Element
  *  

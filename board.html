@@ -76,7 +76,7 @@
                             onclick="openAddTaskForm('toDo')">
                     </div>
                     <div id="toDo-card" class="board-card scroll" ondrop="moveTo('toDo')" ondragstart="showDragCard()"
-                        ondragover="allowDrop(event)"> </div>
+                        ondragover="allowDrop(event)" ondragend="endDrop()"> </div>
                 </div>
 
                 <div class="progress-area w-23">
@@ -86,7 +86,7 @@
                             onclick="openAddTaskForm('progress')">
                     </div>
                     <div id="progress-card" class="board-card scroll" ondrop="moveTo('progress')"
-                        ondragstart="showDragCard()" ondragover="allowDrop(event)">
+                        ondragstart="showDragCard()" ondragover="allowDrop(event)" ondragend="endDrop()">
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@
                             onclick="openAddTaskForm('feedback')">
                     </div>
                     <div id="feedback-card" class="board-card scroll" ondrop="moveTo('feedback')"
-                        ondragover="allowDrop(event); showDragCard()">
+                        ondragover="allowDrop(event); showDragCard()" ondragend="endDrop()">
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                             onclick="openAddTaskForm('done')">
                     </div>
                     <div id="done-card" class="board-card scroll" ondrop="moveTo('done')"
-                        ondragover="allowDrop(event); showDragCard()">
+                        ondragover="allowDrop(event); showDragCard()" ondragend="endDrop()">
                     </div>
                 </div>
                 <div class="board-footer"></div>
