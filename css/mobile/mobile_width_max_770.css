@@ -604,6 +604,10 @@
         height: 80px !important;
     }
 
+    .overlay {
+        bottom: 80px;
+    }
+
     .content-contacts {
         top: 80px;
     }
