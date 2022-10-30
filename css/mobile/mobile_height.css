@@ -279,11 +279,6 @@
         right: 30px;
         padding-top: 90px !important;
     }
-
-        #task-display {
-            top: 80px !important;
-        }
-    
 }
 
 
@@ -359,34 +354,5 @@
 @media (max-width: 540px) and (max-height: 720px) {
     #task-display {
         top: 80px !important;
-    }
-}
-
-@media (max-width: 414px) and (max-height: 896px) {
-    #task-display {
-        bottom: 80px !important;
-    }
-
-}
-
-@media (max-width: 412px) and (max-height: 915px) {
-    #task-display {
-        top: 100px !important;
-        bottom: 80px !important;
-    }
-}
-
-@media (max-width: 375px) and (max-height: 812px) {
-    #task-display {
-        top: 80px !important;
-        bottom: 80px !important;
-    }
-}
-
-
-@media (max-width: 360px) and (max-height: 740px) {
-    #task-display {
-        top: 80px !important;
-        bottom: 80px !important;
     }
 }
