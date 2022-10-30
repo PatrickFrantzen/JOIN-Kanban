@@ -329,7 +329,7 @@ a {
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -385,4 +385,8 @@ a {
 
 .privacy-back{
     top: 111px !important;
+}
+
+.content-imprint {
+    padding-bottom: 100px;
 }
