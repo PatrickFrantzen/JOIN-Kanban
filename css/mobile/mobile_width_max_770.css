@@ -723,21 +723,6 @@
         font-size: 20px !important;
     }
 
-    /* .contact-avatar-outer-big {
-        width: 65px !important;
-        height: 65px !important;
-    }
-
-    .contact-avatar-big {
-        width: 60px !important;
-        height: 60px !important;
-    }
-
-    .contact-avatar-big img {
-        width: 47px;
-        height: 47px;
-    } */
-
     .contact-avatar-input {
         top: 92px !important;
     }
@@ -794,7 +779,6 @@
     .summary-width {
         margin-left: 30px;
     }
-
 
 }
 
