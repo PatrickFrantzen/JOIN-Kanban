@@ -320,6 +320,10 @@ async function moveTo(status) {
     renderCards();
 }
 
+/**
+ * 
+ * Function to reset style of dragged card
+ */
 function endDrop() {
     for (let i = 0; i < projectstatus.length; i++) {
         let status = projectstatus[i];
