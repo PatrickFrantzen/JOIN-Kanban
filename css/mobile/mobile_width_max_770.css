@@ -756,7 +756,14 @@
     }
 
     .task-overlay {
-        width: 95%;
+        width: 100%;
+        max-height: unset;
+        height: 100vh;
+    }
+
+    #task-display {
+        top: 0 !important;
+        bottom: 0 !important;
     }
 
     .content-imprint {
@@ -783,6 +790,7 @@
     .summary-width {
         margin-left: 30px;
     }
+
 
 }
 
