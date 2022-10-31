@@ -199,6 +199,7 @@
 .contact-card-small {
     padding: 16px;
     width: 290px;
+    overflow-x: scroll;
 }
 
 .contact-data-content {
