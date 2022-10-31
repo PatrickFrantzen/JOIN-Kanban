@@ -211,7 +211,7 @@ async function addNewContactToArray(name, email, phone, color) {
     contacts.push(contact);
     await backend.setItem('contacts', JSON.stringify(contacts));
     allContacts;
-    findOutConacts();
+    await initContacts();
     clearNewContactInputfields(name, email, phone);
     createNewContactResponse('new contact successfully created');
 }
