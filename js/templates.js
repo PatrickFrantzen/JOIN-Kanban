@@ -114,7 +114,7 @@ function renderContactsTemplate(name, email, firstLetter, color, secondLetter) {
 
 function renderContactsMobileTemplate(name, email, firstLetter, color, secondLetter) {
     return `
-    <div id="${email}" class="contact-card-small d-flex" onclick="showContactDetailsMobile('${email}')">
+    <div id="${email}" class="contact-card-small d-flex scroll" onclick="showContactDetailsMobile('${email}')">
     <div
         class="contact-avatar-outer d-flex align-items-center justify-content-center">
         <div

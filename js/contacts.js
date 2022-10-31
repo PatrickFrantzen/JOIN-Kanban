@@ -254,9 +254,11 @@ function getDataToEditContact(id) {
  */
 async function saveEditedContact() {
     closeOverlayContact('edit-contact', 'edit-contact-overlay');
+    removeBgStyleForAllContacts();
     let email = readEditedContactData();
-    await backend.setItem('userInformation', JSON.stringify(userInformation));
+    await backend.setItem('contacts', JSON.stringify(contacts));
     showContactDetails(email);
+    initContacts();
     createNewContactResponse('contact successfully edited');
 }
 
