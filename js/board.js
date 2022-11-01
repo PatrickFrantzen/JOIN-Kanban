@@ -15,6 +15,7 @@ async function initTasks() {
     renderCards();
     renderCategoriesInHTML();
     renderAssignableMembersInHTML();
+    renderDate();
 }
 
 
