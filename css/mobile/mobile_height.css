@@ -1,3 +1,9 @@
+@media (max-height: 840px) and (min-width: 1041px) {
+    .add-task-overlay {
+        height: 95vh;
+    }
+}
+
 @media (max-height: 1120px) and (max-width: 770px) {
 
     .welcome {
