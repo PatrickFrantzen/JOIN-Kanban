@@ -11,7 +11,9 @@ function switchOverview(idHide, idShow, classList) {
     removeClassList(idShow, classList);
 }
 
-
+/**
+ * Getting name, email and password of new user
+ */
 async function signup() {
     let name = document.getElementById('signup-name');
     let email = document.getElementById('signup-email');
@@ -22,7 +24,11 @@ async function signup() {
 }
 
 
-
+/**
+ * To set a not used color for the new user
+ * 
+ * @returns color of new user
+ */
 async function getNextFreeColor() {
     let counter = 0;
     for (let i = 0; i < contactColors.length; i++) {
@@ -35,7 +41,14 @@ async function getNextFreeColor() {
     }
 }
 
-
+/**
+ * Pushing log in Data of new User to backend
+ * 
+ * @param {string} name 
+ * @param {string} email 
+ * @param {string} password
+ * @param {string} color 
+ */
 async function addDataToUserInformation(name, email, password, color) {
     let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, phone: '' };
     userInformation.push(userInfo);
@@ -52,7 +65,12 @@ function login() {
 }
 
 
-
+/**
+ * Checks if the password matches with userInformation and login
+ * 
+ * @param {number} index 
+ * @param {string} password 
+ */
 function checkLoginData(index, password) {
     let text;
     if (index == -1) {
@@ -136,6 +154,7 @@ async function forgotPassword() {
         }
     }
 }
+
 
 async function changePassword() {
     let password = document.getElementById('reset-password');

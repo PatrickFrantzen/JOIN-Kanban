@@ -28,7 +28,9 @@ function findOutConacts() {
     }
 }
 
-
+/**
+ * gets the first Letter of every user, then remove all double Letters and sort them 
+ */
 function createLetterContainer() {
     let firstletters = [];
     for (let i = 0; i < allContacts.length; i++) {
@@ -51,7 +53,12 @@ function removeDoubleLetters(firstletters) {
     return unique;
 }
 
-
+/**
+ * render a HTML area for every contact
+ * 
+ * @param {Array} firstlettersUnique 
+ * @param {Array} contacts 
+ */
 function renderLetterContainer(firstlettersUnique, contacts) {
     let contactContainer = clearContactContainer();
     let contactContainerMobile = clearContactContainerMobile();
@@ -78,7 +85,11 @@ function clearContactContainerMobile() {
     return contactContainerMobile;
 }
 
-
+/**
+ * getting all contact information and render the contact area
+ * 
+ * @param {Array} contacts 
+ */
 function getInformationToRenderContacts(contacts) {
     for (let i = 0; i < contacts.length; i++) {
         let name = contacts[i].fullname;
@@ -111,7 +122,10 @@ function showContactDetails(id) {
     }
 }
 
-
+/**
+ * render the contact detail overview
+ * @param {number} i 
+ */
 function getContactDetails(i) {
     let animationContact = checkIfContactWasAlreadyClicked();
     let firstLetter = getFirstLetterOfName(allContacts, i);
@@ -205,7 +219,14 @@ async function newContact() {
     addNewContactToArray(name, email, phone, color);
 }
 
-
+/**
+ * new contact gets pushed to the backend
+ * 
+ * @param {string} name 
+ * @param {string} email 
+ * @param {number} phone 
+ * @param {string} color 
+ */
 async function addNewContactToArray(name, email, phone, color) {
     let contact = { fullname: name.value, mail: email.value, phone: phone.value, color: color };
     contacts.push(contact);
@@ -275,7 +296,7 @@ function readEditedContactData() {
 }
 
 
-/**
+/**inviteContact
  * shows data of current contact, which should be change, in inputfields
  * in edit contact overlay
  * @param {object} contact 

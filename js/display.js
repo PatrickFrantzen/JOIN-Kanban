@@ -23,7 +23,11 @@ async function getSubTaskData(id){
     getTaskData(singledisplayTask, displaysubtasks, displaycompletedsubtasks, displaymembers, id);
 }
 
-
+/**
+ * to check if an Invitation is still open or if the invited user has created an account
+ * 
+ * @param {number} id 
+ */
 async function checkInvitationStatus(id) {
     for (let i = 0; i < allContacts.length; i++) {
         let contact = allContacts[i];

@@ -72,7 +72,9 @@ function countTotalAmountOfTasks() {
     taskAmount.total = totalAmount;
 }
 
-
+/**
+ * Sorts all dates to the next coming task date
+ */
 function determineUpcomingDate() {
     let dateInMs = [];
     taskAmount.urgentDate.forEach(date => {
