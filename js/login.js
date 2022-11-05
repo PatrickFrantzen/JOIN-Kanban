@@ -14,7 +14,7 @@ function switchOverview(idHide, idShow, classList) {
 /**
  * Getting name, email and password of new user
  */
- async function signup() {
+async function signup() {
     let name = checkIfNameIsComplete('signup-name');
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
@@ -37,7 +37,6 @@ function checkIfNameIsComplete(id) {
         return document.getElementById(id);
     }
 }
-
 
 /**
  * To set a not used color for the new user

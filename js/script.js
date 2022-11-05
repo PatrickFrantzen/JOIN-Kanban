@@ -15,10 +15,11 @@ async function init() {
 }
 
 async function loadDataFromServer() {
-    setURL('https://gruppe-306.developerakademie.net/smallest_backend_ever');
+    setURL('https://patrick-frantzen.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     await putLoadedDataToArray()
 }
+
 
 async function putLoadedDataToArray() {
     userInformation = await JSON.parse(jsonFromServer.userInformation) || [];

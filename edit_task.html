@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/add_task.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/keyframes.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/mobile/mobile_width_min_1200.css">
+    <link rel="stylesheet" href="css/mobile/mobile_width_1040-1180.css">
+    <link rel="stylesheet" href="css/mobile/mobile_width_860-1000.css">
+    <link rel="stylesheet" href="css/mobile/mobile.css">
+    <link rel="stylesheet" href="css/mobile/mobile_width_max_770.css">
+    <link rel="stylesheet" href="css/mobile/mobile_height.css">
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <script src="js/script.js"></script>
+    <script src="js/add_task.js"></script>
+    <script src="js/edit_task.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/includeHTML.js"></script>
+    <script src="js/mini_backend.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/summary.js"></script>
+    <title>Join-Kanban Edit Task</title>
+</head>
+
+<body onload="initEditTask()">
+    <div w3-include-html="navbar.html"></div>
+    
+    <div class="content">
+        <div include-edittask-html="edit_task_template.html"></div>
+    </div>
+    
+    
+</body>
+
+</html>

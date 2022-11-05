@@ -383,7 +383,8 @@ a {
 }
 
 .br-privacy{
-    overflow-wrap: break-word; 
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .privacy-back{

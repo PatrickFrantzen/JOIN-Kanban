@@ -219,6 +219,7 @@ async function newContact() {
     addNewContactToArray(name, email, phone, color);
 }
 
+
 /**
  * new contact gets pushed to the backend
  * 

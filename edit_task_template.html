@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="css/color.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <script src="js/script.js"></script>
-    <script src="js/add_task_aside_functions.js"></script>
     <script src="js/add_task.js"></script>
     <script src="js/edit_task.js"></script>
     <script src="js/templates.js"></script>
@@ -31,16 +30,14 @@
     <script src="js/login.js"></script>
     <script src="js/board.js"></script>
     <script src="js/summary.js"></script>
-    <script src="js/delete.js"></script>
-    <script src="js/contacts.js"></script>
-    <title>Join-Kanban Add Task</title>
+    <title>Join-Kanban Edit Task</title>
 </head>
 
 <body>
     <div class="content-add-task">
-        <h1 id="content-header">Add Task</h1>
+        <h1>Edit Task</h1>
         <form onsubmit="createNewTask(); return false;">
-            <div id="sections" class="sections d-flex">
+            <div class="sections d-flex">
 
                 <div class="section-left">
                     <div class="titleandinput">
@@ -57,27 +54,24 @@
 
                     <div class="titleandinput">
                         <p class="m-top-28 add-task-titles">Category</p>
-                        <div id="categorybox"
-                            class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
-                            onclick="dropdown('categorybox','categories')">
+                        <div class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                            onclick="toggleClassList('categories', 'd-none')">
 
 
                             <div id="category"
                                 class="input-with-image inputfields border-fields d-flex justify-content-center align-items-center">
                                 <input id="category-input" class="hidden-input" type="text" required>
-
                                 <div class="output-container d-flex justify-content-space-between">
                                     <div id="category-output" class="inputfield-nearby-icon d-flex align-items-center">
                                         Select task Category
                                     </div>
-                                    <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" class="filter-plus-img" alt="">
+                                    <img id="category-dropdown-arrow" src="img/add_task/dropdown_arrow.svg" alt="">
                                 </div>
                             </div>
 
                             <ul class="add-task-lists d-none scroll" id="categories">
 
                             </ul>
-
                         </div>
                     </div>
 
@@ -141,14 +135,13 @@
                     <div class="titleandinput">
                         <div class=" d-flex flex-column m-top-28 assignedTo-container">
                             <label for="assignedTo" class="m-bottom-18 add-task-titles">Assigned to</label>
-                            <div id="outputbox"
-                                class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
-                                onclick="dropdown('outputbox','assignedToSelect')">
+                            <div class="outputbox-assignedto input-with-image inputfields border-fields d-flex justify-content-center align-items-center"
+                                onclick="toggleClassList('assignedToSelect', 'd-none')">
                                 <input id="assignedTo-input" class="hidden-input" type="text" required>
                                 <div class="output-container d-flex justify-content-space-between">
                                     <div id="user-assignedTo" class="inputfield-nearby-icon d-flex  flex-column">Select
                                         contacts to assign</div>
-                                    <img src="img/add_task/dropdown_arrow.svg" class="filter-plus-img" alt="">
+                                    <img src="img/add_task/dropdown_arrow.svg" alt="">
                                 </div>
                             </div>
                             <ul id="assignedToSelect" class="assignedTo-list add-task-lists scroll d-none">
@@ -156,9 +149,6 @@
                             </ul>
                             <div id="assignedTo-avatare-container" class="d-flex">
 
-                            </div>
-                            <div id="invited-member" class="d-flex">
-                               
                             </div>
                         </div>
                     </div>
@@ -204,27 +194,23 @@
                             <div class="output-container d-flex justify-content-space-between">
                                 <input id="subtask-input" class="inputfield-nearby-icon" type="text"
                                     placeholder="Add new Subtask" onfocus="changeIconsInSubtasks()">
-                                <img src="img/add_task/add.svg" class="filter-plus-img" alt="" onclick="changeIconsInSubtasks()">
+                                <img src="img/add_task/add.svg" alt="" onclick="changeIconsInSubtasks()">
                             </div>
                         </div>
-                        <div id="subtasks-output" class="d-flex flex-column scroll">
+                        <div id="subtasks-output" class="d-flex flex-column">
 
                         </div>
 
                     </div>
 
                     <div id="add-task-btns" class="buttons">
-                        <button id="cancel-btn-add_task" class="light-btn" type="button" value="Previous"
-                            onclick="clearAddTaskFields()" formnovalidate="formnovalidate">
+                        <button id="cancel-btn-add_task" class="light-btn" type="submit" value="Previous"
+                            formnovalidate="formnovalidate">
                             <span class="f-18">clear</span>
                             <img class="btn-icons" src="img/buttons/clear.png" alt="">
                         </button>
-                        <button id="createTask" class="darkblue-btn m-left-24" type="submit">
+                        <button id="createTask" class="darkblue-btn m-left-24">
                             <span class="f-18">create task</span>
-                            <img class="btn-icons" src="img/buttons/create.png" alt="">
-                        </button>
-                        <button id="editTask" class="darkblue-btn m-left-24 d-none">
-                            <span class="f-18">edit task</span>
                             <img class="btn-icons" src="img/buttons/create.png" alt="">
                         </button>
                     </div>
@@ -234,35 +220,12 @@
     </div>
 
     </div>
-    <div id="addtask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none disabled">
-        <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
-            <span>Task added to board</span>
-            <img class="m-left-16" src="img/board/board.png" alt="">
-        </div>
-    </div>
-
-    <div id="edittask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none disabled">
+    <div id="edittask-added-board-overlay" class="user-response-overlay d-flex justify-content-center d-none">
         <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
             <span>Task successfully edited</span>
             <img class="m-left-16" src="img/board/board.png" alt="">
         </div>
     </div>
-
-    <div id="addtask-user-response-overlay" class="user-response-overlay d-flex justify-content-center d-none disabled">
-        <div class="darkblue-btn added-to-board d-flex justify-content-center align-items-center">
-            <span id="addtask-user-response-overlay-text"></span>
-        </div>
-    </div>
-
-
-    <form action="https://patrick-frantzen.developerakademie.net/JOIN-Kanban/send_mail/send_mail_invite.php"
-        onsubmit="inviteContact()" method="POST" class="d-none">
-        <input id="invite-input" type="email" name="mail" required>
-        <button id="invite-btn" class="darkblue-btn" type="onsubmit">
-            <span class="f-18">Send me the email</span>
-        </button>
-    </form>
-
 </body>
 
 </html>
