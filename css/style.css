@@ -3,7 +3,6 @@ body {
     margin: 0;
     font-family: Inter;
     background-color: var(--bg-grey);
-    height: 100vh;
 }
 
 .content {
