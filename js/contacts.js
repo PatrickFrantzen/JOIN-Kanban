@@ -212,7 +212,7 @@ function setAnimationClassLists(idToShow, idToAnimate) {
 
 // new contact
 async function newContact() {
-    let name = document.getElementById('newContact-name');
+    let name = checkIfNameIsComplete('newContact-name');
     let email = document.getElementById('newContact-email');
     let phone = document.getElementById('newContact-phone');
     let color = await getNextFreeColor();

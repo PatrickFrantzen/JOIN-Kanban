@@ -14,13 +14,28 @@ function switchOverview(idHide, idShow, classList) {
 /**
  * Getting name, email and password of new user
  */
-async function signup() {
-    let name = document.getElementById('signup-name');
+ async function signup() {
+    let name = checkIfNameIsComplete('signup-name');
     let email = document.getElementById('signup-email');
     let password = document.getElementById('signup-password');
     let color = await getNextFreeColor();
     await addDataToUserInformation(name, email, password, color);
     switchOverview('signup', 'login', 'd-none');
+}
+
+/**
+ * Function to prevent, that user only insert Forname or last name. Both is required.
+ * @returns name of the new user
+ */
+function checkIfNameIsComplete(id) {
+    let regName = /^[a-zA-Z]+( [a-zA-Z]+)+$/;
+    let nametocheck = document.getElementById(id).value;
+    if(!regName.test(nametocheck)){
+        alert('Please enter your full name (first & last name).');
+        document.getElementById(id).focus();
+    }else{
+        return document.getElementById(id);
+    }
 }
 
 
