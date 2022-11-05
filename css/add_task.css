@@ -14,6 +14,7 @@
     width: 422px;
     height: 90px;
     outline: none;
+    resize: none;
 }
 
 .border-fields {
