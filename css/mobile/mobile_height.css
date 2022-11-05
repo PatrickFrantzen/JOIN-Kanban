@@ -42,15 +42,6 @@
     }
 }
 
-@media (max-height: 980px) and (max-width: 770px) {
-    .content-cards-top {
-        margin-bottom: 0;
-    }
-
-    .content-cards-middle {
-        margin-bottom: 0;
-    }
-}
 
 
 @media (max-height: 920px) {
@@ -178,7 +169,7 @@
     }
 
     .content-cards-top-single {
-        height: 98px;
+        height: 100px;
     }
 
     .header {

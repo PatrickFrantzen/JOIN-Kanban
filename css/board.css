@@ -56,6 +56,7 @@
 .main-board {
     max-height: calc(100vh - 340px);
     width: 103%;
+    padding-left: 3px;
     position: relative;
     overflow-y: scroll;
 }
@@ -231,7 +232,7 @@
     border-radius: 10px;
     top: 58px;
     left: 0;
-    width: 392px;
+    width: 100%;
     height: 30px;
     z-index: 500;
     padding: 6px 3px 0 3px;

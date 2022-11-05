@@ -288,7 +288,7 @@
     }
 
     .board-head {
-        width: 53%;
+        width: 38%;
     }
 
     .board-inner-card {
@@ -347,7 +347,8 @@
     }
 
     .mobile-searchbox {
-        width: 50%;
+        width: 100%;
+        margin-bottom: 15px;
     }
 
     .searchbox {
@@ -476,10 +477,6 @@
     .board-img {
         width: 400px;
     }
-
-    .mobile-searchbox {
-        width: 64%;
-    }
 }
 
 
@@ -503,6 +500,10 @@
 
     .summary-card-img {
         width: 50px !important;
+    }
+
+    .search-blend {
+        height: 40px;
     }
 
     .content-cards-bottom-single {
@@ -577,7 +578,7 @@
 @media (max-width: 474px) {
 
     .board-head {
-        width: 68%;
+        width: 60%;
     }
     .progressbar-inner {
         width: 65%;
