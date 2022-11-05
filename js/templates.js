@@ -153,7 +153,7 @@ function renderLetterContainerMobileTemplate(letter) {
     `;
 }
 
-function renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks, color) {
+function renderSingleCard(id, title, description, category, color) {
     return `
     <div id="card-${id}" draggable="true" ondragstart="startDragging(${id})" onclick="openDialog('${id}')" class="card board-inner-card d-flex flex-column m-top-28">
     <span class="board-text board-category ${color}">${category}</span>
@@ -165,7 +165,9 @@ function renderSingleCard(id, title, description, category, date, prio, subtasks
     </div>
 
     <div id="assigned-${id}" class="board-text board-assigned d-flex justify-content-space-between align-items-center">
-        <div id="assigned-area-${id}" class="assigned-area d-flex"></div>
+        <div id="assigned-scroll-area-${id}" class="">
+            <div id="assigned-area-${id}" class="d-flex scroll" ></div>
+        </div>
         <div class="board-assigned-urgent"><img m-right-25 id="prio-${id}" src=""> </div>
     </div>
 

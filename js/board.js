@@ -112,7 +112,7 @@ function getCategoryColor(category){
  * @param {object} singleTask 
  */
 function createOverlay(i, title, description, category, date, prio, members, status, subtasks, completedsubtasks, singleTask, color) {
-    createTask(i, title, description, category, date, prio, status, subtasks, completedsubtasks, color);
+    createTask(i, title, description, category, date, status, subtasks, completedsubtasks, color);
     createAssignedMemberArea(members, singleTask, i);
     createPriority(prio, i);
 }
@@ -130,8 +130,8 @@ function createOverlay(i, title, description, category, date, prio, members, sta
  * @param {array} subtasks 
  * @param {array} completedsubtasks 
  */
-function createTask(id, title, description, category, date, prio, status, subtasks, completedsubtasks, color) {
-    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, date, prio, subtasks, completedsubtasks, color);
+function createTask(id, title, description, category, date, status, subtasks, completedsubtasks, color) {
+    document.getElementById(`${status}-card`).innerHTML += renderSingleCard(id, title, description, category, color);
     document.getElementById(`assigned-area-${id}`).innerHTML = renderMembersOfTaskArea(id);
     createSubtaskArea(id, subtasks, completedsubtasks);
 }
@@ -166,7 +166,6 @@ function renderBarProgress(id, numberOfSubtasks, numberOfFinishedSubtasks) {
 }
 
 
-//TODO
 /**
  * Function to check if there are more than one assigned member
  * 
@@ -261,6 +260,10 @@ function getOtherMembers(members, singleTask, id) {
         document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id, i);
         document.getElementById(`other-member-${id}-${i}`).classList.add(`bg-contact-${color}`);
         document.getElementById(`other-member-${id}-${i}`).style.left = `-${leftPosition}px`;
+        if (singleTask.member.length > 6) {
+            document.getElementById(`assigned-scroll-area-${id}`).classList.add('scroll', 'overflow-scroll');
+            document.getElementById(`assigned-area-${id}`).classList.add('assigned-area');
+        }
     }
 }
 
