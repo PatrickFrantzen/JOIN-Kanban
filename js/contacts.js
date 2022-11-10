@@ -155,13 +155,13 @@ function returnToContactOverview() {
 
 function splitFullname(contacts, i) {
     let result = contacts[i].fullname.split(/(\s+)/);
-    let firstLetter = result[2].charAt(0);
+    let firstLetter = result[2].charAt(0).toUpperCase();
     return firstLetter;
 }
 
 
 function getFirstLetterOfName(contacts, i) {
-    let letter = contacts[i].fullname.charAt(0);
+    let letter = contacts[i].fullname.charAt(0).toUpperCase();
     return letter;
 }
 
