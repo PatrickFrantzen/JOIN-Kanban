@@ -15,7 +15,7 @@ async function init() {
 }
 
 async function loadDataFromServer() {
-    setURL('https://patrick-frantzen.developerakademie.net/smallest_backend_ever');
+    setURL('https://gruppe-306.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     await putLoadedDataToArray()
 }
