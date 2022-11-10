@@ -32,8 +32,8 @@ function showEditTaskDisplay(id) {
     removeClassList('editTask', 'd-none');
     addClassList('createTask', 'd-none');
     addClassList('task-display', 'd-none');
-    addClassList(`display-${id}`, 'd-none');
-    addClassList(`display-content-${id}`, 'd-none');
+    //addClassList(`display-${id}`, 'd-none');
+    //addClassList(`display-content-${id}`, 'd-none');
     addClassList('sections', 'sections-mobile');
     addClassList('add-task-btns', 'button-mobile');
 }
