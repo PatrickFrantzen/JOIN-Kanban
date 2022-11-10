@@ -216,6 +216,11 @@ function newCategoryError() {
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
+function categoryAlreadyExistError() {
+    let text = 'This Category already exist. Please choose another name.';
+    userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
+};
+
 
 function showUserResponseInviteContact() {
     let text = 'An inivitation has been sent via email';

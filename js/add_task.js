@@ -181,12 +181,6 @@ function showSubtask(outputbox) {
 async function addNewCategory() {
     let input = document.getElementById('category-input');
     checkIfColorIsPicked(input);
-    let value = await addNewCategoryToArray(input);
-    if (value) {
-        clearCategoryInput();
-        renderCategoriesInHTML();
-        changeValue(value);
-    }
 }
 
 
@@ -202,6 +196,11 @@ async function checkIfColorIsPicked(input) {
         colorPickerError();
     } else if (checkIfCategoryIsEntered(input)) {
         id = await addNewCategoryToArray(input);
+        if (id) {
+            clearCategoryInput();
+            renderCategoriesInHTML();
+            changeValue(id);
+        }
     } else {
         newCategoryError();
     }
@@ -221,13 +220,34 @@ function checkIfCategoryIsEntered(input) {
  */
 async function addNewCategoryToArray(input) {
     let id = input.value.toLowerCase();
-    let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
-    allCategories.push(category);
-    await backend.setItem('allCategories', JSON.stringify(allCategories));
-    return id;
+    if (checkIfCategoryAlreadyExists(id) == true) {
+        categoryAlreadyExistError();
+    } else if (checkIfCategoryValueIsEmpty(id) == true) {
+        newCategoryError();
+    } else {
+        let category = { id: id, name: input.value, color: 'bg-category-New-' + colorNewCategory }
+        allCategories.push(category);
+        await backend.setItem('allCategories', JSON.stringify(allCategories));
+        return id;
+    }
 }
 
+function checkIfCategoryAlreadyExists(id) {
+    for (let i = 0; i < allCategories.length; i++) {
+        if (allCategories[i].id.includes(id)) return true;
+    }
+}
 
+function checkIfCategoryValueIsEmpty(id) {
+    if (id == '' || validateInputForSpace(id) == true) return true;
+}
+
+function validateInputForSpace(id) {
+    if(/^\s/.test(id))
+    id = '';
+    return true;
+}
+    
 /**
  * Function to add the new Category to the list of categories and render the Template with all categories
  * 
