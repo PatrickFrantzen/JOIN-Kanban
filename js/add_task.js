@@ -296,10 +296,6 @@ function createAssignableMembers(memberList, assignableMembers) {
     }
 }
 
-if (condition) {
-    
-}
-
 /**
  * fills the hidden Inputfield when the lenght of currentMembers array is >= 1
  * otherwise the hidden Inputfield will be cleared
