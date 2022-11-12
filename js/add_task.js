@@ -2,7 +2,7 @@ let currentCategory;
 let currentPrio;
 let currentMembers = [];
 let currentSubTasks = [];
-let colorNewCategory;
+let colorNewCategory = -1;
 let colorBtnIsClicked = false;
 let boardStatus = 'toDo';
 let invitedContact = 'none';
@@ -192,7 +192,7 @@ async function addNewCategory() {
  */
 async function checkIfColorIsPicked(input) {
     let id;
-    if (!colorNewCategory) {
+    if (colorNewCategory < 0) {
         colorPickerError();
     } else if (checkIfCategoryIsEntered(input)) {
         id = await addNewCategoryToArray(input);
@@ -200,6 +200,7 @@ async function checkIfColorIsPicked(input) {
             clearCategoryInput();
             renderCategoriesInHTML();
             changeValue(id);
+            colorNewCategory = -1;
         }
     } else {
         newCategoryError();
