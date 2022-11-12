@@ -223,8 +223,8 @@ function getMembers(singleTask) {
 function getFirstLetters(member) {
     let fullname = member.split(' ');
     for (let i = 0; i < fullname.length; i++) {
-        let firstLetter = fullname[0].charAt(0);
-        let lastLetter = fullname[1].charAt(0);
+        let firstLetter = fullname[0].charAt(0).toUpperCase();
+        let lastLetter = fullname[1].charAt(0).toUpperCase();
         let initials = firstLetter + lastLetter;
         return initials;
     }
