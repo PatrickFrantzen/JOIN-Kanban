@@ -446,11 +446,11 @@
     }
 
     .board-head {
-        width: 60%;
+        width: 98%;
     }
 
     .board-inner-card {
-        min-width: 60%;
+        min-width: 98%;
         width: 60%;
     }
 
@@ -793,11 +793,11 @@
 @media (max-width: 424px) {
 
     .board-head {
-        width: 90%;
+        width: 95%;
     }
 
     .board-inner-card {
-        min-width: 90%;
+        min-width: 95%;
         width: 90%;
     }
 
@@ -820,11 +820,11 @@
 @media (max-width: 375px) {
 
     .board-head {
-        width: 95%;
+        width: 94%;
     }
 
     .board-inner-card {
-        min-width: 95%;
+        min-width: 94%;
         width: 100%;
     }
 
