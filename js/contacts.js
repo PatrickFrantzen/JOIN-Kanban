@@ -1,6 +1,7 @@
 let activeContactIndex;
 let animation = false;
 let allContacts;
+let currentColor = 'bg-contact-blue';
 
 async function initContacts() {
     await loadDataFromServer()
@@ -165,6 +166,19 @@ function getFirstLetterOfName(contacts, i) {
     return letter;
 }
 
+function getInitials(contact) {
+    let fullname = contact.fullname.split(' ');
+    let firstLetter = fullname[0].charAt(0).toUpperCase();
+        let lastLetter = fullname[1].charAt(0).toUpperCase();
+        let initials = firstLetter + lastLetter;
+        return initials;
+}
+
+function getColor(contact) {
+    let color = contact.color;
+    addClassList('editContact-initials', 'bg-contact-'+`${color}`);
+    currentColor = 'bg-contact-'+`${color}`;
+}
 
 function checkIfContactWasAlreadyClicked() {
     if (animation) {
@@ -196,6 +210,7 @@ function showOverlayContact(idToShow, idToAnimate, id) {
 function closeOverlayContact(idToHide, idToAnimate) {
     addClassList(idToHide, 'animateOpacityOut');
     addClassList(idToAnimate, 'animateFadeOut');
+    if(activeHTML == '/contacts.html')removeClassList('editContact-initials', currentColor);
     setTimeout(addClassList, 1000, idToHide, 'd-none');
 }
 
@@ -306,6 +321,8 @@ function showDataInEditContact(contact) {
     document.getElementById('editContact-name').value = contact.fullname;
     document.getElementById('editContact-email').value = contact.mail;
     document.getElementById('editContact-phone').value = contact.phone;
+    document.getElementById('editContact-initials').innerHTML = getInitials(contact);
+    getColor(contact);
 }
 
 

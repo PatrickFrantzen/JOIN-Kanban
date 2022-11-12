@@ -445,6 +445,7 @@ function openAddTaskForm(status){
     addClassList('add-task-btns', 'add-button-mobile');
     addClassList('createTask','unset-position');
     addClassList('add-task-btns', 'display-add-task-btns');
+    renderDate();
 }
 
 
