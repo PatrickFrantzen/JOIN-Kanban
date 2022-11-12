@@ -243,9 +243,10 @@ function checkIfCategoryValueIsEmpty(id) {
 }
 
 function validateInputForSpace(id) {
-    if(/^\s/.test(id))
-    id = '';
+    if (/^\s/.test(id)) {
+        id = '';
     return true;
+    }
 }
     
 /**
