@@ -313,9 +313,6 @@
         max-height: calc(100vh - 150px);
     }
 
-    .board-content {
-        width: 100%;
-    }
 }
 
 @media (max-width: 665px) and (min-height: 720px) {

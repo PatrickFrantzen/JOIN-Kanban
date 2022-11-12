@@ -820,11 +820,11 @@
 @media (max-width: 375px) {
 
     .board-head {
-        width: 100%;
+        width: 95%;
     }
 
     .board-inner-card {
-        min-width: 100%;
+        min-width: 95%;
         width: 100%;
     }
 
