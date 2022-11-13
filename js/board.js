@@ -88,8 +88,9 @@ function getTaskDetails(i, singleTask) {
 
 
 function getCategoryColor(category){
+    category = category.toLowerCase();
     for (let i = 0; i < allCategories.length; i++) {
-        let currentCategory = allCategories[i].name;
+        let currentCategory = allCategories[i].name.toLowerCase();
         if(currentCategory == category) return allCategories[i].color;
     }
 }
