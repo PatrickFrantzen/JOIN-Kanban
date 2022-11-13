@@ -243,19 +243,34 @@ async function newContact() {
  * @param {number} phone 
  * @param {string} color 
  */
-async function addNewContactToArray(name, email, phone, color) {
-    let contact = { fullname: name.value, mail: email.value, phone: phone.value, color: color };
-    contacts.push(contact);
-    await backend.setItem('contacts', JSON.stringify(contacts));
-    allContacts;
-    await initContacts();
-    clearNewContactInputfields(name, email, phone);
-    createNewContactResponse('new contact successfully created');
+ async function addNewContactToArray(name, email, phone, color) {
+    if (checkIfNameOrEmailIsAlreadyExisting(name, email)) {
+        createNewContactResponse('This Name or Email is already used')
+    } else {
+        let contact = { fullname: name.value, mail: email.value, phone: phone.value, color: color };
+        contacts.push(contact);
+        await backend.setItem('contacts', JSON.stringify(contacts));
+        allContacts;
+        await initContacts();
+        clearNewContactInputfields(name, email, phone);
+        createNewContactResponse('new contact successfully created');
+    }
 }
 
 
 function createNewContactResponse(text) {
     userResonse(text, 'contact-user-response-overlay', 'contact-user-response-overlay-text');
+}
+
+function checkIfNameOrEmailIsAlreadyExisting(name, email) {
+    findOutConacts();
+    let contactname = name.value;
+    let contactemail = email.value
+    for (let i = 0; i < allContacts.length; i++) {
+        let contact = allContacts[i];
+        if (contact.fullname.includes(contactname) || contact.mail.includes(contactemail)) return true;
+    }
+    return false;
 }
 
 

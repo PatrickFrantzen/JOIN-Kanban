@@ -20,7 +20,6 @@ async function signup() {
     let password = document.getElementById('signup-password');
     let color = await getNextFreeColor();
     await addDataToUserInformation(name, email, password, color);
-    switchOverview('signup', 'login', 'd-none');
 }
 
 /**
@@ -63,10 +62,18 @@ async function getNextFreeColor() {
  * @param {string} password
  * @param {string} color 
  */
-async function addDataToUserInformation(name, email, password, color) {
-    let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, phone: '' };
-    userInformation.push(userInfo);
-    await backend.setItem('userInformation', JSON.stringify(userInformation));
+ async function addDataToUserInformation(name, email, password, color) {
+    if (checkIfNameOrEmailIsAlreadyExisting(name, email)) {
+        alreadyExistingError()
+        name.value = '';
+        email.value = '';
+        password.value = '';
+    } else {
+        let userInfo = { fullname: name.value, password: password.value, mail: email.value, img: "img/contacts/newUser.png", color: color, phone: '' };
+        userInformation.push(userInfo);
+        await backend.setItem('userInformation', JSON.stringify(userInformation));
+        switchOverview('signup', 'login', 'd-none');
+    }
 }
 
 
