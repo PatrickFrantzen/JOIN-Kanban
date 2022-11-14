@@ -257,7 +257,7 @@ function renderDisplayContent(id, title, description, category, date, color) {
                         </div></span>
                     </div>
 
-                    <div id="assigned-display-area-${id}" class="d-flex flex-column board-text"></div>
+                    <div id="assigned-display-area-${id}" class="d-flex flex-column board-text assigned-scroll scroll"></div>
 
 
                     <!-- Edit button -->
