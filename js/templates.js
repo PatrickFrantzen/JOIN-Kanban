@@ -257,7 +257,7 @@ function renderDisplayContent(id, title, description, category, date, color) {
                         </div></span>
                     </div>
 
-                    <div id="assigned-display-area-${id}" class="d-flex flex-column board-text assigned-scroll scroll"></div>
+                    <div id="assigned-display-area-${id}" class="d-flex flex-column board-text "></div>
 
 
                     <!-- Edit button -->
@@ -278,7 +278,7 @@ function renderDisplayContent(id, title, description, category, date, color) {
 function renderMembersOfTaskAreaDisplay(id) {
     return `
             <span class="f-bold display-size">Assigned To:</span>
-                        <ul id="assigned-list-${id}">
+                        <ul id="assigned-list-${id}" class="scroll assigned-scroll">
                             <li class="d-flex align-items-center">
                                 <div class="assigned-outer">
                                     <div id="first-member-display-${id}" class="assigned-inner d-flex justify-content-center align-items-center display-size"></div> 

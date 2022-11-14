@@ -108,7 +108,7 @@
 
 .assigned-scroll {
     overflow-y: scroll;
-    max-height: 300px;
+    max-height: 200px;
 }
 
 .board-card {
@@ -158,7 +158,7 @@
 }
 
 .display-subtask {
-    max-height: 150px;
+    max-height: 85px;
     overflow-y: scroll;
 }
 
