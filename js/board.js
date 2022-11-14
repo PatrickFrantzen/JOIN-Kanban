@@ -261,7 +261,7 @@ function getOtherMembers(members, singleTask, id) {
         document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id, i);
         document.getElementById(`other-member-${id}-${i}`).classList.add(`bg-contact-${color}`);
         document.getElementById(`other-member-${id}-${i}`).style.left = `-${leftPosition}px`;
-        if (singleTask.member.length > 6) {
+        if (singleTask.member.length >= 6) {
             document.getElementById(`assigned-scroll-area-${id}`).classList.add('scroll', 'overflow-scroll');
             document.getElementById(`assigned-area-${id}`).classList.add('assigned-area');
         }
