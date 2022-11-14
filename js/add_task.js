@@ -190,18 +190,11 @@ async function addNewCategory() {
  * @returns the name of the new category
  * 
  */
-async function checkIfColorIsPicked(input) {
-    let id;
+function checkIfColorIsPicked(input) {
     if (colorNewCategory < 0) {
         colorPickerError();
     } else if (checkIfCategoryIsEntered(input)) {
-        id = await addNewCategoryToArray(input);
-        if (id) {
-            clearCategoryInput();
-            renderCategoriesInHTML();
-            changeValue(id);
-            colorNewCategory = -1;
-        }
+        getNewCategory(input);
     } else {
         newCategoryError();
     }
@@ -210,7 +203,18 @@ async function checkIfColorIsPicked(input) {
 
 
 function checkIfCategoryIsEntered(input) {
-    if (input.value.length > 0) return true;
+    return input.value.length > 0;
+}
+
+async function getNewCategory(input) {
+    let id;
+    id = await addNewCategoryToArray(input);
+    if (id) {
+        clearCategoryInput();
+        renderCategoriesInHTML();
+        changeValue(id);
+        colorNewCategory = -1;
+    }
 }
 
 /**
@@ -237,17 +241,15 @@ function checkIfCategoryAlreadyExists(id) {
     for (let i = 0; i < allCategories.length; i++) {
         if (allCategories[i].id.includes(id)) return true;
     }
+    return false;
 }
 
 function checkIfCategoryValueIsEmpty(id) {
-    if (id == '' || validateInputForSpace(id) == true) return true;
+    return (id == '' || validateInputForSpace(id) == true);
 }
 
 function validateInputForSpace(id) {
-    if (/^\s/.test(id)) {
-        id = '';
-    return true;
-    }
+    return (/^\s/.test(id));
 }
     
 /**
