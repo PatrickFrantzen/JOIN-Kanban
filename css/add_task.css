@@ -215,7 +215,6 @@ input[type="date"]{
     padding: 16px !important;
     position: absolute;
     top: 70vh;
-    right: calc(50vh - 230px);
 }
 
 .colorpicker{
