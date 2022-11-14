@@ -50,7 +50,19 @@ async function getNextFreeColor() {
             contactColors[i].used = true;
             await backend.setItem('contactColors', JSON.stringify(contactColors));
             return color.color;
-        }else counter++;
+        }else {
+            counter++;
+        }
+    }
+    await resetColors(counter);
+}
+
+async function resetColors(counter) {
+    if (counter >= 13) {
+        for (let i = 0; i < contactColors.length; i++) {
+            contactColors[i].used = false;
+            await backend.setItem('contactColors', JSON.stringify(contactColors));
+        }
     }
 }
 
