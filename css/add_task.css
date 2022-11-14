@@ -231,6 +231,11 @@ input[type="date"]{
     z-index: 2;
 }
 
+#assignedTo-avatare-container {
+    overflow-x: scroll;
+    width: 319px;
+}
+
 .add-task-overlay{
     background-color: var(--bg-grey);
     width: 75%;
