@@ -210,10 +210,10 @@ function renderMembersOfTaskArea(id) {
     `
 }
 
-function renderAdditionalMembers(memberOfInitialArray, id, i) {
+function renderAdditionalMembers(initialsOfMember, id, i) {
     return `
     <div class="assigned-outer position-circle">
-        <div id="other-member-${id}-${i}" class="assigned-inner d-flex justify-content-center align-items-center relative">${memberOfInitialArray}</div>
+        <div id="other-member-${id}-${i}" class="assigned-inner d-flex justify-content-center align-items-center relative">${initialsOfMember}</div>
     </div>
     `
 }
@@ -290,13 +290,13 @@ function renderMembersOfTaskAreaDisplay(id) {
     `
 }
 
-function renderAdditionalMembersDisplay(memberOfInitialArray, id) {
+function renderAdditionalMembersDisplay(initialsOfMember, id) {
     return `
                             <li  class="d-flex align-items-center">
                                 <div class="assigned-outer position-circle">
                                     <div id="other-member-display-${id}"
                                         class="assigned-inner d-flex justify-content-center align-items-center display-size">
-                                        ${memberOfInitialArray}
+                                        ${initialsOfMember}
                                     </div>
                                 </div>
                                     <span id="other-member-name-display-${id}" class="m-left-8"></span>

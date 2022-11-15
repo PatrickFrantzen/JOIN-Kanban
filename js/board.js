@@ -87,13 +87,7 @@ function getTaskDetails(i, singleTask) {
 }
 
 
-function getCategoryColor(category){
-    category = category.toLowerCase();
-    for (let i = 0; i < allCategories.length; i++) {
-        let currentCategory = allCategories[i].name.toLowerCase();
-        if(currentCategory == category) return allCategories[i].color;
-    }
-}
+
 
 
 
@@ -179,25 +173,6 @@ function createAssignedMemberArea(members, singleTask, id) {
         getOtherMembers(members, singleTask, id);
     }
 
-/**
- * Function to set the right priority image for the task
- * 
- * @param {string} prio 
- * @param {number} id 
- */
-function createPriority(prio, id) {
-    switch (prio) {
-        case 'urgent':
-            document.getElementById(`prio-${id}`).src = "img/add_task/arrow_urgent.svg";
-            break;
-        case 'medium':
-            document.getElementById(`prio-${id}`).src = "img/add_task/medium.svg";
-            break;
-        case 'low':
-            document.getElementById(`prio-${id}`).src = "img/add_task/arrow_low.svg";
-            break;
-    }
-};
 
 /**
  * Function to get every taskmember and generate their initials
@@ -255,10 +230,10 @@ function getFirstMember(members, singleTask, id) {
 function getOtherMembers(members, singleTask, id) {
     for (let i = 1; i < singleTask.member.length; i++) {
         let memberOfTask = singleTask.member[i];
-        let memberOfInitialArray = members[i];
+        let initialsOfMember = members[i];
         let color = checkForColor(memberOfTask);
         let leftPosition = i * 10;
-        document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(memberOfInitialArray, id, i);
+        document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(initialsOfMember, id, i);
         document.getElementById(`other-member-${id}-${i}`).classList.add(`bg-contact-${color}`);
         document.getElementById(`other-member-${id}-${i}`).style.left = `-${leftPosition}px`;
         if (singleTask.member.length >= 6) {
@@ -302,6 +277,39 @@ function checkForColor(memberOfTask) {
             let userColor = color;
             return userColor;
         }
+    }
+}
+
+/**
+ * Function to set the right priority image for the task
+ * 
+ * @param {string} prio 
+ * @param {number} id 
+ */
+ function createPriority(prio, id) {
+    switch (prio) {
+        case 'urgent':
+            document.getElementById(`prio-${id}`).src = "img/add_task/arrow_urgent.svg";
+            break;
+        case 'medium':
+            document.getElementById(`prio-${id}`).src = "img/add_task/medium.svg";
+            break;
+        case 'low':
+            document.getElementById(`prio-${id}`).src = "img/add_task/arrow_low.svg";
+            break;
+    }
+};
+
+/**
+ * Category of task is compared to all available categorys to get the color of the category
+ * @param {string} category 
+ * @returns color of a specific category
+ */
+function getCategoryColor(category){
+    category = category.toLowerCase();
+    for (let i = 0; i < allCategories.length; i++) {
+        let currentCategory = allCategories[i].name.toLowerCase();
+        if(currentCategory == category) return allCategories[i].color;
     }
 }
 
