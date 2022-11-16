@@ -292,7 +292,7 @@ function renderCategoriesInHTML() {
  * 
  */
 function renderAssignableMembersInHTML() {
-    findOutConacts();
+    findOutContacts();
     let memberList = document.getElementById('assignedToSelect');
     let assignableMembers = Object.assign([], allContacts);
     if (memberList) {

@@ -250,7 +250,7 @@ function getOtherMembers(members, singleTask, id) {
  * @returns the color of the first assigned member
  */
 function checkForFirstMemberColor(singleTask) {
-    findOutConacts();
+    findOutContacts();
 for (let i = 0; i < allContacts.length; i++) {
         let name = allContacts[i].fullname;
         let color = allContacts[i].color;
@@ -269,7 +269,7 @@ for (let i = 0; i < allContacts.length; i++) {
  * @returns the color of additional members
  */
 function checkForColor(memberOfTask) {
-    findOutConacts();
+    findOutContacts();
     for (let i = 0; i < allContacts.length; i++) {
         let name = allContacts[i].fullname;
         let color = allContacts[i].color;
@@ -340,7 +340,7 @@ async function moveTo(status) {
 function endDrop() {
     for (let i = 0; i < projectstatus.length; i++) {
         let status = projectstatus[i];
-        document.getElementById(`${status}-dragcard`).classList.add('d-none');
+        addClassList(`${status}-dragcard`, 'd-none');
         document.getElementById(`card-${currentDraggedElement}`).style.transform = '';
     }
 }
@@ -366,7 +366,7 @@ function showDragCard() {
         let status = projectstatus[i];
         document.getElementById(`${status}-dragcard`).style.width = cardWidth.width + 'px';
         document.getElementById(`${status}-dragcard`).style.height = cardHeight.height + 'px';
-        document.getElementById(`${status}-dragcard`).classList.remove('d-none');
+        removeClassList(`${status}-dragcard`, 'd-none');
         document.getElementById(`card-${currentDraggedElement}`).style.transform = 'rotate(3deg)';
     }
 }
@@ -393,14 +393,20 @@ function searchTasks() {
  * @param {number} i 
  */
 function searchForCriteria(task, searchInput, i) {
-    if (task.title.includes(searchInput) || task.prio.includes(searchInput) || task.description.includes(searchInput) || checkSearchForMembers(task, searchInput)) {
-        if (getIndexFromArray(search, i) == -1)
-            search.push(i);
+    if (task.title.includes(searchInput) || task.prio.includes(searchInput) || task.description.includes(searchInput) || task.category.includes(searchInput) ||checkSearchForMembers(task, searchInput)) {
+        pushMatchingTaskToSearchArray(search, i);
     } else {
-        let index = getIndexFromArray(search, i);
-        if (index >= 0)
-            search.splice(index, 1);
+        removeTaskFromSearchArray(search, i);
     }
+}
+
+function pushMatchingTaskToSearchArray(search, i) {
+    if (getIndexFromArray(search, i) == -1) search.push(i);
+}
+
+function removeTaskFromSearchArray(search, i) {
+    let index = getIndexFromArray(search, i);
+    if (index >= 0) search.splice(index, 1);
 }
 
 /**

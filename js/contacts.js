@@ -8,7 +8,7 @@ async function initContacts() {
     await init();
     await includeHTML('include-addtask-html');
     renderProfileImage();
-    findOutConacts();
+    findOutContacts();
     createLetterContainer();
     renderCategoriesInHTML();
     renderAssignableMembersInHTML();
@@ -19,7 +19,7 @@ async function initContacts() {
  * fills a new array with contacts information of already
  * existing user and new created user
  */
-function findOutConacts() {
+function findOutContacts() {
     allContacts = Object.assign([], contacts);
     for (let i = 0; i < userInformation.length; i++) {
         let user = userInformation[i];
@@ -263,7 +263,7 @@ function createNewContactResponse(text) {
 }
 
 function checkIfNameOrEmailIsAlreadyExisting(name, email) {
-    findOutConacts();
+    findOutContacts();
     let contactname = name.value;
     let contactemail = email.value
     for (let i = 0; i < allContacts.length; i++) {
