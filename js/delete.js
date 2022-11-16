@@ -7,7 +7,7 @@
     document.getElementById(id).value = '';
 }
 
-//TODO: clear all fields and reset priority btns - DONE
+
 /**
  * function to reset all fields of add Task Menu
  * 

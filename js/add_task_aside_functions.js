@@ -216,12 +216,17 @@ function newCategoryError() {
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 }
 
+/**
+ * shows a user response and request to enter another name for new category
+ */
 function categoryAlreadyExistError() {
     let text = 'This Category already exist. Please choose another name.';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');
 };
 
-
+/**
+ * shows a user response and informs that an email has been sent
+ */
 function showUserResponseInviteContact() {
     let text = 'An inivitation has been sent via email';
     userResonse(text, 'addtask-user-response-overlay', 'addtask-user-response-overlay-text');

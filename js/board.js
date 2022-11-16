@@ -236,7 +236,7 @@ function getOtherMembers(members, singleTask, id) {
         document.getElementById(`assigned-area-${id}`).innerHTML += renderAdditionalMembers(initialsOfMember, id, i);
         document.getElementById(`other-member-${id}-${i}`).classList.add(`bg-contact-${color}`);
         document.getElementById(`other-member-${id}-${i}`).style.left = `-${leftPosition}px`;
-        if (singleTask.member.length >= 6) {
+        if (singleTask.member.length >= 4) {
             document.getElementById(`assigned-scroll-area-${id}`).classList.add('scroll', 'overflow-scroll');
             document.getElementById(`assigned-area-${id}`).classList.add('assigned-area');
         }
@@ -397,7 +397,7 @@ function searchForCriteria(task, searchInput, i) {
         pushMatchingTaskToSearchArray(search, i);
     } else {
         removeTaskFromSearchArray(search, i);
-    }
+    };
 }
 
 function pushMatchingTaskToSearchArray(search, i) {
@@ -467,6 +467,7 @@ function openAddTaskForm(status){
 function closeAddTaskForm(idToHide, idToAnimate){
     closeOverlayContact(idToHide, idToAnimate);
     if(activeHTML == '/board.html')removeClassList('main-board', 'overflow');
+    resetGlobalArrays();
 }
 
 

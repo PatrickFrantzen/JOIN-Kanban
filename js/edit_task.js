@@ -17,7 +17,7 @@ function editTask(id) {
     let subtasks = edittask.subtasks;
     currentId = id;
     TaskIsEdited = true;
-    showEditTaskDisplay(id);
+    showEditTaskDisplay();
     renderEditLayout(title, description, category, date, prio, subtasks);
 }
 
@@ -26,14 +26,12 @@ function editTask(id) {
  * 
  * @param {number} id 
  */
-function showEditTaskDisplay(id) {
+function showEditTaskDisplay() {
     setAnimationClassLists('add-task-overlay-board', 'add-task-overlay');
     removeClassList('add-task-overlay-board', 'd-none');
     removeClassList('editTask', 'd-none');
     addClassList('createTask', 'd-none');
     addClassList('task-display', 'd-none');
-    //addClassList(`display-${id}`, 'd-none');
-    //addClassList(`display-content-${id}`, 'd-none');
     addClassList('sections', 'sections-mobile');
     addClassList('add-task-btns', 'button-mobile');
 }

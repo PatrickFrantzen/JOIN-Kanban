@@ -215,6 +215,7 @@ async function getNewCategory(input) {
         changeValue(id);
         colorNewCategory = -1;
     }
+    return false;
 }
 
 /**
@@ -298,7 +299,7 @@ function renderAssignableMembersInHTML() {
     if (memberList) {
         createAssignableMembers(memberList, assignableMembers);
         memberList.innerHTML += renderInviteNewContactTemplate();
-    }
+    };
 }
 
 /**

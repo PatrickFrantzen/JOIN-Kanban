@@ -141,16 +141,16 @@ function getContactDetails(i) {
 
 
 function showContactDetailsMobile(id) {
-    document.getElementById('contact-content-mobile').style.display = 'none';
+    addStyle('contact-content-mobile', 'none');
     showContactDetails(id);
-    document.getElementById('right-section').style.display = 'flex';
+    addStyle('right-section', 'flex');
     addClassList('new-contact-btn-mobile', 'd-none');
 }
 
 
 function returnToContactOverview() {
-    document.getElementById('contact-content-mobile').style.display = 'flex';
-    document.getElementById('right-section').style.display = 'none';
+    addStyle('contact-content-mobile', 'flex');
+    addStyle('right-section', 'none');
 }
 
 

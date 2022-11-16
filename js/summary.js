@@ -16,7 +16,7 @@ function greetUser() {
 
 
 function closeGreetingUserDisplay() {
-    document.getElementById('welcome').style.display = 'none';
+    addStyle('welcome', 'none');
 }
 
 

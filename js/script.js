@@ -68,6 +68,16 @@ function removeClassList(id, classList) {
 
 
 /**
+ * 
+ * @param {string} id 
+ * @param {string} classList 
+ */
+function addStyle(id, classList) {
+    document.getElementById(id).style.display = classList;
+}
+
+
+/**
  * checks current html side to call function for changing bg on 
  * menu link in navbar
  */
