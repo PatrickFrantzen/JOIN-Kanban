@@ -211,7 +211,7 @@ function closeOverlayContact(idToHide, idToAnimate) {
     addClassList(idToHide, 'animateOpacityOut');
     addClassList(idToAnimate, 'animateFadeOut');
     if(activeHTML == '/contacts.html')removeClassList('editContact-initials', currentColor);
-    setTimeout(addClassList, 1000, idToHide, 'd-none');
+    setTimeout(addClassList, 200, idToHide, 'd-none');
 }
 
 
